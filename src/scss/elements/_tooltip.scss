@@ -1,0 +1,383 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// https://stackdiary.com/useful-css-tricks/#simple-tooltip-using-attr
+// https://www.w3schools.com/howto/howto_css_tooltip.asp
+
+
+// ============================================================================
+// Element | Tooltip
+// ============================================================================
+
+
+// Tooltip General
+// ----------------------------------------------------------------------------
+
+$tooltip_transition: opacity .5s;
+$tooltip_unit: 5px;
+
+@mixin tooltip_base {
+    position: absolute;
+    border-width: 5px;
+    // border-style: solid;
+    transition: $tooltip_transition;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+// Tooltip Arrows
+// ----------------------------------------------------------------------------
+
+@mixin tooltip_arrow {
+    content: "";
+    @include tooltip_base;
+    border-style: solid;
+    border-width: $tooltip_unit;
+}
+
+@mixin tooltip_arrow_right {
+    @include tooltip_arrow;
+    top: 50%;
+    right: 100%;
+    margin-top: - $tooltip_unit;
+    border-color: transparent transparent transparent $color_02;
+}
+
+@mixin tooltip_arrow_left {
+    @include tooltip_arrow;
+    top: 50%;
+    left: 100%;
+    margin-top: - $tooltip_unit;
+    border-color: transparent $color_02 transparent transparent;
+}
+
+@mixin tooltip_arrow_down {
+    @include tooltip_arrow;
+    top: 0%;
+    left: 50%;
+    margin-left: - $tooltip_unit;
+    border-color: $color_02 transparent transparent transparent;
+}
+
+@mixin tooltip_arrow_down {
+    @include tooltip_arrow;
+    bottom: 0%;
+    left: 50%;
+    margin-left: - $tooltip_unit;
+    border-color: transparent transparent $color_02 transparent;
+}
+
+// Tooltip Boxes
+// ----------------------------------------------------------------------------
+
+@mixin tooltip_box {
+    @include tooltip_base;
+    @include font_size_03;
+    content: attr(tooltip-data);
+    width: 200px;
+    background-color: $color_02;
+    color: $color_01;
+    text-align: center;
+    border-radius: $tooltip_unit;
+    // padding: $tooltip_unit 0;
+    padding: $tooltip_unit;
+    line-height: 1.1;
+    transition: $tooltip_transition;
+    display: block;
+}
+
+@mixin tooltip_box_right {
+    @include tooltip_box;
+    top: calc($tooltip_unit / 2);
+    left: 100%;
+}
+
+@mixin tooltip_box_top {
+    @include tooltip_box;
+    bottom: 100%;
+    left: 50%;
+}
+
+
+
+// .tooltip {
+//   position: relative;
+//   display: inline-block;
+//   // display: unset;
+//   // display: block;
+//   // border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+//   // overflow: auto;
+//   // position: absolute;
+//   // z-index: 9998;
+//   // pointer-events: none;
+//   position: absolute;
+//   overflow: visible;
+
+//   position: relative;
+//   // border-bottom: 1px dotted $color_02;
+// }
+
+
+.tooltip {
+  // position: relative;
+  display: inline-block;
+  // position: absolute;
+  overflow: visible;
+  position: relative;
+}
+
+
+
+.tooltip:before {
+  @include tooltip_box_right;
+
+
+  // z-index: 9999;
+
+
+
+
+  // margin-left: -60px;
+  // font-size: 0.70em;
+  
+
+
+  // top: -5px;
+  // left: 105%;
+}
+
+
+
+// arrow for the tooltip
+.tooltip:after {
+  @include tooltip_arrow_left;
+}
+
+
+
+.tooltip:hover:before, 
+.tooltip:hover:after {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+  position: absolute;
+  z-index: 9999;
+  cursor: help;
+}
+
+
+
+
+
+
+
+
+
+// /* Tooltip text */
+// .tooltip .tooltiptext {
+//   @include font_size_03;
+//   visibility: hidden;
+//   width: 120px;
+//   background-color: black;
+//   color: #fff;
+//   text-align: center;
+//   padding: 5px 0;
+//   border-radius: 6px;
+//   pointer-events: none;
+//   display: block;
+//   /* Position the tooltip text - see examples below! */
+
+//   //     pointer-events: none;
+
+// }
+
+// /* Show the tooltip text when you mouse over the tooltip container */
+// .tooltip:hover .tooltiptext {
+//   visibility: visible;
+//   display: block;
+//   position: absolute;
+//   z-index: 9999;
+//   cursor: help;
+// }
+
+
+
+
+
+//   .material-tooltip {
+//     padding: 10px 8px;
+//     font-size: 1rem;
+//     z-index: 2000;
+//     background-color: transparent;
+//     border-radius: 2px;
+//     color: #fff;
+//     min-height: 36px;
+//     line-height: 120%;
+//     opacity: 0;
+//     position: absolute;
+//     text-align: center;
+//     max-width: calc(100% - 4px);
+//     overflow: hidden;
+//     left: 0;
+//     top: 0;
+//     pointer-events: none;
+//     visibility: hidden;
+//     background-color: #323232;
+//   }
+  
+//   .backdrop {
+//     position: absolute;
+//     opacity: 0;
+//     height: 7px;
+//     width: 14px;
+//     border-radius: 0 0 50% 50%;
+//     background-color: #323232;
+//     z-index: -1;
+//     transform-origin: 50% 0%;
+//     visibility: hidden;
+//   }
+
+
+
+
+// // Base class
+// .tooltip {
+//     // scss-docs-start tooltip-css-vars
+//     --#{$prefix}tooltip-zindex: #{$zindex-tooltip};
+//     --#{$prefix}tooltip-max-width: #{$tooltip-max-width};
+//     --#{$prefix}tooltip-padding-x: #{$tooltip-padding-x};
+//     --#{$prefix}tooltip-padding-y: #{$tooltip-padding-y};
+//     --#{$prefix}tooltip-margin: #{$tooltip-margin};
+//     @include rfs($tooltip-font-size, --#{$prefix}tooltip-font-size);
+//     --#{$prefix}tooltip-color: #{$tooltip-color};
+//     --#{$prefix}tooltip-bg: #{$tooltip-bg};
+//     --#{$prefix}tooltip-border-radius: #{$tooltip-border-radius};
+//     --#{$prefix}tooltip-opacity: #{$tooltip-opacity};
+//     --#{$prefix}tooltip-arrow-width: #{$tooltip-arrow-width};
+//     --#{$prefix}tooltip-arrow-height: #{$tooltip-arrow-height};
+//     // scss-docs-end tooltip-css-vars
+  
+//     z-index: var(--#{$prefix}tooltip-zindex);
+//     display: block;
+//     padding: var(--#{$prefix}tooltip-arrow-height);
+//     margin: var(--#{$prefix}tooltip-margin);
+//     @include deprecate("`$tooltip-margin`", "v5", "v5.x", true);
+//     // Our parent element can be arbitrary since tooltips are by default inserted as a sibling of their target element.
+//     // So reset our font and text properties to avoid inheriting weird values.
+//     @include reset-text();
+//     @include font-size(var(--#{$prefix}tooltip-font-size));
+//     // Allow breaking very long words so they don't overflow the tooltip's bounds
+//     word-wrap: break-word;
+//     opacity: 0;
+  
+//     &.show { opacity: var(--#{$prefix}tooltip-opacity); }
+  
+//     .tooltip-arrow {
+//       display: block;
+//       width: var(--#{$prefix}tooltip-arrow-width);
+//       height: var(--#{$prefix}tooltip-arrow-height);
+  
+//       &::before {
+//         position: absolute;
+//         content: "";
+//         border-color: transparent;
+//         border-style: solid;
+//       }
+//     }
+//   }
+  
+//   .bs-tooltip-top .tooltip-arrow {
+//     bottom: 0;
+  
+//     &::before {
+//       top: -1px;
+//       border-width: var(--#{$prefix}tooltip-arrow-height) calc(var(--#{$prefix}tooltip-arrow-width) * .5) 0; // stylelint-disable-line function-disallowed-list
+//       border-top-color: var(--#{$prefix}tooltip-bg);
+//     }
+//   }
+  
+//   /* rtl:begin:ignore */
+//   .bs-tooltip-end .tooltip-arrow {
+//     left: 0;
+//     width: var(--#{$prefix}tooltip-arrow-height);
+//     height: var(--#{$prefix}tooltip-arrow-width);
+  
+//     &::before {
+//       right: -1px;
+//       border-width: calc(var(--#{$prefix}tooltip-arrow-width) * .5) var(--#{$prefix}tooltip-arrow-height) calc(var(--#{$prefix}tooltip-arrow-width) * .5) 0; // stylelint-disable-line function-disallowed-list
+//       border-right-color: var(--#{$prefix}tooltip-bg);
+//     }
+//   }
+  
+//   /* rtl:end:ignore */
+  
+//   .bs-tooltip-bottom .tooltip-arrow {
+//     top: 0;
+  
+//     &::before {
+//       bottom: -1px;
+//       border-width: 0 calc(var(--#{$prefix}tooltip-arrow-width) * .5) var(--#{$prefix}tooltip-arrow-height); // stylelint-disable-line function-disallowed-list
+//       border-bottom-color: var(--#{$prefix}tooltip-bg);
+//     }
+//   }
+  
+//   /* rtl:begin:ignore */
+//   .bs-tooltip-start .tooltip-arrow {
+//     right: 0;
+//     width: var(--#{$prefix}tooltip-arrow-height);
+//     height: var(--#{$prefix}tooltip-arrow-width);
+  
+//     &::before {
+//       left: -1px;
+//       border-width: calc(var(--#{$prefix}tooltip-arrow-width) * .5) 0 calc(var(--#{$prefix}tooltip-arrow-width) * .5) var(--#{$prefix}tooltip-arrow-height); // stylelint-disable-line function-disallowed-list
+//       border-left-color: var(--#{$prefix}tooltip-bg);
+//     }
+//   }
+  
+//   /* rtl:end:ignore */
+  
+//   .bs-tooltip-auto {
+//     &[data-popper-placement^="top"] {
+//       @extend .bs-tooltip-top;
+//     }
+//     &[data-popper-placement^="right"] {
+//       @extend .bs-tooltip-end;
+//     }
+//     &[data-popper-placement^="bottom"] {
+//       @extend .bs-tooltip-bottom;
+//     }
+//     &[data-popper-placement^="left"] {
+//       @extend .bs-tooltip-start;
+//     }
+//   }
+  
+//   // Wrapper for the tooltip content
+//   .tooltip-inner {
+//     max-width: var(--#{$prefix}tooltip-max-width);
+//     padding: var(--#{$prefix}tooltip-padding-y) var(--#{$prefix}tooltip-padding-x);
+//     color: var(--#{$prefix}tooltip-color);
+//     text-align: center;
+//     background-color: var(--#{$prefix}tooltip-bg);
+//     @include border-radius(var(--#{$prefix}tooltip-border-radius));
+//   }
+
+
+
+
+
+

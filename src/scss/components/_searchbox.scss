@@ -1,0 +1,56 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Components | Search Box
+// ============================================================================
+
+// /* search box */
+// .search-box .add-on .input-group-append > .btn, .search-box .add-on .input-group-btn > .btn {left:0px; border-color:#ededed; box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none; -o-box-shadow: none; -ms-box-shadow: none; margin-right: 0; margin-left: -1px; text-transform: uppercase; border-width: 1px; border-style: solid;padding: 5px 9px; height: 31px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-left: 0;}
+// .search-box .add-on .form-control:focus, .search-box .add-on .input-group-btn > .btn:focus, .search-box .add-on .input-group-btn > .btn:hover {box-shadow:none; -webkit-box-shadow:none; -moz-box-shadow:none; -ms-box-shadow:none; -o-box-shadow:none; border-color:#ededed; background: #f7f7f7}
+// .search-box .add-on i{color: #939393; font-size: 11px; top: -5px; left: -2px}
+// .sidebar-nav-style-1 .search-box .add-on i{top: -4px;}
+// .search-box input[type="text"],.search-box input[type="search"]{border-color:#ededed; box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none; -o-box-shadow: none; -ms-box-shadow: none; font-size: 12px; font-weight: normal; color: #232323; height: 31px;}
+// .search-box .add-on input[type="text"]{padding: 5px 8px}
+// .search-box input[type="text"]::-webkit-input-placeholder {color: #939393; font-size: 10px; text-transform: uppercase; font-weight: 400; letter-spacing: 0.015em;}
+// .search-box input[type="text"]::-moz-placeholder {color: #939393; font-size: 10px; text-transform: uppercase; font-weight: 400; letter-spacing: 0.015em}
+// .search-box input[type="text"]::-ms-input-placeholder {color: #939393; font-size: 10px; text-transform: uppercase; font-weight: 400; letter-spacing: 0.015em}
+// .search-box input[type="text"]::-o-placeholder {color: #939393; font-size: 10px; text-transform: uppercase; font-weight: 400; letter-spacing: 0.015em;}
+
+// /* search box style 2 */
+// .search-box2 .add-on .input-group-append > .btn {border-left-width:0; left:0px; border-color:#4f4f4f; background-color: #4f4f4f; box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none; -o-box-shadow: none; -ms-box-shadow: none; margin-right: 0;margin-left: -1px; text-transform: uppercase; border-width: 1px; border-style: solid; padding: 5px 8px 5px 10px; height: 45px; width: 45px;}
+// .search-box2 .add-on .input-group-append {width: 45px;}
+// .search-box2 .add-on .input-group-append > .btn:focus, .search-box2 .add-on .input-group-append > .btn:hover {box-shadow:none; -webkit-box-shadow:none; -moz-box-shadow:none; -ms-box-shadow:none; -o-box-shadow:none; border-color:#4f4f4f; background-color: #4f4f4f;}
+// .search-box2 .add-on i{color: #fff; font-size: 17px}
+// .search-box2 input[type="email"],.search-box2 input[type="search"]{border-color:#474747; background-color: transparent; box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none; -o-box-shadow: none; -ms-box-shadow: none;font-size: 14px; font-weight: normal; color: #636363; height: 45px}
+// .search-box2 .add-on input[type="email"]{padding: 10px 14px}
+// .search-box2 input[type="email"]::-webkit-input-placeholder {color: #636363; font-size: 14px; font-weight: 400; letter-spacing: 0.015em; background-color: transparent;}
+// .search-box2 input[type="email"]::-moz-placeholder {color: #636363; font-size: 14px; font-weight: 400; letter-spacing: 0.015em; background-color: transparent;}
+// .search-box2 input[type="email"]::-ms-input-placeholder {color: #636363; font-size: 14px; font-weight: 400; letter-spacing: 0.015em; background-color: transparent;}
+// .search-box2 input[type="email"]::-o-placeholder {color: #636363; font-size: 14px; font-weight: 400; letter-spacing: 0.015em; background-color: transparent;}
+
+// /* search form */
+// .search-cart-header {padding-top: 14px; float: right; letter-spacing: 1px}
+// .header-search-form {color: #232323}
+// .search-form .search-input {border: none; border-radius: 0; border-bottom: 2px solid rgba(255,255,255,0.5); font-size: 30px; font-weight: 100; padding: 20px 38px 20px 2px; text-transform: capitalize; background: transparent; line-height: 40px; color: #fff;}
+// .search-form .search-input:focus{outline: none}
+// .search-form .search-input.required-error {border: none !important; border-bottom: 2px solid #ff0000 !important;}
+// .search-input ::-moz-placeholder, .search-input [placeholder] {color: #ff0000;}
+// .search-form .search-button {font-size:21px; color:#fff; top:31px; right: 0; outline: none;}
+// #search-header {height:100%; width: 45%; margin:0 auto;}
+// .close-search {color: #373737; position: absolute; right: 0; top: 23px; z-index: 998; cursor: pointer;}
+// .close-search:hover {color: #9a9a9a;}
+// .search-button {cursor: pointer;  z-index: 0; margin-right: 0; border: none; background: none;}
+// aside .search-button {border: 2px solid transparent;}

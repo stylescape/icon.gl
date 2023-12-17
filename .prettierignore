@@ -1,0 +1,13 @@
+.idea
+*.iml
+node_modules
+*.log
+npm-debug.log*
+dist/
+settings.json
+**/.DS_Store
+.floo
+.flooignore
+.vscode/
+*.yaml
+./dist

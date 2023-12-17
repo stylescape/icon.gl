@@ -1,0 +1,111 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+
+// Border Width
+// ----------------------------------------------------------------------------
+
+@mixin border_width_01 { border-width: $q * 4; }
+@mixin border_width_02 { border-width: $q * 8; }
+@mixin border_width_03 { border-width: $q * 12; }
+@mixin border_width_04 { border-width: $q * 16; }
+@mixin border_width_05 { border-width: $q * 20; }
+@mixin border_width_06 { border-width: $q * 24; }
+@mixin border_width_07 { border-width: $q * 28; }
+@mixin border_width_08 { border-width: $q * 32; }
+@mixin border_width_09 { border-width: $q * 36; }
+@mixin border_width_10 { border-width: $q * 40; }
+
+
+// Border Radius
+// ----------------------------------------------------------------------------
+
+@mixin border_radius_01 { border-radius: $q * 4; }
+@mixin border_radius_02 { border-radius: $q * 8; }
+@mixin border_radius_03 { border-radius: $q * 12; }
+@mixin border_radius_04 { border-radius: $q * 16; }
+@mixin border_radius_05 { border-radius: $q * 20; }
+@mixin border_radius_06 { border-radius: $q * 24; }
+@mixin border_radius_07 { border-radius: $q * 28; }
+@mixin border_radius_08 { border-radius: $q * 32; }
+@mixin border_radius_09 { border-radius: $q * 36; }
+@mixin border_radius_10 { border-radius: $q * 40; }
+
+@mixin border_radius_0 { border-radius: 0; }
+@mixin border_radius_50 { border-radius: 50%; }
+@mixin border_radius_100 { border-radius:100%; }
+
+@mixin border_radius { @include border_radius_04; }
+
+
+// Border Style
+// ----------------------------------------------------------------------------
+
+.border-dotted {border-style: dotted !important;}
+.border-dashed {border-style: dashed !important;}
+.border-solid {border-style: solid !important;}
+.border-double {border-style: double !important;}
+.border-groove {border-style: groove !important;}
+.border-ridge {border-style: ridge !important;}
+.border-inset {border-style: inset !important;}
+.border-outset {border-style: outset !important;}
+.border-none {border-style: none !important;}
+.border-hidden {border-style: hidden !important;}
+.border-transperent {border-color: transparent !important;}
+.no-border-top {border-top:0 !important}
+.no-border-bottom {border-bottom:0 !important}
+.no-border-right {border-right:0 !important}
+.no-border-left {border-left:0 !important}
+
+
+// Border Align
+// ----------------------------------------------------------------------------
+
+.border-top {border-top: 1px solid;}
+.border-bottom {border-bottom: 1px solid;}
+.border-left {border-left: 1px solid;}
+.border-right {border-right: 1px solid;}
+.border-lr {border-left: 1px solid; border-right: 1px solid;}
+.border-tb {border-top: 1px solid; border-bottom: 1px solid;}
+
+
+
+
+// Border Color
+// ----------------------------------------------------------------------------
+
+.border-color-white {border-color:#fff !important;}
+.border-color-black {border-color:#000 !important;}
+.border-color-extra-dark-gray {border-color:#232323 !important;}
+.border-color-medium-dark-gray {border-color:#363636 !important;}
+.border-color-dark-gray {border-color:#939393 !important;}
+.border-color-extra-medium-gray {border-color:#dbdbdb !important;}
+.border-color-medium-gray {border-color:#e4e4e4 !important;}
+.border-color-extra-light-gray {border-color:#ededed !important;}
+.border-color-light-gray {border-color:#f5f5f5 !important;}
+.border-color-light-pink {border-color:#862237 !important;}
+.border-color-deep-pink {border-color:var(--base-color) !important;}
+.border-color-transparent-pink {border-color: rgba(255, 33, 79, 0.45) !important;}
+
+.required-error {border: 1px solid #ee2323 !important}
+.input-border-bottom.required-error {border-width: 0 !important; border-bottom-width: 1px !important; border-bottom-color: #ee2323 !important}
+.g-recaptcha.required-error iframe {border: 1px solid #ee2323;}
+.g-recaptcha.required-error {border: 0 !important}
+
+
+
+/* transparent border */
+.border-black-light {border-color: rgba(0,0,0,.1) !important;}
+.border-white-light {border-color: rgba(255,255,255,.1) !important;}

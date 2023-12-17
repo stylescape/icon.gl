@@ -1,0 +1,95 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// Type | Paragraph Styles | 
+// =======================================================================
+
+@mixin paragraph_default {
+  @include reset_bleed;
+  @include character_default;
+  // text-align:           left;     // left|right|center|justify|initial|inherit;
+  // text-align-last:      left;     // auto|left|right|center|justify|start|end|initial|inherit;
+  text-indent:          0;        // length|initial|inherit;
+  text-justify:         none;     // auto|inter-word|inter-character|none|initial|inherit;
+  text-overflow:        clip;     // clip|ellipsis|string|initial|inherit;
+  text-transform:       none;     // none|capitalize|uppercase|lowercase|initial|inherit;
+  text-decoration:      none;
+}
+  
+@mixin paragraph_normal {
+  @include paragraph_default;
+  @include character_normal;
+}
+
+@mixin paragraph_left {
+  @include paragraph_normal;
+  text-align:           left;       // left|right|center|justify|initial|inherit;
+  text-align-last:      left;       // auto|left|right|center|justify|start|end|initial|inherit;
+}
+
+@mixin paragraph_right {
+  @include paragraph_normal;
+  text-align:           right;      // left|right|center|justify|initial|inherit;
+  text-align-last:      right;      // auto|left|right|center|justify|start|end|initial|inherit;
+}
+
+@mixin paragraph_center {
+  @include paragraph_normal;
+  text-align:           center;     // left|right|center|justify|initial|inherit;
+  text-align-last:      center;     // auto|left|right|center|justify|start|end|initial|inherit;
+}
+
+@mixin paragraph_justify {
+  @include paragraph_normal;
+  text-align:           justify;    // left|right|center|justify|initial|inherit;
+  text-align-last:      justify;    // auto|left|right|center|justify|start|end|initial|inherit;
+}
+
+
+p {
+  @include paragraph_normal;
+  margin-bottom:    map-get($baseline, 1);
+}
+
+p {
+  @include paragraph_normal;
+  margin-bottom:    map-get($baseline, 1);
+}
+
+
+/* PARAGRAPH
+-------------------------------------------- */
+// p
+// {
+//     margin: 0 0 1.875rem;
+// }
+// p:empty
+// {
+//     display: none;
+// }
+// p:last-of-type
+// {
+//     margin-bottom: 0;
+// }
+
+// ///
+
+
+.paragraph_default  {@include paragraph_default;}
+.paragraph_normal   {@include paragraph_normal;}
+.paragraph_left     {@include paragraph_left;}
+.paragraph_right    {@include paragraph_right;}
+.paragraph_center   {@include paragraph_center;}
+.paragraph_justify  {@include paragraph_justify;}

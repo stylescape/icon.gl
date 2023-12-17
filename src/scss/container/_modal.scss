@@ -1,0 +1,180 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// Container Styles | Modal
+// ============================================================================
+
+
+.modal {
+    @include flex_col;
+
+    z-index: z("modal");
+
+    box-sizing: border-box;
+    width: 50%;
+
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+
+    padding-left: $baseline_04;
+    padding-right: $baseline_04;
+
+    // padding: $baseline_04;
+    border-radius: $baseline_02;
+
+
+    // margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+    left: 0;
+    right: 0;
+  
+}
+
+.modal_header {
+    @include text_align_center;
+    margin-top: $baseline_04;
+    margin-bottom: $baseline_02;
+}
+
+.modal_content {
+    margin-top: $baseline_02;
+    margin-bottom: $baseline_02;
+}
+
+.modal_footer {
+    margin-top: $baseline_02;
+    margin-bottom: $baseline_04;
+}
+
+.modal_form {
+    @include flex_col;
+}
+
+.modal_fieldset {
+    @include flex_col;
+}
+
+.modal_fieldset legend{
+    width: 100%;
+}
+
+.modal_fieldset label{
+    width: 100%;
+}
+
+.modal_fieldset input{
+    width: 100%;
+}
+
+
+
+// .modal {
+//   &:focus {
+//     outline: none;
+//   }
+
+//   @extend .z-depth-5;
+
+//   display: none;
+//   position: fixed;
+//   left: 0;
+//   right: 0;
+//   background-color: #fafafa;
+//   padding: 0;
+//   max-height: 70%;
+//   width: 55%;
+//   margin: auto;
+//   overflow-y: auto;
+
+//   border-radius: 2px;
+//   will-change: top, opacity;
+
+//   @media #{$medium-and-down} {
+//    width: 80%;
+//   }
+
+//   h1,h2,h3,h4 {
+//     margin-top: 0;
+//   }
+
+//   .modal-content {
+//     padding: 24px;
+//   }
+//   .modal-close {
+//     cursor: pointer;
+//   }
+
+//   .modal-footer {
+//     border-radius: 0 0 2px 2px;
+//     background-color: #fafafa;
+//     padding: 4px 6px;
+//     height: 56px;
+//     width: 100%;
+//     text-align: right;
+
+//     .btn, .btn-flat {
+//       margin: 6px 0;
+//     }
+//   }
+// }
+// .modal-overlay {
+//   position: fixed;
+//   z-index: 999;
+//   top: -25%;
+//   left: 0;
+//   bottom: 0;
+//   right: 0;
+//   height: 125%;
+//   width: 100%;
+//   background: #000;
+//   display: none;
+
+//   will-change: opacity;
+// }
+
+// // Modal with fixed action footer
+// .modal.modal-fixed-footer {
+//   padding: 0;
+//   height: 70%;
+
+//   .modal-content {
+//     position: absolute;
+//     height: calc(100% - 56px);
+//     max-height: 100%;
+//     width: 100%;
+//     overflow-y: auto;
+//   }
+
+//   .modal-footer {
+//     border-top: 1px solid rgba(0,0,0,.1);
+//     position: absolute;
+//     bottom: 0;
+//   }
+// }
+
+// // Modal Bottom Sheet Style
+// .modal.bottom-sheet {
+//   top: auto;
+//   bottom: -100%;
+//   margin: 0;
+//   width: 100%;
+//   max-height: 45%;
+//   border-radius: 0;
+//   will-change: bottom, opacity;
+// }

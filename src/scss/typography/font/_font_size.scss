@@ -1,0 +1,73 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Typography | Font | Size
+// ============================================================================
+
+
+$font_size_01:  1 !default;
+$font_size_02:  2 !default;
+$font_size_03:  3 !default;
+$font_size_04:  4 !default;
+$font_size_05:  5 !default;
+$font_size_06:  6 !default;
+$font_size_07:  7 !default;
+$font_size_08:  8 !default;
+$font_size_09:  9 !default;
+$font_size_10: 10 !default;
+$font_size_11: 11 !default;
+$font_size_12: 12 !default;
+
+
+@mixin font_size ($val) {
+    font-size: basepoint($val);
+    line-height: baseline($val);
+}
+
+
+@mixin font_size_01 { @include font_size($font_size_01); }
+@mixin font_size_02 { @include font_size($font_size_02); }
+@mixin font_size_03 { @include font_size($font_size_03); }
+@mixin font_size_04 { @include font_size($font_size_04); }
+@mixin font_size_05 { @include font_size($font_size_05); }
+@mixin font_size_06 { @include font_size($font_size_06); }
+@mixin font_size_07 { @include font_size($font_size_07); }
+@mixin font_size_08 { @include font_size($font_size_08); }
+@mixin font_size_09 { @include font_size($font_size_09); }
+@mixin font_size_10 { @include font_size($font_size_10); }
+@mixin font_size_11 { @include font_size($font_size_11); }
+@mixin font_size_12 { @include font_size($font_size_12); }
+
+
+.font_size_01 { @include font_size_01; }
+.font_size_02 { @include font_size_02; }
+.font_size_03 { @include font_size_03; }
+.font_size_04 { @include font_size_04; }
+.font_size_05 { @include font_size_05; }
+.font_size_06 { @include font_size_06; }
+.font_size_07 { @include font_size_07; }
+.font_size_08 { @include font_size_08; }
+.font_size_09 { @include font_size_09; }
+.font_size_10 { @include font_size_10; }
+.font_size_11 { @include font_size_11; }
+.font_size_12 { @include font_size_12; }
+
+
+.font_extra_small { @include font_size($font_size_02); }
+.font_small       { @include font_size($font_size_03); }
+.font_medium      { @include font_size($font_size_04); }
+.font_large       { @include font_size($font_size_05); }
+.font_extra_large { @include font_size($font_size_08); }

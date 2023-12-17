@@ -1,0 +1,28 @@
+// Color | Schemes
+// =======================================================================
+
+
+$color_highlight: rgb(12, 143, 214);
+
+@mixin color_scheme_dark {
+    background-color:   $color_02;
+    fill:                $color_01;
+    stroke:             $color_01;
+    color:              $color_01;
+    border-color: $color_01;
+
+    :hover {
+        fill: grey;
+    }
+}
+
+@mixin color_scheme_light {
+    background-color:   $color_01;
+    fill:                $color_02;
+    stroke:             $color_02;
+    color:              $color_02;
+    border-color: $color_02;
+    :hover {
+        fill: grey;
+    }
+}

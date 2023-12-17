@@ -1,0 +1,91 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Layout | Layers
+// ============================================================================
+
+
+/* z-index */
+.z-index-1111 {z-index:1111;}
+.z-index-111 {z-index:111;}
+.z-index-1 {z-index:1;}
+.z-index-2 {z-index:2;}
+.z-index-3 {z-index:3;}
+.z-index-4 {z-index:4;}
+.z-index-5 {z-index:5;}
+.z-index-0 {z-index:0;}
+.z-index-minus1 {z-index:-1;}
+.z-index-minus2 {z-index:-2;}
+
+
+// Layer Map
+$z-layers: (
+
+
+  // Guides
+  "guides":              9998,
+  "guide_baseline":      3000,
+  "guide_graph":         3100,
+
+  // Overlays
+  "modal":               7000,
+
+  // Interface
+  "ribbon":               5000,
+  "interface":            4000,
+  "control":              3000,
+
+  // Content
+  "content":              2000,
+
+  // Canvas
+  "canvas":              -1000,
+  // "canvas":              5000,
+
+  // 
+  "max":                  9999,
+  "med":                     0,
+  "min":                 -9999
+);
+
+// Layer Function
+@function z($layer) {
+  @if not map-has-key($z-layers, $layer) {
+    @warn "No layer found for `#{$layer}` in $z-layers map. Property omitted.";
+  }
+  @return map-get($z-layers, $layer);
+}
+
+.canvas         {z-index: z("canvas");}
+.content        {z-index: z("content");}
+.cover          {z-index: z("content");}
+.main           {z-index: z("content");}
+.footer         {z-index: z("content");}
+.interface      {z-index: z("interface");}
+.ribbon         {z-index: z("ribbon");}
+// .cookieconsent  {z-index: z("top");}
+.guide_graph    {z-index: z("guide_graph");}
+.guide_baseline {z-index: z("guide_baseline");}
+
+@mixin overlay {
+  position:       fixed;
+  min-width:      100%; 
+  width:          100%;
+  max-height:     $q * 16;
+  height:         $q * 16;
+}
+
+

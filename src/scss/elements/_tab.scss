@@ -1,0 +1,67 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Element | Tab
+// ============================================================================
+
+
+/* tab */
+.nav-tabs>li>a.active, .nav-tabs>li>a.active:focus, .nav-tabs>li>a.active:hover {border: 0; border-bottom: 1px solid;}
+.nav-tabs a.nav-link {transition: all .3s ease-in-out; -moz-transition: all .3s ease-in-out; -webkit-transition: all .3s ease-in-out; -ms-transition: all .3s ease-in-out; -o-transition: all .3s ease-in-out;}
+
+/* tab style 1 */
+.tab-style1 .nav-tabs{border: none; width: 100%;}
+.tab-style1 .nav-tabs li{display: inline-block; float: none; width:25%;}
+.tab-style1 .nav-tabs li a{margin: 0;}
+.tab-style1 .nav-tabs li:hover{background: transparent;}
+.tab-style1 .nav-tabs > li > a, .tab-style1 .nav-tabs > li > a:focus, .tab-style1 .nav-tabs > li > a:hover{border: none; background-color: transparent;}
+.tab-style1 .nav-tabs li:hover i, .tab-style1 .nav-tabs li .active i{color: var(--base-color);}
+.tab-style1 .nav-tabs li:hover span, .tab-style1 .nav-tabs li .active span{color: #232323;}
+
+/* tab style 2 */
+.tab-style2 .tab-content{padding:55px 0 0; border-top: 1px solid #e5e5e5;}
+.tab-style2 .nav-tabs{border:0;}
+.tab-style2 .nav-tabs li{border:1px solid #e5e5e5; border-bottom: none; border-radius: 0; margin-bottom: 0; display:inline-block; float:none; margin-right: 5px}
+.tab-style2 .nav-tabs li a {background-color:#f7f7f7; border:none; color:#575757; line-height: 44px; margin:0 !important; padding: 0 25px; border-radius: 0;}
+.tab-style2 .nav-tabs-light li:first-child {border-left: 1px solid #e5e5e5; margin-left: 15px;}
+.tab-style2 .nav-tabs > li > a.active {border-color:transparent; border: none; border-radius:0; background:#fff; top:1px; position: relative;}
+
+/* tab style 3 */
+.tab-style3 .nav-tabs {border-bottom: 1px solid transparent}
+.tab-style3 .nav-tabs li {float: none; display: inline-block; vertical-align: middle;}
+.tab-style3 .nav-tabs li {float: none; display: inline-block; vertical-align: middle; margin: 0 23px; padding: 3px 0}
+.tab-style3 .nav-tabs li a.nav-link.active {color: #232323}
+.tab-style3 .nav-tabs>li>a.nav-link, .tab-style3 .nav-tabs>li>a.nav-link:focus, .tab-style3 .nav-tabs>li>a.nav-link.active:hover, .tab-style3 .nav-tabs>li>a.nav-link:hover {background-color: transparent; border: none; padding: 0;}
+.tab-style3 .nav-tabs li a.nav-link.active, .tab-style3 .nav-tabs>li>a.nav-link.active:hover {border-bottom: 1px solid #232323;}
+.tab-style3 .nav-link:hover {color: var(--base-color);}
+
+/* tab style 4 */
+.tab-style4 .tab-content{padding:0 0 0 55px; border-left: 1px solid #e5e5e5;}
+.tab-style4 .nav-tabs{border:0;}
+.tab-style4 .nav-tabs li{border:1px solid #e5e5e5; border-right: none; border-radius: 0; margin-bottom: 0; display:block; float:left; width: 100%; left: 1px;}
+.tab-style4 .nav-tabs li a {background-color:#f7f7f7; border:none; color:#575757; line-height: 44px; margin:0 !important; padding: 0 25px; border-radius: 0; top:1px; position: relative;}
+.tab-style4 .nav-tabs li:last-child a {top: 0}
+.tab-style4 .nav-tabs-light li:first-child {border-left: 1px solid #e5e5e5; margin-left: 15px;}
+.tab-style4 .nav-tabs > li > a.active {border-color:transparent; border: none; border-radius:0; background:#fff; left: 1px;}
+
+/* tab style 5 */
+.tab-style5 .nav-tabs {border: none;}
+.tab-style5 .nav-tabs li {width: 100%; font-size: 26px; line-height: 60px; margin-bottom: 0;}
+.tab-style5 .nav-tabs li a {border: none !important; border-bottom: 2px solid transparent !important; color: #6f6f6f; opacity: 0.6; display: inline-block; background-color: transparent !important; padding: 0; border-radius: 0; color: #6f6f6f;}
+.tab-style5 .nav-tabs li a:hover {background-color: transparent; opacity: 1; color: var(--base-color);}
+.tab-style5 .nav-tabs .nav-link.active {color: var(--base-color) !important; opacity: 1; border-bottom: 2px solid var(--base-color) !important; padding-left: 45px}
+.tab-style5 .nav-tabs li.active a, .tab-style5 .nav-tabs li.active a:hover, .tab-style5 .nav-tabs li.active a:focus {border: none; cursor: pointer; background-color: transparent;}
+.tab-style5 .tab-box {position: absolute; left:23%; top:50%; -webkit-transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%); z-index: 1; width:500px;}

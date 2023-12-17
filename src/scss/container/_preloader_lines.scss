@@ -1,0 +1,80 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+
+// ============================================================================
+// Container | Preloader | Lines
+// ============================================================================
+
+
+// body {
+//     height: 100vh;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     background: rgb(238, 20, 20);
+// }
+
+.preloader_lines {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preloader_line {
+    background-color: rgb(10, 128, 136);
+    width: 7px;
+    height: 40px;
+    margin: 0px 5px;
+    border: none;
+    animation: preloader_line_animation 0.8s infinite linear;
+    border-radius: 20px;
+}
+
+.preloader_line_1 {
+    animation-delay: 0.60s;
+}
+.preloader_line_2 {
+    animation-delay: 0.30s;
+}
+.preloader_line_3 {
+    animation-delay: 0s;
+}
+.preloader_line_4 {
+    animation-delay: 0.30s;
+}
+.preloader_line_5 {
+    animation-delay: 0.60s;
+}
+
+@keyframes preloader_line_animation{
+    0%{
+        height: 40px;
+    }
+    25%{
+        height: 60px;
+    }
+    50%{
+        height: 90px;
+    }
+    75%{
+        height: 60px;
+    }
+    100%{
+        height: 40px;
+    }
+}

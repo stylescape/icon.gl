@@ -1,0 +1,110 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Layout | Gaps
+// ============================================================================
+
+@mixin gap($val) {
+  gap: $val;
+  grid-gap: $val;
+}
+@mixin gap_row($val) {
+  row-gap: $val;
+  grid-row-gap: $val;
+}
+@mixin gap_col($val) {
+  column-gap: $val;
+  grid-column-gap: $val;
+}
+
+
+@mixin gap_01 { @include gap($baseline_01); }
+@mixin gap_02 { @include gap($baseline_02); }
+@mixin gap_03 { @include gap($baseline_03); }
+@mixin gap_04 { @include gap($baseline_04); }
+@mixin gap_05 { @include gap($baseline_05); }
+@mixin gap_06 { @include gap($baseline_06); }
+@mixin gap_07 { @include gap($baseline_07); }
+@mixin gap_08 { @include gap($baseline_08); }
+@mixin gap_09 { @include gap($baseline_09); }
+@mixin gap_10 { @include gap($baseline_10); }
+@mixin gap_11 { @include gap($baseline_11); }
+@mixin gap_12 { @include gap($baseline_12); }
+
+@mixin gap_row_01 { @include gap_row($baseline_01); }
+@mixin gap_row_02 { @include gap_row($baseline_02); }
+@mixin gap_row_03 { @include gap_row($baseline_03); }
+@mixin gap_row_04 { @include gap_row($baseline_04); }
+@mixin gap_row_05 { @include gap_row($baseline_05); }
+@mixin gap_row_06 { @include gap_row($baseline_06); }
+@mixin gap_row_07 { @include gap_row($baseline_07); }
+@mixin gap_row_08 { @include gap_row($baseline_08); }
+@mixin gap_row_09 { @include gap_row($baseline_09); }
+@mixin gap_row_10 { @include gap_row($baseline_10); }
+@mixin gap_row_11 { @include gap_row($baseline_11); }
+@mixin gap_row_12 { @include gap_row($baseline_12); }
+
+@mixin gap_col_01 { @include gap_col($baseline_01); }
+@mixin gap_col_02 { @include gap_col($baseline_02); }
+@mixin gap_col_03 { @include gap_col($baseline_03); }
+@mixin gap_col_04 { @include gap_col($baseline_04); }
+@mixin gap_col_05 { @include gap_col($baseline_05); }
+@mixin gap_col_06 { @include gap_col($baseline_06); }
+@mixin gap_col_07 { @include gap_col($baseline_07); }
+@mixin gap_col_08 { @include gap_col($baseline_08); }
+@mixin gap_col_09 { @include gap_col($baseline_09); }
+@mixin gap_col_10 { @include gap_col($baseline_10); }
+@mixin gap_col_11 { @include gap_col($baseline_11); }
+@mixin gap_col_12 { @include gap_col($baseline_12); }
+
+.gap_01 { @include gap_01 }
+.gap_02 { @include gap_02 }
+.gap_03 { @include gap_03 }
+.gap_04 { @include gap_04 }
+.gap_05 { @include gap_05 }
+.gap_06 { @include gap_06 }
+.gap_07 { @include gap_07 }
+.gap_08 { @include gap_08 }
+.gap_09 { @include gap_09 }
+.gap_10 { @include gap_10 }
+.gap_11 { @include gap_11 }
+.gap_12 { @include gap_12 }
+
+.gap_row_01 { @include gap_row_01 }
+.gap_row_02 { @include gap_row_02 }
+.gap_row_03 { @include gap_row_03 }
+.gap_row_04 { @include gap_row_04 }
+.gap_row_05 { @include gap_row_05 }
+.gap_row_06 { @include gap_row_06 }
+.gap_row_07 { @include gap_row_07 }
+.gap_row_08 { @include gap_row_08 }
+.gap_row_09 { @include gap_row_09 }
+.gap_row_10 { @include gap_row_10 }
+.gap_row_11 { @include gap_row_11 }
+.gap_row_12 { @include gap_row_12 }
+
+.gap_col_01 { @include gap_col_01 }
+.gap_col_02 { @include gap_col_02 }
+.gap_col_03 { @include gap_col_03 }
+.gap_col_04 { @include gap_col_04 }
+.gap_col_05 { @include gap_col_05 }
+.gap_col_06 { @include gap_col_06 }
+.gap_col_07 { @include gap_col_07 }
+.gap_col_08 { @include gap_col_08 }
+.gap_col_09 { @include gap_col_09 }
+.gap_col_10 { @include gap_col_10 }
+.gap_col_11 { @include gap_col_11 }
+.gap_col_12 { @include gap_col_12 }

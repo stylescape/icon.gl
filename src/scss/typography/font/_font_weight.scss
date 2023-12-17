@@ -1,0 +1,57 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Typography | Font | Weight
+// ============================================================================
+
+
+$font_weight_100: 100 !default;
+$font_weight_200: 200 !default;
+$font_weight_300: 300 !default;
+$font_weight_400: 400 !default;
+$font_weight_500: 500 !default;
+$font_weight_600: 600 !default;
+$font_weight_700: 700 !default;
+$font_weight_800: 800 !default;
+$font_weight_900: 900 !default;
+
+
+@mixin font_weight ($val) {
+    font-weight: $val;
+    font-variation-settings: 'wght' $val;
+}
+
+
+@mixin font_weight_100 { @include font_weight($font_weight_100); }
+@mixin font_weight_200 { @include font_weight($font_weight_200); }
+@mixin font_weight_300 { @include font_weight($font_weight_300); }
+@mixin font_weight_400 { @include font_weight($font_weight_400); }
+@mixin font_weight_500 { @include font_weight($font_weight_500); }
+@mixin font_weight_600 { @include font_weight($font_weight_600); }
+@mixin font_weight_700 { @include font_weight($font_weight_700); }
+@mixin font_weight_800 { @include font_weight($font_weight_800); }
+@mixin font_weight_900 { @include font_weight($font_weight_900); }
+
+
+.font_weight_100 { @include font_weight_100; }
+.font_weight_200 { @include font_weight_200; }
+.font_weight_300 { @include font_weight_300; }
+.font_weight_400 { @include font_weight_400; }
+.font_weight_500 { @include font_weight_500; }
+.font_weight_600 { @include font_weight_600; }
+.font_weight_700 { @include font_weight_700; }
+.font_weight_800 { @include font_weight_800; }
+.font_weight_900 { @include font_weight_900; }

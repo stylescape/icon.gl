@@ -1,0 +1,93 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Component | Footer
+// ============================================================================
+
+.footer {
+    height: auto;
+
+    .footer-social {
+        height:             $q * 12;
+        font-size:          0px;
+        bottom:             0;
+
+        .footer_social_list {
+            display:            flex;
+            justify-content:    center;
+            margin:             0px 0;
+            padding:            0px 0;
+            .social_list_item {
+                padding-top:        $q *  3;
+                padding-right:      $q *  6;
+                padding-bottom:     $q *  3;
+                padding-left:       0;
+                list-style-type:    none;
+                -webkit-user-select:none;
+                -moz-user-select:   none;
+                &:last-child {
+                    padding-right:      0px;
+                }
+                .social_icon {
+                    width:              $q *  4;
+                    height:             $q *  4;
+                    padding-top:        $q;
+                    padding-right:      $q;
+                    padding-bottom:     $q;
+                    padding-left:       $q;
+                    color:              $color_02;
+                    border-bottom:      none;
+                    display:            block;
+                    text-align:         center;              
+                }
+            }
+        }
+    }
+    .footer-legal {
+        display:            flex;
+        justify-content:    center;
+        width:              100%;
+        height:             $q * 6;
+    }   
+}
+
+
+
+/* Footer */
+// #footer_wrapper {
+//     background-color: {{ css_color_01 }};
+//     color: {{ css_color_03 }};
+//     margin-bottom: 0;
+//     min-height: 20%;
+// }
+// #footer_container {
+//     padding-top: 24px;
+//     padding-bottom: 24px;
+// }
+//   footer h4{
+//     line-height: 1.5rem;
+//     font-weight: 700;
+//   }
+//   footer{
+//     line-height: 2rem;
+//   }
+//   .footer_bottom{
+//     line-height: 1.2rem;
+//     font-size: 1rem;
+//   }
+//   .footer_title{
+//     padding-top: 1rem;
+// }

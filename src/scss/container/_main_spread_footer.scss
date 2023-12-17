@@ -1,0 +1,132 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Container | ...
+// ============================================================================
+
+.main_spread_footer {
+    @include grid_col_12;
+    // @include hyperlink_clean;
+    @include color_scheme_dark;
+    color: $color_01;
+    padding-top: $baseline_04 * 2;
+    padding-bottom: $baseline_04 * 2;
+    padding-left: $baseline_04 * 2;
+    padding-right: $baseline_04 * 2;
+    // @include flex_col;
+    // @include color_scheme_light;
+    // @include flex;
+    // // grid-area: main_spread_footer;
+    // // align-items: end;
+    // justify-self: center;
+    // align-self: end;
+    // align-items: end;
+    // justify-items: center;
+    // text-align: center;
+    * {
+        @include color_scheme_dark;
+    }
+    a :hover {
+        color: $color_03;
+
+    }
+}
+
+.main_spread_footer_title {
+    @include reset_bleed;
+    @include icon_bar_horizontal;
+    @include align_self_start;
+    @include font_size_04;
+    @include align_center;
+    @include hyperlink_clean;
+    @include color_scheme_dark;
+    align-content: center;
+    height: 100%;
+    width: 100%;
+    // grid-area: ribbon_mid;
+    @include justify_center;
+    // @media screen and (min-width: $media_med) {
+    //   grid-area: ribbon_left;
+    //   @include justify_start;
+    // }
+}
+
+.main_spread_footer_title_logo {
+    @include icon_size_04;
+    padding-left: calc($ribbon_spacing / 2);
+    padding-right: calc($ribbon_spacing / 2);
+}
+
+.main_spread_footer_title_logo svg {
+    @include color_scheme_dark;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    stroke-width: 2px;
+}
+
+.main_spread_footer_title_text {
+    @include hyperlink_clean;
+    padding-left: calc($ribbon_spacing / 2);
+    padding-right: calc($ribbon_spacing / 2);
+    @include invisible;
+    display: none;
+    @include color_scheme_dark;
+
+    // overflow: visible;
+    // opacity: 0;
+    // transition:visibility 0.3s linear,opacity 0.3s linear;
+    @media screen and (min-width: $media_med) {
+        @include visible;
+        display: inherit;
+        overflow: visible;
+        white-space: nowrap;
+        // opacity: 1;
+    }
+}
+
+.main_spread_footer_line {
+    @include reset_bleed;
+    @include color_scheme_dark;
+    @include cell_col_span_full;
+    border: 0.25px solid;
+    margin-top: $ribbon_spacing;
+    margin-bottom: $ribbon_spacing;
+}
+
+// /* Footer */
+// #footer_wrapper {
+//   background-color: rgb(28, 42, 124);
+//   color: #ffffff;
+//   margin-bottom: 0;
+//   min-height: 20%;
+// }
+
+
+// .main_spread_footer  h4{
+//   line-height: 1.5rem;
+//   font-weight: 700;
+// }
+// .main_spread_footer {
+//   line-height: 2rem;
+// }
+// .footer_bottom{
+//   line-height: 1.2rem;
+//   font-size: 1rem;
+// }
+// .main_spread_footer_title{
+//   padding-top: 1rem;
+// }

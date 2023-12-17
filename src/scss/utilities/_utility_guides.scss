@@ -1,0 +1,124 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Utilities | Guides
+// ============================================================================
+
+@mixin guide {
+    z-index: z("guides");
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    top:0;
+    left:0;
+    opacity: 100%;
+    // background-size: $baseline_04 $baseline_04;
+    pointer-events: none;
+}
+.guide { @include guide; }
+
+@mixin guide_graph {
+    @include guide;
+    background-size: 4*$q 4*$q;
+    background-image:
+        repeating-linear-gradient(rgb(66, 61, 61) 0 1px, transparent 1px 100%),
+        repeating-linear-gradient(90deg,rgb(66, 61, 61) 0 1px, transparent 1px 100%);
+}
+
+.guide_graph { @include guide_graph; }
+
+@mixin guide_baseline {
+    @include guide;
+    // background: repeating-linear-gradient(#e66465, #e66465 20px, #9198e5 20px, #9198e5 25px);
+    // background: repeating-linear-gradient(transparent, transparent 20px, transparent 20px, transparent 25px);
+    // background-repeat: repeat-y;
+    background-repeat: repeat;
+
+    background-size: map-get($baseline, 4) map-get($baseline, 4);
+    @include guide;
+    background-image:
+        repeating-linear-gradient(cyan 0 1px, transparent 1px 100%);
+}
+
+.guide_baseline { @include guide_baseline; }
+
+
+.baseline-grid {
+    @include guide;
+
+        background-image:
+    // -webkit-linear-gradient(0deg, rgba(200,0,0,.2) 40px, transparent 40px),
+    -webkit-linear-gradient(top, rgba(0,0,0,0) 95%, rgba(56,255,255,.8) 100%);
+
+
+        background-image:
+        // -moz-linear-gradient(0deg, rgba(200,0,0,.2) 40px, transparent 40px),
+        -moz-linear-gradient(top, rgba(0,0,0,0) 95%, rgba(56,255,255,.8) 100%);
+        background-image:
+        // -o-linear-gradient(0deg, rgba(200,0,0,.2) 40px, transparent 40px),
+        -o-linear-gradient(top, rgba(0,0,0,0) 95%, rgba(56,255,255,.8) 100%);
+
+        background-size: 100% 100%, 100% 100%;
+        // background-size: 60px 100%, 100% 22px;
+        // background-position: 10px 0px;
+}
+
+
+
+// .guide_graph {
+//   @include guide;
+//   background-image:
+//     repeating-linear-gradient(#ccc 0 1px, transparent 1px 100%),
+//     repeating-linear-gradient(90deg, #ccc 0 1px, transparent 1px 100%);
+//   }
+
+// .guide_baseline {
+//   @include guide;
+//   background-image:
+//     repeating-linear-gradient(cyan 0 2px, transparent 2px 100%);
+// }
+
+.page {
+    border: $q*2 solid red;
+}
+
+
+$body-width: 960px;
+$baseline: 22px;
+@mixin baseline-grid {
+	$columns: 16;
+	$column-color: rgba(200,0,0,.2);
+	$baseline-color: rgba(56,255,255,.8);
+	
+	// These are all automatically calculated
+	$gutter-width: 20px;  // Change if you like
+	$gutters: ($columns - 1);
+	$column-width: calc($body-width / $columns);
+	
+	background-image: -webkit-linear-gradient(0deg, $column-color $column-width, transparent $gutter-width),
+							-webkit-linear-gradient(top, rgba(0,0,0,0) 95%, $baseline-color 100%);
+	background-image: -moz-linear-gradient(0deg, $column-color $column-width, transparent $gutter-width),
+							-moz-linear-gradient(top, rgba(0,0,0,0) 95%, $baseline-color 100%);
+	background-image: -o-linear-gradient(0deg, $column-color $column-width, transparent $gutter-width),
+							-o-linear-gradient(top, rgba(0,0,0,0) 95%, $baseline-color 100%);
+	background-size: ($column-width + $gutter-width) 100%, 100% $baseline;
+	background-position: 10px 0px; // Use to offset and center your grid
+}
+
+// Example call
+.baseline-grid {
+}

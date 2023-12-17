@@ -1,0 +1,83 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Media | Figures
+// ============================================================================
+
+figure {
+    position: relative;
+    // Ensures the caption's text aligns with the image.
+    display: inline-block;
+}
+
+figure img {
+    object-fit: contain;
+    width: 100%;
+}
+
+figure figcaption {
+    // color: {{ css_color_01 }};
+    font-weight: 700;
+}
+
+.figure_text {
+    font-size: calc($q * 24);
+}
+
+.figure_dot {
+    // r: calc($q * 8);
+}
+
+
+// .figure-img {
+//   margin-bottom: $spacer * .5;
+//   line-height: 1;
+// }
+
+// .figure-caption {
+//   @include font-size($figure-caption-font-size);
+//   color: $figure-caption-color;
+// }
+
+// .figure_1x1, .figure_3_2, .figure_4x3, .figure_3x4, .figure_2x3, .figure_16x9 {
+//     width: 100%;
+//     position: relative;
+//     overflow: hidden;
+// }
+// .figure_1x1 {
+//     padding-bottom: 100%;
+// }
+//   .figure_3_2 {
+//     padding-bottom: 66.67%;
+//   }
+//   .figure_4x3 {
+//     padding-bottom: 75%;
+//   }
+//   .figure_3x4 {
+//     padding-bottom: 133.33%;
+//   }
+//   .figure_2x3 {
+//     padding-bottom: 150%;
+//   }
+//   .figure_16x9 {
+//     padding-bottom: 56.25%;
+//   }
+//   .figure_1x1 img, .figure_3_2 img, .figure_4x3 img, .figure_3x4 img, .figure_2x3 img, .figure_16x9 img {
+//     min-width: 100%;
+//     min-height: 100%;
+//     object-fit: cover;
+//     position: absolute;
+//   }

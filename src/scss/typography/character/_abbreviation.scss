@@ -1,0 +1,55 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Typography | Character | Abbreviation
+// ============================================================================
+
+abbr {
+    // Most browsers will display the <abbr> element as inline
+    display: inline;
+    // font-variant: all-small-caps;
+}
+
+abbr[title] {
+
+    position: relative;
+    // Remove the bottom border in Chrome 57
+    border-bottom: none;
+    // Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari
+    // text-decoration: underline;
+    text-decoration: underline dotted;
+}
+
+// Making the abbr element work for touchscreen, keyboard, and mouse
+// https://bitsofco.de/making-abbr-work-for-touchscreen-keyboard-mouse/
+
+abbr[title]:hover::after,
+abbr[title]:focus::after {
+    content: attr(title);
+    /* position tooltip like the native one */
+    position: absolute;
+    left: 0;
+    bottom: -30px;
+    width: auto;
+    white-space: nowrap;
+    /* style tooltip */
+    background-color: #1e1e1e;
+    color: #fff;
+    border-radius: 3px;
+    box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4);
+    font-size: 14px;
+    padding: 3px 5px;
+}

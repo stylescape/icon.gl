@@ -1,0 +1,181 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+
+
+# =============================================================================
+# Build
+# =============================================================================
+
+  build:
+    # name: Build
+    runs-on: ubuntu-latest
+
+    # strategy:
+    #   matrix:
+    #     node-version: [16.x, 18.x, 20.x]
+
+    steps:
+
+    - 
+      uses: actions/checkout@v3
+      # uses: actions/checkout@v4
+
+    - 
+      # name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        # node-version: ${{ matrix.node-version }}
+        node-version: 16
+
+    # - run: npm ci
+    # - run: npm run lint
+
+    - 
+      name: Build
+      run: |
+        npm install
+        npm run build
+
+    - 
+      name: Zip lib & node_modules
+      run: zip -9qry "build.zip" "./" -i "node_modules/*" -i "lib/*"
+
+    - 
+      name: Upload build.zip
+      uses: actions/upload-artifact@v2
+      with:
+        name: build.zip
+        path: build.zip
+
+
+# =============================================================================
+# Create a GitHub Release
+# =============================================================================
+
+  release:
+
+    name: Create GitHub Release
+
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - 
+        uses: actions/checkout@master
+
+      - 
+        name: Download build.zip
+        uses: actions/download-artifact@v2
+        with:
+          name: build.zip
+
+      - 
+        name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+
+      - 
+        name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build.zip
+          asset_name: build.zip
+          asset_content_type: application/zip
+
+
+# =============================================================================
+# Publish to NPM
+# =============================================================================
+
+  publish-npm:
+
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - 
+        # uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - 
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+
+      - 
+        name: Download build.zip
+        uses: actions/download-artifact@v2
+        with:
+          name: build.zip
+
+      - 
+        name: Unzip build.zip
+        run: unzip -q build.zip
+
+      - 
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.PUBLISH_NPM_TOKEN}}
+
+
+# =============================================================================
+# Publish to GitHub Packages
+# =============================================================================
+
+  # publish-gpr:
+
+  #   needs: build
+
+  #   runs-on: ubuntu-latest
+
+  #   permissions:
+  #     contents: read
+  #     packages: write
+
+  #   steps:
+
+  #     - 
+  #       # uses: actions/checkout@v3
+  #       uses: actions/checkout@v4
+
+  #     - 
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         # node-version: 16
+  #         node-version: 18
+  #         registry-url: https://npm.pkg.github.com/
+  #         # scope: '@scape-agency'
+
+  #     - 
+  #       name: Download build.zip
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: build.zip
+
+  #     - 
+  #       name: Unzip build.zip
+  #       run: unzip -q build.zip
+
+  #     - 
+  #       run: npm publish
+  #       env:
+  #         NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

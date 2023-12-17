@@ -1,0 +1,244 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Layout | Grid | Row
+// ============================================================================
+
+@mixin row($val){
+  grid-row: span $val;
+}
+
+@mixin row_s($val){
+  @media (min-width: $media_s) {
+    @include row($val);
+  }
+}
+
+@mixin row_m($val){
+  @media (min-width: $media_m) {
+    @include row($val);
+  }
+}
+
+@mixin row_l($val){
+  @media (min-width: $media_l) {
+    @include row($val);
+  }
+}
+
+
+@mixin row_1 { @include row( 1); }
+@mixin row_2 { @include row( 2); }
+@mixin row_3 { @include row( 3); }
+@mixin row_4 { @include row( 4); }
+@mixin row_5 { @include row( 5); }
+@mixin row_6 { @include row( 6); }
+@mixin row_7 { @include row( 7); }
+@mixin row_8 { @include row( 8); }
+@mixin row_9 { @include row( 9); }
+@mixin row_10 { @include row(10); }
+@mixin row_11 { @include row(11); }
+@mixin row_12 { @include row(12); }
+@mixin row_13 { @include row(13); }
+@mixin row_14 { @include row(14); }
+@mixin row_15 { @include row(15); }
+@mixin row_16 { @include row(16); }
+@mixin row_17 { @include row(17); }
+@mixin row_18 { @include row(18); }
+@mixin row_19 { @include row(19); }
+@mixin row_20 { @include row(20); }
+@mixin row_21 { @include row(21); }
+@mixin row_22 { @include row(22); }
+@mixin row_23 { @include row(23); }
+@mixin row_24 { @include row(24); }
+
+.row_1 { @include row_1; }
+.row_2 { @include row_2; }
+.row_3 { @include row_3; }
+.row_4 { @include row_4; }
+.row_5 { @include row_5; }
+.row_6 { @include row_6; }
+.row_7 { @include row_7; }
+.row_8 { @include row_8; }
+.row_9 { @include row_9; }
+.row_10 { @include row_10; }
+.row_11 { @include row_11; }
+.row_12 { @include row_12; }
+.row_13 { @include row_13; }
+.row_14 { @include row_14; }
+.row_15 { @include row_15; }
+.row_16 { @include row_16; }
+.row_17 { @include row_17; }
+.row_18 { @include row_18; }
+.row_19 { @include row_19; }
+.row_20 { @include row_20; }
+.row_21 { @include row_21; }
+.row_22 { @include row_22; }
+.row_23 { @include row_23; }
+.row_24 { @include row_24; }
+
+
+@mixin row_s_1 { @include row_s( 1); }
+@mixin row_s_2 { @include row_s( 2); }
+@mixin row_s_3 { @include row_s( 3); }
+@mixin row_s_4 { @include row_s( 4); }
+@mixin row_s_5 { @include row_s( 5); }
+@mixin row_s_6 { @include row_s( 6); }
+@mixin row_s_7 { @include row_s( 7); }
+@mixin row_s_8 { @include row_s( 8); }
+@mixin row_s_9 { @include row_s( 9); }
+@mixin row_s_10 { @include row_s(10); }
+@mixin row_s_11 { @include row_s(11); }
+@mixin row_s_12 { @include row_s(12); }
+@mixin row_s_13 { @include row_s(13); }
+@mixin row_s_14 { @include row_s(14); }
+@mixin row_s_15 { @include row_s(15); }
+@mixin row_s_16 { @include row_s(16); }
+@mixin row_s_17 { @include row_s(17); }
+@mixin row_s_18 { @include row_s(18); }
+@mixin row_s_19 { @include row_s(19); }
+@mixin row_s_20 { @include row_s(20); }
+@mixin row_s_21 { @include row_s(21); }
+@mixin row_s_22 { @include row_s(22); }
+@mixin row_s_23 { @include row_s(23); }
+@mixin row_s_24 { @include row_s(24); }
+
+.row_s_1 { @include row_s_1; }
+.row_s_2 { @include row_s_2; }
+.row_s_3 { @include row_s_3; }
+.row_s_4 { @include row_s_4; }
+.row_s_5 { @include row_s_5; }
+.row_s_6 { @include row_s_6; }
+.row_s_7 { @include row_s_7; }
+.row_s_8 { @include row_s_8; }
+.row_s_9 { @include row_s_9; }
+.row_s_10 { @include row_s_10; }
+.row_s_11 { @include row_s_11; }
+.row_s_12 { @include row_s_12; }
+.row_s_13 { @include row_s_13; }
+.row_s_14 { @include row_s_14; }
+.row_s_15 { @include row_s_15; }
+.row_s_16 { @include row_s_16; }
+.row_s_17 { @include row_s_17; }
+.row_s_18 { @include row_s_18; }
+.row_s_19 { @include row_s_19; }
+.row_s_20 { @include row_s_20; }
+.row_s_21 { @include row_s_21; }
+.row_s_22 { @include row_s_22; }
+.row_s_23 { @include row_s_23; }
+.row_s_24 { @include row_s_24; }
+
+
+@mixin row_m_1 { @include row_m( 1); }
+@mixin row_m_2 { @include row_m( 2); }
+@mixin row_m_3 { @include row_m( 3); }
+@mixin row_m_4 { @include row_m( 4); }
+@mixin row_m_5 { @include row_m( 5); }
+@mixin row_m_6 { @include row_m( 6); }
+@mixin row_m_7 { @include row_m( 7); }
+@mixin row_m_8 { @include row_m( 8); }
+@mixin row_m_9 { @include row_m( 9); }
+@mixin row_m_10 { @include row_m(10); }
+@mixin row_m_11 { @include row_m(11); }
+@mixin row_m_12 { @include row_m(12); }
+@mixin row_m_13 { @include row_m(13); }
+@mixin row_m_14 { @include row_m(14); }
+@mixin row_m_15 { @include row_m(15); }
+@mixin row_m_16 { @include row_m(16); }
+@mixin row_m_17 { @include row_m(17); }
+@mixin row_m_18 { @include row_m(18); }
+@mixin row_m_19 { @include row_m(19); }
+@mixin row_m_20 { @include row_m(20); }
+@mixin row_m_21 { @include row_m(21); }
+@mixin row_m_22 { @include row_m(22); }
+@mixin row_m_23 { @include row_m(23); }
+@mixin row_m_24 { @include row_m(24); }
+
+.row_m_1 { @include row_m_1; }
+.row_m_2 { @include row_m_2; }
+.row_m_3 { @include row_m_3; }
+.row_m_4 { @include row_m_4; }
+.row_m_5 { @include row_m_5; }
+.row_m_6 { @include row_m_6; }
+.row_m_7 { @include row_m_7; }
+.row_m_8 { @include row_m_8; }
+.row_m_9 { @include row_m_9; }
+.row_m_10 { @include row_m_10; }
+.row_m_11 { @include row_m_11; }
+.row_m_12 { @include row_m_12; }
+.row_m_13 { @include row_m_13; }
+.row_m_14 { @include row_m_14; }
+.row_m_15 { @include row_m_15; }
+.row_m_16 { @include row_m_16; }
+.row_m_17 { @include row_m_17; }
+.row_m_18 { @include row_m_18; }
+.row_m_19 { @include row_m_19; }
+.row_m_20 { @include row_m_20; }
+.row_m_21 { @include row_m_21; }
+.row_m_22 { @include row_m_22; }
+.row_m_23 { @include row_m_23; }
+.row_m_24 { @include row_m_24; }
+
+
+@mixin row_l_1 { @include row_l( 1); }
+@mixin row_l_2 { @include row_l( 2); }
+@mixin row_l_3 { @include row_l( 3); }
+@mixin row_l_4 { @include row_l( 4); }
+@mixin row_l_5 { @include row_l( 5); }
+@mixin row_l_6 { @include row_l( 6); }
+@mixin row_l_7 { @include row_l( 7); }
+@mixin row_l_8 { @include row_l( 8); }
+@mixin row_l_9 { @include row_l( 9); }
+@mixin row_l_10 { @include row_l(10); }
+@mixin row_l_11 { @include row_l(11); }
+@mixin row_l_12 { @include row_l(12); }
+@mixin row_l_13 { @include row_l(13); }
+@mixin row_l_14 { @include row_l(14); }
+@mixin row_l_15 { @include row_l(15); }
+@mixin row_l_16 { @include row_l(16); }
+@mixin row_l_17 { @include row_l(17); }
+@mixin row_l_18 { @include row_l(18); }
+@mixin row_l_19 { @include row_l(19); }
+@mixin row_l_20 { @include row_l(20); }
+@mixin row_l_21 { @include row_l(21); }
+@mixin row_l_22 { @include row_l(22); }
+@mixin row_l_23 { @include row_l(23); }
+@mixin row_l_24 { @include row_l(24); }
+
+.row_l_1 { @include row_l_1; }
+.row_l_2 { @include row_l_2; }
+.row_l_3 { @include row_l_3; }
+.row_l_4 { @include row_l_4; }
+.row_l_5 { @include row_l_5; }
+.row_l_6 { @include row_l_6; }
+.row_l_7 { @include row_l_7; }
+.row_l_8 { @include row_l_8; }
+.row_l_9 { @include row_l_9; }
+.row_l_10 { @include row_l_10; }
+.row_l_11 { @include row_l_11; }
+.row_l_12 { @include row_l_12; }
+.row_l_13 { @include row_l_13; }
+.row_l_14 { @include row_l_14; }
+.row_l_15 { @include row_l_15; }
+.row_l_16 { @include row_l_16; }
+.row_l_17 { @include row_l_17; }
+.row_l_18 { @include row_l_18; }
+.row_l_19 { @include row_l_19; }
+.row_l_20 { @include row_l_20; }
+.row_l_21 { @include row_l_21; }
+.row_l_22 { @include row_l_22; }
+.row_l_23 { @include row_l_23; }
+.row_l_24 { @include row_l_24; }

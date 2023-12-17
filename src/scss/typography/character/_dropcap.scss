@@ -1,0 +1,73 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Typography | Character | Dropcap
+// ============================================================================
+
+.dropcap:first-child:first-letter {
+    float: left;
+    font-size: 50px;
+    line-height: auto;
+    margin: 0 20px 0 0;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: 600;
+}
+
+.dropcap-big:first-child:first-letter {
+    float: left;
+    font-size: 110px;
+    line-height: 110px;
+    margin: 0 20px 0 0;
+    padding:0 8px; 
+    text-align: center;
+    font-weight: 600;
+    position: relative;
+}
+
+.dropcap-big:first-child:first-letter:before {
+    position: absolute;
+    border-bottom: 1px solid;
+    content: "";
+    display: block;
+    width: 100%;
+    top: 55%;
+    left: 0;
+}
+
+.dropcap-block:first-child:first-letter {
+    font-size: 30px;
+    height: 55px;
+    line-height: 22px;
+    padding: 15px 0;
+    width: 55px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.dropcap-block-round:first-child:first-letter {
+    border-radius:6px;
+    border:1px solid;
+}
+
+.dropcap-round:first-child:first-letter {
+    border-radius: 50%;
+    font-size: 35px;
+    padding: 15px;
+    width: 65px;
+    height: 65px;
+    line-height: 32px;
+}

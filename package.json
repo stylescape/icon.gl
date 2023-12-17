@@ -1,0 +1,100 @@
+{
+    "name": "stylescape",
+    "description": "Stylescape is a visual identity framework developed by Scape Agency.",
+    "version": "0.0.12",
+    "config": {
+        "version_short": "0.0"
+    },
+    "keywords": [
+        "stylescape",
+        "sass",
+        "responsive",
+        "front-end",
+        "layout-engine",
+        "framework",
+        "web"
+    ],
+    "homepage": "https://www.scape.style/",
+    "author": "Lars van Vianen",
+    "contributors": [
+        "Scape Agency"
+    ],
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/scape-agency/stylescape.git"
+    },
+    "bugs": {
+        "url": "https://github.com/scape-agency/stylescape/issues"
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/scape-foundation"
+        }
+    ],
+    "main": "src/scss/index.scss",
+    "type": "module",
+    "module": "",
+    "sass": "",
+    "style": "",
+    "scripts": {
+        "format": "npx prettier --write .",
+        "lint": "eslint 'src/**/*.ts' || true",
+        "prettify": "prettier --write 'src/**/*.ts'",
+        "dev": "webpack --mode development --config webpack.config.js",
+        "build": "webpack --mode production --config webpack.config.js",
+        "serve": "webpack serve --mode development --config webpack.config.js",
+        "start": "webpack-dev-server --mode development --config webpack.config.js"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.22.10",
+        "@babel/preset-env": "^7.22.10",
+        "@types/webpack": "^5.28.1",
+        "autoprefixer": "^10.4.15",
+        "babel-loader": "^9.1.2",
+        "clean-webpack-plugin": "^4.0.0",
+        "copy-webpack-plugin": "^11.0.0",
+        "css-loader": "^6.8.1",
+        "css-minimizer-webpack-plugin": "^5.0.0",
+        "eslint": "^8.41.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-import-resolver-webpack": "^0.13.2",
+        "eslint-plugin-prettier": "^5.0.1",
+        "html-webpack-plugin": "^5.5.3",
+        "mini-css-extract-plugin": "^2.7.6",
+        "postcss-loader": "^7.3.3",
+        "postcss-preset-env": "^9.1.2",
+        "prettier": "^3.0.3",
+        "sass": "^1.66.1",
+        "sass-loader": "^13.3.2",
+        "sass-to-string": "^1.6.3",
+        "style-loader": "^3.3.3",
+        "typescript": "^5.1.6",
+        "ts-loader": "^9.4.3",
+        "ts-node": "^10.9.1",
+        "webpack": "^5.88.2",
+        "webpack-cli": "^5.1.4",
+        "webpack-dev-server": "^4.15.1",
+        "webpack-merge": "^5.9.0"
+    },
+    "files": [
+        "dist/js/**/*.{js,map}",
+        "dist/css/**/*.{css,map}",
+        "dist/font/**/*.{eot,otf,ttf,woff,woff2}",
+        "src/ts/**/*.ts",
+        "src/scss/**/*.scss",
+        "src/font/**/*.{ttf,woff,woff2}"
+    ],
+    "hugo-bin": {
+        "buildTags": "extended"
+    },
+    "jspm": {
+        "registry": "npm",
+        "main": "",
+        "directories": {},
+        "shim": {},
+        "dependencies": {},
+        "peerDependencies": {}
+    }
+}

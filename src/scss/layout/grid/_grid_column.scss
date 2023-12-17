@@ -1,0 +1,246 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Layout | Grid | Column
+// ============================================================================
+
+
+@mixin col($val){
+  grid-column: span $val;
+}
+
+@mixin col_s($val){
+  @media (min-width: $media_s) {
+    @include col($val);
+  }
+}
+
+@mixin col_m($val){
+  @media (min-width: $media_m) {
+    @include col($val);
+  }
+}
+
+@mixin col_l($val){
+  @media (min-width: $media_l) {
+    @include col($val);
+  }
+}
+
+
+@mixin col_1 { @include col( 1); }
+@mixin col_2 { @include col( 2); }
+@mixin col_3 { @include col( 3); }
+@mixin col_4 { @include col( 4); }
+@mixin col_5 { @include col( 5); }
+@mixin col_6 { @include col( 6); }
+@mixin col_7 { @include col( 7); }
+@mixin col_8 { @include col( 8); }
+@mixin col_9 { @include col( 9); }
+@mixin col_10 { @include col(10); }
+@mixin col_11 { @include col(11); }
+@mixin col_12 { @include col(12); }
+@mixin col_13 { @include col(13); }
+@mixin col_14 { @include col(14); }
+@mixin col_15 { @include col(15); }
+@mixin col_16 { @include col(16); }
+@mixin col_17 { @include col(17); }
+@mixin col_18 { @include col(18); }
+@mixin col_19 { @include col(19); }
+@mixin col_20 { @include col(20); }
+@mixin col_21 { @include col(21); }
+@mixin col_22 { @include col(22); }
+@mixin col_23 { @include col(23); }
+@mixin col_24 { @include col(24); }
+
+.col_1  { @include col_1; }
+.col_2  { @include col_2; }
+.col_3  { @include col_3; }
+.col_4  { @include col_4; }
+.col_5  { @include col_5; }
+.col_6  { @include col_6; }
+.col_7  { @include col_7; }
+.col_8  { @include col_8; }
+.col_9  { @include col_9; }
+.col_10 { @include col_10; }
+.col_11 { @include col_11; }
+.col_12 { @include col_12; }
+.col_13 { @include col_13; }
+.col_14 { @include col_14; }
+.col_15 { @include col_15; }
+.col_16 { @include col_16; }
+.col_17 { @include col_17; }
+.col_18 { @include col_18; }
+.col_19 { @include col_19; }
+.col_20 { @include col_20; }
+.col_21 { @include col_21; }
+.col_22 { @include col_22; }
+.col_23 { @include col_23; }
+.col_24 { @include col_24; }
+
+
+@mixin col_s_1  { @include col_s( 1); }
+@mixin col_s_2  { @include col_s( 2); }
+@mixin col_s_3  { @include col_s( 3); }
+@mixin col_s_4  { @include col_s( 4); }
+@mixin col_s_5  { @include col_s( 5); }
+@mixin col_s_6  { @include col_s( 6); }
+@mixin col_s_7  { @include col_s( 7); }
+@mixin col_s_8  { @include col_s( 8); }
+@mixin col_s_9  { @include col_s( 9); }
+@mixin col_s_10 { @include col_s(10); }
+@mixin col_s_11 { @include col_s(11); }
+@mixin col_s_12 { @include col_s(12); }
+@mixin col_s_13 { @include col_s(13); }
+@mixin col_s_14 { @include col_s(14); }
+@mixin col_s_15 { @include col_s(15); }
+@mixin col_s_16 { @include col_s(16); }
+@mixin col_s_17 { @include col_s(17); }
+@mixin col_s_18 { @include col_s(18); }
+@mixin col_s_19 { @include col_s(19); }
+@mixin col_s_20 { @include col_s(20); }
+@mixin col_s_21 { @include col_s(21); }
+@mixin col_s_22 { @include col_s(22); }
+@mixin col_s_23 { @include col_s(23); }
+@mixin col_s_24 { @include col_s(24); }
+
+.col_s_1 { @include col_s_1; }
+.col_s_2 { @include col_s_2; }
+.col_s_3 { @include col_s_3; }
+.col_s_4 { @include col_s_4; }
+.col_s_5 { @include col_s_5; }
+.col_s_6 { @include col_s_6; }
+.col_s_7 { @include col_s_7; }
+.col_s_8 { @include col_s_8; }
+.col_s_9 { @include col_s_9; }
+.col_s_10 { @include col_s_10; }
+.col_s_11 { @include col_s_11; }
+.col_s_12 { @include col_s_12; }
+.col_s_13 { @include col_s_13; }
+.col_s_14 { @include col_s_14; }
+.col_s_15 { @include col_s_15; }
+.col_s_16 { @include col_s_16; }
+.col_s_17 { @include col_s_17; }
+.col_s_18 { @include col_s_18; }
+.col_s_19 { @include col_s_19; }
+.col_s_20 { @include col_s_20; }
+.col_s_21 { @include col_s_21; }
+.col_s_22 { @include col_s_22; }
+.col_s_23 { @include col_s_23; }
+.col_s_24 { @include col_s_24; }
+
+
+
+@mixin col_m_1 { @include col_m( 1); }
+@mixin col_m_2 { @include col_m( 2); }
+@mixin col_m_3 { @include col_m( 3); }
+@mixin col_m_4 { @include col_m( 4); }
+@mixin col_m_5 { @include col_m( 5); }
+@mixin col_m_6 { @include col_m( 6); }
+@mixin col_m_7 { @include col_m( 7); }
+@mixin col_m_8 { @include col_m( 8); }
+@mixin col_m_9 { @include col_m( 9); }
+@mixin col_m_10 { @include col_m(10); }
+@mixin col_m_11 { @include col_m(11); }
+@mixin col_m_12 { @include col_m(12); }
+@mixin col_m_13 { @include col_m(13); }
+@mixin col_m_14 { @include col_m(14); }
+@mixin col_m_15 { @include col_m(15); }
+@mixin col_m_16 { @include col_m(16); }
+@mixin col_m_17 { @include col_m(17); }
+@mixin col_m_18 { @include col_m(18); }
+@mixin col_m_19 { @include col_m(19); }
+@mixin col_m_20 { @include col_m(20); }
+@mixin col_m_21 { @include col_m(21); }
+@mixin col_m_22 { @include col_m(22); }
+@mixin col_m_23 { @include col_m(23); }
+@mixin col_m_24 { @include col_m(24); }
+
+.col_m_1 { @include col_m_1; }
+.col_m_2 { @include col_m_2; }
+.col_m_3 { @include col_m_3; }
+.col_m_4 { @include col_m_4; }
+.col_m_5 { @include col_m_5; }
+.col_m_6 { @include col_m_6; }
+.col_m_7 { @include col_m_7; }
+.col_m_8 { @include col_m_8; }
+.col_m_9 { @include col_m_9; }
+.col_m_10 { @include col_m_10; }
+.col_m_11 { @include col_m_11; }
+.col_m_12 { @include col_m_12; }
+.col_m_13 { @include col_m_13; }
+.col_m_14 { @include col_m_14; }
+.col_m_15 { @include col_m_15; }
+.col_m_16 { @include col_m_16; }
+.col_m_17 { @include col_m_17; }
+.col_m_18 { @include col_m_18; }
+.col_m_19 { @include col_m_19; }
+.col_m_20 { @include col_m_20; }
+.col_m_21 { @include col_m_21; }
+.col_m_22 { @include col_m_22; }
+.col_m_23 { @include col_m_23; }
+.col_m_24 { @include col_m_24; }
+
+
+@mixin col_l_1 { @include col_l( 1); }
+@mixin col_l_2 { @include col_l( 2); }
+@mixin col_l_3 { @include col_l( 3); }
+@mixin col_l_4 { @include col_l( 4); }
+@mixin col_l_5 { @include col_l( 5); }
+@mixin col_l_6 { @include col_l( 6); }
+@mixin col_l_7 { @include col_l( 7); }
+@mixin col_l_8 { @include col_l( 8); }
+@mixin col_l_9 { @include col_l( 9); }
+@mixin col_l_10 { @include col_l(10); }
+@mixin col_l_11 { @include col_l(11); }
+@mixin col_l_12 { @include col_l(12); }
+@mixin col_l_13 { @include col_l(13); }
+@mixin col_l_14 { @include col_l(14); }
+@mixin col_l_15 { @include col_l(15); }
+@mixin col_l_16 { @include col_l(16); }
+@mixin col_l_17 { @include col_l(17); }
+@mixin col_l_18 { @include col_l(18); }
+@mixin col_l_19 { @include col_l(19); }
+@mixin col_l_20 { @include col_l(20); }
+@mixin col_l_21 { @include col_l(21); }
+@mixin col_l_22 { @include col_l(22); }
+@mixin col_l_23 { @include col_l(23); }
+@mixin col_l_24 { @include col_l(24); }
+
+.col_l_1 { @include col_l_1; }
+.col_l_2 { @include col_l_2; }
+.col_l_3 { @include col_l_3; }
+.col_l_4 { @include col_l_4; }
+.col_l_5 { @include col_l_5; }
+.col_l_6 { @include col_l_6; }
+.col_l_7 { @include col_l_7; }
+.col_l_8 { @include col_l_8; }
+.col_l_9 { @include col_l_9; }
+.col_l_10 { @include col_l_10; }
+.col_l_11 { @include col_l_11; }
+.col_l_12 { @include col_l_12; }
+.col_l_13 { @include col_l_13; }
+.col_l_14 { @include col_l_14; }
+.col_l_15 { @include col_l_15; }
+.col_l_16 { @include col_l_16; }
+.col_l_17 { @include col_l_17; }
+.col_l_18 { @include col_l_18; }
+.col_l_19 { @include col_l_19; }
+.col_l_20 { @include col_l_20; }
+.col_l_21 { @include col_l_21; }
+.col_l_22 { @include col_l_22; }
+.col_l_23 { @include col_l_23; }
+.col_l_24 { @include col_l_24; }

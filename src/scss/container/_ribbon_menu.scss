@@ -1,0 +1,58 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Container | Ribbon | Menu
+// ============================================================================
+
+.ribbon .ribbon_menu {
+    @include icon_bar_horizontal;
+    @include justify_end;
+    align-content: center;
+    @include font_size_02;
+    @include color_scheme_dark;
+    // color: $color_01;
+    height: 100%;
+    grid-area: ribbon_right;
+}
+
+.ribbon .ribbon_menu .menu_item {
+  // @include flex;
+  @include flex_col;
+  @include align_center;
+  @include justify_center;
+  @include color_scheme_dark;
+  // padding-left:       calc($ribbon_spacing / 2);
+  // padding-right:      calc($ribbon_spacing / 2);
+  height:             100%;
+}
+
+.menu_button {
+  @include icon_size_04;
+  @include color_scheme_dark;
+  position: relative;
+  overflow: visible;
+  // width: $q * 24;
+  // height: $q * 24;
+  // background-color: transparent;
+}
+
+.menu_button svg {
+  @include color_scheme_dark;
+  stroke-width: 0;
+}
+
+$menu_margin: $q * 8;
+

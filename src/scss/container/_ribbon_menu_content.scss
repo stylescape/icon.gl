@@ -1,0 +1,114 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+.menu_content {
+  display: grid;
+  gap: $ribbon_spacing * 2;
+  justify-items: start;
+  align-items: center;
+  // grid-template-columns: $baseline_04;
+  grid-auto-rows: min-content;
+  grid-auto-flow: row;
+
+  top: 100%;
+  left: auto;
+  right: 0;
+  width: $q * 180;
+    
+  // @include flex_col;
+  border: 0.25px solid grey;
+  font-size: $q * 12;
+
+  @include color_scheme_light;
+  position: absolute;
+  // background-color: $color_01;
+  // display: block;
+  z-index: z("ribbon");
+  margin-top: $q * 8;
+  padding-bottom: $ribbon_spacing * 2;
+  padding-top: $ribbon_spacing * 2;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  background-clip: padding-box;
+  list-style: none;
+
+  border-radius: $menu_margin;
+  box-shadow: calc($q*4) calc($q*0) calc($q*8) calc($q*0) rgba(0,0,0,.2);
+
+}
+  
+.menu_content_item {
+  @include hyperlink_clean;
+  box-sizing: border-box;
+
+      // padding-top: calc($menu_margin / 2);
+  // padding-bottom: calc($menu_margin / 2);
+  padding-left: $menu_margin * 2;
+  padding-right: $menu_margin * 2;
+  width: 100%;
+  // height: $q * 32;
+
+}
+  
+// .menu_content_item  * {
+//   @include font_size( 3);
+// }
+
+.menu_content_section {
+  @include font_size( 3);
+  @include font_weight(400);
+  display: grid;
+  gap: $ribbon_spacing * 2;
+  justify-items: start;
+  align-items: center;
+  // grid-template-columns: $baseline_04;
+  grid-auto-rows: min-content;
+  grid-auto-flow: row;
+}
+
+.ribbon_menu_header {
+  @include reset_bleed;
+  @include font_size( 3);
+  @include font_weight(600);
+  justify-self: center;
+
+}
+.ribbon_menu_section_header {
+  @include reset_bleed;
+  @include font_size( 3);
+  @include font_weight(500);
+  padding-left: $menu_margin * 2;
+  padding-right: $menu_margin * 2;
+
+}
+
+
+
+  // .menu_content_item a {
+  //   align-self: center;
+  //   justify-self: center;
+  //   align-items: center;
+  //   display: table-cell;
+  //         vertical-align: middle;
+  //         height: $q * 16;
+  
+  // }
+  
+
+.ribbon_menu_line {
+  @include reset_bleed;
+  @include color_scheme_light;
+  border: 0.25px solid grey;
+  opacity: 0.5;
+}

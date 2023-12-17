@@ -1,0 +1,97 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// Container Styles | Ribbon | Navigation
+// ============================================================================
+
+
+.ribbon_nav {
+  @include icon_bar_horizontal;
+  @include hyperlink_clean;
+  @include justify_start;
+  align-content: center;
+  grid-area: ribbon_left;
+  @media screen and (min-width: $media_med) {
+    @include justify_center;
+    grid-area: ribbon_mid;
+  }
+}
+
+.ribbon_nav_button {
+  @include visible;
+  display: inherit;
+  @media screen and (min-width: $media_med) {
+    @include invisible;
+    display: none;
+  }
+}
+
+.ribbon_nav_list {
+  @include color_scheme_dark;
+  align-content: left;
+  // @include invisible;
+  // display: none;
+  // @include icon_bar_vertical;
+  position: absolute;
+  z-index: 9999;
+  top: $ribbon_height;
+  left: 0;
+  width: 100%;
+  padding-top: $ribbon_spacing;;
+  padding-bottom: 2*$ribbon_spacing;;
+
+  display: grid;
+  gap: 2 * $ribbon_spacing;
+  justify-items: center;
+  align-items: center;
+  // grid-template-columns: $baseline_04;
+  grid-auto-rows: min-content;
+  grid-auto-flow: row;
+  @include invisible;
+
+  &.active {
+    @include visible;
+  }
+
+  @media screen and (min-width: $media_med) {
+    @include visible;
+    @include icon_bar_horizontal;
+    display: inherit;
+    align-content: center;
+    width: auto;
+    top: auto;
+    left: auto;
+    padding:0;
+  }
+}
+
+.ribbon .ribbon_nav .ribbon_nav_list .ribbon_nav_list_item {
+  @include flex_col;
+  @include align_center;
+  @include justify_center;
+  padding-left: calc($ribbon_spacing / 2);
+  padding-right: calc($ribbon_spacing / 2);
+  height: 100%;
+}
+
+.ribbon_nav_list_item_text {
+  @include font_size_03;
+  @include color_scheme_dark;
+}
+
+// @media screen and (min-width: $media_med) {
+//   @include visible;
+//   opacity:1;
+// }

@@ -1,0 +1,97 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Layout | Ratio
+// ============================================================================
+
+@mixin ratio ($val01, $val02) {
+    aspect-ratio: calc($val01 / $val02);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    // vertical-align: top;
+  }
+  
+  @mixin ratio_1x1   { @include ratio(1, 1); }
+  @mixin ratio_1x2   { @include ratio(1, 2); }
+  @mixin ratio_2x1   { @include ratio(2, 1); }
+  @mixin ratio_1x3   { @include ratio(1, 3); }
+  @mixin ratio_3x1   { @include ratio(3, 1); }
+  @mixin ratio_1x4   { @include ratio(1, 4); }
+  @mixin ratio_4x1   { @include ratio(4, 1); }
+  @mixin ratio_3x2   { @include ratio(3, 2); }
+  @mixin ratio_2x3   { @include ratio(2, 3); }
+  @mixin ratio_4x3   { @include ratio(4, 3); }
+  @mixin ratio_3x4   { @include ratio(3, 4); }
+  @mixin ratio_16x9  { @include ratio(16, 9); }
+  @mixin ratio_16x10 { @include ratio(16, 10); }
+  
+  .ratio_1x1   { @include ratio_1x1; }
+  .ratio_1x2   { @include ratio_1x2; }
+  .ratio_2x1   { @include ratio_2x1; }
+  .ratio_1x3   { @include ratio_1x3; }
+  .ratio_3x1   { @include ratio_3x1; }
+  .ratio_1x4   { @include ratio_1x4; }
+  .ratio_4x1   { @include ratio_4x1; }
+  .ratio_3x2   { @include ratio_3x2; }
+  .ratio_2x3   { @include ratio_2x3; }
+  .ratio_4x3   { @include ratio_4x3; }
+  .ratio_3x4   { @include ratio_3x4; }
+  .ratio_16x9  { @include ratio_16x9; }
+  .ratio_16x10 { @include ratio_16x10; }
+  
+  
+  // . 
+  // ----------------------------------------------------------------------------
+  
+  @mixin ratio_p ($val01) {
+    padding-bottom: $val01;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    // vertical-align: top;
+  }
+  
+  @mixin ratio_p_1x1   { @include ratio_p(100.00%); }
+  @mixin ratio_p_1x2   { @include ratio_p(200.00%); }
+  @mixin ratio_p_2x1   { @include ratio_p( 50.00%); }
+  @mixin ratio_p_1x3   { @include ratio_p(300.00%); }
+  @mixin ratio_p_3x1   { @include ratio_p( 33.33%); }
+  @mixin ratio_p_1x4   { @include ratio_p(400.00%); }
+  @mixin ratio_p_4x1   { @include ratio_p( 25.00%); }
+  @mixin ratio_p_2x3   { @include ratio_p(150.00%); }
+  @mixin ratio_p_3x2   { @include ratio_p( 66.67%); }
+  @mixin ratio_p_3x4   { @include ratio_p(133.33%); }
+  @mixin ratio_p_4x3   { @include ratio_p( 75.00%); }
+  @mixin ratio_p_16x9  { @include ratio_p( 56.25%); }
+  @mixin ratio_p_16x10 { @include ratio_p( 62.50%); }
+  
+  .ratio_p_1x1   { @include ratio_p_1x1; }
+  .ratio_p_1x2   { @include ratio_p_1x2; }
+  .ratio_p_2x1   { @include ratio_p_2x1; }
+  .ratio_p_1x3   { @include ratio_p_1x3; }
+  .ratio_p_3x1   { @include ratio_p_3x1; }
+  .ratio_p_1x4   { @include ratio_p_1x4; }
+  .ratio_p_4x1   { @include ratio_p_4x1; }
+  .ratio_p_3x2   { @include ratio_p_3x2; }
+  .ratio_p_2x3   { @include ratio_p_2x3; }
+  .ratio_p_4x3   { @include ratio_p_4x3; }
+  .ratio_p_3x4   { @include ratio_p_3x4; }
+  .ratio_p_16x9  { @include ratio_p_16x9; }
+  .ratio_p_16x10 { @include ratio_p_16x10; }
+  

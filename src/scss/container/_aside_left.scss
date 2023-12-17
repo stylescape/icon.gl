@@ -1,0 +1,101 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Container Styles | Sidebar Styles |
+// ============================================================================
+
+
+.aside_left {
+  @include aside;
+  @include flex_row;
+  grid-area: aside_left;
+  grid-row-start: b1;
+  grid-column-start: b1;
+  grid-row-end: c1;
+  grid-column-end: c1;
+
+  border-right: 0.25px solid;
+  box-shadow: calc($q * 4) calc($q * 0) calc($q * 8) calc($q * 0) rgba(0,0,0,.2);
+  // overflow: visible;
+  // overflow-y: hidden;
+  // overflow-x: visible;
+
+  justify-self: start;
+
+  h1, h2 {
+    margin-bottom: $q * 4;
+    @include font_size_04;
+  }
+  h3, h4, h5, h6 {
+    @include font_size_03;
+    @include color_scheme_light;
+  }
+}
+
+
+.aside_left_nav_list_line {
+  @include reset_bleed;
+  @include color_scheme_light;
+  border: 0.25px solid;
+}
+
+
+
+// .aside_left a {
+// padding: 8px 8px 8px 32px;
+// text-decoration: none;
+// font-size: 25px;
+// color: #818181;
+// display: block;
+// transition: 0.3s;
+// }
+
+// .aside_left a:hover {
+// color: #f1f1f1;
+// }
+
+// .sidenav .closebtn {
+// position: absolute;
+// top: 0;
+// right: 25px;
+// font-size: 36px;
+// margin-left: 50px;
+// }
+
+// #main {
+// transition: margin-left .5s;
+// padding: 16px;
+// }
+
+// @media screen and (max-height: 450px) {
+// .sidenav {padding-top: 15px;}
+// .sidenav a {font-size: 18px;}
+// }
+
+// .sidebar .aside_left_nav .nav_list .aside_left_nav_list_item {
+//   @include flex;
+//   @include flex_col;
+//   @include align_center;
+//   @include justify_center;
+//   padding-left:       $q * 16;
+//   padding-right:      $q * 16;
+//   height:             100%;
+// }
+
+// .sidebar .navbar .nav_list {
+//   // @include flex;
+//   @include flex_col;
+// }

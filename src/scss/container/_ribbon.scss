@@ -1,0 +1,252 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// Container Styles | Ribbon
+// ============================================================================
+
+.ribbon {
+  // @include flex_row;
+  // @include justify_between;
+  @include color_scheme_dark;
+  grid-row-start: a1;
+  grid-column-start: a1;
+  grid-row-end: a3;
+  grid-column-end: a3;
+
+  z-index: z("ribbon");
+  box-sizing: border-box;
+  height: $ribbon_height;
+  width: 100%;
+  padding-left: calc($ribbon_spacing / 2);
+  padding-right: calc($ribbon_spacing / 2);
+  box-shadow: $q*0 $q*4 $q*8 $q*0 rgba(0,0,0,.2);
+  pointer-events: all;
+
+
+  display: grid;
+  grid-template-rows: $ribbon_height;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  grid-template-areas:
+  "ribbon_left       ribbon_mid      ribbon_right";
+
+}
+
+
+
+// Compnents | Navigation
+// ============================================================================
+
+
+/* Buttons */
+// .navbar-toggler-icon{
+//   color: {{ css_color_03 }};
+
+// }
+
+
+
+// /* SECTION: NAVIGATION
+// -------------------------------------------- */
+// /* LAYOUT: SIDEBAR
+// -------------------------------------------- */
+// .ptf-sidebar--right
+// {
+//     padding-left: 3.75rem;
+// }
+// @media only screen and (max-width: 1199px)
+// {
+//     .ptf-sidebar--right
+//     {
+//         margin-top: 7.5rem;
+//         padding-left: 0;
+//     }
+// }
+
+// .ptf-sidebar--left
+// {
+//     padding-right: 3.75rem;
+// }
+// @media only screen and (max-width: 1199px)
+// {
+//     .ptf-sidebar--left
+//     {
+//         margin-top: 7.5rem;
+//         padding-right: 0;
+//     }
+// }
+
+
+
+// Component | Header
+// ============================================================================
+
+
+// /* Bootstrap  */
+// .navbar {
+//   background-color: {{ css_color_01 }};
+//   color: {{ css_color_03 }};
+// }
+// .nav-link{
+// color: {{ css_color_03 }};
+// }
+// .nav-link:hover{
+// color: {{ css_color_03 }};
+// }
+
+// .header_search_button {
+// border: none; /* Remove borders */
+// outline: none; /* Remove outline */
+// background-color: {{ css_color_01 }};
+// color: {{ css_color_03 }}; /* Text color */
+// }
+// .header_search_input {
+// margin-left: 1rem;
+// margin-right: 0px;
+// margin-top: 4px;
+// margin-bottom: 4px;
+// padding-top: 2px;
+// padding-bottom: 2px;
+// height:30px;
+// }
+// .header_search_form {
+
+// }
+// /* Dropdown */
+// .dropdown-submenu {
+//   position: relative;
+//   /* background-color: {{ css_color_01 }}; */
+//   /* color: {{ css_color_03 }}; */
+// }
+
+// .dropdown-submenu a::after {
+//   transform: rotate(-90deg);
+//   position: absolute;
+//   right: 6px;
+//   top: .8em;
+// }
+
+// .dropdown-submenu .dropdown-menu {
+//   top: 0;
+//   left: 100%;
+//   margin-left: .1rem;
+//   margin-right: .1rem;
+//   /* background-color: {{ css_color_01 }}; */
+//   /* color: {{ css_color_03 }}; */
+// }
+
+
+// /* Custom */
+// .nav_right {
+//   margin-left: auto;
+//   align-self: flex-end;
+//   z-index: 9999;
+//   padding: 0;
+//   border: none;
+//   background: none;
+//   color: {{ css_color_03 }};
+//   padding: 0;
+//   outline: none; 
+//   padding-top: 2px;  
+// }
+
+
+
+// .dropdown-submenu-left > .dropdown-menu{
+// left: -100%;
+// top: 0;
+// margin: 0;
+// padding: 0;
+// right: 100%;
+// }
+
+
+// .ribbon {
+//   @include bleed_reset;
+//   @include transition_duration_01;
+//   @include overlay;
+//   @include filter_blur;
+//   z-index: z("ribbon");
+//   top:                        0;
+//   .ribbon_header {
+//       @include bleed_reset;
+//       @include flex_row;
+//       align-items:                center;
+//       justify-content:            space-between;
+//       height:                     $q * 16;
+//       max-height:                 $q * 16;
+//       .ribbon_header_h {
+//           align-self:                 center;
+//           height:                     $q *  8;
+//           width:                      $q * 24;
+//           margin:                     $q *  2;
+//           padding:                    0;
+//           vertical-align:             top;
+//           a {
+//               @include bleed_reset;
+//               vertical-align:             top;
+//           }
+//       }
+//   }
+//   &.active{
+//       @include        transition_duration_01;
+//       max-height:     100%;
+//       height:         100%;
+//   }
+// }
+
+
+// .ribbon_header_button {
+//   @include transition_duration_01;
+//   background-color:           transparent;
+//   background-repeat:          no-repeat;
+//   overflow:                   hidden; 
+//   width:                      $q * 12;
+//   height:                     $q * 12;
+//   padding:                    $q * 2;
+//   .icon svg{
+//   @include transition_duration_01;
+//   transform:                  rotate(0deg);
+//   }
+//   &.active .icon svg{
+//       @include                transition_duration_01;
+//       transform:              rotate(90deg);
+//   }
+// }
+
+// .ribbon_nav {
+//   pointer-events: none;
+//   &.active {
+//       pointer-events: all;
+//   }
+// }
+
+// .ribbon_nav_list {
+//   @include flex_column;
+//   align-items:            center;
+// }
+// .ribbon_nav_list_item{
+//   margin-top:             $q * 6;
+//   margin-bottom:          $q * 6;
+// }
+// .ribbon_nav_list_item_link {
+//   @include transition_duration_01;
+//   @include character_smallcaps;
+//   opacity:                0.0;
+//   &.active {
+//       @include        transition_duration_01;
+//       opacity:            1.0;
+//   }
+// }

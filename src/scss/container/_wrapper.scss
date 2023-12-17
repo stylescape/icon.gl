@@ -1,0 +1,55 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+
+// * {
+//   box-sizing: border-box;
+//   padding: 0;
+//   margin: 0;
+// }
+
+
+$ribbon_spacing: $q * 8;
+$ribbon_height: $q * 24 + $ribbon_spacing * 2;
+
+.layout {
+  @include reset_bleed;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  position: fixed;
+  z-index: z("content");
+  min-height: 100%;
+  min-width: 100%;
+  
+  // overflow-y: hidden;
+  pointer-events: none;
+
+  display: grid;
+  // grid-template-rows: min-content auto min-content;
+  // grid-template-rows: minmax(0, max-content) auto minmax(0, max-content);
+  // grid-template-rows: minmax(0, $ribbon_height) auto minmax(0, max-content);
+  grid-template-rows: minmax($ribbon_height, $ribbon_height) auto minmax($ribbon_height, max-content);
+  // grid-template-rows: minmax($ribbon_height, $ribbon_height) 0 minmax($ribbon_height, max-content);
+  grid-template-columns: minmax(0, max-content) auto minmax(0, max-content);
+  gap: 0;
+  grid-template-areas:
+  "a1  a2  a3"
+  "b1  b2  b3"
+  "c1  c2  c3";
+}

@@ -1,0 +1,100 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Base | Unit
+// ============================================================================
+
+@use 'sass:math';
+
+// based on:
+// https://css-tricks.com/snippets/css/fluid-typography/
+// https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/
+// https://www.madebymike.com.au/writing/precise-control-responsive-typography/
+// https://trentwalton.com/2012/06/19/fluid-type/
+// https://tbrown.org/notes/2012/02/03/molten-leading-or-fluid-line-height/
+// https://css-tricks.com/snippets/sass/strip-unit-function/
+
+
+// @function strip-unit($number) {
+//   @if type-of($number) == 'number' and not unitless($number) {
+//     // @return $number / ($number * 0 + 1);
+//     @return calc($number / ($number * 0 + 1));
+//   }
+//   @return $number;
+// }
+@function strip-unit($value) {
+    @return math.div($value, $value * 0 + 1);
+}
+
+// A Kyu is 1/16th of a Rem
+$q:         0.0625rem !default;
+$q_unit:    1.0000rem !default;
+
+:root {
+    --q: $q;
+}
+
+// @if $q_unit != rem and $q_unit != px {
+//   @error "`#{$q_unit}` is not a valid unit for $q_unit. Use `px` or `rem`.";
+// }
+
+$q_min: 0.75px !default;
+$q_max: 1.50px !default;
+$q_dif: calc($q_max - $q_min);
+
+$font_min: calc(($q_unit / $q) * $q_min) !default;
+$font_max: calc(($q_unit / $q) * $q_max) !default;
+
+// @if $view_unit != px and $view_unit != em and $view_unit != rem {
+//   @error "`#{$view_unit}` is not a valid unit for $view_unit. Use `px`, `em` or `rem`.";
+// }
+
+@mixin fluid_type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-font-size);
+    $u4: unit($max-font-size);
+
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+        & {
+            font-size: $min-font-size;
+            @media screen and (min-width: $min-vw) {
+                font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+            }
+            @media screen and (min-width: $max-vw) {
+                font-size: $max-font-size;
+            }
+        }
+    }
+}
+
+
+html {
+    @include fluid-type($media_min, $media_max, $font_min, $font_max);
+}
+
+
+
+// html {
+//   @include fluid-type($min_width, $max_width, $min_font, $max_font);
+// }
+// html{
+//   font-size: calc($q_min + q_dif * (100vw ))
+// }
+// html {
+//   font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+// }
+//   font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));

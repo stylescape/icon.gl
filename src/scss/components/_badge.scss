@@ -1,0 +1,121 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Components | Badge
+// ============================================================================
+
+
+
+
+
+// Base class
+//
+// Requires one of the contextual, color modifier classes for `color` and
+// `background-color`.
+
+// .badge {
+//     // scss-docs-start badge-css-vars
+//     --#{$prefix}badge-padding-x: #{$badge-padding-x};
+//     --#{$prefix}badge-padding-y: #{$badge-padding-y};
+//     @include rfs($badge-font-size, --#{$prefix}badge-font-size);
+//     --#{$prefix}badge-font-weight: #{$badge-font-weight};
+//     --#{$prefix}badge-color: #{$badge-color};
+//     --#{$prefix}badge-border-radius: #{$badge-border-radius};
+//     // scss-docs-end badge-css-vars
+  
+//     display: inline-block;
+//     padding: var(--#{$prefix}badge-padding-y) var(--#{$prefix}badge-padding-x);
+//     @include font-size(var(--#{$prefix}badge-font-size));
+//     font-weight: var(--#{$prefix}badge-font-weight);
+//     line-height: 1;
+//     color: var(--#{$prefix}badge-color);
+//     text-align: center;
+//     white-space: nowrap;
+//     vertical-align: baseline;
+//     @include border-radius(var(--#{$prefix}badge-border-radius));
+//     @include gradient-bg();
+  
+//     // Empty badges collapse automatically
+//     &:empty {
+//       display: none;
+//     }
+//   }
+  
+//   // Quick fix for badges in buttons
+//   .btn .badge {
+//     position: relative;
+//     top: -1px;
+//   }
+
+
+
+
+
+//   // Badges
+// span.badge {
+//   min-width: 3rem;
+//   padding: 0 6px;
+//   margin-left: 14px;
+//   text-align: center;
+//   font-size: 1rem;
+//   line-height: $badge-height;
+//   height: $badge-height;
+//   color: color('grey', 'darken-1');
+//   float: right;
+//   box-sizing: border-box;
+
+//   &.new {
+//     font-weight: 300;
+//     font-size: 0.8rem;
+//     color: #fff;
+//     background-color: $badge-bg-color;
+//     border-radius: 2px;
+//   }
+//   &.new:after {
+//     content: " new";
+//   }
+
+//   &[data-badge-caption]::after {
+//     content: " " attr(data-badge-caption);
+//   }
+// }
+
+// // Special cases
+// nav ul a span.badge {
+//   display: inline-block;
+//   float: none;
+//   margin-left: 4px;
+//   line-height: $badge-height;
+//   height: $badge-height;
+//   -webkit-font-smoothing: auto;
+// }
+
+// // Line height centering
+// .collection-item span.badge {
+//   margin-top: calc(#{$collection-line-height / 2} - #{$badge-height / 2});
+// }
+// .collapsible span.badge {
+//   margin-left: auto;
+// }
+// .sidenav span.badge {
+//   margin-top: calc(#{$sidenav-line-height / 2} - #{$badge-height / 2});
+// }
+
+// table span.badge {
+//   display: inline-block;
+//   float: none;
+//   margin-left: auto;
+// }

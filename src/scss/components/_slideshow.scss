@@ -1,0 +1,146 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Components | Slideshow
+// ============================================================================
+
+// .slideshow {
+//   width: 100%;
+//   height: 100%;
+// }
+// .canvas .slideshow {
+//   position: fixed;
+//   top: 0px;
+//   left: 0px;
+// }
+// .main .slideshow {
+//   position: relative;
+//   .slideshow_slides {
+//     position: relative;
+//     padding-bottom: 56.25%;
+//   }
+// }
+
+// .slideshow_slide {
+//   @include image_cover;
+//   @include transition_duration_02;
+//   @include flex_row;
+
+
+//   opacity: 0;
+//   &.active {
+//     @include transition_duration_02;
+//     opacity: 1;
+//   }
+// }
+
+
+// .slideshow_control {
+//   @include bleed_reset;
+//   @include flex_row;
+//   position:           absolute;
+//   width:              100%;
+//   height:             100%;
+//   justify-content:    space-between;
+//   align-items:        center;
+//   pointer-events: none;
+//   // text-decoration:    none;
+// }
+
+// .slideshow_control_dots {
+//   align-self: flex-end;
+//   pointer-events: all;
+
+//   .slideshow_control_dot {
+//     @include bleed_reset;
+//     @include transition_duration_01;
+//     display: inline-block;
+//     opacity: 0.5;
+//       &.active, :hover {
+//         @include transition_duration_01;
+//         opacity: 1;
+//       }
+//     }
+// }
+// .slideshow_slide_title_cover *{
+//   @include text_center;
+//   display: table-cell; 
+//   vertical-align: middle; 
+//   text-align: center; 
+// }
+
+// .slideshow_slide_title_cover {
+//   @include text_center;
+//   display: flex;
+//   text-align: center; 
+//   align-items:        center;
+//   align-self: center;
+//   justify-self: center;
+//   width: 50%;
+//   margin: 0 auto;
+//   margin-left: 25%;
+//   margin-right: 25%;
+//   p {
+//     @include paragraph_center;
+//     @include header_01_caps;
+
+//     display: flex;
+//     text-align: center; 
+//     align-items:        center;
+//     align-self: center;
+//     justify-self: center;
+//     position: relative;
+//     margin-left: auto;
+// margin-right: auto;
+
+//   }
+// }
+
+
+// .slideshow_control_cover{
+//   pointer-events:     auto;
+//   display:flex;
+//   justify-content:space-between;
+//   padding-top: calc(50vh - 4*#{$q});
+//   height:64px;
+//   top: 50%;
+//   &.active, :hover {
+//     @include transition_duration_01;
+//     opacity: 1;
+// }}
+
+// .slideshow_control_prev_cover {
+//   // pointer-events:     auto;
+//   left:              $q * 2;  
+//   &.active, :hover {
+//     @include transition_duration_01;
+//     opacity: 1;
+// }}
+// .slideshow_control_next_cover {
+//   // pointer-events:     auto;
+//   right:              $q * 2;
+//   &.active, :hover {
+//     @include transition_duration_01;
+//     opacity: 1;
+// }
+// }
+// .slideshow_control_prev, .slideshow_control_next {
+//   pointer-events: all;
+//   &.active, :hover {
+//     @include transition_duration_01;
+//     opacity: 1;
+// }
+// }

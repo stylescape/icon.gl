@@ -1,0 +1,70 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Layout | Height
+// ============================================================================
+
+.h-1px {height: 1px}
+.h-2px {height: 2px}
+.h-3px {height: 3px}
+.h-4px {height: 4px}
+.h-5px {height: 5px}
+.h-6px {height: 6px}
+.h-7px {height: 7px}
+.h-8px {height: 8px}
+.h-9px {height: 9px}
+.h-10px {height: 10px}
+.h-80px {height: 80px}
+.h-90px {height: 90px}
+.h-100px {height: 100px}
+.h-130px {height: 130px}
+.h-150px {height: 150px}
+.h-200px {height: 200px}
+.h-250px {height: 250px}
+.h-300px {height: 300px}
+.h-350px {height: 350px}
+.h-400px {height: 400px}
+.h-450px {height: 450px}
+.h-500px {height: 500px}
+.h-550px {height: 550px}
+.h-600px {height: 600px}
+.h-650px {height: 650px}
+.h-700px {height: 700px}
+.h-750px {height: 750px}
+.h-800px {height: 800px}
+.h-850px {height: 850px}
+
+.max-h-100 {max-height: 100%}
+.full-screen {height: 980px;}
+.minheight-fullscreen {min-height: 100vh}
+
+/* min-height */
+.min-h-100px {min-height: 100px}
+.min-h-200px {min-height: 200px}
+.min-h-300px {min-height: 300px}
+.min-h-400px {min-height: 400px}
+.min-h-500px {min-height: 500px}
+.min-h-600px {min-height: 600px}
+.min-h-700px {min-height: 700px}
+
+/* screen height  */
+.extra-small-screen {height:300px;}
+.small-screen {height:400px;}
+.one-second-screen {height:600px;}
+.one-third-screen {height:700px;}
+.one-fourth-screen {height:800px;}
+.one-fifth-screen {height:900px;}
+.one-sixth-screen {height:887px;}

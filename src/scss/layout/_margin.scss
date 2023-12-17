@@ -1,0 +1,532 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Layout | Margin
+// ============================================================================
+
+
+.margin-half-all {margin:.5%}
+.margin-one-all {margin:1%}
+.margin-one-half-all {margin:1.5%}
+.margin-two-all {margin:2%}
+.margin-two-half-all {margin:2.5%}
+.margin-three-all {margin:3%}
+.margin-three-half-all {margin:3.5%}
+.margin-four-all {margin:4%}
+.margin-four-half-all {margin:4.5%}
+.margin-five-all {margin:5%}
+.margin-five-half-all {margin:5.5%}
+.margin-six-all {margin:6%}
+.margin-six-half-all {margin:6.5%}
+.margin-seven-all {margin:7%}
+.margin-seven-half-all {margin:7.5%}
+.margin-eight-all {margin:8%}
+.margin-eight-half-all {margin:8.5%}
+.margin-nine-all {margin:9%}
+.margin-nine-half-all {margin:9.5%}
+.margin-ten-all {margin:10%}
+.margin-ten-half-all {margin:10.5%}
+.margin-eleven-all {margin:11%}
+.margin-eleven-half-all {margin:11.5%}
+.margin-twelve-all {margin:12%}
+.margin-twelve-half-all {margin:12.5%}
+.margin-thirteen-all {margin:13%}
+.margin-thirteen-half-all {margin:13.5%}
+.margin-fourteen-all {margin:14%}
+.margin-fourteen-half-all {margin:14.5%}
+.margin-fifteen-all {margin:15%}
+.margin-fifteen-half-all {margin:15.5%}
+.margin-sixteen-all {margin:16%}
+.margin-sixteen-half-all {margin:16.5%}
+.margin-seventeen-all {margin:17%}
+.margin-seventeen-half-all {margin:17.5%}
+.margin-eighteen-all {margin:18%}
+.margin-eighteen-half-all {margin:18.5%}
+.margin-nineteen-all {margin:19%}
+.margin-nineteen-half-all {margin:19.5%}
+.margin-twenty-all {margin:20%}
+.margin-twenty-half-all {margin:20.5%}
+.margin-twenty-one-all {margin:21%}
+.margin-twenty-one-half-all {margin:21.5%}
+.margin-twenty-two-all {margin:22%}
+.margin-twenty-two-half-all {margin:22.5%}
+.margin-twenty-three-all {margin:23%}
+.margin-twenty-three-half-all {margin:23.5%}
+.margin-twenty-four-all {margin:24%}
+.margin-twenty-four-half-all {margin:24.5%}
+.margin-twenty-five-all {margin:25%}
+.margin-5px-all {margin:5px}
+.margin-10px-all {margin:10px}
+.margin-15px-all {margin:15px}
+.margin-20px-all {margin:20px}
+.margin-25px-all {margin:25px}
+.margin-30px-all {margin:30px}
+.margin-35px-all {margin:35px}
+.margin-40px-all {margin:40px}
+.margin-45px-all {margin:45px}
+.margin-50px-all {margin:50px}
+.margin-55px-all {margin:55px}
+.margin-60px-all {margin:60px}
+.margin-65px-all {margin:65px}
+.margin-70px-all {margin:70px}
+.margin-75px-all {margin:75px}
+.margin-80px-all {margin:80px}
+.margin-85px-all {margin:85px}
+.margin-90px-all {margin:90px}
+.margin-95px-all {margin:95px}
+.margin-100px-all {margin:100px}
+
+.no-margin {margin:0 !important}
+.no-margin-lr {margin-left: 0 !important; margin-right: 0 !important}
+.no-margin-tb {margin-top: 0 !important; margin-bottom: 0 !important}
+.no-margin-top {margin-top:0 !important}
+.no-margin-bottom {margin-bottom:0 !important}
+.no-margin-left {margin-left:0 !important}
+.no-margin-right {margin-right:0 !important}
+.margin-lr-auto {margin-left:auto !important; margin-right:auto !important}
+.margin-auto {margin: 0 auto !important;}
+
+/* margin top */
+.margin-half-top {margin-top:.5%}
+.margin-one-top {margin-top:1%}
+.margin-one-half-top {margin-top:1.5%}
+.margin-two-top {margin-top:2%}
+.margin-two-half-top {margin-top:2.5%}
+.margin-three-top {margin-top:3%}
+.margin-three-half-top {margin-top:3.5%}
+.margin-four-top {margin-top:4%}
+.margin-four-half-top {margin-top:4.5%}
+.margin-five-top {margin-top:5%}
+.margin-five-half-top {margin-top:5.5%}
+.margin-six-top {margin-top:6%}
+.margin-six-half-top {margin-top:6.5%}
+.margin-seven-top {margin-top:7%}
+.margin-seven-half-top {margin-top:7.5%}
+.margin-eight-top {margin-top:8%}
+.margin-eight-half-top {margin-top:8.5%}
+.margin-nine-top {margin-top:9%}
+.margin-nine-half-top {margin-top:9.5%}
+.margin-ten-top {margin-top:10%}
+.margin-ten-half-top {margin-top:10.5%}
+.margin-eleven-top {margin-top:11%}
+.margin-eleven-half-top {margin-top:11.5%}
+.margin-twelve-top {margin-top:12%}
+.margin-twelve-half-top {margin-top:12.5%}
+.margin-thirteen-top {margin-top:13%}
+.margin-thirteen-half-top {margin-top:13.5%}
+.margin-fourteen-top {margin-top:14%}
+.margin-fourteen-half-top {margin-top:14.5%}
+.margin-fifteen-top {margin-top:15%}
+.margin-fifteen-half-top {margin-top:15.5%}
+.margin-sixteen-top {margin-top:16%}
+.margin-sixteen-half-top {margin-top:16.5%}
+.margin-seventeen-top {margin-top:17%}
+.margin-seventeen-half-top {margin-top:17.5%}
+.margin-eighteen-top {margin-top:18%}
+.margin-eighteen-half-top {margin-top:18.5%}
+.margin-nineteen-top {margin-top:19%}
+.margin-nineteen-half-top {margin-top:19.5%}
+.margin-twenty-top {margin-top:20%}
+.margin-twenty-half-top {margin-top:20.5%}
+.margin-twenty-one-top {margin-top:21%}
+.margin-twenty-one-half-top {margin-top:21.5%}
+.margin-twenty-two-top {margin-top:22%}
+.margin-twenty-two-half-top {margin-top:22.5%}
+.margin-twenty-three-top {margin-top:23%}
+.margin-twenty-three-half-top {margin-top:23.5%}
+.margin-twenty-four-top {margin-top:24%}
+.margin-twenty-four-half-top {margin-top:24.5%}
+.margin-twenty-five-top {margin-top:25%}
+.margin-5px-top {margin-top:5px}
+.margin-10px-top {margin-top:10px}
+.margin-15px-top {margin-top:15px}
+.margin-20px-top {margin-top:20px}
+.margin-25px-top {margin-top:25px}
+.margin-30px-top {margin-top:30px}
+.margin-35px-top {margin-top:35px}
+.margin-40px-top {margin-top:40px}
+.margin-45px-top {margin-top:45px}
+.margin-50px-top {margin-top:50px}
+.margin-55px-top {margin-top:55px}
+.margin-60px-top {margin-top:60px}
+.margin-65px-top {margin-top:65px}
+.margin-70px-top {margin-top:70px}
+.margin-75px-top {margin-top:75px}
+.margin-80px-top {margin-top:80px}
+.margin-85px-top {margin-top:85px}
+.margin-90px-top {margin-top:90px}
+.margin-95px-top {margin-top:95px}
+.margin-100px-top {margin-top:100px}
+
+/* margin bottom */
+.margin-half-bottom {margin-bottom:.5%}
+.margin-one-bottom {margin-bottom:1%}
+.margin-one-half-bottom {margin-bottom:1.5%}
+.margin-two-bottom {margin-bottom:2%}
+.margin-two-half-bottom {margin-bottom:2.5%}
+.margin-three-bottom {margin-bottom:3%}
+.margin-three-half-bottom {margin-bottom:3.5%}
+.margin-four-bottom {margin-bottom:4%}
+.margin-four-half-bottom {margin-bottom:4.5%}
+.margin-five-bottom {margin-bottom:5%}
+.margin-five-half-bottom {margin-bottom:5.5%}
+.margin-six-bottom {margin-bottom:6%}
+.margin-six-half-bottom {margin-bottom:6.5%}
+.margin-seven-bottom {margin-bottom:7%}
+.margin-seven-half-bottom {margin-bottom:7.5%}
+.margin-eight-bottom {margin-bottom:8%}
+.margin-eight-half-bottom {margin-bottom:8.5%}
+.margin-nine-bottom {margin-bottom:9%}
+.margin-nine-half-bottom {margin-bottom:9.5%}
+.margin-ten-bottom {margin-bottom:10%}
+.margin-ten-half-bottom {margin-bottom:10.5%}
+.margin-eleven-bottom {margin-bottom:11%}
+.margin-eleven-half-bottom {margin-bottom:11.5%}
+.margin-twelve-bottom {margin-bottom:12%}
+.margin-twelve-half-bottom {margin-bottom:12.5%}
+.margin-thirteen-bottom {margin-bottom:13%}
+.margin-thirteen-half-bottom {margin-bottom:13.5%}
+.margin-fourteen-bottom {margin-bottom:14%}
+.margin-fourteen-half-bottom {margin-bottom:14.5%}
+.margin-fifteen-bottom {margin-bottom:15%}
+.margin-fifteen-half-bottom {margin-bottom:15.5%}
+.margin-sixteen-bottom {margin-bottom:16%}
+.margin-sixteen-half-bottom {margin-bottom:16.5%}
+.margin-seventeen-bottom {margin-bottom:17%}
+.margin-seventeen-half-bottom {margin-bottom:17.5%}
+.margin-eighteen-bottom {margin-bottom:18%}
+.margin-eighteen-half-bottom {margin-bottom:18.5%}
+.margin-nineteen-bottom {margin-bottom:19%}
+.margin-nineteen-half-bottom {margin-bottom:19.5%}
+.margin-twenty-bottom {margin-bottom:20%}
+.margin-twenty-half-bottom {margin-bottom:20.5%}
+.margin-twenty-one-bottom {margin-bottom:21%}
+.margin-twenty-one-half-bottom {margin-bottom:21.5%}
+.margin-twenty-two-bottom {margin-bottom:22%}
+.margin-twenty-two-half-bottom {margin-bottom:22.5%}
+.margin-twenty-three-bottom {margin-bottom:23%}
+.margin-twenty-three-half-bottom {margin-bottom:23.5%}
+.margin-twenty-four-bottom {margin-bottom:24%}
+.margin-twenty-four-half-bottom {margin-bottom:24.5%}
+.margin-twenty-five-bottom {margin-bottom:25%}
+.margin-5px-bottom {margin-bottom:5px}
+.margin-10px-bottom {margin-bottom:10px}
+.margin-15px-bottom {margin-bottom:15px}
+.margin-20px-bottom {margin-bottom:20px}
+.margin-25px-bottom {margin-bottom:25px}
+.margin-30px-bottom {margin-bottom:30px}
+.margin-35px-bottom {margin-bottom:35px}
+.margin-40px-bottom {margin-bottom:40px}
+.margin-45px-bottom {margin-bottom:45px}
+.margin-50px-bottom {margin-bottom:50px}
+.margin-55px-bottom {margin-bottom:55px}
+.margin-60px-bottom {margin-bottom:60px}
+.margin-65px-bottom {margin-bottom:65px}
+.margin-70px-bottom {margin-bottom:70px}
+.margin-75px-bottom {margin-bottom:75px}
+.margin-80px-bottom {margin-bottom:80px}
+.margin-85px-bottom {margin-bottom:85px}
+.margin-90px-bottom {margin-bottom:90px}
+.margin-95px-bottom {margin-bottom:95px}
+.margin-100px-bottom {margin-bottom:100px}
+
+/* margin right */
+.margin-half-right {margin-right:.5%}
+.margin-one-right {margin-right:1%}
+.margin-one-half-right {margin-right:1.5%}
+.margin-two-right {margin-right:2%}
+.margin-two-half-right {margin-right:2.5%}
+.margin-three-right {margin-right:3%}
+.margin-three-half-right {margin-right:3.5%}
+.margin-four-right {margin-right:4%}
+.margin-four-half-right {margin-right:4.5%}
+.margin-five-right {margin-right:5%}
+.margin-five-half-right {margin-right:5.5%}
+.margin-six-right {margin-right:6%}
+.margin-six-half-right {margin-right:6.5%}
+.margin-seven-right {margin-right:7%}
+.margin-seven-half-right {margin-right:7.5%}
+.margin-eight-right {margin-right:8%}
+.margin-eight-half-right {margin-right:8.5%}
+.margin-nine-right {margin-right:9%}
+.margin-nine-half-right {margin-right:9.5%}
+.margin-ten-right {margin-right:10%}
+.margin-ten-half-right {margin-right:10.5%}
+.margin-eleven-right {margin-right:11%}
+.margin-eleven-half-right {margin-right:11.5%}
+.margin-twelve-right {margin-right:12%}
+.margin-twelve-half-right {margin-right:12.5%}
+.margin-thirteen-right {margin-right:13%}
+.margin-thirteen-half-right {margin-right:13.5%}
+.margin-fourteen-right {margin-right:14%}
+.margin-fourteen-half-right {margin-right:14.5%}
+.margin-fifteen-right {margin-right:15%}
+.margin-fifteen-half-right {margin-right:15.5%}
+.margin-sixteen-right {margin-right:16%}
+.margin-sixteen-half-right {margin-right:16.5%}
+.margin-seventeen-right {margin-right:17%}
+.margin-seventeen-half-right {margin-right:17.5%}
+.margin-eighteen-right {margin-right:18%}
+.margin-eighteen-half-right {margin-right:18.5%}
+.margin-nineteen-right {margin-right:19%}
+.margin-nineteen-half-right {margin-right:19.5%}
+.margin-twenty-right {margin-right:20%}
+.margin-twenty-half-right {margin-right:20.5%}
+.margin-twenty-right {margin-right:21%}
+.margin-twenty-one-half-right {margin-right:21.5%}
+.margin-twenty-two-right {margin-right:22%}
+.margin-twenty-two-half-right {margin-right:22.5%}
+.margin-twenty-three-right {margin-right:23%}
+.margin-twenty-three-half-right {margin-right:23.5%}
+.margin-twenty-four-right {margin-right:24%}
+.margin-twenty-four-half-right {margin-right:24.5%}
+.margin-twenty-five-right {margin-right:25%}
+.margin-5px-right {margin-right:5px}
+.margin-10px-right {margin-right:10px}
+.margin-15px-right {margin-right:15px}
+.margin-20px-right {margin-right:20px}
+.margin-25px-right {margin-right:25px}
+.margin-30px-right {margin-right:30px}
+.margin-35px-right {margin-right:35px}
+.margin-40px-right {margin-right:40px}
+.margin-45px-right {margin-right:45px}
+.margin-50px-right {margin-right:50px}
+.margin-55px-right {margin-right:55px}
+.margin-60px-right {margin-right:60px}
+.margin-65px-right {margin-right:65px}
+.margin-70px-right {margin-right:70px}
+.margin-75px-right {margin-right:75px}
+.margin-80px-right {margin-right:80px}
+.margin-85px-right {margin-right:85px}
+.margin-90px-right {margin-right:90px}
+.margin-95px-right {margin-right:95px}
+.margin-100px-right {margin-right:100px}
+
+/* margin left */
+.margin-half-left {margin-left:.5%}
+.margin-one-left {margin-left:1%}
+.margin-one-half-left {margin-left:1.5%}
+.margin-two-left {margin-left:2%}
+.margin-two-half-left {margin-left:2.5%}
+.margin-three-left {margin-left:3%}
+.margin-three-half-left {margin-left:3.5%}
+.margin-four-left {margin-left:4%}
+.margin-four-half-left {margin-left:4.5%}
+.margin-five-left {margin-left:5%}
+.margin-five-half-left {margin-left:5.5%}
+.margin-six-left {margin-left:6%}
+.margin-six-half-left {margin-left:6.5%}
+.margin-seven-left {margin-left:7%}
+.margin-seven-half-left {margin-left:7.5%}
+.margin-eight-left {margin-left:8%}
+.margin-eight-half-left {margin-left:8.5%}
+.margin-nine-left {margin-left:9%}
+.margin-nine-half-left {margin-left:9.5%}
+.margin-ten-left {margin-left:10%}
+.margin-ten-half-left {margin-left:10.5%}
+.margin-eleven-left {margin-left:11%}
+.margin-eleven-half-left {margin-left:11.5%}
+.margin-twelve-left {margin-left:12%}
+.margin-twelve-half-left {margin-left:12.5%}
+.margin-thirteen-left {margin-left:13%}
+.margin-thirteen-half-left {margin-left:13.5%}
+.margin-fourteen-left {margin-left:14%}
+.margin-fourteen-half-left {margin-left:14.5%}
+.margin-fifteen-left {margin-left:15%}
+.margin-fifteen-half-left {margin-left:15.5%}
+.margin-sixteen-left {margin-left:16%}
+.margin-sixteen-half-left {margin-left:16.5%}
+.margin-seventeen-left {margin-left:17%}
+.margin-seventeen-half-left {margin-left:17.5%}
+.margin-eighteen-left {margin-left:18%}
+.margin-eighteen-half-left {margin-left:18.5%}
+.margin-nineteen-left {margin-left:19%}
+.margin-nineteen-half-left {margin-left:19.5%}
+.margin-twenty-left {margin-left:20%}
+.margin-twenty-half-left {margin-left:20.5%}
+.margin-twenty-one-left {margin-left:21%}
+.margin-twenty-one-half-left {margin-left:21.5%}
+.margin-twenty-two-left {margin-left:22%}
+.margin-twenty-two-half-left {margin-left:22.5%}
+.margin-twenty-three-left {margin-left:23%}
+.margin-twenty-three-half-left {margin-left:23.5%}
+.margin-twenty-four-left {margin-left:24%}
+.margin-twenty-four-half-left {margin-left:24.5%}
+.margin-twenty-five-left {margin-left:25%}
+.margin-5px-left {margin-left:5px}
+.margin-10px-left {margin-left:10px}
+.margin-15px-left {margin-left:15px}
+.margin-20px-left {margin-left:20px}
+.margin-25px-left {margin-left:25px}
+.margin-30px-left {margin-left:30px}
+.margin-35px-left {margin-left:35px}
+.margin-40px-left {margin-left:40px}
+.margin-45px-left {margin-left:45px}
+.margin-50px-left {margin-left:50px}
+.margin-55px-left {margin-left:55px}
+.margin-60px-left {margin-left:60px}
+.margin-65px-left {margin-left:65px}
+.margin-70px-left {margin-left:70px}
+.margin-75px-left {margin-left:75px}
+.margin-80px-left {margin-left:80px}
+.margin-85px-left {margin-left:85px}
+.margin-90px-left {margin-left:90px}
+.margin-95px-left {margin-left:95px}
+.margin-100px-left {margin-left:100px}
+
+/* margin left and right */
+.margin-half-lr {margin-left:.5%; margin-right:.5%}
+.margin-one-lr {margin-left:1%; margin-right:1%;}
+.margin-one-half-lr {margin-left:1.5%; margin-right:1.5%;}
+.margin-two-lr {margin-left:2%; margin-right:2%;}
+.margin-two-half-lr {margin-left:2.5%; margin-right:2.5%;}
+.margin-three-lr {margin-left:3%; margin-right:3%;}
+.margin-three-half-lr {margin-left:3.5%; margin-right:3.5%;}
+.margin-four-lr {margin-left:4%; margin-right:4%;}
+.margin-four-half-lr {margin-left:4.5%; margin-right:4.5%;}
+.margin-five-lr {margin-left:5%; margin-right:5%;}
+.margin-five-half-lr {margin-left:5.5%; margin-right:5.5%;}
+.margin-six-lr {margin-left:6%; margin-right:6%;}
+.margin-six-half-lr {margin-left:6.5%; margin-right:6.5%;}
+.margin-seven-lr {margin-left:7%; margin-right:7%;}
+.margin-seven-half-lr {margin-left:7.5%; margin-right:7.5%;}
+.margin-eight-lr {margin-left:8%; margin-right:8%;}
+.margin-eight-half-lr {margin-left:8.5%; margin-right:8.5%;}
+.margin-nine-lr {margin-left:9%; margin-right:9%;}
+.margin-nine-half-lr {margin-left:9.5%; margin-right:9.5%;}
+.margin-ten-lr {margin-left:10%; margin-right:10%;}
+.margin-ten-half-lr {margin-left:10.5%; margin-right:10.5%;}
+.margin-eleven-lr {margin-left:11%; margin-right:11%;}
+.margin-eleven-half-lr {margin-left:11.5%; margin-right:11.5%;}
+.margin-twelve-lr {margin-left:12%; margin-right:12%;}
+.margin-twelve-half-lr {margin-left:12.5%; margin-right:12.5%;}
+.margin-thirteen-lr {margin-left:13%; margin-right:13%;}
+.margin-thirteen-half-lr {margin-left:13.5%; margin-right:13.5%;}
+.margin-fourteen-lr {margin-left:14%; margin-right:14%;}
+.margin-fourteen-half-lr {margin-left:14.5%; margin-right:14.5%;}
+.margin-fifteen-lr {margin-left:15%; margin-right:15%;}
+.margin-fifteen-half-lr {margin-left:15.5%; margin-right:15.5%;}
+.margin-sixteen-lr {margin-left:16%; margin-right:16%;}
+.margin-sixteen-half-lr {margin-left:16.5%; margin-right:16.5%;}
+.margin-seventeen-lr {margin-left:17%; margin-right:17%;}
+.margin-seventeen-half-lr {margin-left:17.5%; margin-right:17.5%;}
+.margin-eighteen-lr {margin-left:18%; margin-right:18%;}
+.margin-eighteen-half-lr {margin-left:18.5%; margin-right:18.5%;}
+.margin-nineteen-lr {margin-left:19%; margin-right:19%;}
+.margin-nineteen-half-lr {margin-left:19.5%; margin-right:19.5%;}
+.margin-twenty-lr {margin-left:20%; margin-right:20%;}
+.margin-twenty-half-lr {margin-left:20.5%; margin-right:20.5%;}
+.margin-twenty-one-lr {margin-left:21%; margin-right:21%;}
+.margin-twenty-one-half-lr {margin-left:21.5%; margin-right:21.5%;}
+.margin-twenty-two-lr {margin-left:22%; margin-right:22%;}
+.margin-twenty-two-half-lr {margin-left:22.5%; margin-right:22.5%;}
+.margin-twenty-three-lr {margin-left:23%; margin-right:23%;}
+.margin-twenty-three-half-lr {margin-left:23.5%; margin-right:23.5%;}
+.margin-twenty-four-lr {margin-left:24%; margin-right:24%;}
+.margin-twenty-four-half-lr {margin-left:24.5%; margin-right:24.5%;}
+.margin-twenty-five-lr {margin-left:25%; margin-right:25%;}
+.margin-5px-lr {margin-left:5px; margin-right:5px;}
+.margin-10px-lr {margin-left:10px; margin-right:10px;}
+.margin-15px-lr {margin-left:15px; margin-right:15px;}
+.margin-20px-lr {margin-left:20px; margin-right:20px;}
+.margin-25px-lr {margin-left:25px; margin-right:25px;}
+.margin-30px-lr {margin-left:30px; margin-right:30px;}
+.margin-35px-lr {margin-left:35px; margin-right:35px;}
+.margin-40px-lr {margin-left:40px; margin-right:40px;}
+.margin-45px-lr {margin-left:45px; margin-right:45px;}
+.margin-50px-lr {margin-left:50px; margin-right:50px;}
+.margin-55px-lr {margin-left:55px; margin-right:55px;}
+.margin-60px-lr {margin-left:60px; margin-right:60px;}
+.margin-65px-lr {margin-left:65px; margin-right:65px;}
+.margin-70px-lr {margin-left:70px; margin-right:70px;}
+.margin-75px-lr {margin-left:75px; margin-right:75px;}
+.margin-80px-lr {margin-left:80px; margin-right:80px;}
+.margin-85px-lr {margin-left:85px; margin-right:85px;}
+.margin-90px-lr {margin-left:90px; margin-right:90px;}
+.margin-95px-lr {margin-left:95px; margin-right:95px;}
+.margin-100px-lr {margin-left:100px; margin-right:100px;}
+
+/* margin top and bottom */
+.margin-half-tb {margin-top:.5%; margin-bottom:.5%}
+.margin-one-tb {margin-top:1%; margin-bottom:1%;}
+.margin-one-half-tb {margin-top:1.5%; margin-bottom:1.5%;}
+.margin-two-tb {margin-top:2%; margin-bottom:2%;}
+.margin-two-half-tb {margin-top:2.5%; margin-bottom:2.5%;}
+.margin-three-tb {margin-top:3%; margin-bottom:3%;}
+.margin-three-half-tb {margin-top:3.5%; margin-bottom:3.5%;}
+.margin-four-tb {margin-top:4%; margin-bottom:4%;}
+.margin-four-half-tb {margin-top:4.5%; margin-bottom:4.5%;}
+.margin-five-tb {margin-top:5%; margin-bottom:5%;}
+.margin-five-half-tb {margin-top:5.5%; margin-bottom:5.5%;}
+.margin-six-tb {margin-top:6%; margin-bottom:6%;}
+.margin-six-half-tb {margin-top:6.5%; margin-bottom:6.5%;}
+.margin-seven-tb {margin-top:7%; margin-bottom:7%;}
+.margin-seven-half-tb {margin-top:7.5%; margin-bottom:7.5%;}
+.margin-eight-tb {margin-top:8%; margin-bottom:8%;}
+.margin-eight-half-tb {margin-top:8.5%; margin-bottom:8.5%;}
+.margin-nine-tb {margin-top:9%; margin-bottom:9%;}
+.margin-nine-half-tb {margin-top:9.5%; margin-bottom:9.5%;}
+.margin-ten-tb {margin-top:10%; margin-bottom:10%;}
+.margin-ten-half-tb {margin-top:10.5%; margin-bottom:10.5%;}
+.margin-eleven-tb {margin-top:11%; margin-bottom:11%;}
+.margin-eleven-half-tb {margin-top:11.5%; margin-bottom:11.5%;}
+.margin-twelve-tb {margin-top:12%; margin-bottom:12%;}
+.margin-twelve-half-tb {margin-top:12.5%; margin-bottom:12.5%;}
+.margin-thirteen-tb {margin-top:13%; margin-bottom:13%;}
+.margin-thirteen-half-tb {margin-top:13.5%; margin-bottom:13.5%;}
+.margin-fourteen-tb {margin-top:14%; margin-bottom:14%;}
+.margin-fourteen-half-tb {margin-top:14.5%; margin-bottom:14.5%;}
+.margin-fifteen-tb {margin-top:15%; margin-bottom:15%;}
+.margin-fifteen-half-tb {margin-top:15.5%; margin-bottom:15.5%;}
+.margin-sixteen-tb {margin-top:16%; margin-bottom:16%;}
+.margin-sixteen-half-tb {margin-top:16.5%; margin-bottom:16.5%;}
+.margin-seventeen-tb {margin-top:17%; margin-bottom:17%;}
+.margin-seventeen-half-tb {margin-top:17.5%; margin-bottom:17.5%;}
+.margin-eighteen-tb {margin-top:18%; margin-bottom:18%;}
+.margin-eighteen-half-tb {margin-top:18.5%; margin-bottom:18.5%;}
+.margin-nineteen-tb {margin-top:19%; margin-bottom:19%;}
+.margin-nineteen-half-tb {margin-top:19.5%; margin-bottom:19.5%;}
+.margin-twenty-tb {margin-top:20%; margin-bottom:20%;}
+.margin-twenty-half-tb {margin-top:20.5%; margin-bottom:20.5%;}
+.margin-twenty-one-tb {margin-top:21%; margin-bottom:21%;}
+.margin-twenty-one-half-tb {margin-top:21.5%; margin-bottom:21.5%;}
+.margin-twenty-two-tb {margin-top:22%; margin-bottom:22%;}
+.margin-twenty-two-half-tb {margin-top:22.5%; margin-bottom:22.5%;}
+.margin-twenty-three-tb {margin-top:23%; margin-bottom:23%;}
+.margin-twenty-three-half-tb {margin-top:23.5%; margin-bottom:23.5%;}
+.margin-twenty-four-tb {margin-top:24%; margin-bottom:24%;}
+.margin-twenty-four-half-tb {margin-top:24.5%; margin-bottom:24.5%;}
+.margin-twenty-five-tb {margin-top:25%; margin-bottom:25%;}
+.margin-5px-tb {margin-top:5px; margin-bottom:5px;}
+.margin-10px-tb {margin-top:10px; margin-bottom:10px;}
+.margin-15px-tb {margin-top:15px; margin-bottom:15px;}
+.margin-20px-tb {margin-top:20px; margin-bottom:20px;}
+.margin-25px-tb {margin-top:25px; margin-bottom:25px;}
+.margin-30px-tb {margin-top:30px; margin-bottom:30px;}
+.margin-35px-tb {margin-top:35px; margin-bottom:35px;}
+.margin-40px-tb {margin-top:40px; margin-bottom:40px;}
+.margin-45px-tb {margin-top:45px; margin-bottom:45px;}
+.margin-50px-tb {margin-top:50px; margin-bottom:50px;}
+.margin-55px-tb {margin-top:55px; margin-bottom:55px;}
+.margin-60px-tb {margin-top:60px; margin-bottom:60px;}
+.margin-65px-tb {margin-top:65px; margin-bottom:65px;}
+.margin-70px-tb {margin-top:70px; margin-bottom:70px;}
+.margin-75px-tb {margin-top:75px; margin-bottom:75px;}
+.margin-80px-tb {margin-top:80px; margin-bottom:80px;}
+.margin-85px-tb {margin-top:85px; margin-bottom:85px;}
+.margin-90px-tb {margin-top:90px; margin-bottom:90px;}
+.margin-95px-tb {margin-top:95px; margin-bottom:95px;}
+.margin-100px-tb {margin-top:100px; margin-bottom:100px;}
