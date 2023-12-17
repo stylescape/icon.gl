@@ -73,7 +73,7 @@ jobs:
 
       - 
         name: Download build.zip
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: build.zip
 
@@ -123,7 +123,7 @@ jobs:
 
       - 
         name: Download build.zip
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: build.zip
 
@@ -167,7 +167,7 @@ jobs:
 
   #     - 
   #       name: Download build.zip
-  #       uses: actions/download-artifact@v2
+  #       uses: actions/download-artifact@v4
   #       with:
   #         name: build.zip
 
