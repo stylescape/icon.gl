@@ -35,7 +35,7 @@ export const configProduction = {
         libraryTarget: "umd",
         libraryExport: "default",
         path: path.resolve(__dirname, "dist"),
-        filename: "js/stylescape.js",
+        filename: "js/icon.gl.js",
     },
 
     module: {
@@ -73,7 +73,7 @@ export const configProduction = {
     plugins: [
         new MiniCssExtractPlugin(
             {
-                filename: "css/stylescape.css",
+                filename: "css/icon.gl.css",
             }
         ),
         new CopyWebpackPlugin(

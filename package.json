@@ -1,12 +1,14 @@
 {
-    "name": "stylescape",
-    "description": "Stylescape is a visual identity framework developed by Scape Agency.",
-    "version": "0.0.12",
+    "name": "icon.gl",
+    "description": "icon.gl is a icon library and framework developed by Scape Agency.",
+    "version": "0.0.1",
     "config": {
         "version_short": "0.0"
     },
     "keywords": [
-        "stylescape",
+        "icon",
+        "svg",
+        "icon.gl",
         "sass",
         "responsive",
         "front-end",
@@ -14,7 +16,7 @@
         "framework",
         "web"
     ],
-    "homepage": "https://www.scape.style/",
+    "homepage": "https://www.icon.gl/",
     "author": "Lars van Vianen",
     "contributors": [
         "Scape Agency"
@@ -22,10 +24,10 @@
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/scape-agency/stylescape.git"
+        "url": "git+https://github.com/scape-agency/icon.gl.git"
     },
     "bugs": {
-        "url": "https://github.com/scape-agency/stylescape/issues"
+        "url": "https://github.com/scape-agency/icon.gl/issues"
     },
     "funding": [
         {
