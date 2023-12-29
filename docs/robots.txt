@@ -5,4 +5,4 @@ User-agent: *
 Disallow:
 
 
-SITEMAP: http://www.scape.style/sitemap.xml
+SITEMAP: http://www.icon.gl/sitemap.xml

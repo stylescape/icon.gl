@@ -31,7 +31,7 @@ tmp
 Icon
 
 # Thumbnails
-._*
+# ._*
 
 # Files that might appear in the root of a volume
 .DocumentRevisions-V100
@@ -740,7 +740,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-build/
+# build/
 develop-eggs/
 # dist/
 downloads/

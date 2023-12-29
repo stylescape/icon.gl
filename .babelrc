@@ -1,0 +1,51 @@
+// .babelrc
+// Babel configuration for compiling JavaScript code
+
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "browsers": ["last 2 versions", "not dead", "> 0.2%"],
+                    "esmodules": true
+                },
+                "useBuiltIns": "usage",
+                "corejs": { "version": 3, "proposals": true },
+                // Enable "loose" transformations for any plugins in this preset that allow them
+                "loose": true,
+                // Enable bugfixes that allow Babel to produce smaller output in some cases
+                "bugfixes": true,
+                // Preserve ES modules. Set to false to not transform modules, or specify a module type
+                "modules": false
+            }
+        ],
+        // Add the TypeScript preset if your project uses TypeScript
+        "@babel/preset-typescript"
+    ],
+    "plugins": [
+        // "@babel/plugin-syntax-dynamic-import",
+        // "@babel/plugin-transform-runtime",
+        // Stage 2 proposal decorators
+        // ["@babel/plugin-proposal-decorators", { "legacy": true }],
+        // Class properties (public and private)
+        // ["@babel/plugin-proposal-class-properties", { "loose": true }],
+        // Optional chaining and nullish coalescing
+        // "@babel/plugin-proposal-optional-chaining",
+        // "@babel/plugin-proposal-nullish-coalescing-operator",
+        // Transform styled components (if your project uses styled-components)
+        // ["babel-plugin-styled-components", { "displayName": true, "pure": true }]
+    ],
+    "env": {
+        // "test": {
+        //     "presets": [
+        //         ["@babel/preset-env", { "targets": { "node": "current" } }],
+        //         "@babel/preset-typescript",
+        //         "@babel/preset-react"
+        //     ],
+        //     "plugins": [
+        //         "babel-plugin-dynamic-import-node"
+        //     ]
+        // }
+    }
+}

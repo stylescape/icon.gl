@@ -1,5 +1,5 @@
 # Canonical
-Canonical: https://www.scape.style/security.txt
+Canonical: https://www.icon.gl/security.txt
 
 # Contact
 Contact: mailto:info@scape.agency
