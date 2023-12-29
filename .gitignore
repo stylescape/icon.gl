@@ -235,7 +235,7 @@ StyleCopReport.xml
 *.tlog
 *.vspscc
 *.vssscc
-.builds
+# .builds
 *.pidb
 *.svclog
 *.scc
@@ -801,7 +801,7 @@ instance/
 .scrapy
 
 # Sphinx documentation
-docs/_build/
+# docs/_build/
 
 # PyBuilder
 .pybuilder/
