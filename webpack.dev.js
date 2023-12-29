@@ -27,21 +27,21 @@ export const configDevelopment = {
     // ========================================================================
     // Spin up a server for quick development
 
-    devServer: {
-        historyApiFallback: true, // Fallback to index.html for Single Page Applications
-        watchFiles: [ // Watch for changes in these directories
-            paths.src + "/*",
-            paths.public + "/*",
-        ],
-        port: 4040,
-        open: true, // Open the browser after server has been started
-        compress: true, // Enable gzip compression
-        hot: true, // Enable Hot Module Replacement (HMR)
-        static: {
-            directory: paths.public // Serve files from this directory
-            // directory: paths.public + "/"
-        },
-    },
+    // devServer: {
+    //     historyApiFallback: true, // Fallback to index.html for Single Page Applications
+    //     watchFiles: [ // Watch for changes in these directories
+    //         paths.src + "/*",
+    //         paths.public + "/*",
+    //     ],
+    //     port: 4040,
+    //     open: true, // Open the browser after server has been started
+    //     compress: true, // Enable gzip compression
+    //     hot: true, // Enable Hot Module Replacement (HMR)
+    //     static: {
+    //         directory: paths.public // Serve files from this directory
+    //         // directory: paths.public + "/"
+    //     },
+    // },
 
 
     // Configuration | Module Rules
@@ -101,9 +101,11 @@ export const configDevelopment = {
     // development:
 
     // Enable high-quality source maps for better debugging experience.
-    devtool: "eval-source-map",
+    // devtool: "eval-source-map",
 
     // devtool: "inline-source-map",
+
+    devtool: "source-map",
 
 };
 

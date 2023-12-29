@@ -3,11 +3,13 @@
 const codepoints = require('./font/bootstrap-icons.json')
 
 module.exports = {
-    inputDir: './icons',
-    outputDir: './font',
+    // inputDir: './icons',
+    // outputDir: './font',
+    inputDir: './dist/svg',
+    outputDir: './dist/font',
     fontTypes: ['woff2', 'woff'],
     assetTypes: ['css', 'scss', 'json'],
-    name: 'bootstrap-icons',
+    name: 'icon.gl',
     codepoints,
     prefix: 'bi',
     selector: '.bi',

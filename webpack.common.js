@@ -8,7 +8,7 @@ import path from "path"
 import paths from "./webpack.paths.js";
 import params from "./webpack.params.js";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import HtmlWebpackPlugin from "html-webpack-plugin";
+// import HtmlWebpackPlugin from "html-webpack-plugin";
 import { fileURLToPath } from "url";
 
 
@@ -22,7 +22,7 @@ const __filename = fileURLToPath(import.meta.url);
 // Derive the directory name of the current module
 const __dirname = path.dirname(__filename);
 
-const isDevelopment = process.env.NODE_ENV !== "production";
+// const isDevelopment = process.env.NODE_ENV !== "production";
 
 
 /**
@@ -52,10 +52,28 @@ const configCommon = {
     // Entry points for the application
     // Where webpack looks to start building the bundle
     entry: {
-        index: `${paths.src}/ts/index.ts`,
-        index_scss: `${paths.src}/scss/index.scss`,
+        // index: `${paths.src}/ts/index.ts`,
+        // index_scss: `${paths.src}/scss/index.scss`,
         // index: paths.src + "/ts/index.ts"
         // index_scss: "./src/scss/index.scss",
+        // 'js/jPlayer.js': './src/index.js',
+        // 'js/jPlayer.min.js': './src/index.js',
+        main: [
+            `${paths.src}/ts/index.ts`,
+            `${paths.src}/scss/index.scss`,
+        ]
+
+        // index_ts: {
+        //     import: `${paths.src}/ts/index.ts`,
+        //     // dependOn: 'shared',
+        //   },
+        // index_scss: {
+        //     import: `${paths.src}/scss/index.scss`,
+        //     // dependOn: 'shared',
+        // },
+        // 'css/sleek.css': `${paths.src}/scss/index.scss`,
+        // 'css/sleek.min.css': `${paths.src}/scss/index.scss`,
+        // shared: 'lodash',
 
     },
 
@@ -64,19 +82,20 @@ const configCommon = {
     // ========================================================================
 
     output: {
-        library: paths.name,
-        libraryTarget: "umd",
-        libraryExport: "default",
+        // library: paths.name,
+        // libraryTarget: "umd",
+        // libraryExport: "default",
         // Output directory
         path: path.resolve(__dirname, "dist"),
         // path: paths.build,
         // Filename pattern
-        filename: "js/[name].bundle.js",
+        filename: `js/${params.name}.js`,
+        // filename: "js/[name].bundle.js",
         // Public URL of the output directory when referenced in a browser
         // Adjust if your app is served from a specific path
         publicPath: "/",
         // Clean the output directory before emit
-        clean: true,
+        // clean: true,
     },
 
 
@@ -148,7 +167,8 @@ const configCommon = {
                             // compilation.
                             // Type checking can be done separately (e.g., via
                             // a script or in the IDE).
-                            transpileOnly: isDevelopment,
+                            // transpileOnly: isDevelopment,
+                            transpileOnly: true,
 
                             // Configure additional ts-loader options as needed
                             // For example, specify a custom tsconfig.json or
@@ -177,7 +197,9 @@ const configCommon = {
                 test: /\.(scss|css)$/,
                 exclude: /node_modules/,
                 use: [
-                    isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
+                    // isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
+                    "style-loader",
+                    
                     {
                         loader: "css-loader",
                         options: {
@@ -335,7 +357,7 @@ const configCommon = {
     // ========================================================================
     // Add any common plugins for both development and production here
     // Customize the webpack build process
-    plugins: [
+    // plugins: [
         // Generates an HTML file from a template
         // new HtmlWebpackPlugin(
         //     {
@@ -349,7 +371,7 @@ const configCommon = {
         //     }
         // ),
 
-    ],
+    // ],
 
 
     // Configuration | Performance
