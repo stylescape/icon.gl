@@ -49,7 +49,7 @@
 
 ## Introduction
 
-Icon.gl is a modern, innovative icon library infused with the essence of traditional Kaidā glyphs, echoing the historical charm of the Yaeyama Islands. Our design principles revolve around simplicity, modernity, and a touch of quirkiness. Each icon is distilled to its fundamental form, ensuring it embodies only the most essential characteristics. With bold geometric shapes, our icons boast a symmetrical and consistent look, providing unparalleled clarity and readability even at smaller sizes. This unique blend of contemporary design and cultural heritage makes icon.gl not just a collection of symbols, but a storytelling tool that bridges the past with the present.
+Icon.gl is a modern, innovative icon library infused with the essence of traditional [Kaidā glyphs](https://en.wikipedia.org/wiki/Kaid%C4%81_glyphs), echoing the historical charm of the Yaeyama Islands. Our design principles revolve around simplicity, modernity, and a touch of quirkiness. Each icon is distilled to its fundamental form, ensuring it embodies only the most essential characteristics. With bold geometric shapes, our icons boast a symmetrical and consistent look, providing unparalleled clarity and readability even at smaller sizes. This unique blend of contemporary design and cultural heritage makes icon.gl not just a collection of symbols, but a storytelling tool that bridges the past with the present.
 
 <p align="center">
     <img src="res/yonaguni_symbol.jpg" width="80%" height="80%" alt="Yonaguni Symbols">
@@ -92,6 +92,11 @@ Icons have been designed to work best in four sizes: 16px, 20px, 24px, and 32px.
 ## Installation
 
 Instructions on how to integrate icon.gl into your project.
+
+``` sh
+npm i icon.gl
+```
+
 
 ## Template
 
@@ -181,13 +186,13 @@ Peach Template
     </a>
 </p>
 
+- https://www.npmjs.com/package/stylescape
 
 
 
 
 ## Links
 
-- <https://en.wikipedia.org/wiki/Kaid%C4%81_glyphs>
 
 ### Guidelines
 

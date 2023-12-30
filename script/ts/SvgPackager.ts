@@ -1,3 +1,5 @@
+// script/SvgPackager.ts
+
 // Copyright 2023 Scape Agency BV
 
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -50,7 +52,9 @@ class SvgPackager {
      */
     public async processSvgFiles(
         directory: string,
-        outputDirectory: string
+        outputDirectory: string,
+        ts_output_directory: string,
+        json_output_directory: string,
     ): Promise<void> {
 
         const iconNames: string[] = [];
@@ -72,9 +76,9 @@ class SvgPackager {
                 // Write the optimized SVG file
                 await this.writeSvgFile(file, iconName, resultSvg, outputDirectory);
                 // Write the optimized TypeScript file
-                await this.writeTypeScriptFile(file, iconName, resultSvg, outputDirectory);
+                await this.writeTypeScriptFile(file, iconName, resultSvg, ts_output_directory);
             }
-            await this.writeIconsJson(iconNames, outputDirectory);
+            await this.writeIconsJson(iconNames, json_output_directory);
             console.log(`Successfully processed ${svgFiles.length} SVG files.`);
         } catch (error) {
             console.error('Error processing SVG files:', error);
@@ -97,7 +101,6 @@ class SvgPackager {
             throw error;
         }
     }
-
 
     /**
      * Sanitizes a file name to be a valid TypeScript identifier.
@@ -148,7 +151,6 @@ class SvgPackager {
             throw error;
         }
     }
-
 
     /**
      * Writes the SVG content to a file.

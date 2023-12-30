@@ -8,14 +8,14 @@ export type IconGlKey =
   | "Api"
   | "Home";
 
-export enum icon_gl {
+export enum IconGl {
   Admin = "admin",
   Api = "api",
   Home = "home",
 }
 
-export const MY_CODEPOINTS: { [key in icon_gl]: string } = {
-  [icon_gl.Admin]: "61697",
-  [icon_gl.Api]: "61698",
-  [icon_gl.Home]: "61699",
+export const ICON_GL_CODEPOINTS: { [key in IconGl]: string } = {
+  [IconGl.Admin]: "61697",
+  [IconGl.Api]: "61698",
+  [IconGl.Home]: "61699",
 };

@@ -9,7 +9,7 @@ import { loadConfig } from 'svgo';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 class SvgPackager {
-    processSvgFiles(directory, outputDirectory) {
+    processSvgFiles(directory, outputDirectory, ts_output_directory, json_output_directory) {
         return __awaiter(this, void 0, void 0, function* () {
             const iconNames = [];
             try {
@@ -24,9 +24,9 @@ class SvgPackager {
                     const optimizedSvg = yield this.optimizeSvg(file, svgContent);
                     const resultSvg = optimizedSvg.trim();
                     yield this.writeSvgFile(file, iconName, resultSvg, outputDirectory);
-                    yield this.writeTypeScriptFile(file, iconName, resultSvg, outputDirectory);
+                    yield this.writeTypeScriptFile(file, iconName, resultSvg, ts_output_directory);
                 }
-                yield this.writeIconsJson(iconNames, outputDirectory);
+                yield this.writeIconsJson(iconNames, json_output_directory);
                 console.log(`Successfully processed ${svgFiles.length} SVG files.`);
             }
             catch (error) {
