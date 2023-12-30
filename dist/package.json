@@ -22,5 +22,14 @@
   ],
   "license": "Apache-2.0",
   "homepage": "https://www.icon.gl/",
-  "main": "index.js"
+  "main": "index.js",
+  "files": [
+    "svg/**/*.{svg}",
+    "js/**/*.{js,map}",
+    "ts/**/*.ts",
+    "css/**/*.{css,map}",
+    "scss/**/*.{scss}",
+    "font/**/*.{eot,otf,ttf,woff,woff2}",
+    "!.DS_Store"
+  ]
 }

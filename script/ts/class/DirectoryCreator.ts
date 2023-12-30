@@ -27,28 +27,25 @@ import path from 'path';
 // Classes
 // ============================================================================
 
-// class DirectoryCreator {
-//     async createDirectories(basePath: string, directories: string[]): Promise<void> {
-//         for (const dir of directories) {
-//             const dirPath = path.join(basePath, dir);
-//             try {
-//                 await fs.mkdir(dirPath, { recursive: true });
-//                 console.log(`Directory created: ${dirPath}`);
-//             } catch (error) {
-//                 console.error(`Error creating directory ${dirPath}:`, error);
-//             }
-//         }
-//     }
-// }
+/**
+ * A class for creating directories.
+ */
+ class DirectoryCreator {
 
-class DirectoryCreator {
-
+    /**
+     * Creates directories at the specified locations.
+     * @param {string} basePath - The base path where directories will be created.
+     * @param {string[]} directories - An array of directory paths to create.
+     * @description This method iterates over the provided array of directory paths, 
+     *              creating each directory at the specified location within the base path. 
+     *              If a directory already exists, it skips creation. This is useful for 
+     *              setting up a project structure or ensuring necessary directories are 
+     *              available before performing file operations.
+     * @throws Will throw an error if directory creation fails.
+     */
     async createDirectories(basePath: string, directories: string[]): Promise<void> {
-        console.log(`directories: ${directories}`);
-
         directories.forEach(dir => {
             const dirPath = path.join(basePath, dir);
-            console.log(`creating ${dirPath}`);
             if (!fs.existsSync(dirPath)) {
                 fs.mkdirSync(dirPath, { recursive: true });
                 console.log(`Directory created: ${dirPath}`);
@@ -57,7 +54,6 @@ class DirectoryCreator {
             }
         });
     }
-
 }
 
 

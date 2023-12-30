@@ -28,14 +28,24 @@ import path from 'path';
 // Classes
 // ============================================================================
 
-class PackageCreator {
-
+/**
+ * A class for creating a package.json file for a project.
+ */
+ class PackageCreator {
     private packageJson: PackageJson;
 
+    /**
+     * Initializes a new instance of the PackageCreator class.
+     * @param {PackageJson} packageJson - The content to be written into package.json.
+     */
     constructor(packageJson: PackageJson) {
         this.packageJson = packageJson;
     }
 
+    /**
+     * Creates a package.json file in the specified directory.
+     * @param {string} outputDir - The directory where package.json will be created.
+     */
     async createPackageJson(outputDir: string): Promise<void> {
         const filePath = path.join(outputDir, 'package.json');
         const data = JSON.stringify(this.packageJson, null, 2);

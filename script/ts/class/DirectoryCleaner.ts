@@ -1,4 +1,4 @@
-// script/class/TypeScriptCompiler.ts
+// script/class/class/DirectoryCleaner.ts
 
 // Copyright 2023 Scape Agency BV
 
@@ -19,41 +19,34 @@
 // Import
 // ============================================================================
 
-// import * as ts from 'typescript';
-import ts from 'typescript';
+import fs from 'fs';
+import path from 'path';
 
 
 // ============================================================================
 // Classes
 // ============================================================================
 
-/**
- * A class to compile TypeScript files.
- */
- class TypeScriptCompiler {
+class DirectoryCleaner {
 
     /**
-     * Compiles TypeScript files to JavaScript.
-     * @param {string[]} filePaths - An array of file paths to be compiled.
-     * @param {string} outDir - The output directory for compiled JavaScript files.
+     * Recursively deletes all contents of the directory.
+     * @param dirPath The path to the directory to clean.
      */
-    compile(filePaths: string[], outDir: string): void {
-        // TypeScript compiler options
-        const options: ts.CompilerOptions = {
-            module: ts.ModuleKind.CommonJS,
-            target: ts.ScriptTarget.ES2015,
-            outDir,
-            // Additional options can be added as needed
-        };
-    
-        // Create a TypeScript compiler host
-        const host = ts.createCompilerHost(options);
-    
-        // Create a program with the specified files and options
-        const program = ts.createProgram(filePaths, options, host);
-    
-        // Emit the compiled JavaScript files
-        program.emit();
+    public cleanDirectory(dirPath: string): void {
+        if (fs.existsSync(dirPath)) {
+            fs.readdirSync(dirPath).forEach(file => {
+                const curPath = path.join(dirPath, file);
+
+                if (fs.lstatSync(curPath).isDirectory()) { // Recurse
+                    this.cleanDirectory(curPath);
+                } else { // Delete file
+                    fs.unlinkSync(curPath);
+                }
+            });
+
+            fs.rmdirSync(dirPath);
+        }
     }
 }
 
@@ -62,4 +55,4 @@ import ts from 'typescript';
 // Export
 // ============================================================================
 
-export default TypeScriptCompiler;
+export default DirectoryCleaner;

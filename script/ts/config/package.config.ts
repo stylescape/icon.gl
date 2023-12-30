@@ -11,6 +11,15 @@ const packageConfig = {
     license: pack.license,
     homepage: pack.homepage,
     main: 'index.js',
+    files: [
+        "svg/**/*.{svg}",
+        "js/**/*.{js,map}",
+        "ts/**/*.ts",
+        "css/**/*.{css,map}",
+        "scss/**/*.{scss}",
+        "font/**/*.{eot,otf,ttf,woff,woff2}",
+        "!.DS_Store"
+    ],
     // repository: {
     //     type: pack.repository.type,
     //     url: pack.repository.url,

@@ -27,90 +27,34 @@ import path from 'path';
 // Classes
 // ============================================================================
 
+/**
+ * A class for copying files from one location to another.
+ */
+ class FileCopier {
 
-// class FileCopier {
-
-//     async copyFiles(srcDir: string, destDir: string): Promise<void> {
-//         const resolvedSrcDir = path.resolve(srcDir);
-//         const resolvedDestDir = path.resolve(destDir);
-//         this.copyDirectory(resolvedSrcDir, resolvedDestDir);
-//     }
-
-//     private copyDirectory(srcDir: string, destDir: string): void {
-//         if (!fs.existsSync(destDir)) {
-//             fs.mkdirSync(destDir, { recursive: true });
-//         }
-
-//         const files = fs.readdirSync(srcDir);
-
-//         files.forEach(file => {
-//             const srcFile = path.join(srcDir, file);
-//             const destFile = path.join(destDir, file);
-
-//             if (fs.statSync(srcFile).isDirectory()) {
-//                 this.copyDirectory(srcFile, destFile);
-//             } else {
-//                 console.log(`Copying file: ${srcFile}`);
-//                 fs.copyFileSync(srcFile, destFile);
-//             }
-//         });
-//     }
-// }
-
-
-// class FileCopier {
-
-//     async copyFiles(srcDir: string, destDir: string): Promise<void> {
-//         try {
-//             const files = fs.readdirSync(srcDir);
-//             console.log("FILES");
-//             console.log(files);
-
-//             files.forEach(file => {
-
-//                 const srcFile = path.join(".", srcDir, file);
-//                 const destFile = path.join(".", destDir, file);
-//                 console.log("FILE");
-//                 console.log(srcFile);
-//                 fs.copyFileSync(srcFile, destFile);
-//             });
-
-//             console.log(`Files copied from ${srcDir} to ${destDir}`);
-//             } catch (error) {
-//             console.error('Error copying files:', error);
-//             throw error;
-//         }
-//     }
-// }
-
-
-class FileCopier {
-
-    async copyFiles(srcDir: string, destDir: string): Promise<void> {
+    /**
+     * Copies a single file to a specified destination directory.
+     * @param {string} srcFile - The path of the source file to copy.
+     * @param {string} destDir - The destination directory where the file should be copied.
+     * @throws Will throw an error if the file copy operation fails.
+     */
+    async copyFileToDirectory(
+        srcFile: string,
+        destDir: string
+    ): Promise<void> {
         try {
-            const resolvedSrcDir = path.resolve(srcDir);
-            const resolvedDestDir = path.resolve(destDir);
-
-            const files = fs.readdirSync(resolvedSrcDir);
-            console.log("FILES:", files);
-
-            files.forEach(file => {
-                const srcFile = path.join(resolvedSrcDir, file);
-                const destFile = path.join(resolvedDestDir, file);
-
-                if (fs.statSync(srcFile).isFile()) {
-                    console.log("Copying file:", srcFile);
-                    fs.copyFileSync(srcFile, destFile);
-                }
-            });
-
-            console.log(`Files copied from ${resolvedSrcDir} to ${resolvedDestDir}`);
+            const fileName = path.basename(srcFile);
+            const destFilePath = path.join(destDir, fileName);
+            await fs.promises.copyFile(srcFile, destFilePath);
+            console.log(`File copied from ${srcFile} to ${destFilePath}`);
         } catch (error) {
-            console.error('Error copying files:', error);
+            console.error('Error copying file:', error);
             throw error;
         }
     }
+
 }
+
 
 // ============================================================================
 // Export

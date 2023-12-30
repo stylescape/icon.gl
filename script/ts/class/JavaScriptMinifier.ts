@@ -1,4 +1,4 @@
-// script/class/VersionWriter.ts
+// script/class/class/JavaScriptMinifier.ts
 
 // Copyright 2023 Scape Agency BV
 
@@ -19,6 +19,7 @@
 // Import
 // ============================================================================
 
+import { minify } from 'terser';
 import { promises as fs } from 'fs';
 
 
@@ -27,26 +28,35 @@ import { promises as fs } from 'fs';
 // ============================================================================
 
 /**
- * A class for writing version information to a file.
+ * Class to minify JavaScript files using Terser.
  */
- class VersionWriter {
+ class JavaScriptMinifier {
 
     /**
-     * Writes the specified version string to a file.
-     * @param {string} filePath - The file path where the version will be written.
-     * @param {string} version - The version string to write to the file.
+     * Minifies a JavaScript file.
+     * @param {string} inputPath - Path to the input JavaScript file.
+     * @param {string} outputPath - Path to save the minified output file.
+     * @param {Object} options - Optional minification options for Terser.
+     * @returns {Promise<void>} - A promise that resolves when minification is complete.
      */
-    async writeVersionToFile(
-        filePath: string,
-        version: string,
-    ): Promise<void> {
+    async minifyFile(inputPath: string, outputPath: string, options = {}): Promise<void> {
         try {
-            await fs.writeFile(filePath, version, 'utf8');
-            console.log(`Version ${version} written to ${filePath}`);
+            // Read the input file
+            const inputCode = await fs.readFile(inputPath, 'utf8');
+            // Minify the file using Terser
+            const result = await minify(inputCode, options);
+            // If minification is successful, write the output
+            if (result.code) {
+                await fs.writeFile(outputPath, result.code);
+            } else {
+                throw new Error('Minification resulted in empty output.');
+            }
         } catch (error) {
-            console.error(`Error writing version to file: ${error}`);
+            console.error(`Error minifying JavaScript file ${inputPath}:`, error);
+            throw error;
         }
     }
+
 }
 
 
@@ -54,4 +64,4 @@ import { promises as fs } from 'fs';
 // Export
 // ============================================================================
 
-export default VersionWriter;
+export default JavaScriptMinifier;

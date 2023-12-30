@@ -5,10 +5,13 @@ import SvgPackager from "./class/SvgPackager.js";
 import StyleProcessor from "./class/StyleProcessor.js";
 import SvgSpriteGenerator from "./class/SvgSpriteGenerator.js";
 import PackageCreator from './class/PackageCreator.js';
-import DirectoryCreator from './class/DirectoryCreator.js';
 import VersionWriter from './class/VersionWriter.js';
 import FileCopier from './class/FileCopier.js';
+import DirectoryCreator from './class/DirectoryCreator.js';
+import DirectoryCopier from './class/DirectoryCopier.js';
+import DirectoryCleaner from './class/DirectoryCleaner.js';
 import TypeScriptCompiler from './class/TypeScriptCompiler.js';
+import JavaScriptMinifier from './class/JavaScriptMinifier.js';
 import { CONFIG } from './config/config.js';
 import svgspriteConfig from "./config/svgsprite.config.js";
 import packageConfig from "./config/package.config.js";
@@ -21,9 +24,15 @@ const styleProcessor = new StyleProcessor();
 const versionWriter = new VersionWriter();
 const packageCreator = new PackageCreator(packageConfig);
 const fileCopier = new FileCopier();
+const directoryCopier = new DirectoryCopier();
+const dirCleaner = new DirectoryCleaner();
+const tsCompiler = new TypeScriptCompiler();
+const jsMinifier = new JavaScriptMinifier();
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
+            dirCleaner.cleanDirectory(CONFIG.path.dist);
+            console.log(`Directory cleaned: ${CONFIG.path.dist}`);
             console.log('Starting Directory creation...');
             yield dirCreator.createDirectories('.', directories);
             console.log('Starting SVG processing...');
@@ -40,14 +49,14 @@ function main() {
             yield styleProcessor.processStyles(path.join(CONFIG.path.scss_input, 'index.scss'), path.join(CONFIG.path.css_output, 'icon.gl.min.css'), 'compressed');
             console.log('SASS Processing completed.');
             try {
-                yield fileCopier.copyFiles(CONFIG.path.ts_input, CONFIG.path.ts_output);
+                yield directoryCopier.copyFiles(CONFIG.path.ts_input, CONFIG.path.ts_output);
                 console.log('Files copied successfully.');
             }
             catch (error) {
                 console.error('Error while copying files:', error);
             }
             try {
-                yield fileCopier.copyFiles(CONFIG.path.scss_input, CONFIG.path.scss_output);
+                yield directoryCopier.copyFiles(CONFIG.path.scss_input, CONFIG.path.scss_output);
                 console.log('Files copied successfully.');
             }
             catch (error) {
@@ -56,7 +65,6 @@ function main() {
             yield versionWriter.writeVersionToFile('VERSION', packageConfig.version);
             yield packageCreator.createPackageJson(CONFIG.path.dist);
             try {
-                const tsCompiler = new TypeScriptCompiler();
                 const tsFiles = [
                     './src/ts/index.ts',
                 ];
@@ -68,6 +76,11 @@ function main() {
             catch (error) {
                 console.error('An error occurred:', error);
             }
+            const inputJsFile = './path/to/your/script.js';
+            const outputMinJsFile = './path/to/your/script.min.js';
+            yield jsMinifier.minifyFile(inputJsFile, outputMinJsFile)
+                .then(() => console.log('JavaScript minification completed.'))
+                .catch(console.error);
         }
         catch (error) {
             console.error('An error occurred:', error);

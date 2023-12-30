@@ -26,10 +26,13 @@ import SvgPackager from "./class/SvgPackager.js";
 import StyleProcessor from "./class/StyleProcessor.js";
 import SvgSpriteGenerator from "./class/SvgSpriteGenerator.js";
 import PackageCreator from './class/PackageCreator.js';
-import DirectoryCreator from './class/DirectoryCreator.js';
 import VersionWriter from './class/VersionWriter.js';
 import FileCopier from './class/FileCopier.js'; 
+import DirectoryCreator from './class/DirectoryCreator.js';
+import DirectoryCopier from './class/DirectoryCopier.js';
+import DirectoryCleaner from './class/DirectoryCleaner.js'; // Adjust the path as needed
 import TypeScriptCompiler from './class/TypeScriptCompiler.js';
+import JavaScriptMinifier from './class/JavaScriptMinifier.js';
 
 // Import necessary configurations
 import { CONFIG } from './config/config.js';
@@ -51,6 +54,11 @@ const styleProcessor = new StyleProcessor();
 const versionWriter = new VersionWriter();
 const packageCreator = new PackageCreator(packageConfig);
 const fileCopier = new FileCopier();
+const directoryCopier = new DirectoryCopier();
+const dirCleaner = new DirectoryCleaner();
+const tsCompiler = new TypeScriptCompiler();
+const jsMinifier = new JavaScriptMinifier();
+
 // const tsCompiler = new TypeScriptCompiler();
 
 
@@ -67,7 +75,13 @@ async function main() {
 
     try {
 
-        // Dirs
+
+        // Dirs Clean
+        // --------------------------------------------------------------------
+        dirCleaner.cleanDirectory(CONFIG.path.dist);
+        console.log(`Directory cleaned: ${CONFIG.path.dist}`);
+
+        // Dirs Create
         // --------------------------------------------------------------------
         console.log('Starting Directory creation...');
         // Assuming the base path is the current directory
@@ -124,10 +138,26 @@ async function main() {
         console.log('SASS Processing completed.');
 
 
-        // Copy
+        // Copy Files
+        // --------------------------------------------------------------------
+
+        // Define the source file and destination directory
+        // const srcFile = './path/to/source/file.txt';
+        // const destDir = './path/to/destination/directory';
+
+        // // Copy the file
+        // try {
+        //     await fileCopier.copyFileToDirectory(srcFile, destDir);
+        //     console.log('File copying completed successfully.');
+        // } catch (error) {
+        //     console.error('Error while copying file:', error);
+        // }
+
+
+        // Copy Dirs
         // --------------------------------------------------------------------
         try {
-            await fileCopier.copyFiles(
+            await directoryCopier.copyFiles(
                 CONFIG.path.ts_input,
                 CONFIG.path.ts_output,
             );
@@ -136,7 +166,7 @@ async function main() {
             console.error('Error while copying files:', error);
         }
         try {
-            await fileCopier.copyFiles(
+            await directoryCopier.copyFiles(
                 CONFIG.path.scss_input,
                 CONFIG.path.scss_output,
             );
@@ -156,6 +186,7 @@ async function main() {
         await packageCreator.createPackageJson(CONFIG.path.dist);
 
 
+        // Compile TypeScript to JavaScript
         // --------------------------------------------------------------------
 
 
@@ -163,7 +194,6 @@ async function main() {
             // Other code...
     
             // TypeScript compilation
-            const tsCompiler = new TypeScriptCompiler();
             const tsFiles = [
                 './src/ts/index.ts',
                 // './src/ts/file1.ts',
@@ -180,6 +210,20 @@ async function main() {
             console.error('An error occurred:', error);
         }
 
+
+        // Minify JavaScript
+        // --------------------------------------------------------------------
+
+
+        const inputJsFile = './path/to/your/script.js';
+        const outputMinJsFile = './path/to/your/script.min.js';
+
+        await jsMinifier.minifyFile(inputJsFile, outputMinJsFile)
+        .then(() => console.log('JavaScript minification completed.'))
+        .catch(console.error);
+
+
+        
 
     } catch (error) {
         console.error('An error occurred:', error);

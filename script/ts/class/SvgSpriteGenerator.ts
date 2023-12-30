@@ -28,13 +28,26 @@ import path from 'path';
 // Classes
 // ============================================================================
 
+/**
+ * A class for generating SVG sprites from individual SVG files.
+ */
 class SvgSpriteGenerator {
+ 
     private config: any;
 
+    /**
+     * Constructs an instance of SvgSpriteGenerator with the provided configuration.
+     * @param {any} config - Configuration object for svg-sprite.
+     */
     constructor(config: any) {
         this.config = config;
     }
 
+    /**
+     * Generates an SVG sprite from SVG files in a specified directory.
+     * @param {string} sourceDir - Directory containing source SVG files.
+     * @param {string} outputDir - Directory where the generated sprite will be saved.
+     */
     async generateSprite(sourceDir: string, outputDir: string) {
         try {
             const files = fs.readdirSync(sourceDir);
@@ -55,9 +68,18 @@ class SvgSpriteGenerator {
 
                 for (const mode in result) {
                     for (const resource in result[mode]) {
-                        const outputPath = path.resolve(outputDir, result[mode][resource].path);
-                        fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-                        fs.writeFileSync(outputPath, result[mode][resource].contents);
+                        const outputPath = path.resolve(
+                            outputDir,
+                            result[mode][resource].path
+                        );
+                        fs.mkdirSync(
+                            path.dirname(outputPath),
+                            { recursive: true }
+                        );
+                        fs.writeFileSync(
+                            outputPath,
+                            result[mode][resource].contents
+                        );
                     }
                 }
             });
@@ -67,6 +89,7 @@ class SvgSpriteGenerator {
         }
     }
 }
+
 
 // ============================================================================
 // Export
