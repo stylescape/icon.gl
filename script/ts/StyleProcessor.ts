@@ -19,7 +19,7 @@
 // Import
 // ============================================================================
 
-import sass from 'sass';
+import * as sass from 'sass'
 import postcss from 'postcss';
 import fs from 'fs';
 import postcssConfigExpanded from './config/postcss.config.expanded.js';

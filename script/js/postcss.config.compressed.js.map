@@ -1,1 +1,0 @@
-{"version":3,"file":"postcss.config.compressed.js","sourceRoot":"","sources":["../ts/postcss.config.compressed.ts"],"names":[],"mappings":"AAAA,OAAO,YAAY,MAAM,cAAc,CAAC;AACxC,OAAO,OAAO,MAAM,SAAS,CAAC;AAI9B,MAAM,uBAAuB,GAAG;IAC5B,OAAO,EAAE;QACL,YAAY;QACZ,OAAO,CAAC,EAAE,MAAM,EAAE,SAAS,EAAE,CAAC;KACjC;CACJ,CAAC;AACF,eAAe,uBAAuB,CAAC"}

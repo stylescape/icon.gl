@@ -26,6 +26,13 @@ import FontGenerator from './FontGenerator.js';
 import SvgPackager from "./SvgPackager.js";
 import StyleProcessor from "./StyleProcessor.js";
 import SvgSpriteGenerator from "./SvgSpriteGenerator.js";
+import PackageCreator from './PackageCreator.js';
+
+import DirectoryCreator from './DirectoryCreator.js'; // Adjust the import path as needed
+// import packageJson from '.../package.json';
+
+// const version = packageJson.version;
+
 import svgspriteConfig from "./config/svgsprite.config.js";
 
 
@@ -38,7 +45,16 @@ const svgPackager = new SvgPackager();
 const fontGenerator = new FontGenerator();
 const spriteGenerator = new SvgSpriteGenerator(svgspriteConfig);
 const styleProcessor = new StyleProcessor();
-
+const dirCreator = new DirectoryCreator();
+const directories = Object.values(CONFIG.path);
+const creator = new PackageCreator({
+    name: 'your-package-name',
+    version: '1.0.0',
+    description: 'Your package description',
+    main: 'index.js',
+    // ... other properties
+  });
+  
 
 // ============================================================================
 // Functions
@@ -52,6 +68,13 @@ const styleProcessor = new StyleProcessor();
 async function main() {
 
     try {
+
+        // Dirs
+        // --------------------------------------------------------------------
+        console.log('Starting Directory creation...');
+        // Assuming the base path is the current directory
+        await dirCreator.createDirectories('.', directories);
+
 
         // SVG
         // --------------------------------------------------------------------
@@ -103,6 +126,12 @@ async function main() {
         console.log('SASS Processing completed.');
 
 
+        // Package JSON
+        // --------------------------------------------------------------------
+
+        await creator.createPackageJson(CONFIG.path.dist);
+
+
         // --------------------------------------------------------------------
 
     } catch (error) {
@@ -110,6 +139,7 @@ async function main() {
     }
 
 }
+
 
 // Execute the main function
 main();

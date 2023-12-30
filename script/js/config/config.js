@@ -1,5 +1,7 @@
 export const CONFIG = {
     path: {
+        src: './src',
+        dist: './dist',
         svg_input: './src/svg',
         svg_output: './dist/svg',
         sprite_input: './dist/svg',
