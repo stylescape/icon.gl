@@ -75,31 +75,31 @@ Adobe Illustrator
 
 Setttings
 
-Units
+#### Units
 
 - General: Pixels
 - Stroke: Pixels
 - Type: Pixels
 
-Guides & Grid
+#### Guides & Grid
 
-Guides
+#### Guides
 
 - Color: Light Blue
 - Style: Lines
 
-Grid
+#### Grid
 
 - Color: Light Gray
 - Style: Lines
 - Gridlines every: 64 px
 - Subdividsions
 
-View
+#### View
 
 - Snap to Grid
 
-Artboards
+#### Artboards
 
 - 64 artboards (8x8)
 - Artboards are snapped to the document grid.
@@ -156,7 +156,7 @@ Icon content is limited to the 20dp x 20dp live area, with 2dp of padding around
 Padding
 2dp of padding surrounds the live area.
 
-### Scape Style
+### Stylescape 
 
 <p align="center">
     <a href="https://github.com/scape-agency/kyu">
@@ -243,11 +243,14 @@ The repository provides a track of different versions of the assets for easier n
 
 #### Authors
 
-This is an open-source project by the **[Scape Agency](https://www.scape.agency "Scape Agency website")**.
+**icon.gl** is an open-source project by **[Scape Agency](https://www.scape.agency "Scape Agency website")**.
 
-The Scape Agency mission is enabling architects to take back initiative and contribute in solving the mismatch in housing through blockchain technology. Therefore the Scape Agency seeks to unschackle the traditional constraints and construct middle ground between rent and the rigidity of traditional mortgages.
+##### Scape Agency
 
-website: [www.scape.agency](https://www.scape.agency "Scape Agency website")
+Scape Agency is a spatial innovation collective that dreams, discovers and designs the everyday of tomorrow. We blend design thinking with emerging technologies to create a brighter perspective for people and planet. Our products and services naturalise technology in liveable and sustainable –scapes that spark the imagination and inspire future generations.
+
+- website: [scape.agency](https://www.scape.agency "Scape Agency website")
+- github: [github.com/scape-agency](https://github.com/scape-agency "Scape Agency Github")
 
 <!-- #### Contributors
 
@@ -281,7 +284,7 @@ We have compiled a list of frequently asked questions for easier navigation and 
 
 #### Copyright
 
-Copyright &copy; 2023 [Stichting Scape Agency](https://www.scape.agency/ "Scape Agency website"). All Rights Reserved.
+Copyright &copy; 2023 [Scape Agency BV](https://www.scape.agency/ "Scape Agency website"). All Rights Reserved.
 
 #### License
 
