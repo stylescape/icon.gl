@@ -15,7 +15,7 @@
 
 ---
 
-<img align="right" width="75%" src="https://raw.githubusercontent.com/block-foundation/brand/master/src/image/repository_cover/block_foundation-structure-03-accent.jpg"  alt="Block Foundation Brand">
+<img align="right" width="75%" src="https://raw.githubusercontent.com/scape-agency/icon.gl/master/src/image/repository_cover/block_foundation-structure-03-accent.jpg"  alt="Scape Agency Brand">
 
 ### Contents
 
@@ -179,9 +179,9 @@ Padding
     </a>
 </p>
 
-## Quick Start
 
-## Usage
+
+
 
 ## Links
 
@@ -204,3 +204,93 @@ Padding
 ## Ref
 
 - <https://github.com/kreuzerk/svg-icon-library-starter>
+
+
+
+
+
+
+---
+
+## Colophon
+
+### Development Resources
+
+#### Version
+
+This documentation is in version `v0.0.1`.
+Last edited: `07/2023`
+
+<!-- #### Versions
+
+The repository provides a track of different versions of the assets for easier navigation and understanding of the evolution of the brand. Each version is tagged with a unique identifier.
+
+1.0.0 Initial release of brand assets
+1.0.1 Minor tweaks to the color palette
+1.1.0 Introduction of new logo variants
+1.1.1 Fixes to SVG assets
+1.2.0 Update of Typography guidelines
+1.2.1 Minor fixes to the logo files
+1.3.0 Addition of new graphics and diagrams
+1.3.1 Updated Readme
+1.4.0 Introduction of new Templates
+1.4.1 Updated copyrights and licensing information -->
+
+<!-- #### Branches
+
+- `Master` Stable, production-ready version of the brand assets
+- `Develop` Work in progress, latest changes and updates -->
+
+#### Authors
+
+This is an open-source project by the **[Scape Agency](https://www.scape.agency "Scape Agency website")**.
+
+The Scape Agency mission is enabling architects to take back initiative and contribute in solving the mismatch in housing through blockchain technology. Therefore the Scape Agency seeks to unschackle the traditional constraints and construct middle ground between rent and the rigidity of traditional mortgages.
+
+website: [www.scape.agency](https://www.scape.agency "Scape Agency website")
+
+<!-- #### Contributors
+
+We are proud to acknowledge the contributions made by individuals from around the world. The success of this repository is a result of the collaborative efforts of these passionate individuals. -->
+
+<!-- Contributions
+Contributions to this project follow the all-contributors specification. Each contributor gets recognition for their work in the contributors section. -->
+<!-- Pull Requests
+Pull requests are always welcome. If you wish to contribute or make changes, please make a pull request. If it's a substantial change, please create an issue first, to discuss it. -->
+
+<!-- Community
+Join our community and contribute towards the development and enhancement of the brand assets. We value all our contributors and aim to create a vibrant community that supports and helps each other. -->
+
+#### Contributing
+
+We'd love for you to contribute and to make this project even better than it is today!
+Please refer to the [contribution guidelines](.github/CONTRIBUTING.md) for information.
+
+<!-- 
+#### Sponsorships
+
+Your sponsorships help us maintain this project. You can sponsor this project through the sponsorship link provided. Your contribution can help us in many ways, from keeping our servers up and running, to supporting the further development and improvement of these assets.
+
+Issues
+In case you find any errors or have suggestions for improvements, we encourage you to raise an issue. The Issues tab is a space for community members to discuss problems they’ve encountered, suggest enhancements, and more.
+
+#### FAQ
+We have compiled a list of frequently asked questions for easier navigation and understanding of this repository. If you have more questions, please raise an issue and we will be glad to assist you. -->
+
+### Legal Information
+
+#### Copyright
+
+Copyright &copy; 2023 [Stichting Scape Agency](https://www.scape.agency/ "Scape Agency website"). All Rights Reserved.
+
+#### License
+
+Except as otherwise noted, the content in this repository is licensed under the
+[Creative Commons Attribution 4.0 International (CC BY 4.0) License](https://creativecommons.org/licenses/by/4.0/), and
+code samples are licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0).
+
+Also see [LICENSE](https://github.com/block-foundation/community/blob/master/src/LICENSE) and [LICENSE-CODE](https://github.com/block-foundation/community/blob/master/src/LICENSE-CODE).
+
+#### Disclaimer
+
+**THIS SOFTWARE IS PROVIDED AS IS WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
