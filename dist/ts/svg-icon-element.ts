@@ -1,5 +1,3 @@
-// script/DirectoryGenerator.ts
-
 // Copyright 2023 Scape Agency BV
 
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,36 +17,34 @@
 // Import
 // ============================================================================
 
-import fs from 'fs';
-import path from 'path';
+'use strict';
+
+import './style/svg-icon-element.less';
 
 
 // ============================================================================
 // Classes
 // ============================================================================
 
-class DirectoryCreator {
+class SvgIconElement extends HTMLElement {
 
-    async createDirectories(basePath: string, directories: string[]): Promise<void> {
-        console.log(`directories: ${directories}`);
-
-        directories.forEach(dir => {
-            const dirPath = path.join(basePath, dir);
-            console.log(`creating ${dirPath}`);
-            if (!fs.existsSync(dirPath)) {
-                fs.mkdirSync(dirPath, { recursive: true });
-                console.log(`Directory created: ${dirPath}`);
-            } else {
-                console.log(`Directory already exists: ${dirPath}`);
-            }
-        });
+    private generateSvgIcon(url: string, id: string): string {
+        return `<svg class="si"><use xlink:href="${url}#${id}"></use></svg>`;
     }
 
+    private setContent(): void {
+        const url = this.getAttribute('url') || '';
+        const type = this.getAttribute('type') || '';
+        this.innerHTML = this.generateSvgIcon(url, type);
+    }
+
+    connectedCallback(): void {
+        this.setContent();
+    }
+
+    attributeChangedCallback(): void {
+        this.setContent();
+    }
 }
 
-
-// ============================================================================
-// Export
-// ============================================================================
-
-export default DirectoryCreator;
+window.customElements.define('svg-icon', SvgIconElement);

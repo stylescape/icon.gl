@@ -1,4 +1,4 @@
-// script/SvgSpriteGenerator.ts
+// script/class/SvgSpriteGenerator.ts
 
 // Copyright 2023 Scape Agency BV
 

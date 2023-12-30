@@ -1,4 +1,4 @@
-// script/StyleProcessor.ts
+// script/class/StyleProcessor.ts
 
 // Copyright 2023 Scape Agency BV
 
@@ -22,8 +22,8 @@
 import * as sass from 'sass'
 import postcss from 'postcss';
 import fs from 'fs';
-import postcssConfigExpanded from './config/postcss.config.expanded.js';
-import postcssConfigCompressed from './config/postcss.config.compressed.js';
+import postcssConfigExpanded from '../config/postcss.config.expanded.js';
+import postcssConfigCompressed from '../config/postcss.config.compressed.js';
 
 
 // ============================================================================

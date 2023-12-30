@@ -1,4 +1,4 @@
-// script/VersionWriter.ts
+// script/class/PackageCreator.ts
 
 // Copyright 2023 Scape Agency BV
 
@@ -19,7 +19,8 @@
 // Import
 // ============================================================================
 
-import { promises as fs } from 'fs';
+import fs from 'fs';
+import path from 'path';
 // import * as pack from '../../package.json' assert { type: 'json' };
 
 
@@ -27,29 +28,27 @@ import { promises as fs } from 'fs';
 // Classes
 // ============================================================================
 
-class VersionWriter {
+class PackageCreator {
 
-    // private getVersion(pack: { version: string; }): string {
-    //     console.log('Version from package.json:', pack.version); // For debugging
-    //     return pack.version;
-    // }
+    private packageJson: PackageJson;
 
-
-    async writeVersionToFile(filePath: string, version: string): Promise<void> {
-        try {
-            // const version = this.getVersion(pack);
-            await fs.writeFile(filePath, version, 'utf8');
-            console.log(`Version ${version} written to ${filePath}`);
-        } catch (error) {
-            console.error(`Error writing version to file: ${error}`);
-        }
+    constructor(packageJson: PackageJson) {
+        this.packageJson = packageJson;
     }
-}
 
+    async createPackageJson(outputDir: string): Promise<void> {
+        const filePath = path.join(outputDir, 'package.json');
+        const data = JSON.stringify(this.packageJson, null, 2);
+
+        fs.writeFileSync(filePath, data, 'utf-8');
+        console.log(`package.json created at ${filePath}`);
+    }
+
+}
 
 
 // ============================================================================
 // Export
 // ============================================================================
 
-export default VersionWriter;
+export default PackageCreator;

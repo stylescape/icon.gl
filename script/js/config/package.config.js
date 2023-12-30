@@ -4,6 +4,9 @@ const packageConfig = {
     name: pack.name,
     version: pack.version,
     description: pack.description,
+    keywords: pack.keywords,
+    license: pack.license,
+    homepage: pack.homepage,
     main: 'index.js',
 };
 export default packageConfig;

@@ -1,4 +1,4 @@
-// script/PackageCreator.ts
+// script/class/VersionWriter.ts
 
 // Copyright 2023 Scape Agency BV
 
@@ -19,52 +19,37 @@
 // Import
 // ============================================================================
 
-import fs from 'fs';
-import path from 'path';
+import { promises as fs } from 'fs';
 // import * as pack from '../../package.json' assert { type: 'json' };
-
-
-// ============================================================================
-// Interfaces
-// ============================================================================
-
-interface PackageJson {
-  name: string;
-  version: string;
-  description?: string;
-  main?: string;
-  scripts?: Record<string, string>;
-  dependencies?: Record<string, string>;
-  devDependencies?: Record<string, string>;
-  // ... other properties as needed
-}
 
 
 // ============================================================================
 // Classes
 // ============================================================================
 
-class PackageCreator {
+class VersionWriter {
 
-    private packageJson: PackageJson;
+    // private getVersion(pack: { version: string; }): string {
+    //     console.log('Version from package.json:', pack.version); // For debugging
+    //     return pack.version;
+    // }
 
-    constructor(packageJson: PackageJson) {
-        this.packageJson = packageJson;
+
+    async writeVersionToFile(filePath: string, version: string): Promise<void> {
+        try {
+            // const version = this.getVersion(pack);
+            await fs.writeFile(filePath, version, 'utf8');
+            console.log(`Version ${version} written to ${filePath}`);
+        } catch (error) {
+            console.error(`Error writing version to file: ${error}`);
+        }
     }
-
-    async createPackageJson(outputDir: string): Promise<void> {
-        const filePath = path.join(outputDir, 'package.json');
-        const data = JSON.stringify(this.packageJson, null, 2);
-
-        fs.writeFileSync(filePath, data, 'utf-8');
-        console.log(`package.json created at ${filePath}`);
-    }
-
 }
+
 
 
 // ============================================================================
 // Export
 // ============================================================================
 
-export default PackageCreator;
+export default VersionWriter;

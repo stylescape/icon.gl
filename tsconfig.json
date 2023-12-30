@@ -129,7 +129,7 @@
         "src/index.ts.xxx",
         "src/index.ts.xxx",
         // "script/release.ts",
-        "./script/**/*.ts", "tmp/SvgOptimizer.ts",
+        "./script/**/*.ts", "tmp/SvgOptimizer.ts", "tmp/ModulePackager.ts",
 
     ],
 

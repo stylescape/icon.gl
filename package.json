@@ -61,10 +61,6 @@
         "webpack-serve": "webpack serve --mode development --config webpack.config.js",
         "webpack-start": "webpack-dev-server --mode development --config webpack.config.js",
         "icons-process": "node script/js/index.js",
-        "icons-sprite": "svg-sprite --config svg-sprite.json --log=info \"dist/svg/*.svg\"",
-        "icons-font": "npm run icons-font-main",
-        "icons-font3": "npm run icons-font-main && npm run icons-font-min",
-        "icons-font-main": "fantasticon --debug",
         "icons-font-min": "cleancss -O1 --format breakWith=lf --with-rebase --output font/bootstrap-icons.min.css font/bootstrap-icons.css",
         "icons-compile3": "tsc filename.ts | node filename.js",
         "icons-zip": "cross-env-shell \"rm -rf bootstrap-icons-$npm_package_version bootstrap-icons-$npm_package_version.zip && cp -r icons/ bootstrap-icons-$npm_package_version && cp bootstrap-icons.svg bootstrap-icons-$npm_package_version && cp -r font/ bootstrap-icons-$npm_package_version && zip -qr9 bootstrap-icons-$npm_package_version.zip bootstrap-icons-$npm_package_version && rm -rf bootstrap-icons-$npm_package_version\""

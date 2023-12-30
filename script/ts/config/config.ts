@@ -10,11 +10,14 @@ export const CONFIG = {
         sprite_output:  './dist/sprite',
         font_input:     './dist/svg',
         font_output:    './dist/font',
-        style_input:    './src/scss',
-        style_output:   './dist/css',
+        scss_input:    './src/scss',
+        scss_output:    './dist/scss',
+        css_output:   './dist/css',
         json_output:    './dist',
         // ts_output:      './dist/ts',
-        ts_output:      './src/ts/icons',
+        ts_input:      './src/ts',
+        ts_output:      './dist/ts',
+        ts_output_icons:      './src/ts/icons',
     },
 
 };

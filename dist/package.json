@@ -2,5 +2,25 @@
   "name": "icon.gl",
   "version": "0.0.1",
   "description": "icon.gl is a icon library and framework developed by Scape Agency.",
+  "keywords": [
+    "icon.gl",
+    "stylescape",
+    "icon",
+    "icons",
+    "icon-library",
+    "font",
+    "sprite",
+    "svg",
+    "sass",
+    "scss",
+    "woff",
+    "woff2",
+    "responsive",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://www.icon.gl/",
   "main": "index.js"
 }

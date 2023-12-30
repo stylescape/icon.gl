@@ -1,4 +1,4 @@
-// script/FontGenerator.ts
+// script/class/FontGenerator.ts
 
 // Copyright 2023 Scape Agency BV
 

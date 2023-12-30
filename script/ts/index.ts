@@ -21,15 +21,17 @@
 
 // Import necessary modules and classes
 import path from 'path';
-import FontGenerator from './FontGenerator.js';
-import SvgPackager from "./SvgPackager.js";
-import StyleProcessor from "./StyleProcessor.js";
-import SvgSpriteGenerator from "./SvgSpriteGenerator.js";
-import PackageCreator from './PackageCreator.js';
-import DirectoryCreator from './DirectoryCreator.js'; // Adjust the import path as needed
-import VersionWriter from './VersionWriter.js'; // Adjust the path as needed
+import FontGenerator from './class/FontGenerator.js';
+import SvgPackager from "./class/SvgPackager.js";
+import StyleProcessor from "./class/StyleProcessor.js";
+import SvgSpriteGenerator from "./class/SvgSpriteGenerator.js";
+import PackageCreator from './class/PackageCreator.js';
+import DirectoryCreator from './class/DirectoryCreator.js';
+import VersionWriter from './class/VersionWriter.js';
+import FileCopier from './class/FileCopier.js'; 
+import TypeScriptCompiler from './class/TypeScriptCompiler.js';
 
-
+// Import necessary configurations
 import { CONFIG } from './config/config.js';
 import svgspriteConfig from "./config/svgsprite.config.js";
 import packageConfig from "./config/package.config.js"
@@ -40,14 +42,17 @@ import packageConfig from "./config/package.config.js"
 // ============================================================================
 
 // Initialize instances of necessary classes
+const directories = Object.values(CONFIG.path);
+const dirCreator = new DirectoryCreator();
 const svgPackager = new SvgPackager();
 const fontGenerator = new FontGenerator();
 const spriteGenerator = new SvgSpriteGenerator(svgspriteConfig);
 const styleProcessor = new StyleProcessor();
-const dirCreator = new DirectoryCreator();
-const directories = Object.values(CONFIG.path);
 const versionWriter = new VersionWriter();
 const packageCreator = new PackageCreator(packageConfig);
+const fileCopier = new FileCopier();
+// const tsCompiler = new TypeScriptCompiler();
+
 
 // ============================================================================
 // Functions
@@ -62,8 +67,6 @@ async function main() {
 
     try {
 
-
-
         // Dirs
         // --------------------------------------------------------------------
         console.log('Starting Directory creation...');
@@ -77,7 +80,7 @@ async function main() {
         await svgPackager.processSvgFiles(
             CONFIG.path.svg_input,
             CONFIG.path.svg_output,
-            CONFIG.path.ts_output,
+            CONFIG.path.ts_output_icons,
             CONFIG.path.json_output,
         );
         console.log('SVG processing completed.');
@@ -108,18 +111,39 @@ async function main() {
         console.log('Processing SASS...');
         // Process with expanded style
         await styleProcessor.processStyles(
-            path.join(CONFIG.path.style_input, 'index.scss'),
-            path.join(CONFIG.path.style_output, 'icon.gl.css'),
+            path.join(CONFIG.path.scss_input, 'index.scss'),
+            path.join(CONFIG.path.css_output, 'icon.gl.css'),
             'expanded'
         );
         // Process with compressed style
         await styleProcessor.processStyles(
-            path.join(CONFIG.path.style_input, 'index.scss'),
-            path.join(CONFIG.path.style_output, 'icon.gl.min.css'),
+            path.join(CONFIG.path.scss_input, 'index.scss'),
+            path.join(CONFIG.path.css_output, 'icon.gl.min.css'),
             'compressed'
         );
         console.log('SASS Processing completed.');
 
+
+        // Copy
+        // --------------------------------------------------------------------
+        try {
+            await fileCopier.copyFiles(
+                CONFIG.path.ts_input,
+                CONFIG.path.ts_output,
+            );
+            console.log('Files copied successfully.');
+        } catch (error) {
+            console.error('Error while copying files:', error);
+        }
+        try {
+            await fileCopier.copyFiles(
+                CONFIG.path.scss_input,
+                CONFIG.path.scss_output,
+            );
+            console.log('Files copied successfully.');
+        } catch (error) {
+            console.error('Error while copying files:', error);
+        }
 
         // Version
         // --------------------------------------------------------------------
@@ -134,12 +158,39 @@ async function main() {
 
         // --------------------------------------------------------------------
 
+
+        try {
+            // Other code...
+    
+            // TypeScript compilation
+            const tsCompiler = new TypeScriptCompiler();
+            const tsFiles = [
+                './src/ts/index.ts',
+                // './src/ts/file1.ts',
+                // './src/ts/file2.ts'
+            ]; // Replace with actual file paths
+            const outputDir = './dist/js';
+            
+            console.log('Starting TypeScript compilation...');
+            tsCompiler.compile(tsFiles, outputDir);
+            console.log('TypeScript compilation completed.');
+    
+            // Other code...
+        } catch (error) {
+            console.error('An error occurred:', error);
+        }
+
+
     } catch (error) {
         console.error('An error occurred:', error);
     }
 
 }
 
+
+// ============================================================================
+// Main
+// ============================================================================
 
 // Execute the main function
 main();
