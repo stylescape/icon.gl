@@ -1,0 +1,27 @@
+.svg-icon-admin {
+    background: url("svg/sprite.css-48f5e25e.svg") 0 0 no-repeat;
+}
+
+.svg-icon-admin-dims {
+    width: 16px;
+    height: 16px;
+}
+
+.svg-icon-api {
+    background: url("svg/sprite.css-48f5e25e.svg") 100% 0 no-repeat;
+}
+
+.svg-icon-api-dims {
+    width: 16px;
+    height: 16px;
+}
+
+.svg-icon-home {
+    background: url("svg/sprite.css-48f5e25e.svg") 0 100% no-repeat;
+}
+
+.svg-icon-home-dims {
+    width: 16px;
+    height: 16px;
+}
+

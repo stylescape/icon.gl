@@ -1,26 +1,73 @@
-<header>
-<p align="center">
-    <img src=".github/images/logo_kaida.png" width="20%" height="20%" alt="Kaidā Logo">
-</p>
-<h1 align='center' style='border-bottom: none;'>Kaidā</h1>
-<h3 align='center'>Icon Library</h3>
-</header>
+<div align="right">
 
-<br/>
-<details open="open">
-<summary>Table of Contents</summary>
+[![GitHub License](https://img.shields.io/github/license/block-foundation/blocktxt?style=flat-square&logo=readthedocs&logoColor=FFFFFF&label=&labelColor=%23041B26&color=%23041B26&link=LICENSE)](https://github.com/scape-agency/icon.gl/blob/main/LICENSE)
+[![devContainer](https://img.shields.io/badge/Container-Remote?style=flat-square&logo=visualstudiocode&logoColor=%23FFFFFF&label=Remote&labelColor=%23041B26&color=%23041B26)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/scape-agency/icon.gl)
 
-- [About](#about)
-- [Quick Start](#quick-start)
-- [Usage](#usage)
+</div>
 
-</details>
+---
 
-## About
+<div>
+    <img align="right" src=".github/images/logo_kaida.png" width="96" alt="Kaidā Logo">
+    <h1 align="left">icon.gl</h1>
+    <h3 align="left">Stylescape Icon Library</h3>
+</div>
+
+---
+
+<img align="right" width="75%" src="https://raw.githubusercontent.com/block-foundation/brand/master/src/image/repository_cover/block_foundation-structure-03-accent.jpg"  alt="Block Foundation Brand">
+
+### Contents
+
+- [Introduction](#introduction)
+- [Logo](#logo)
+- [Typography](#typography)
+- [Color](#color)
+- [Graphics](#graphics)
+- [Diagrams](#diagrams)
+- [Elements](#elements)
+- [Frameworks](#frameworks)
+- [Templates](#templates)
+- [Syntax](#syntax)
+- [Colophon](#colophon)
+
+<br clear="both"/>
+
+---
+
+<div align="right">
+
+[![Report a Bug](https://img.shields.io/badge/Report%20a%20Bug-GitHub?style=flat-square&&logoColor=%23FFFFFF&color=%23E1E4E5)](https://github.com/scape-agency/icon.gl/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&projects=&template=bug_report.yml)
+[![Request a Feature](https://img.shields.io/badge/Request%20a%20Feature-GitHub?style=flat-square&&logoColor=%23FFFFFF&color=%23E1E4E5)](https://github.com/scape-agency/icon.gl/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&projects=&template=feature_request.yml)
+[![Ask a Question](https://img.shields.io/badge/Ask%20a%20Question-GitHub?style=flat-square&&logoColor=%23FFFFFF&color=%23E1E4E5)](https://github.com/scape-agency/icon.gl/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&projects=&template=question.yml)
+[![Make a Suggestion](https://img.shields.io/badge/Make%20a%20Suggestion-GitHub?style=flat-square&&logoColor=%23FFFFFF&color=%23E1E4E5)](https://github.com/scape-agency/icon.gl/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&projects=&template=suggestion.yml)
+[![Start a Discussion](https://img.shields.io/badge/Start%20a%20Discussion-GitHub?style=flat-square&&logoColor=%23FFFFFF&color=%23E1E4E5)](https://github.com/scape-agency/icon.gl/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&projects=&template=discussion.yml)
+
+</div>
+
+**`icon.gl` is an inspired icon library based on the traditional Kaidā glyphs used historically in the Yaeyama Islands of Japan. These glyphs, rooted in local administration and communication, encompass a variety of symbols representing animals, plants, numerals, and household items.**
+
+## Introduction
+
+Icon.gl is a modern, innovative icon library infused with the essence of traditional Kaidā glyphs, echoing the historical charm of the Yaeyama Islands. Our design principles revolve around simplicity, modernity, and a touch of quirkiness. Each icon is distilled to its fundamental form, ensuring it embodies only the most essential characteristics. With bold geometric shapes, our icons boast a symmetrical and consistent look, providing unparalleled clarity and readability even at smaller sizes. This unique blend of contemporary design and cultural heritage makes icon.gl not just a collection of symbols, but a storytelling tool that bridges the past with the present.
 
 <p align="center">
     <img src="res/yonaguni_symbol.jpg" width="80%" height="80%" alt="Yonaguni Symbols">
 </p>
+
+## Features
+
+- Diverse Range: Includes icons representing a broad spectrum of elements from nature, agriculture, and domestic life.
+- Cultural Heritage: Reflects the rich historical context of the Yaeyama Islands.
+- Numerical Symbols: Incorporates unique numeral systems, influenced by Suzhou numerals.
+
+## Usage
+
+Ideal for projects seeking a blend of historical and cultural aesthetics with functional iconography.
+
+## Installation
+
+Instructions on how to integrate icon.gl into your project.
 
 ## Template
 
@@ -142,7 +189,7 @@ Padding
 
 ### Guidelines
 
-- <https://m2.material.io/design/iconography/system-icons.html#grid-and-keyline-shapes>
+- [Material Design: System Icons](https://m2.material.io/design/iconography/system-icons.html)
 - <https://www.ibm.com/design/language/iconography/ui-icons/usage/>
 - <https://blog.icons8.com/articles/choosing-the-right-size-and-format-for-icons/>
 - <https://developer.apple.com/design/human-interface-guidelines/app-icons>
