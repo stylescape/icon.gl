@@ -121,7 +121,7 @@ class SvgPackager {
         try {
             // const { data: optimizedSvg } = await optimize(originalSvg, { path: filepath, ...config })
             
-            const config = await loadConfig(path.join(__dirname, 'svgo.config.js'))
+            const config = await loadConfig(path.join(__dirname, 'config/svgo.config.js'))
 
             // const config = await loadConfig(configFile, cwd);
 

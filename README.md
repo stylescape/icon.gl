@@ -211,12 +211,10 @@ Peach Template
 ## Ref
 
 - [Making SVG icon libraries for React apps](https://nicolasgallagher.com/making-svg-icon-libraries-for-react-apps/)
+- https://github.com/mryechkin/acme-icons
+- https://github.com/necolas/icon-builder-example
 - [Using npm to create JavaScript icon libraries](https://blog.logrocket.com/using-npm-to-create-javascript-icon-libraries/)
 - https://github.com/kreuzerk/svg-icon-library-starter
-
-
-
-
 
 
 ---

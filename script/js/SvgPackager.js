@@ -54,7 +54,7 @@ class SvgPackager {
     optimizeSvg(filePath, svgContent) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const config = yield loadConfig(path.join(__dirname, 'svgo.config.js'));
+                const config = yield loadConfig(path.join(__dirname, 'config/svgo.config.js'));
                 const result = yield SVGO.optimize(svgContent, Object.assign({ path: filePath }, config));
                 return result.data;
             }

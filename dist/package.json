@@ -1,6 +1,6 @@
 {
-  "name": "your-package-name",
-  "version": "1.0.0",
-  "description": "Your package description",
+  "name": "icon.gl",
+  "version": "0.0.1",
+  "description": "icon.gl is a icon library and framework developed by Scape Agency.",
   "main": "index.js"
 }

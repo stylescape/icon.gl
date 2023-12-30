@@ -21,19 +21,18 @@
 
 // Import necessary modules and classes
 import path from 'path';
-import { CONFIG } from './config/config.js';
 import FontGenerator from './FontGenerator.js';
 import SvgPackager from "./SvgPackager.js";
 import StyleProcessor from "./StyleProcessor.js";
 import SvgSpriteGenerator from "./SvgSpriteGenerator.js";
 import PackageCreator from './PackageCreator.js';
-
 import DirectoryCreator from './DirectoryCreator.js'; // Adjust the import path as needed
-// import packageJson from '.../package.json';
+import VersionWriter from './VersionWriter.js'; // Adjust the path as needed
 
-// const version = packageJson.version;
 
+import { CONFIG } from './config/config.js';
 import svgspriteConfig from "./config/svgsprite.config.js";
+import packageConfig from "./config/package.config.js"
 
 
 // ============================================================================
@@ -47,14 +46,8 @@ const spriteGenerator = new SvgSpriteGenerator(svgspriteConfig);
 const styleProcessor = new StyleProcessor();
 const dirCreator = new DirectoryCreator();
 const directories = Object.values(CONFIG.path);
-const creator = new PackageCreator({
-    name: 'your-package-name',
-    version: '1.0.0',
-    description: 'Your package description',
-    main: 'index.js',
-    // ... other properties
-  });
-  
+const versionWriter = new VersionWriter();
+const packageCreator = new PackageCreator(packageConfig);
 
 // ============================================================================
 // Functions
@@ -68,6 +61,8 @@ const creator = new PackageCreator({
 async function main() {
 
     try {
+
+
 
         // Dirs
         // --------------------------------------------------------------------
@@ -126,10 +121,15 @@ async function main() {
         console.log('SASS Processing completed.');
 
 
+        // Version
+        // --------------------------------------------------------------------
+        await versionWriter.writeVersionToFile('VERSION', packageConfig.version);
+
+
         // Package JSON
         // --------------------------------------------------------------------
 
-        await creator.createPackageJson(CONFIG.path.dist);
+        await packageCreator.createPackageJson(CONFIG.path.dist);
 
 
         // --------------------------------------------------------------------
