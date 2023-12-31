@@ -32,19 +32,34 @@ import { promises as fs } from 'fs';
  */
  class JavaScriptMinifier {
 
+    private config: any;
+
+    /**
+     * Constructs an instance with the provided configuration.
+     * @param {any} config - Configuration object - minification options for Terser.
+     */
+    constructor(config: any) {
+        this.config = config;
+    }
+
     /**
      * Minifies a JavaScript file.
      * @param {string} inputPath - Path to the input JavaScript file.
      * @param {string} outputPath - Path to save the minified output file.
-     * @param {Object} options - Optional minification options for Terser.
      * @returns {Promise<void>} - A promise that resolves when minification is complete.
      */
-    async minifyFile(inputPath: string, outputPath: string, options = {}): Promise<void> {
+    async minifyFile(
+        inputPath: string,
+        outputPath: string,
+        // options: object = {}
+    ): Promise<void> {
+
         try {
             // Read the input file
             const inputCode = await fs.readFile(inputPath, 'utf8');
             // Minify the file using Terser
-            const result = await minify(inputCode, options);
+            // const result = await minify(inputCode, options);
+            const result = await minify(inputCode, this.config);
             // If minification is successful, write the output
             if (result.code) {
                 await fs.writeFile(outputPath, result.code);

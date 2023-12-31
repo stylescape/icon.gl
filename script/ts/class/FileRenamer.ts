@@ -1,4 +1,4 @@
-// script/class/PackageCreator.ts
+// script/class/class/FileRenamer.ts
 
 // Copyright 2023 Scape Agency BV
 
@@ -21,7 +21,6 @@
 
 import fs from 'fs';
 import path from 'path';
-// import * as pack from '../../package.json' assert { type: 'json' };
 
 
 // ============================================================================
@@ -29,30 +28,24 @@ import path from 'path';
 // ============================================================================
 
 /**
- * A class for creating a package.json file for a project.
+ * A class for renaming files.
  */
- class PackageCreator {
-
-    private packageJson: PackageJson;
+ class FileRenamer {
 
     /**
-     * Initializes a new instance of the PackageCreator class.
-     * @param {PackageJson} packageJson - The content to be written into package.json.
+     * Renames a file from the source path to the target path.
+     * @param srcPath The current path of the file.
+     * @param targetPath The new path of the file after renaming.
+     * @returns Promise<void>
      */
-    constructor(packageJson: PackageJson) {
-        this.packageJson = packageJson;
-    }
-
-    /**
-     * Creates a package.json file in the specified directory.
-     * @param {string} outputDir - The directory where package.json will be created.
-     */
-    async createPackageJson(outputDir: string): Promise<void> {
-        const filePath = path.join(outputDir, 'package.json');
-        const data = JSON.stringify(this.packageJson, null, 2);
-
-        fs.writeFileSync(filePath, data, 'utf-8');
-        console.log(`package.json created at ${filePath}`);
+     async renameFile(srcPath: string, targetPath: string): Promise<void> {
+        try {
+            await fs.promises.rename(srcPath, targetPath);
+            console.log(`File renamed from ${srcPath} to ${targetPath}`);
+        } catch (error) {
+            console.error('Error renaming file:', error);
+            throw error;
+        }
     }
 
 }
@@ -62,4 +55,4 @@ import path from 'path';
 // Export
 // ============================================================================
 
-export default PackageCreator;
+export default FileRenamer;

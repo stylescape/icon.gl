@@ -15,6 +15,7 @@ export const CONFIG = {
         ts_input: './src/ts',
         ts_output: './dist/ts',
         ts_output_icons: './src/ts/icons',
+        js_output: './dist/js',
     },
 };
 //# sourceMappingURL=config.js.map

@@ -7,6 +7,7 @@ import SvgSpriteGenerator from "./class/SvgSpriteGenerator.js";
 import PackageCreator from './class/PackageCreator.js';
 import VersionWriter from './class/VersionWriter.js';
 import FileCopier from './class/FileCopier.js';
+import FileRenamer from './class/FileRenamer.js';
 import DirectoryCreator from './class/DirectoryCreator.js';
 import DirectoryCopier from './class/DirectoryCopier.js';
 import DirectoryCleaner from './class/DirectoryCleaner.js';
@@ -15,26 +16,29 @@ import JavaScriptMinifier from './class/JavaScriptMinifier.js';
 import { CONFIG } from './config/config.js';
 import svgspriteConfig from "./config/svgsprite.config.js";
 import packageConfig from "./config/package.config.js";
+import tsConfig from "./config/ts.config.js";
+import tensorConfig from "./config/terser.config.js";
 const directories = Object.values(CONFIG.path);
-const dirCreator = new DirectoryCreator();
+const spriteGenerator = new SvgSpriteGenerator(svgspriteConfig);
+const tsCompiler = new TypeScriptCompiler(tsConfig);
+const jsMinifier = new JavaScriptMinifier(tensorConfig);
+const packageCreator = new PackageCreator(packageConfig);
 const svgPackager = new SvgPackager();
 const fontGenerator = new FontGenerator();
-const spriteGenerator = new SvgSpriteGenerator(svgspriteConfig);
 const styleProcessor = new StyleProcessor();
 const versionWriter = new VersionWriter();
-const packageCreator = new PackageCreator(packageConfig);
 const fileCopier = new FileCopier();
+const fileRenamer = new FileRenamer();
 const directoryCopier = new DirectoryCopier();
-const dirCleaner = new DirectoryCleaner();
-const tsCompiler = new TypeScriptCompiler();
-const jsMinifier = new JavaScriptMinifier();
+const directoryCleaner = new DirectoryCleaner();
+const directoryCreator = new DirectoryCreator();
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            dirCleaner.cleanDirectory(CONFIG.path.dist);
+            directoryCleaner.cleanDirectory(CONFIG.path.dist);
             console.log(`Directory cleaned: ${CONFIG.path.dist}`);
             console.log('Starting Directory creation...');
-            yield dirCreator.createDirectories('.', directories);
+            yield directoryCreator.createDirectories('.', directories);
             console.log('Starting SVG processing...');
             yield svgPackager.processSvgFiles(CONFIG.path.svg_input, CONFIG.path.svg_output, CONFIG.path.ts_output_icons, CONFIG.path.json_output);
             console.log('SVG processing completed.');
@@ -66,7 +70,7 @@ function main() {
             yield packageCreator.createPackageJson(CONFIG.path.dist);
             try {
                 const tsFiles = [
-                    './src/ts/index.ts',
+                    path.join(CONFIG.path.ts_input, 'index.ts'),
                 ];
                 const outputDir = './dist/js';
                 console.log('Starting TypeScript compilation...');
@@ -76,9 +80,8 @@ function main() {
             catch (error) {
                 console.error('An error occurred:', error);
             }
-            const inputJsFile = './path/to/your/script.js';
-            const outputMinJsFile = './path/to/your/script.min.js';
-            yield jsMinifier.minifyFile(inputJsFile, outputMinJsFile)
+            yield fileRenamer.renameFile(path.join(CONFIG.path.js_output, 'index.js'), path.join(CONFIG.path.js_output, 'icon.gl.js'));
+            yield jsMinifier.minifyFile(path.join(CONFIG.path.js_output, 'icon.gl.js'), path.join(CONFIG.path.js_output, 'icon.gl.min.js'))
                 .then(() => console.log('JavaScript minification completed.'))
                 .catch(console.error);
         }
