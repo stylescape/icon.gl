@@ -67,7 +67,10 @@ class StyleProcessor {
                 inputFile, { style: styleOption }
             );
             // Process the compiled CSS with PostCSS and Autoprefixer
-            const processed = await this.processPostCSS(result.css, styleOption);
+            const processed = await this.processPostCSS(
+                result.css,
+                styleOption
+            );
             // Write the processed CSS to a file
             fs.writeFileSync(outputFile, processed.css);
             // Write the source map file
