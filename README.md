@@ -1,6 +1,6 @@
 <div align="right">
 
-[![GitHub License](https://img.shields.io/github/license/block-foundation/blocktxt?style=flat-square&logo=readthedocs&logoColor=FFFFFF&label=&labelColor=%23041B26&color=%23041B26&link=LICENSE)](https://github.com/scape-agency/icon.gl/blob/main/LICENSE)
+[![GitHub License](https://img.shields.io/github/license/scape-agency/icon.gl?style=flat-square&logo=readthedocs&logoColor=FFFFFF&label=&labelColor=%23041B26&color=%23041B26&link=LICENSE)](https://github.com/scape-agency/icon.gl/blob/main/LICENSE)
 [![devContainer](https://img.shields.io/badge/Container-Remote?style=flat-square&logo=visualstudiocode&logoColor=%23FFFFFF&label=Remote&labelColor=%23041B26&color=%23041B26)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/scape-agency/icon.gl)
 
 </div>
@@ -8,27 +8,18 @@
 ---
 
 <div>
-    <img align="right" src=".github/images/logo_kaida.png" width="96" alt="Kaidā Logo">
+    <img align="right" src="https://raw.githubusercontent.com/scape-agency/brand/master/src/logo/icon.gl.png" width="96" alt="Scape Agency Logo">
     <h1 align="left">icon.gl</h1>
     <h3 align="left">Stylescape Icon Library</h3>
 </div>
 
 ---
 
-<img align="right" width="75%" src="https://raw.githubusercontent.com/scape-agency/icon.gl/master/src/image/repository_cover/block_foundation-structure-03-accent.jpg"  alt="Scape Agency Brand">
+<img align="right" width="75%" src="https://raw.githubusercontent.com/scape-agency/brand/master/src/image/repository_cover/block_foundation-structure-03-accent.jpg"  alt="Scape Agency Brand">
 
 ### Contents
 
 - [Introduction](#introduction)
-- [Logo](#logo)
-- [Typography](#typography)
-- [Color](#color)
-- [Graphics](#graphics)
-- [Diagrams](#diagrams)
-- [Elements](#elements)
-- [Frameworks](#frameworks)
-- [Templates](#templates)
-- [Syntax](#syntax)
 - [Colophon](#colophon)
 
 <br clear="both"/>
@@ -86,7 +77,6 @@ Iconography is highly functional in a user interface. When used wisely, icons be
 #### Sizing
 
 Icons have been designed to work best in four sizes: 16px, 20px, 24px, and 32px. Please use icons at their originally produced size. These are provided in SVG and Adobe Illustrator files.
-
 
 
 ## Installation
@@ -257,7 +247,7 @@ The repository provides a track of different versions of the assets for easier n
 Scape Agency is a spatial innovation collective that dreams, discovers and designs the everyday of tomorrow. We blend design thinking with emerging technologies to create a brighter perspective for people and planet. Our products and services naturalise technology in liveable and sustainable –scapes that spark the imagination and inspire future generations.
 
 - website: [scape.agency](https://www.scape.agency "Scape Agency website")
-- github: [github.com/scape-agency](https://github.com/scape-agency "Scape Agency Github")
+- github: [github.com/scape-agency](https://github.com/scape-agency "Scape Agency GitHub")
 
 <!-- #### Contributors
 
