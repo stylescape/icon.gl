@@ -124,7 +124,7 @@
     },
     "jspm": {
         "registry": "npm",
-        "main": "dist/js/unit.gl.js",
+        "main": "dist/js/icon.gl.js",
         "directories": {
             "lib": "src"
         },
