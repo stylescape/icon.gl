@@ -1,4 +1,4 @@
 {
-    "name": "Dev",
+    "name": "devenv",
     "dockerFile": "Dockerfile"
-}
+} 
