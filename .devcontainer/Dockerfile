@@ -1,26 +1,20 @@
-FROM ubuntu:22.04
+# Use an official Node runtime as a parent image
+FROM node:14
 
-# non interactive frontend for locales
-ENV DEBIAN_FRONTEND=noninteractive
+# Set the working directory
+WORKDIR /usr/src/app
 
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
-# # Use the official Node.js 14 image as a parent image
-# FROM node:14
+# Install any needed packages
+RUN npm install
 
-# # Set the working directory in the container
-# WORKDIR /usr/src/app
+# Bundle your app's source code inside the Docker image
+COPY . .
 
-# # Copy the package.json and package-lock.json (if available) to the container
-# COPY package*.json ./
+# Make port available to the world outside this container
+EXPOSE 3000
 
-# # Install any dependencies
-# RUN npm install
-
-# # Copy the project files to the container
-# COPY . .
-
-# # Build the TypeScript project (if necessary)
-# RUN npm run build
-
-# # Specify the command to run the app
-# CMD ["node", "dist/index.js"]
+# Define the command to run your app
+CMD [ "npm", "start" ]
