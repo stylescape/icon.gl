@@ -56,9 +56,9 @@ function main() {
             fileCopier.copyFileToDirectory(path.join('.', 'LICENSE'), CONFIG.path.dist);
             fileCopier.copyFileToDirectory(path.join('.', 'LICENSE-CODE'), CONFIG.path.dist);
             const directoryCopier = new DirectoryCopier();
-            yield directoryCopier.copyFiles(CONFIG.path.ts_input, CONFIG.path.ts_output);
+            yield directoryCopier.recursiveCopy(CONFIG.path.ts_input, CONFIG.path.ts_output);
             console.log('Files copied successfully.');
-            yield directoryCopier.copyFiles(CONFIG.path.scss_input, CONFIG.path.scss_output);
+            yield directoryCopier.recursiveCopy(CONFIG.path.scss_input, CONFIG.path.scss_output);
             console.log('Files copied successfully.');
             const versionWriter = new VersionWriter();
             yield versionWriter.writeVersionToFile('VERSION', packageConfig.version);
