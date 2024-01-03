@@ -1,7 +1,7 @@
 {
     "name": "icon.gl",
     "description": "icon.gl is a icon library and framework developed by Scape Agency.",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "config": {
         "version_short": "0.0"
     },
@@ -88,8 +88,8 @@
         "eslint-plugin-prettier": "^5.0.1",
         "grid.gl": "^0.0.1",
         "html-webpack-plugin": "^5.5.3",
-        "hue.gl": "^0.0.4",
-        "icon.gl": "^0.0.1",
+        "hue.gl": "^0.0.6",
+        "icon.gl": "^0.0.2",
         "loop.gl": "^0.0.1",
         "mini-css-extract-plugin": "^2.7.6",
         "pack.gl": "^0.0.24",
