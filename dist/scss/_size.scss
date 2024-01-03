@@ -70,92 +70,92 @@ $igl_sizes: (
 // .icon-round-medium {border-radius: 100%; display: table-cell; height: 90px; margin: 0 auto; text-align: center; vertical-align: middle; width: 90px;}
 
 
-@mixin icon_size_00 {
-  @include icon;
-  @include box_size_00;
-  svg { @include box_size_00; }
-  img { @include box_size_00; }
-}
+// @mixin icon_size_00 {
+//   @include icon;
+//   @include box_size_00;
+//   svg { @include box_size_00; }
+//   img { @include box_size_00; }
+// }
 
-@mixin icon_size_01 {
-  @include icon;
-  @include box_size_01;
-  svg { @include box_size_01; }
-  img { @include box_size_01; }
-}
+// @mixin icon_size_01 {
+//   @include icon;
+//   @include box_size_01;
+//   svg { @include box_size_01; }
+//   img { @include box_size_01; }
+// }
 
-@mixin icon_size_02 {
-  @include icon;
-  @include box_size_02;
-  svg { @include box_size_02; }
-  img { @include box_size_02; }
-}
+// @mixin icon_size_02 {
+//   @include icon;
+//   @include box_size_02;
+//   svg { @include box_size_02; }
+//   img { @include box_size_02; }
+// }
 
-@mixin icon_size_03 {
-  @include icon;
-  @include box_size_03;
-  svg { @include box_size_03; }
-  img { @include box_size_03; }
-}
+// @mixin icon_size_03 {
+//   @include icon;
+//   @include box_size_03;
+//   svg { @include box_size_03; }
+//   img { @include box_size_03; }
+// }
 
-@mixin icon_size_04 {
-  @include icon;
-  @include box_size_04;
-  svg { @include box_size_04; }
-  img { @include box_size_04; }
-}
+// @mixin icon_size_04 {
+//   @include icon;
+//   @include box_size_04;
+//   svg { @include box_size_04; }
+//   img { @include box_size_04; }
+// }
 
-@mixin icon_size_05 {
-  @include icon;
-  @include box_size_05;
-  svg { @include box_size_05; }
-  img { @include box_size_05; }
-}
+// @mixin icon_size_05 {
+//   @include icon;
+//   @include box_size_05;
+//   svg { @include box_size_05; }
+//   img { @include box_size_05; }
+// }
 
-@mixin icon_size_06 {
-  @include icon;
-  @include box_size_06;
-  svg { @include box_size_06; }
-  img { @include box_size_06; }
-}
+// @mixin icon_size_06 {
+//   @include icon;
+//   @include box_size_06;
+//   svg { @include box_size_06; }
+//   img { @include box_size_06; }
+// }
 
-@mixin icon_size_07 {
-  @include icon;
-  @include box_size_07;
-  svg { @include box_size_07; }
-  img { @include box_size_07; }
-}
+// @mixin icon_size_07 {
+//   @include icon;
+//   @include box_size_07;
+//   svg { @include box_size_07; }
+//   img { @include box_size_07; }
+// }
 
-@mixin icon_size_08 {
-  @include icon;
-  @include box_size_08;
-  svg { @include box_size_08; }
-  img { @include box_size_08; }
-}
+// @mixin icon_size_08 {
+//   @include icon;
+//   @include box_size_08;
+//   svg { @include box_size_08; }
+//   img { @include box_size_08; }
+// }
 
-@mixin icon_size_09 {
-  @include icon;
-  @include box_size_09;
-  svg { @include box_size_09; }
-  img { @include box_size_09; }
-}
+// @mixin icon_size_09 {
+//   @include icon;
+//   @include box_size_09;
+//   svg { @include box_size_09; }
+//   img { @include box_size_09; }
+// }
 
-@mixin icon_size_10 {
-  @include icon;
-  @include box_size_10;
-  svg { @include box_size_10; }
-  img { @include box_size_10; }
-}
+// @mixin icon_size_10 {
+//   @include icon;
+//   @include box_size_10;
+//   svg { @include box_size_10; }
+//   img { @include box_size_10; }
+// }
 
 
-.icon_size_00 { @include icon_size_00; }
-.icon_size_01 { @include icon_size_01; }
-.icon_size_02 { @include icon_size_02; }
-.icon_size_03 { @include icon_size_03; }
-.icon_size_04 { @include icon_size_04; }
-.icon_size_05 { @include icon_size_05; }
-.icon_size_06 { @include icon_size_06; }
-.icon_size_07 { @include icon_size_07; }
-.icon_size_08 { @include icon_size_08; }
-.icon_size_09 { @include icon_size_09; }
-.icon_size_10 { @include icon_size_10; }
+// .icon_size_00 { @include icon_size_00; }
+// .icon_size_01 { @include icon_size_01; }
+// .icon_size_02 { @include icon_size_02; }
+// .icon_size_03 { @include icon_size_03; }
+// .icon_size_04 { @include icon_size_04; }
+// .icon_size_05 { @include icon_size_05; }
+// .icon_size_06 { @include icon_size_06; }
+// .icon_size_07 { @include icon_size_07; }
+// .icon_size_08 { @include icon_size_08; }
+// .icon_size_09 { @include icon_size_09; }
+// .icon_size_10 { @include icon_size_10; }

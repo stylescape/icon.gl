@@ -21,19 +21,25 @@
 
 // Import necessary modules and classes
 import path from 'path';
-import FontGenerator from './class/FontGenerator.js';
-import SvgPackager from "./class/SvgPackager.js";
-import StyleProcessor from "./class/StyleProcessor.js";
-import SvgSpriteGenerator from "./class/SvgSpriteGenerator.js";
-import PackageCreator from './class/PackageCreator.js';
-import VersionWriter from './class/VersionWriter.js';
-import FileCopier from './class/FileCopier.js'; 
-import FileRenamer from './class/FileRenamer.js'; 
-import DirectoryCreator from './class/DirectoryCreator.js';
-import DirectoryCopier from './class/DirectoryCopier.js';
-import DirectoryCleaner from './class/DirectoryCleaner.js'; // Adjust the path as needed
-import TypeScriptCompiler from './class/TypeScriptCompiler.js';
-import JavaScriptMinifier from './class/JavaScriptMinifier.js';
+
+import {
+    DirectoryCleaner,
+    DirectoryCopier,
+    DirectoryCreator,
+    FileCopier,
+    FileRenamer,
+    FontGenerator,
+    StyleProcessor,
+    SvgPackager,
+    SvgSpriteGenerator,
+    PackageCreator,
+    VersionWriter,
+    TypeScriptCompiler,
+    JavaScriptMinifier
+} from 'pack.gl';
+
+// import SvgPackager from "./class/SvgPackager.js";
+
 
 // Import necessary configurations
 import { CONFIG } from './config/config.js';
@@ -53,7 +59,11 @@ const spriteGenerator = new SvgSpriteGenerator(svgspriteConfig);
 const tsCompiler = new TypeScriptCompiler(tsConfig);
 const jsMinifier = new JavaScriptMinifier(tensorConfig);
 const packageCreator = new PackageCreator(packageConfig);
-const svgPackager = new SvgPackager("./config/svgo.config.js");
+const svgPackager = new SvgPackager(
+    "./script/ts/config/svgo.config.ts"
+    // path.join(CONFIG.path.scss_input, 'index.scss'),
+
+    );
 const fontGenerator = new FontGenerator();
 const styleProcessor = new StyleProcessor();
 const versionWriter = new VersionWriter();
@@ -100,16 +110,20 @@ async function main() {
 
         // async function processSvgs() {
             try {
-                const sourceDirectory = 'path/to/source/svg';
-                const outputDirectory = 'path/to/output/svg';
-                const tsOutputDirectory = 'path/to/output/ts';
-                const jsonOutputDirectory = 'path/to/output/json';
+                // const sourceDirectory = 'path/to/source/svg';
+                // const outputDirectory = 'path/to/output/svg';
+                // const tsOutputDirectory = 'path/to/output/ts';
+                // const jsonOutputDirectory = 'path/to/output/json';
         
                 await svgPackager.processSvgFiles(
-                    sourceDirectory,
-                    outputDirectory,
-                    tsOutputDirectory,
-                    jsonOutputDirectory
+                    CONFIG.path.svg_input,
+                    CONFIG.path.svg_output,
+                    CONFIG.path.ts_output_icons,
+                    CONFIG.path.json_output,
+                    // sourceDirectory,
+                    // outputDirectory,
+                    // tsOutputDirectory,
+                    // jsonOutputDirectory
                 );
             } catch (error) {
                 console.error('Failed to process SVG files:', error);
