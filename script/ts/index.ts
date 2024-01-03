@@ -35,18 +35,24 @@ import {
     PackageCreator,
     VersionWriter,
     TypeScriptCompiler,
-    JavaScriptMinifier
+    JavaScriptMinifier,
+    StylizedLogger,
+    TemplateWriter,
+    SvgToPngConverter,
+    gl_installer,
+    readPackageJson,
+    // svgspriteConfig
 } from 'pack.gl';
 
 // import SvgPackager from "./class/SvgPackager.js";
 
 
 // Import necessary configurations
-import { CONFIG } from './config/config.js';
-import svgspriteConfig from "./config/svgsprite.config.js";
-import packageConfig from "./config/package.config.js"
-import tsConfig from "./config/ts.config.js"
-import tensorConfig from "./config/terser.config.js"
+// import { CONFIG } from './config/config.js';
+// import svgspriteConfig from "./config/svgsprite.config.js";
+// import packageConfig from "./config/package.config.js"
+// import tsConfig from "./config/ts.config.js"
+// import tensorConfig from "./config/terser.config.js"
 
 
 // ============================================================================
@@ -54,24 +60,38 @@ import tensorConfig from "./config/terser.config.js"
 // ============================================================================
 
 // Initialize instances of necessary classes
-const directories = Object.values(CONFIG.path);
-const spriteGenerator = new SvgSpriteGenerator(svgspriteConfig);
-const tsCompiler = new TypeScriptCompiler(tsConfig);
-const jsMinifier = new JavaScriptMinifier(tensorConfig);
-const packageCreator = new PackageCreator(packageConfig);
-const svgPackager = new SvgPackager(
-    "./script/ts/config/svgo.config.ts"
-    // path.join(CONFIG.path.scss_input, 'index.scss'),
+// const directories = Object.values(CONFIG.path);
+// const tsCompiler = new TypeScriptCompiler();
+// const jsMinifier = new JavaScriptMinifier(tensorConfig);
 
-    );
-const fontGenerator = new FontGenerator();
-const styleProcessor = new StyleProcessor();
-const versionWriter = new VersionWriter();
-const fileCopier = new FileCopier();
-const fileRenamer = new FileRenamer();
-const directoryCopier = new DirectoryCopier();
-const directoryCleaner = new DirectoryCleaner();
-const directoryCreator = new DirectoryCreator();
+// const styleProcessor = new StyleProcessor();
+// const versionWriter = new VersionWriter();
+// const fileRenamer = new FileRenamer();
+// const directoryCopier = new DirectoryCopier();
+
+const CONFIG = {
+    path: {
+        src:      './src',
+        dist:      './dist',
+
+        svg_input:          './src/svg',
+        svg_output:         './dist/svg',
+        sprite_input:       './dist/svg',
+        sprite_output:      './dist/sprite',
+        font_input:         './dist/svg',
+        font_output:        './dist/font',
+        scss_input:         './src/scss',
+        scss_output:        './dist/scss',
+        css_output:         './dist/css',
+        json_output:        './dist',
+        ts_input:           './src/ts',
+        ts_output:          './dist/ts',
+        ts_output_icons:    './src/ts/icons',
+        js_output:          './dist/js',
+
+    },
+
+};
 
 
 // ============================================================================
@@ -88,66 +108,86 @@ async function main() {
     try {
 
 
+
+        // Init Logger
+        // --------------------------------------------------------------------
+
+        const logger = new StylizedLogger();
+
+
+        // Install .gl libraries
+        // --------------------------------------------------------------------
+
+        logger.header('Install .gl libraries');
+        await gl_installer();
+
+
         // Dirs Clean
         // --------------------------------------------------------------------
-        directoryCleaner.cleanDirectory(CONFIG.path.dist);
-        console.log(`Directory cleaned: ${CONFIG.path.dist}`);
 
-        // Dirs Create
+        const directoryCleaner = new DirectoryCleaner();
+        logger.header('Clean Directories');
+        directoryCleaner.cleanDirectory(CONFIG.path.dist);
+        logger.body(`Directory cleaned: ${CONFIG.path.dist}`);
+
+
+        // Package JSON
         // --------------------------------------------------------------------
-        console.log('Starting Directory creation...');
-        // Assuming the base path is the current directory
-        await directoryCreator.createDirectories('.', directories);
+
+        const localPackageConfig = await readPackageJson('./package.json');
+        const packageCreator = new PackageCreator(localPackageConfig);
+        const packageConfig = packageCreator.config
+        packageCreator.createPackageJson(CONFIG.path.dist);
+
+
+
+        // Dirs Clean
+        // --------------------------------------------------------------------
+        // directoryCleaner.cleanDirectory(CONFIG.path.dist);
+        // console.log(`Directory cleaned: ${CONFIG.path.dist}`);
+
+        // // Dirs Create
+        // // --------------------------------------------------------------------
+        // console.log('Starting Directory creation...');
+        // // Assuming the base path is the current directory
+        // await directoryCreator.createDirectories('.', directories);
 
 
         // SVG
         // --------------------------------------------------------------------
 
+        const svgPackager = new SvgPackager(
+            "./script/ts/config/svgo.config.ts"
+            // path.join(CONFIG.path.scss_input, 'index.scss'),    
+        );
+        try {
+            // const sourceDirectory = 'path/to/source/svg';
+            // const outputDirectory = 'path/to/output/svg';
+            // const tsOutputDirectory = 'path/to/output/ts';
+            // const jsonOutputDirectory = 'path/to/output/json';
+    
+            await svgPackager.processSvgFiles(
+                CONFIG.path.svg_input,
+                CONFIG.path.svg_output,
+                CONFIG.path.ts_output_icons,
+                CONFIG.path.json_output,
+                // sourceDirectory,
+                // outputDirectory,
+                // tsOutputDirectory,
+                // jsonOutputDirectory
+            );
+        } catch (error) {
+            console.error('Failed to process SVG files:', error);
+        }
 
 
 
-
-
-        // async function processSvgs() {
-            try {
-                // const sourceDirectory = 'path/to/source/svg';
-                // const outputDirectory = 'path/to/output/svg';
-                // const tsOutputDirectory = 'path/to/output/ts';
-                // const jsonOutputDirectory = 'path/to/output/json';
-        
-                await svgPackager.processSvgFiles(
-                    CONFIG.path.svg_input,
-                    CONFIG.path.svg_output,
-                    CONFIG.path.ts_output_icons,
-                    CONFIG.path.json_output,
-                    // sourceDirectory,
-                    // outputDirectory,
-                    // tsOutputDirectory,
-                    // jsonOutputDirectory
-                );
-            } catch (error) {
-                console.error('Failed to process SVG files:', error);
-            }
-        // }
-        
-        // processSvgs();
-
-
-
-
-
-        // console.log('Starting SVG processing...');
-        // await svgPackager.processSvgFiles(
-        //     CONFIG.path.svg_input,
-        //     CONFIG.path.svg_output,
-        //     CONFIG.path.ts_output_icons,
-        //     CONFIG.path.json_output,
-        // );
-        // console.log('SVG processing completed.');
 
 
         // Font
         // --------------------------------------------------------------------
+
+        const fontGenerator = new FontGenerator();
         console.log('Starting font generation...');
         await fontGenerator.generateFonts(
             CONFIG.path.font_input,
@@ -158,130 +198,110 @@ async function main() {
 
         // Sprite
         // --------------------------------------------------------------------
-        console.log('Starting SVG Sprite generation...');
-        await spriteGenerator.generateSprite(
-            CONFIG.path.sprite_input,
-            CONFIG.path.sprite_output,
-        );
-        console.log('SVG Sprite generation completed.');
+
+        // const spriteGenerator = new SvgSpriteGenerator(svgspriteConfig);
+        // console.log('Starting SVG Sprite generation...');
+        // await spriteGenerator.generateSprite(
+        //     CONFIG.path.sprite_input,
+        //     CONFIG.path.sprite_output,
+        // );
+        // console.log('SVG Sprite generation completed.');
+
 
 
         // SASS
         // --------------------------------------------------------------------
-        console.log('Processing SASS...');
+
+        const styleProcessor = new StyleProcessor();
+        logger.header('Processing SASS...');
         // Process with expanded style
         await styleProcessor.processStyles(
             path.join(CONFIG.path.scss_input, 'index.scss'),
-            path.join(CONFIG.path.css_output, 'icon.gl.css'),
+            path.join(CONFIG.path.css_output, `${packageConfig.name}.css`),
             'expanded'
         );
         // Process with compressed style
         await styleProcessor.processStyles(
             path.join(CONFIG.path.scss_input, 'index.scss'),
-            path.join(CONFIG.path.css_output, 'icon.gl.min.css'),
+            path.join(CONFIG.path.css_output, `${packageConfig.name}.min.css`),
             'compressed'
         );
-        console.log('SASS Processing completed.');
+        logger.body('SASS Processing completed.');
 
 
-        // Copy Files
+
+        // Copy files
         // --------------------------------------------------------------------
 
-        // Define the source file and destination directory
-        // const srcFile = './path/to/source/file.txt';
-        // const destDir = './path/to/destination/directory';
-
-        // // Copy the file
-        // try {
-        //     await fileCopier.copyFileToDirectory(srcFile, destDir);
-        //     console.log('File copying completed successfully.');
-        // } catch (error) {
-        //     console.error('Error while copying file:', error);
-        // }
+        const fileCopier = new FileCopier();
+        fileCopier.copyFileToDirectory(
+            path.join('.', 'README.md'),
+            CONFIG.path.dist,
+        )
+        fileCopier.copyFileToDirectory(
+            path.join('.', 'LICENSE'),
+            CONFIG.path.dist,
+        )
+        fileCopier.copyFileToDirectory(
+            path.join('.', 'LICENSE-CODE'),
+            CONFIG.path.dist,
+        )
 
 
         // Copy Dirs
         // --------------------------------------------------------------------
-        try {
-            await directoryCopier.copyFiles(
-                CONFIG.path.ts_input,
-                CONFIG.path.ts_output,
-            );
-            console.log('Files copied successfully.');
-        } catch (error) {
-            console.error('Error while copying files:', error);
-        }
-        try {
-            await directoryCopier.copyFiles(
-                CONFIG.path.scss_input,
-                CONFIG.path.scss_output,
-            );
-            console.log('Files copied successfully.');
-        } catch (error) {
-            console.error('Error while copying files:', error);
-        }
+
+        const directoryCopier = new DirectoryCopier();
+        await directoryCopier.copyFiles(
+            CONFIG.path.ts_input,
+            CONFIG.path.ts_output,
+        );
+        console.log('Files copied successfully.');
+        await directoryCopier.copyFiles(
+            CONFIG.path.scss_input,
+            CONFIG.path.scss_output,
+        );
+        console.log('Files copied successfully.');
+
 
         // Version
         // --------------------------------------------------------------------
+
+        const versionWriter = new VersionWriter();
         await versionWriter.writeVersionToFile('VERSION', packageConfig.version);
 
-
-        // Package JSON
-        // --------------------------------------------------------------------
-
-        await packageCreator.createPackageJson(CONFIG.path.dist);
 
 
         // Compile TypeScript to JavaScript
         // --------------------------------------------------------------------
-
-
-        try {
-            // Other code...
+        const tsCompiler = new TypeScriptCompiler();
+        const tsFiles = [
+            path.join(CONFIG.path.ts_input, 'index.ts'),
+        ];
+        const outputDir = './dist/js';
+        // console.log('Starting TypeScript compilation...');
+        await tsCompiler.compile(tsFiles, outputDir);
+        // console.log('TypeScript compilation completed.');
     
-            // TypeScript compilation
-            const tsFiles = [
-                path.join(CONFIG.path.ts_input, 'index.ts'),
-                // './src/ts/index.ts',
-                // './src/ts/file1.ts',
-                // './src/ts/file2.ts'
-            ]; // Replace with actual file paths
-            const outputDir = './dist/js';
-            
-            console.log('Starting TypeScript compilation...');
-            tsCompiler.compile(tsFiles, outputDir);
-            console.log('TypeScript compilation completed.');
-    
-            // Other code...
-        } catch (error) {
-            console.error('An error occurred:', error);
-        }
-
 
         // Rename Ts
         // --------------------------------------------------------------------
 
-        await fileRenamer.renameFile(
-            path.join(CONFIG.path.js_output, 'index.js'),
-            path.join(CONFIG.path.js_output, 'icon.gl.js'),
-        )
+        // await fileRenamer.renameFile(
+        //     path.join(CONFIG.path.js_output, 'index.js'),
+        //     path.join(CONFIG.path.js_output, `${packageConfig.name}.js`),
+        // )
+
 
         // Minify JavaScript
         // --------------------------------------------------------------------
-
-
-        // const inputJsFile = './path/to/your/script.js';
-        // const outputMinJsFile = './path/to/your/script.min.js';
-
+        const jsMinifier = new JavaScriptMinifier();
         await jsMinifier.minifyFile(
-            path.join(CONFIG.path.js_output, 'icon.gl.js'),
-            path.join(CONFIG.path.js_output, 'icon.gl.min.js'),
-            // inputJsFile,
-            // outputMinJsFile
+            path.join(CONFIG.path.js_output, 'index.js'),
+            path.join(CONFIG.path.js_output, `${packageConfig.name}.min.js`),
         )
         .then(() => console.log('JavaScript minification completed.'))
         .catch(console.error);
-
 
         
 
