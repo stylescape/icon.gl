@@ -1,0 +1,69 @@
+
+// /* icon hover effect style 1 */
+// .social-icon-style-1 a {text-align: center; display:inline-block; transition: all 400ms; -webkit-transition: all 400ms; -moz-transition: all 400ms; -ms-transition: all 400ms; -o-transition: all 400ms; color: #fff}
+// .social-icon-style-1 a:hover {border-radius: 100%;}
+
+// /* icon hover effect style 2 */
+// .social-icon-style-2 a {text-align: center; display:inline-block; transition: all 400ms; -webkit-transition: all 400ms; -moz-transition: all 400ms; -ms-transition: all 400ms; -o-transition: all 400ms; border-radius: 100%; color: #fff}
+// .social-icon-style-2 a:hover {border-radius: 0;}
+
+// /* icon hover effect style 3 */
+// .social-icon-style-3 a {text-align: center; display:inline-block; transition: all 400ms; -webkit-transition: all 400ms; -moz-transition: all 400ms; -ms-transition: all 400ms; -o-transition: all 400ms; border-radius: 100%; color: #fff} 
+// .social-icon-style-3 a:hover i{transition: transform 0.4s ease-out; -webkit-transition: transform 0.4s ease-out; -moz-transition: transform 0.4s ease-out; -ms-transition: transform 0.4s ease-out; -o-transition: transform 0.4s ease-out; transform: rotateZ(360deg); -webkit-transform: rotateZ(360deg); -moz-transform: rotateZ(360deg); -ms-transform: rotateZ(360deg); -o-transform: rotateZ(360deg);}
+
+// /* icon hover effect style 4 */
+// .social-icon-style-4 a {text-align: center; display:inline-block; border-radius: 100%; position: relative; border: 1px solid rgba(0, 0, 0, 0.1); color: #232323; text-align: center; z-index: 1;}
+// .social-icon-style-4 a:hover {color: #fff;}
+// .social-icon-style-4 a span {border-radius: 0; display: block; height: 0; left: 50%; margin: 0; position: absolute; top: 50%; transition: all 0.3s; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -ms-transition: all 0.3s; -o-transition: all 0.3s; width: 0;z-index: -1;}
+// .social-icon-style-4 a:hover span{width:100%; height:100%; border-radius: 100%; top: 0; left: 0;}
+
+// /* icon hover effect style 5 */
+// .social-icon-style-5 a {text-align: center; display:inline-block; color: #232323}
+// .social-icon-style-5 a:hover {color: #fff; border-radius: 100%; background-color: var(--base-color)} 
+
+// /* icon hover effect style 5 light*/
+// .social-icon-style-5-light a {text-align: center; display:inline-block;color: #fff}
+// .social-icon-style-5-light a:hover {color: #fff; border-radius: 100%; background-color: var(--base-color)} 
+
+// /* icon hover effect style 6 */
+// .social-icon-style-6 a {text-align: center; display:inline-block;border: 1px solid rgba(0,0,0,0.1);color: #232323; background-color: transparent; border-radius: 100%;}
+// .social-icon-style-6 a:hover {border-color: var(--base-color); color: var(--base-color); background-color: transparent;}
+
+// /* icon hover effect style 7 */
+// .social-icon-style-7 a {text-align: center; display:inline-block; border-radius: 100%; color: #232323; background-color: #fff;}
+// .social-icon-style-7 a:hover {color: #fff; -webkit-transform: scale(1.2); -ms-transform: scale(1.2); -moz-transform: scale(1.2); transform: scale(1.2); -o-transform: scale(1.2);}
+
+// /* icon hover effect style 8 */
+// .social-icon-style-8 ul li a {text-align: center; width: auto; height: auto}
+// .social-icon-style-8 a:hover {color: var(--base-color) !important;}
+
+// /* icon hover effect style 9 */
+// .social-icon-style-9 ul li a {text-align: center; width: auto; height: auto}
+
+// /* social icon style */
+// .social-icon-style-9 a.facebook:hover {color: #3b5998;}
+// .social-icon-style-9 a.twitter:hover {color: #00aced;}
+// .social-icon-style-9 a.google:hover {color: #dc4a38;}
+// .social-icon-style-9 a.dribbble:hover {color: #ea4c89;}
+// .social-icon-style-9 a.youtube:hover {color: #bb0000;}
+// .social-icon-style-9 a.linkedin:hover {color: #007bb6;}
+// .social-icon-style-9 a.pinterest:hover {color: #CB2027}
+// .social-icon-style-9 a.email:hover {color: #7d7d7d}
+// .social-icon-style-9 a.sms:hover {color: #ffbd00}
+// .social-icon-style-9 a.sharethis:hover {color: #95D03A}
+// .social-icon-style-9 a.reddit:hover {color: #ff4500}
+// .social-icon-style-9 a.tumblr:hover {color: #32506d}
+// .social-icon-style-9 a.digg:hover {color: #262626}
+// .social-icon-style-9 a.stumbleupon:hover {color: #eb4924}
+// .social-icon-style-9 a.whatsapp:hover {color: #25d366}
+// .social-icon-style-9 a.vk:hover {color: #4c6c91}
+// .social-icon-style-9 a.weibo:hover {color: #ff9933}
+// .social-icon-style-9 a.odnoklassniki:hover {color: #d7772d}
+// .social-icon-style-9 a.xing:hover {color: #1a7576}
+// .social-icon-style-9 a.print:hover {color: #222222}
+// .social-icon-style-9 a.blogger:hover {color: #ff8000}
+// .social-icon-style-9 a.flipboard:hover {color: #e12828}
+// .social-icon-style-9 a.meneame:hover {color: #ff6400}
+// .social-icon-style-9 a.mailru:hover {color: #168de2}
+// .social-icon-style-9 a.delicious:hover {color: #205cc0}
+// .social-icon-style-9 a.livejournal:hover {color: #00b0ea}

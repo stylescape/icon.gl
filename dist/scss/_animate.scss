@@ -115,9 +115,6 @@
 }
 
 
-
-
-
 .#{$icongl_prefix}animation_beat_fade {
     @include animation_base;
     animation-name: animation_beat_fade;
@@ -136,9 +133,9 @@
     }
   }
 
+
 // Bounce
 // ----------------------------------------------------------------------------
-
 
 @mixin animation_bounce(
     $duration: 1s,

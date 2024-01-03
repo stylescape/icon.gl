@@ -44,8 +44,8 @@
     ],
     "main": "src/scss/index.scss",
     "type": "module",
-    "module": "dist/js/unit.gl.js",
-    "style": "dist/css/unit.gl.css",
+    "module": "dist/js/icon.gl.js",
+    "style": "dist/css/icon.gl.css",
     "sass": "src/scss/index.scss",
     "scripts": {
         "format": "npx prettier --write .",

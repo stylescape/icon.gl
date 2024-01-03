@@ -53,7 +53,7 @@ const spriteGenerator = new SvgSpriteGenerator(svgspriteConfig);
 const tsCompiler = new TypeScriptCompiler(tsConfig);
 const jsMinifier = new JavaScriptMinifier(tensorConfig);
 const packageCreator = new PackageCreator(packageConfig);
-const svgPackager = new SvgPackager();
+const svgPackager = new SvgPackager("./config/svgo.config.js");
 const fontGenerator = new FontGenerator();
 const styleProcessor = new StyleProcessor();
 const versionWriter = new VersionWriter();
@@ -92,14 +92,44 @@ async function main() {
 
         // SVG
         // --------------------------------------------------------------------
-        console.log('Starting SVG processing...');
-        await svgPackager.processSvgFiles(
-            CONFIG.path.svg_input,
-            CONFIG.path.svg_output,
-            CONFIG.path.ts_output_icons,
-            CONFIG.path.json_output,
-        );
-        console.log('SVG processing completed.');
+
+
+
+
+
+
+        // async function processSvgs() {
+            try {
+                const sourceDirectory = 'path/to/source/svg';
+                const outputDirectory = 'path/to/output/svg';
+                const tsOutputDirectory = 'path/to/output/ts';
+                const jsonOutputDirectory = 'path/to/output/json';
+        
+                await svgPackager.processSvgFiles(
+                    sourceDirectory,
+                    outputDirectory,
+                    tsOutputDirectory,
+                    jsonOutputDirectory
+                );
+            } catch (error) {
+                console.error('Failed to process SVG files:', error);
+            }
+        // }
+        
+        // processSvgs();
+
+
+
+
+
+        // console.log('Starting SVG processing...');
+        // await svgPackager.processSvgFiles(
+        //     CONFIG.path.svg_input,
+        //     CONFIG.path.svg_output,
+        //     CONFIG.path.ts_output_icons,
+        //     CONFIG.path.json_output,
+        // );
+        // console.log('SVG processing completed.');
 
 
         // Font

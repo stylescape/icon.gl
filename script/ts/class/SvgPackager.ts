@@ -19,20 +19,12 @@
 // Import
 // ============================================================================
 
-// import * as fs from 'fs';
-import * as fs_extra from 'fs-extra';
-import { promises as fs } from 'fs'; // Using promisified fs
-import * as glob from 'glob';
+import * as fs from 'fs/promises';
 import * as path from 'path';
-import { fileURLToPath } from "url";
+import * as glob from 'glob';
 import SVGO from 'svgo';
 import { loadConfig } from 'svgo';
 
-// Convert the current file's URL to a file path
-const __filename = fileURLToPath(import.meta.url);
-
-// Derive the directory name of the current module
-const __dirname = path.dirname(__filename);
 
 // ============================================================================
 // Classes
@@ -46,12 +38,18 @@ const __dirname = path.dirname(__filename);
 class SvgPackager {
 
     /**
+     * Constructor for SvgPackager class.
+     * Optionally accepts configurations or dependencies.
+     */
+    constructor(private svgoConfigPath: string) {}
+
+    /**
      * Processes all SVG files in a given directory.
-     * @param directory The directory containing SVG files to process.
+     * @param inputDirectory The directory containing SVG files to process.
      * @param outputDirectory The directory where optimized SVGs will be output as TypeScript files.
      */
     public async processSvgFiles(
-        directory: string,
+        inputDirectory: string,
         outputDirectory: string,
         ts_output_directory: string,
         json_output_directory: string,
@@ -60,9 +58,9 @@ class SvgPackager {
         const iconNames: string[] = [];
 
         try {
-            console.log(`Processing directory: ${directory}`);
+            console.log(`Processing directory: ${inputDirectory}`);
 
-            const svgFiles = glob.sync(`${directory}/**/*.svg`);
+            const svgFiles = glob.sync(`${inputDirectory}/**/*.svg`);
 
             for (const file of svgFiles) {
                 console.log(`Processing file: ${file}`);
@@ -70,19 +68,20 @@ class SvgPackager {
                 iconNames.push(iconName);
                 console.log(`Processing icon: ${iconName}`);
                 const svgContent = await this.readSvgFile(file);
-                const optimizedSvg = await this.optimizeSvg(file, svgContent);
+                const optimizedSvg = await this.optimizeSvg(svgContent);
+                // const optimizedSvg = await this.optimizeSvg(file, svgContent);
                 // svgo will always add a final newline when in pretty mode
                 const resultSvg = optimizedSvg.trim()
                 // Write the optimized SVG file
                 await this.writeSvgFile(
-                    file,
+                    // file,
                     iconName,
                     resultSvg,
                     outputDirectory
                 );
                 // Write the optimized TypeScript file
                 await this.writeTypeScriptFile(
-                    file,
+                    // file,
                     iconName,
                     resultSvg,
                     ts_output_directory
@@ -95,31 +94,71 @@ class SvgPackager {
             throw error;
         }
     }
+    // public async processSvgFiles(directory: string, outputDirectory: string): Promise<void> {
+    //     try {
+    //         console.log(`Processing directory: ${directory}`);
+    //         const svgFiles = await this.findSvgFiles(directory);
+
+    //         for (const file of svgFiles) {
+    //             const iconName = this.sanitizeFileName(path.basename(file, '.svg'));
+    //             console.log(`Processing file: ${file}`);
+
+    //             const svgContent = await this.readSvgFile(file);
+    //             const optimizedSvg = await this.optimizeSvg(svgContent);
+    //             await this.writeFiles(iconName, optimizedSvg, outputDirectory);
+    //         }
+
+    //         console.log(`Successfully processed ${svgFiles.length} SVG files.`);
+    //     } catch (error) {
+    //         console.error('Error processing SVG files:', error);
+    //         throw error;
+    //     }
+    // }
+
+
+    // private async findSvgFiles(directory: string): Promise<string[]> {
+    //     return new Promise((resolve, reject) => {
+    //         glob(`${directory}/**/*.svg`, (err, files) => {
+    //             if (err) reject(err);
+    //             else resolve(files);
+    //         });
+    //     });
+    // }
 
     /**
      * Reads the content of an SVG file.
      * @param filePath The path to the SVG file.
      * @returns The content of the SVG file.
      */
+    // private async readSvgFile(filePath: string): Promise<string> {
+    //     try {
+    //         const absolutePath = path.resolve(filePath);
+    //         const svgContent = await fs.readFile(absolutePath, 'utf8');
+    //         return svgContent;
+    //     } catch (error) {
+    //         console.error('Error reading file:', filePath, error);
+    //         throw error;
+    //     }
+    // }
     private async readSvgFile(filePath: string): Promise<string> {
-        try {
-            const absolutePath = path.resolve(filePath);
-            const svgContent = await fs.readFile(absolutePath, 'utf8');
-            return svgContent;
-        } catch (error) {
-            console.error('Error reading file:', filePath, error);
-            throw error;
-        }
+        return fs.readFile(filePath, 'utf8');
     }
-
     /**
      * Sanitizes a file name to be a valid TypeScript identifier.
      * @param fileName The original file name.
      * @returns A sanitized version of the file name.
      */
+    // private sanitizeFileName(fileName: string): string {
+    //         // Implement more robust sanitization logic if necessary
+    //         return fileName.replace(/[^a-zA-Z0-9_]/g, '_');
+    // }
     private sanitizeFileName(fileName: string): string {
-            // Implement more robust sanitization logic if necessary
-            return fileName.replace(/[^a-zA-Z0-9_]/g, '_');
+        return fileName.replace(/[^a-zA-Z0-9_]/g, '_');
+    }
+
+    private async writeFiles(iconName: string, svgContent: string, outputDirectory: string): Promise<void> {
+        await this.writeSvgFile(iconName, svgContent, outputDirectory);
+        await this.writeTypeScriptFile(iconName, svgContent, outputDirectory);
     }
 
     /**
@@ -127,49 +166,59 @@ class SvgPackager {
      * @param svgContent The raw SVG content.
      * @returns The optimized SVG content.
      */
-    private async optimizeSvg(
-        filePath: string,
-        svgContent: string
-    ): Promise<string> {
+    // private async optimizeSvg(
+    //     filePath: string,
+    //     svgContent: string
+    // ): Promise<string> {
 
-        try {
+    //     try {
             
-            const config = await loadConfig(
-                path.join(__dirname, '../config/svgo.config.js')
-            )
+    //         const config = await loadConfig(
+    //             path.join(__dirname, '../config/svgo.config.js')
+    //         )
 
-            const result = await SVGO.optimize(
-                svgContent,
-                { path: filePath, ...config } // Add SVGO options if needed
-            );
+    //         const result = await SVGO.optimize(
+    //             svgContent,
+    //             { path: filePath, ...config } // Add SVGO options if needed
+    //         );
 
-            return result.data;
-        } catch (error) {
-            console.error('Error optimizing SVG:', error);
-            throw error;
-        }
+    //         return result.data;
+    //     } catch (error) {
+    //         console.error('Error optimizing SVG:', error);
+    //         throw error;
+    //     }
+    // }
+    private async optimizeSvg(svgContent: string): Promise<string> {
+        const config = await loadConfig(this.svgoConfigPath);
+        const result = await SVGO.optimize(svgContent, { ...config });
+        return result.data.trim();
     }
-
     /**
      * Creates a TypeScript file from SVG content.
      * @param filePath The path of the SVG file.
      * @param svgContent The optimized SVG content.
      * @param outputDirectory The directory to output the TypeScript file.
      */
-     private async writeTypeScriptFile(
-        filePath: string,
-        iconName: string,
-        svgContent: string,
-        outputDirectory: string
-    ): Promise<void> {
-        try {
-            const tsContent = `export const icon_${iconName} = \`${svgContent}\`;\n`;
-            const outputPath = path.join(outputDirectory, `${iconName}.ts`);
-            await fs_extra.outputFile(outputPath, tsContent);
-        } catch (error) {
-            console.error(`Error creating TypeScript file for ${filePath}:`, error);
-            throw error;
-        }
+    //  private async writeTypeScriptFile(
+    //     filePath: string,
+    //     iconName: string,
+    //     svgContent: string,
+    //     outputDirectory: string
+    // ): Promise<void> {
+    //     try {
+    //         const tsContent = `export const icon_${iconName} = \`${svgContent}\`;\n`;
+    //         const outputPath = path.join(outputDirectory, `${iconName}.ts`);
+    //         await fs.writeFile(outputPath, tsContent);
+    //     } catch (error) {
+    //         console.error(`Error creating TypeScript file for ${filePath}:`, error);
+    //         throw error;
+    //     }
+    // }
+
+    private async writeTypeScriptFile(iconName: string, svgContent: string, outputDirectory: string): Promise<void> {
+        const tsContent = `export const icon_${iconName} = \`${svgContent}\`;\n`;
+        const outputPath = path.join(outputDirectory, `${iconName}.ts`);
+        await fs.writeFile(outputPath, tsContent);
     }
 
     /**
@@ -178,20 +227,24 @@ class SvgPackager {
      * @param svgContent The SVG content to be written.
      * @param outputDirectory The directory to output the SVG file.
      */
-    private async writeSvgFile(
-        filePath: string,
-        iconName: string,
-        svgContent: string,
-        outputDirectory: string
-    ): Promise<void> {
-        try {
-            const outputPath = path.join(outputDirectory, `${iconName}.svg`);
-            await fs_extra.outputFile(outputPath, svgContent);
-            console.log(`SVG file written successfully for ${iconName}`);
-        } catch (error) {
-            console.error(`Error writing SVG file for ${iconName}:`, error);
-            throw error;
-        }
+    // private async writeSvgFile(
+    //     filePath: string,
+    //     iconName: string,
+    //     svgContent: string,
+    //     outputDirectory: string
+    // ): Promise<void> {
+    //     try {
+    //         const outputPath = path.join(outputDirectory, `${iconName}.svg`);
+    //         await fs_extra.outputFile(outputPath, svgContent);
+    //         console.log(`SVG file written successfully for ${iconName}`);
+    //     } catch (error) {
+    //         console.error(`Error writing SVG file for ${iconName}:`, error);
+    //         throw error;
+    //     }
+    // }
+    private async writeSvgFile(iconName: string, svgContent: string, outputDirectory: string): Promise<void> {
+        const outputPath = path.join(outputDirectory, `${iconName}.svg`);
+        await fs.writeFile(outputPath, svgContent);
     }
 
     /**
@@ -211,7 +264,8 @@ class SvgPackager {
         try {
             const jsonContent = JSON.stringify(iconNames, null, 2);
             const outputPath = path.join(outputDirectory, 'icons.json');
-            await fs_extra.outputFile(outputPath, jsonContent);
+            // await fs_extra.outputFile(outputPath, jsonContent);
+            await fs.writeFile(outputPath, jsonContent);
             console.log('Icons JSON file created successfully');
         } catch (error) {
             console.error('Error writing icons JSON file:', error);
@@ -219,6 +273,8 @@ class SvgPackager {
         }
     }
 
+
+    
 }
 
 

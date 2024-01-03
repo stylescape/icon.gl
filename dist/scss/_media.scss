@@ -1,0 +1,17 @@
+@media only screen and (min-width: 768px) {
+    .si-figure {
+    width: 12.5%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .si-figure {
+    width: 25%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .si-figure {
+    width: 50%;
+}
+}
