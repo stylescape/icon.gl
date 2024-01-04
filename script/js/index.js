@@ -54,7 +54,6 @@ function main() {
             const fileCopier = new FileCopier();
             fileCopier.copyFileToDirectory(path.join('.', 'README.md'), CONFIG.path.dist);
             fileCopier.copyFileToDirectory(path.join('.', 'LICENSE'), CONFIG.path.dist);
-            fileCopier.copyFileToDirectory(path.join('.', 'LICENSE-CODE'), CONFIG.path.dist);
             const directoryCopier = new DirectoryCopier();
             yield directoryCopier.recursiveCopy(CONFIG.path.ts_input, CONFIG.path.ts_output);
             console.log('Files copied successfully.');

@@ -37,37 +37,17 @@ import {
     TypeScriptCompiler,
     JavaScriptMinifier,
     StylizedLogger,
-    TemplateWriter,
-    SvgToPngConverter,
+    // TemplateWriter,
+    // SvgToPngConverter,
     gl_installer,
     readPackageJson,
     // svgspriteConfig
 } from 'pack.gl';
 
-// import SvgPackager from "./class/SvgPackager.js";
-
-
-// Import necessary configurations
-// import { CONFIG } from './config/config.js';
-// import svgspriteConfig from "./config/svgsprite.config.js";
-// import packageConfig from "./config/package.config.js"
-// import tsConfig from "./config/ts.config.js"
-// import tensorConfig from "./config/terser.config.js"
-
 
 // ============================================================================
 // Constants
 // ============================================================================
-
-// Initialize instances of necessary classes
-// const directories = Object.values(CONFIG.path);
-// const tsCompiler = new TypeScriptCompiler();
-// const jsMinifier = new JavaScriptMinifier(tensorConfig);
-
-// const styleProcessor = new StyleProcessor();
-// const versionWriter = new VersionWriter();
-// const fileRenamer = new FileRenamer();
-// const directoryCopier = new DirectoryCopier();
 
 const CONFIG = {
     path: {
@@ -108,7 +88,6 @@ async function main() {
     try {
 
 
-
         // Init Logger
         // --------------------------------------------------------------------
 
@@ -140,19 +119,6 @@ async function main() {
         packageCreator.createPackageJson(CONFIG.path.dist);
 
 
-
-        // Dirs Clean
-        // --------------------------------------------------------------------
-        // directoryCleaner.cleanDirectory(CONFIG.path.dist);
-        // console.log(`Directory cleaned: ${CONFIG.path.dist}`);
-
-        // // Dirs Create
-        // // --------------------------------------------------------------------
-        // console.log('Starting Directory creation...');
-        // // Assuming the base path is the current directory
-        // await directoryCreator.createDirectories('.', directories);
-
-
         // SVG
         // --------------------------------------------------------------------
 
@@ -181,9 +147,6 @@ async function main() {
         }
 
 
-
-
-
         // Font
         // --------------------------------------------------------------------
 
@@ -208,7 +171,6 @@ async function main() {
         // console.log('SVG Sprite generation completed.');
 
 
-
         // SASS
         // --------------------------------------------------------------------
 
@@ -229,7 +191,6 @@ async function main() {
         logger.body('SASS Processing completed.');
 
 
-
         // Copy files
         // --------------------------------------------------------------------
 
@@ -242,10 +203,10 @@ async function main() {
             path.join('.', 'LICENSE'),
             CONFIG.path.dist,
         )
-        fileCopier.copyFileToDirectory(
-            path.join('.', 'LICENSE-CODE'),
-            CONFIG.path.dist,
-        )
+        // fileCopier.copyFileToDirectory(
+        //     path.join('.', 'LICENSE-CODE'),
+        //     CONFIG.path.dist,
+        // )
 
 
         // Copy Dirs
@@ -271,7 +232,6 @@ async function main() {
         await versionWriter.writeVersionToFile('VERSION', packageConfig.version);
 
 
-
         // Compile TypeScript to JavaScript
         // --------------------------------------------------------------------
         const tsCompiler = new TypeScriptCompiler();
@@ -282,15 +242,6 @@ async function main() {
         // console.log('Starting TypeScript compilation...');
         await tsCompiler.compile(tsFiles, outputDir);
         // console.log('TypeScript compilation completed.');
-    
-
-        // Rename Ts
-        // --------------------------------------------------------------------
-
-        // await fileRenamer.renameFile(
-        //     path.join(CONFIG.path.js_output, 'index.js'),
-        //     path.join(CONFIG.path.js_output, `${packageConfig.name}.js`),
-        // )
 
 
         // Minify JavaScript
@@ -303,7 +254,6 @@ async function main() {
         .then(() => console.log('JavaScript minification completed.'))
         .catch(console.error);
 
-        
 
     } catch (error) {
         console.error('An error occurred:', error);

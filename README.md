@@ -8,14 +8,14 @@
 ---
 
 <div>
-    <img align="right" src="https://raw.githubusercontent.com/scape-agency/brand/master/src/logo/icon.gl.png" width="96" alt="Scape Agency Logo">
+    <img align="right" src="https://raw.githubusercontent.com/scape-agency/brand/master/src/logo/icon.gl.png" width="96" alt="icon.gl logo">
     <h1 align="left">icon.gl</h1>
     <h3 align="left">Stylescape Icon Library</h3>
 </div>
 
 ---
 
-<img align="right" width="50%" src="/res/icon.gl.png"  alt="icon.gl">
+<img align="right" width="50%" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/icon.gl.png" alt="icon.gl cover">
 
 ### Contents
 
