@@ -1,6 +1,6 @@
 import { __awaiter } from "tslib";
 import path from 'path';
-import { DirectoryCleaner, DirectoryCopier, FileCopier, FontGenerator, StyleProcessor, SvgPackager, PackageCreator, VersionWriter, TypeScriptCompiler, JavaScriptMinifier, StylizedLogger, gl_installer, readPackageJson, } from 'pack.gl';
+import { DirectoryCleaner, DirectoryCopier, FileCopier, FontGenerator, StyleProcessor, SvgPackager, PackageCreator, VersionWriter, TypeScriptCompiler, JavaScriptMinifier, StylizedLogger, readPackageJson, } from 'pack.gl';
 const CONFIG = {
     path: {
         src: './src',
@@ -26,7 +26,6 @@ function main() {
         try {
             const logger = new StylizedLogger();
             logger.header('Install .gl libraries');
-            yield gl_installer();
             const directoryCleaner = new DirectoryCleaner();
             logger.header('Clean Directories');
             directoryCleaner.cleanDirectory(CONFIG.path.dist);

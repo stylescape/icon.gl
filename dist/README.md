@@ -114,7 +114,6 @@ Icon content is limited to the 20dp x 20dp live area, with 2dp of padding around
 - Stroke: Pixels
 - Type: Pixels
 
-
 #### Guides
 
 - Color: Light Blue
