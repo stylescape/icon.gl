@@ -1,7 +1,7 @@
 {
     "name": "icon.gl",
     "description": "icon.gl is a icon library and framework developed by Scape Agency.",
-    "version": "0.0.4",
+    "version": "0.0.6",
     "config": {
         "version_short": "0.0"
     },
@@ -51,18 +51,10 @@
         "format": "npx prettier --write .",
         "lint": "eslint 'src/**/*.ts' || true",
         "prettify": "prettier --write 'src/**/*.ts'",
-        "build": "npm run build-compile && npm run icons-process",
-        "build-compile2": "tsc -p tsconfig.build.json",
+        "build": "npm run build-compile && npm run build-process",
         "build-compile": "tsc -p script/tsconfig.json",
-        "webpack-build": "npm run webpack-prod",
-        "webpack-build2": "npm run webpack-prod && npm run webpack-dev",
-        "webpack-dev": "webpack --mode development --config webpack.config.js",
-        "webpack-prod": "webpack --mode production --config webpack.config.js",
-        "webpack-serve": "webpack serve --mode development --config webpack.config.js",
-        "webpack-start": "webpack-dev-server --mode development --config webpack.config.js",
-        "icons-process": "node script/js/index.js",
+        "build-process": "node script/js/index.js",
         "icons-font-min": "cleancss -O1 --format breakWith=lf --with-rebase --output font/bootstrap-icons.min.css font/bootstrap-icons.css",
-        "icons-compile3": "tsc filename.ts | node filename.js",
         "icons-zip": "cross-env-shell \"rm -rf bootstrap-icons-$npm_package_version bootstrap-icons-$npm_package_version.zip && cp -r icons/ bootstrap-icons-$npm_package_version && cp bootstrap-icons.svg bootstrap-icons-$npm_package_version && cp -r font/ bootstrap-icons-$npm_package_version && zip -qr9 bootstrap-icons-$npm_package_version.zip bootstrap-icons-$npm_package_version && rm -rf bootstrap-icons-$npm_package_version\""
     },
     "devDependencies": {
@@ -103,11 +95,7 @@
         "ts-loader": "^9.4.3",
         "ts-node": "^10.9.1",
         "typescript": "^5.3.3",
-        "unit.gl": "^0.0.26",
-        "webpack": "^5.89.0",
-        "webpack-cli": "^5.1.4",
-        "webpack-dev-server": "^4.15.1",
-        "webpack-merge": "^5.9.0"
+        "unit.gl": "^0.0.26"
     },
     "files": [
         "dist/svg/**/*.{svg}",

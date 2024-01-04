@@ -121,9 +121,12 @@ async function main() {
 
         // SVG
         // --------------------------------------------------------------------
-
-        const svgPackager = new SvgPackager(
-            "./script/ts/config/svgo.config.ts"
+        const directoryCreator = new DirectoryCreator();
+        await directoryCreator.createDirectories(CONFIG.path.dist,  ['svg']);
+        
+        // const svgPackager = new SvgPackager()
+            const svgPackager = new SvgPackager(
+            "./script/ts/config/svgo.config.js"
             // path.join(CONFIG.path.scss_input, 'index.scss'),    
         );
         try {

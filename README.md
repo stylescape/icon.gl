@@ -178,20 +178,17 @@ Peach Template
 - https://www.npmjs.com/package/stylescape
 
 
-
-
 ## Links
 
 
 ### Guidelines
 
 - [Material Design - System Icons](https://m2.material.io/design/iconography/system-icons.html)
-- <https://www.ibm.com/design/language/iconography/ui-icons/usage/>
-- <https://blog.icons8.com/articles/choosing-the-right-size-and-format-for-icons/>
+- [IBM Design Language | Iconography | UI Icons](https://www.ibm.com/design/language/iconography/ui-icons/usage/)
+- [Choosing the right size and format for icons](https://blog.icons8.com/articles/choosing-the-right-size-and-format-for-icons/)
 - [Apple developer - App icons](https://developer.apple.com/design/human-interface-guidelines/app-icons)
-- <https://www.template.net/graphic-design/icon-sizes/>
 - [Microsoft Windows - Icons (Design basics)](https://learn.microsoft.com/en-us/windows/win32/uxguide/vis-icons)
-- <https://design-system.pluralsight.com/core/iconography>
+- [Pluralsight | Design System | Iconography](https://design-system.pluralsight.com/core/iconography)
 
 #### Fort Awesome
 

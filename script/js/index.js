@@ -1,6 +1,6 @@
 import { __awaiter } from "tslib";
 import path from 'path';
-import { DirectoryCleaner, DirectoryCopier, FileCopier, FontGenerator, StyleProcessor, SvgPackager, PackageCreator, VersionWriter, TypeScriptCompiler, JavaScriptMinifier, StylizedLogger, readPackageJson, } from 'pack.gl';
+import { DirectoryCleaner, DirectoryCopier, DirectoryCreator, FileCopier, FontGenerator, StyleProcessor, SvgPackager, PackageCreator, VersionWriter, TypeScriptCompiler, JavaScriptMinifier, StylizedLogger, readPackageJson, } from 'pack.gl';
 const CONFIG = {
     path: {
         src: './src',
@@ -34,7 +34,9 @@ function main() {
             const packageCreator = new PackageCreator(localPackageConfig);
             const packageConfig = packageCreator.config;
             packageCreator.createPackageJson(CONFIG.path.dist);
-            const svgPackager = new SvgPackager("./script/ts/config/svgo.config.ts");
+            const directoryCreator = new DirectoryCreator();
+            yield directoryCreator.createDirectories(CONFIG.path.dist, ['svg']);
+            const svgPackager = new SvgPackager("./script/ts/config/svgo.config.js");
             try {
                 yield svgPackager.processSvgFiles(CONFIG.path.svg_input, CONFIG.path.svg_output, CONFIG.path.ts_output_icons, CONFIG.path.json_output);
             }
