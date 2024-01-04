@@ -1,6 +1,6 @@
 {
   "name": "icon.gl",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "icon.gl is a icon library and framework developed by Scape Agency.",
   "keywords": [
     "icon.gl",
@@ -22,6 +22,12 @@
   ],
   "license": "Apache-2.0",
   "homepage": "https://www.icon.gl/",
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/scape-foundation"
+    }
+  ],
   "type": "module",
   "main": "js/index",
   "types": "js/index",
@@ -54,11 +60,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/scape-agency/icon.gl.git"
-  },
-  "funding": [
-    {
-      "type": "github",
-      "url": "https://github.com/sponsors/scape-foundation"
-    }
-  ]
+  }
 }

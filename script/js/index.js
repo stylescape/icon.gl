@@ -1,6 +1,6 @@
 import { __awaiter } from "tslib";
 import path from 'path';
-import { DirectoryCleaner, DirectoryCopier, DirectoryCreator, FileCopier, FontGenerator, StyleProcessor, SvgPackager, PackageCreator, VersionWriter, TypeScriptCompiler, JavaScriptMinifier, StylizedLogger, readPackageJson, } from 'pack.gl';
+import { DirectoryCleaner, DirectoryCopier, DirectoryCreator, FileCopier, FontGenerator, StyleProcessor, SvgPackager, SvgSpriteGenerator, PackageCreator, VersionWriter, TypeScriptCompiler, JavaScriptMinifier, StylizedLogger, readPackageJson, } from 'pack.gl';
 const CONFIG = {
     path: {
         src: './src',
@@ -43,10 +43,15 @@ function main() {
             catch (error) {
                 console.error('Failed to process SVG files:', error);
             }
+            yield directoryCreator.createDirectories(CONFIG.path.dist, ['font']);
             const fontGenerator = new FontGenerator();
             console.log('Starting font generation...');
             yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output);
             console.log('Font generation completed.');
+            const spriteGenerator = new SvgSpriteGenerator();
+            console.log('Starting SVG Sprite generation...');
+            yield spriteGenerator.generateSprite(CONFIG.path.sprite_input, CONFIG.path.sprite_output);
+            console.log('SVG Sprite generation completed.');
             const styleProcessor = new StyleProcessor();
             logger.header('Processing SASS...');
             yield styleProcessor.processStyles(path.join(CONFIG.path.scss_input, 'index.scss'), path.join(CONFIG.path.css_output, `${packageConfig.name}.css`), 'expanded');

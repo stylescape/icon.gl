@@ -152,7 +152,7 @@ async function main() {
 
         // Font
         // --------------------------------------------------------------------
-
+        await directoryCreator.createDirectories(CONFIG.path.dist,  ['font']);
         const fontGenerator = new FontGenerator();
         console.log('Starting font generation...');
         await fontGenerator.generateFonts(
@@ -166,12 +166,13 @@ async function main() {
         // --------------------------------------------------------------------
 
         // const spriteGenerator = new SvgSpriteGenerator(svgspriteConfig);
-        // console.log('Starting SVG Sprite generation...');
-        // await spriteGenerator.generateSprite(
-        //     CONFIG.path.sprite_input,
-        //     CONFIG.path.sprite_output,
-        // );
-        // console.log('SVG Sprite generation completed.');
+        const spriteGenerator = new SvgSpriteGenerator();
+        console.log('Starting SVG Sprite generation...');
+        await spriteGenerator.generateSprite(
+            CONFIG.path.sprite_input,
+            CONFIG.path.sprite_output,
+        );
+        console.log('SVG Sprite generation completed.');
 
 
         // SASS
