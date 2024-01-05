@@ -83,9 +83,16 @@ The icon grid serves as a fundamental framework, setting forth definitive yet ad
 <img width="45%" align="right" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-circle.png" alt="Keyframe Circle">
 </div>
 
+<div  width="400">
+<img height="400" width="400" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-portrait.png" alt="Keyframe Portrait">
+<small>Keyframe Square</small>
+</div>
+<div  width="400">
+<img height="400" width="400" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-landscape.png" alt="Keyframe Landscape">
+<small>Keyframe Landscape</small>
+</div>
 
-<img height="450" width="450" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-portrait.png" alt="Keyframe Portrait">
-<img height="450" width="450" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-landscape.png" alt="Keyframe Landscape">
+<img height="400" width="400" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-landscape.png" alt="Keyframe Landscape">
 
 
 <br clear="both"/>
@@ -95,7 +102,7 @@ The icon grid serves as a fundamental framework, setting forth definitive yet ad
 
 <small>Keyframe Portrait</small> <small>Keyframe Landscape</small>
 
-<small>Keyframe Square</small> <small>Keyframe Circle</small>
+ <small>Keyframe Circle</small>
 
 
 ### Icon sizes
