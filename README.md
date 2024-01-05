@@ -84,16 +84,13 @@ The icon grid serves as a fundamental framework, setting forth definitive yet ad
 Keyframe Circle
 - height:
 - width:
+<img height="400" width="400" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-portrait.png" alt="Keyframe Portrait">
+Keyframe Portrait
+- height:
+- width:
 </td><td valign="top">
 <img height="400" width="400" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-square.png" alt="Keyframe Square">
 Keyframe Square
-- height:
-- width:
-</td></tr>
-
-<tr><td valign="top">
-<img height="400" width="400" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-portrait.png" alt="Keyframe Portrait">
-Keyframe Portrait
 - height:
 - width:
 </td><td valign="top">
