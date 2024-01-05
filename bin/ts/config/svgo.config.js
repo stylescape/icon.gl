@@ -2,8 +2,64 @@ export default {
 
 
 
+    multipass: true,
+    plugins: [
+    {
+      
+          name: 'preset-default',
+          params: {
+              overrides: {
+                  removeUnknownsAndDefaults: {
+                      // remove all `data` attributes
+                      keepDataAttrs: false,
+                      // keep the `role` attribute
+                      keepRoleAttr: true,
+                  },
 
-    // multipass: true,
+                  // keep the `viewBox` attribute
+                  removeViewBox: false,
+      
+                  // customize the params of a default plugin
+                  inlineStyles: {
+                      onlyMatchedOnce: false,
+                  }
+              }
+          }
+
+    },
+    
+    {
+      name: 'removeAttributesBySelector',
+      params: {
+        selector: 'svg',
+        attributes: ['xml:space', 'id'],
+      },
+    },
+    {
+      name: 'sortAttrs',
+    },
+    {
+      name: 'removeAttrs',
+      params: {
+        attrs: ['data-*', 'data.*'],
+      },
+    },
+    {
+      name: 'removeDimensions',
+    },
+    {
+      name: 'convertStyleToAttrs',
+      params: {
+        keepImportant: true,
+      },
+    },
+  ],
+
+
+
+
+
+
     // js2svg: {
     //     pretty: true,
     //     indent: 2,
@@ -82,63 +138,6 @@ export default {
     //     }
     // ]
 
-
-
-
-    multipass: true,
-    plugins: [
-      {
-        
-            name: 'preset-default',
-            params: {
-                overrides: {
-                    removeUnknownsAndDefaults: {
-                        // remove all `data` attributes
-                        keepDataAttrs: false,
-                        // keep the `role` attribute
-                        keepRoleAttr: true,
-                    },
-
-                    // keep the `viewBox` attribute
-                    removeViewBox: false,
-        
-                    // customize the params of a default plugin
-                    inlineStyles: {
-                        onlyMatchedOnce: false,
-                    }
-                }
-            }
-        
-
-
-
-      },
-      {
-        name: 'removeAttributesBySelector',
-        params: {
-          selector: 'svg',
-          attributes: ['xml:space', 'id'],
-        },
-      },
-      {
-        name: 'sortAttrs',
-      },
-      {
-        name: 'removeAttrs',
-        params: {
-          attrs: ['data-*', 'data.*'],
-        },
-      },
-      {
-        name: 'removeDimensions',
-      },
-      {
-        name: 'convertStyleToAttrs',
-        params: {
-          keepImportant: true,
-        },
-      },
-    ],
 
 
 

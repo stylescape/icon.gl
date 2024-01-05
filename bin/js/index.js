@@ -1,6 +1,6 @@
 import { __awaiter } from "tslib";
 import path from 'path';
-import { DirectoryCleaner, DirectoryCopier, DirectoryCreator, FileCopier, FontGenerator, StyleProcessor, SvgPackager, SvgSpriteGenerator, PackageCreator, VersionWriter, TypeScriptCompiler, JavaScriptMinifier, StylizedLogger, readPackageJson, } from 'pack.gl';
+import { DirectoryScanner, DirectoryCleaner, DirectoryCopier, DirectoryCreator, FileCopier, FontGenerator, FilenameExtractor, StyleProcessor, SvgPackager, SvgSpriteGenerator, PackageCreator, VersionWriter, TypeScriptCompiler, JavaScriptMinifier, StylizedLogger, SvgToPngConverter, readPackageJson, SvgReader, } from 'pack.gl';
 const CONFIG = {
     path: {
         src: './src',
@@ -42,6 +42,26 @@ function main() {
             }
             catch (error) {
                 console.error('Failed to process SVG files:', error);
+            }
+            const directoryScanner = new DirectoryScanner();
+            const svgReader = new SvgReader();
+            const converter = new SvgToPngConverter();
+            const extractor = new FilenameExtractor();
+            const svg_paths = yield directoryScanner.scanDirectory(CONFIG.path.svg_input, true);
+            console.log(svg_paths);
+            for (const svg_path of svg_paths) {
+                console.log(svg_path);
+                if (path.extname(svg_path) == 'svg') {
+                    const filenameWithoutExtension = extractor.getFilenameWithoutExtension(svg_path);
+                    const svgContent = yield svgReader.readSVG(svg_path);
+                    const sizes = [16, 32, 64, 128, 256, 512, 720];
+                    for (const size of sizes) {
+                        const pngOutputPath = path.join(CONFIG.path.dist, 'png', `${size}`, `${filenameWithoutExtension}.png`);
+                        yield converter.convert(svgContent, pngOutputPath, size, size);
+                        console.log(`Converted to PNG: ${pngOutputPath}`);
+                    }
+                }
+                ;
             }
             yield directoryCreator.createDirectories(CONFIG.path.dist, ['font']);
             const fontGenerator = new FontGenerator();

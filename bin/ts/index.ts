@@ -15,20 +15,25 @@
 // limitations under the License.
 
 
+
+
 // ============================================================================
 // Import
 // ============================================================================
 
 // Import necessary modules and classes
 import path from 'path';
+import { promises as fs } from 'fs';
 
 import {
+    DirectoryScanner,
     DirectoryCleaner,
     DirectoryCopier,
     DirectoryCreator,
     FileCopier,
     FileRenamer,
     FontGenerator,
+    FilenameExtractor,
     StyleProcessor,
     SvgPackager,
     SvgSpriteGenerator,
@@ -38,9 +43,10 @@ import {
     JavaScriptMinifier,
     StylizedLogger,
     // TemplateWriter,
-    // SvgToPngConverter,
+    SvgToPngConverter,
     gl_installer,
     readPackageJson,
+    SvgReader,
     // svgspriteConfig
 } from 'pack.gl';
 
@@ -72,6 +78,10 @@ const CONFIG = {
     },
 
 };
+
+
+
+
 
 
 // ============================================================================
@@ -121,38 +131,57 @@ async function main() {
 
         // SVG
         // --------------------------------------------------------------------
+
         const directoryCreator = new DirectoryCreator();
         await directoryCreator.createDirectories(CONFIG.path.dist,  ['svg']);
         
         // const svgPackager = new SvgPackager()
-            const svgPackager = new SvgPackager(
+        const svgPackager = new SvgPackager(
             "./script/ts/config/svgo.config.js"
             // path.join(CONFIG.path.scss_input, 'index.scss'),    
         );
         try {
-            // const sourceDirectory = 'path/to/source/svg';
-            // const outputDirectory = 'path/to/output/svg';
-            // const tsOutputDirectory = 'path/to/output/ts';
-            // const jsonOutputDirectory = 'path/to/output/json';
-    
             await svgPackager.processSvgFiles(
                 CONFIG.path.svg_input,
                 CONFIG.path.svg_output,
                 CONFIG.path.ts_output_icons,
                 CONFIG.path.json_output,
-                // sourceDirectory,
-                // outputDirectory,
-                // tsOutputDirectory,
-                // jsonOutputDirectory
             );
         } catch (error) {
             console.error('Failed to process SVG files:', error);
         }
 
+        
+        // PNG
+        // --------------------------------------------------------------------
+
+        const directoryScanner = new DirectoryScanner();
+        const svgReader = new SvgReader();
+        const converter = new SvgToPngConverter();
+        const extractor = new FilenameExtractor();
+        const svg_paths = await directoryScanner.scanDirectory(CONFIG.path.svg_input, true)
+
+        console.log(svg_paths);
+        for (const svg_path of svg_paths) {
+            console.log(svg_path);
+            if (path.extname(svg_path) == 'svg'){
+                const filenameWithoutExtension = extractor.getFilenameWithoutExtension(svg_path);
+                const svgContent = await svgReader.readSVG(svg_path);
+                // Define the desired sizes for the PNG files
+                const sizes = [16, 32, 64, 128, 256, 512, 720];
+                for (const size of sizes) {
+                    const pngOutputPath = path.join(CONFIG.path.dist, 'png', `${size}`, `${filenameWithoutExtension}.png`);
+                    await converter.convert(svgContent, pngOutputPath, size, size);
+                    console.log(`Converted to PNG: ${pngOutputPath}`);
+                }
+            };
+        }
+
 
         // Font
         // --------------------------------------------------------------------
-        await directoryCreator.createDirectories(CONFIG.path.dist,  ['font']);
+    
+        await directoryCreator.createDirectories(CONFIG.path.dist, ['font']);
         const fontGenerator = new FontGenerator();
         console.log('Starting font generation...');
         await fontGenerator.generateFonts(
