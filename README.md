@@ -79,15 +79,15 @@ The icon grid serves as a fundamental framework, setting forth definitive yet ad
 <br clear="both"/>
 
 <div>
-<img width="50%" align="left" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-square.png" alt="Keyframe Square">
-<img width="50%" align="right" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-circle.png" alt="Keyframe Circle">
+<img width="40%" align="left" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-square.png" alt="Keyframe Square">
+<img width="40%" align="right" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-circle.png" alt="Keyframe Circle">
 <small>Keyframe Square</small> <small>Keyframe Circle</small>
 </div>
 
 <div>
-<img width="50%" align="left" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-portrait.png" alt="Keyframe Portrait">
-<img width="50%" align="right" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-landscape.png" alt="Keyframe Landscape">
-<small>Keyframe Portrait</small> ><small>Keyframe Landscape</small> 
+<img width="40%" align="left" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-portrait.png" alt="Keyframe Portrait">
+<img width="40%" align="right" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-landscape.png" alt="Keyframe Landscape">
+<small>Keyframe Portrait</small> <small>Keyframe Landscape</small>
 </div>
 
 <br clear="both"/>
