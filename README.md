@@ -76,11 +76,12 @@ Icon.gl is a modern, innovative icon library infused with the essence of traditi
 
 The icon grid serves as a fundamental framework, setting forth definitive yet adaptable guidelines for the placement of graphic elements. At the core of this grid lie the keyline shapes, which form the foundational structure. Adhering to these keyline shapes as guiding principles ensures that system icons maintain consistent visual proportions, creating a harmonious and unified visual language. This approach not only fosters consistency across various icons but also allows for flexibility in their design, ensuring both uniformity and creative versatility.
 
-<img width="50%" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-square.png" alt="Keyframe Square"><small>Keyframe Square</small> 
-<img width="50%" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-circle.png" alt="Keyframe Circle"><small>Keyframe Circle</small> 
-<img width="50%" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-portrait.png" alt="Keyframe Circle"><small>Keyframe Portrait</small> 
-<img width="50%" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-landscape.png" alt="Keyframe Circle"><small>Keyframe Landscape</small> 
-
+<img width="50%" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-square.png" alt="Keyframe Square">
+<img width="50%" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-circle.png" alt="Keyframe Circle">
+<small>Keyframe Square</small> <small>Keyframe Circle</small> 
+<img width="50%" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-portrait.png" alt="Keyframe Portrait">
+<img width="50%" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-landscape.png" alt="Keyframe Landscape">
+<small>Keyframe Portrait</small> ><small>Keyframe Landscape</small> 
 
 
 
