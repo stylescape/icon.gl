@@ -17,8 +17,9 @@
 // icon.gl | Font Variables
 // ============================================================================
 
-@each $icon, $codepoint in $icon_map {
-  .icon_#{$icon}::before { content: $codepoint; }
+.{{ prefix }}::before,
+[class^="{{ prefix }}_"]::before,
+[class*=" {{ prefix }}_"]::before {
+    font-family: ${{ name }}_font !important;
+    @include icon_style;
 }
-
-

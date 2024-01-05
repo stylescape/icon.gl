@@ -14,14 +14,12 @@
 
 
 // ============================================================================
-// icon.gl | Font Map
+// icon.gl | Font Variables
 // ============================================================================
 
-$icon_map: (
-    "pie_01": "\f101",
-    "pie_02": "\f102",
-    "pie_03": "\f103",
-    "star": "\f104",
-    "swirl": "\f105",
-);
-
+.icon::before,
+[class^="icon_"]::before,
+[class*=" icon_"]::before {
+    font-family: $icon_font !important;
+    @include icon_style;
+}

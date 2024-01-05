@@ -29,10 +29,10 @@ ${{ name }}_font_hash: "24e3eb84d0bcaf83d77f904c78ac1f47" !default;
 // Generating font-face URLs with hash
 // ============================================================================
 
-@function {{ name }}_font-url($format) {
-  @return url("#{${{ name }}_font_dir}/#{${{ name }}_font}.#{$format}?#{${{ name }}_font_hash}") format($format);
+@function {{ name }}_font_url($format) {
+  {{!-- @return url("#{${{ name }}_font_dir}/#{${{ name }}_font}.#{$format}?#{${{ name }}_font_hash}") format($format); --}}
+  @return url("#{${{ name }}_font_dir}/#{${{ name }}_font}.#{$format}") format($format);
 }
-
 
 
 // Defining supported font formats
@@ -50,15 +50,9 @@ ${{ name }}_font_formats: (
 
 ${{ name }}_font_src: ();
 @each $format, $type in ${{ name }}_font_formats {
-  ${{ name }}_font_src: append(${{ name }}_font_src, {{ name }}_font-url($format) $type, comma);
+  ${{ name }}_font_src: append(${{ name }}_font_src, {{ name }}_font_url($format) $type, comma);
 
 }
-
-
-{{!-- 
-${{ name }}_font_file: "#{${{ name }}_font_dir}/#{${{ name }}_font}" !default;
-${{ name }}_font_src: url("#{${{ name }}_font_file}.woff2?#{${{ name }}_font_hash}") format("woff2"),
-                           url("#{${{ name }}_font_file}.woff?#{${{ name }}_font_hash}") format("woff") !default; --}}
 
 
 // FontFace Declaration
@@ -73,9 +67,6 @@ ${{ name }}_font_src: url("#{${{ name }}_font_file}.woff2?#{${{ name }}_font_has
 
 
 {{!-- 
-${{ name }}_font: "{{ name }}";
-
-@font-face {
-    font-family: ${{ name }}_font;
-    src: {{{ fontSrc }}};
-} --}}
+${{ name }}_font_file: "#{${{ name }}_font_dir}/#{${{ name }}_font}" !default;
+${{ name }}_font_src: url("#{${{ name }}_font_file}.woff2?#{${{ name }}_font_hash}") format("woff2"),
+                           url("#{${{ name }}_font_file}.woff?#{${{ name }}_font_hash}") format("woff") !default; --}}

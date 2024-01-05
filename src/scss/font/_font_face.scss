@@ -22,17 +22,16 @@
 // ============================================================================
 
 $icon_font: "icon" !default;
-$icon_font_dir: "./fonts" !default;
+$icon_font_dir: "./font" !default;
 $icon_font_hash: "24e3eb84d0bcaf83d77f904c78ac1f47" !default;
 
 
 // Generating font-face URLs with hash
 // ============================================================================
 
-@function icon_font-url($format) {
-  @return url("#{$icon_font_dir}/#{$icon_font}.#{$format}?#{$icon_font_hash}") format($format);
+@function icon_font_url($format) {
+  @return url("#{$icon_font_dir}/#{$icon_font}.#{$format}") format($format);
 }
-
 
 
 // Defining supported font formats
@@ -50,11 +49,9 @@ $icon_font_formats: (
 
 $icon_font_src: ();
 @each $format, $type in $icon_font_formats {
-  $icon_font_src: append($icon_font_src, icon_font-url($format) $type, comma);
+  $icon_font_src: append($icon_font_src, icon_font_url($format) $type, comma);
 
 }
-
-
 
 
 // FontFace Declaration

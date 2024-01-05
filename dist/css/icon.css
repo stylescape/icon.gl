@@ -19,8 +19,26 @@ TABLE OF CONTENTS
 @font-face {
   font-display: swap;
   font-family: "icon";
-  src: url("./fonts/icon.woff2?24e3eb84d0bcaf83d77f904c78ac1f47") format("woff2") "woff2", url("./fonts/icon.woff?24e3eb84d0bcaf83d77f904c78ac1f47") format("woff") "woff", url("./fonts/icon.ttf?24e3eb84d0bcaf83d77f904c78ac1f47") format("ttf") "truetype";
+  src: url("./font/icon.woff2") format("woff2") "woff2", url("./font/icon.woff") format("woff") "woff", url("./font/icon.ttf") format("ttf") "truetype";
 }
+.icon::before,
+[class^=icon_]::before,
+[class*=" icon_"]::before {
+  font-family: "icon" !important;
+  display: inline-block;
+  font-size: 16px;
+  color: #000000;
+  line-height: 1;
+  margin: 0;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  vertical-align: -0.125em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .icon_pie_01::before {
   content: "\f101";
 }
