@@ -46,15 +46,11 @@ Icon.gl is a modern, innovative icon library infused with the essence of traditi
     <img src="res/yonaguni_symbol.jpg" width="80%" height="80%" alt="Yonaguni Symbols">
 </p>
 
-
-
 ## Icons
 
 |      |      |      |      |      |      |
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/pie_02.png" alt="pie_02"><small>pie_02</small> | <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/pie_03.png" alt="pie_03"><small>pie_03</small> | <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/star.png" alt="star"><small>star</small> | <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/swirl.png" alt="swirl"><small>swirl</small> | |
-
-
 
 ## Design principles
 
@@ -69,6 +65,26 @@ Icon.gl is a modern, innovative icon library infused with the essence of traditi
 - Numerical Symbols: Incorporates unique numeral systems, influenced by Suzhou numerals.
 
 ## Specifications
+
+
+
+
+
+
+
+### Keyline Shapes
+
+The icon grid serves as a fundamental framework, setting forth definitive yet adaptable guidelines for the placement of graphic elements. At the core of this grid lie the keyline shapes, which form the foundational structure. Adhering to these keyline shapes as guiding principles ensures that system icons maintain consistent visual proportions, creating a harmonious and unified visual language. This approach not only fosters consistency across various icons but also allows for flexibility in their design, ensuring both uniformity and creative versatility.
+
+<img width="50%" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/res/docs/icon.gl-docs_keyframe-square.png" alt="Keyframe Square"><small>Keyframe Square</small> 
+<img width="50%" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/res/docs/icon.gl-docs_keyframe-circle.png" alt="Keyframe Circle"><small>Keyframe Circle</small> 
+<img width="50%" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/res/docs/icon.gl-docs_keyframe-portrait.png" alt="Keyframe Circle"><small>Keyframe Portrait</small> 
+<img width="50%" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/res/docs/icon.gl-docs_keyframe-landscape.png" alt="Keyframe Circle"><small>Keyframe Landscape</small> 
+
+
+
+
+
 
 ### Icon sizes
 
@@ -88,7 +104,6 @@ Iconography is highly functional in a user interface. When used wisely, icons be
 
 Icons have been designed to work best in four sizes: 16px, 20px, 24px, and 32px. Please use icons at their originally produced size. These are provided in SVG and Adobe Illustrator files.
 
-
 ## Installation
 
 Instructions on how to integrate icon.gl into your project.
@@ -97,14 +112,11 @@ Instructions on how to integrate icon.gl into your project.
 npm i icon.gl
 ```
 
-
 ## Template
 
 Create your own system and product icons with these Adobe Illustrator files including the 24dp icon grid.
 
-
 ### Template Setttings
-
 
 #### Layout
 
@@ -113,9 +125,11 @@ Icon content should remain inside of the **live area**, which is the region of a
 If additional visual weight is needed, content may extend into the padding between the live area and the **trim area** (the complete size of a graphic). No parts of the icon should extend outside of the trim area.
 
 ##### Live area
+
 Icon content is limited to the 20dp x 20dp live area, with 2dp of padding around the perimeter.
 
 ##### Padding
+
 2dp of padding surrounds the live area.
 
 #### Units
@@ -185,10 +199,9 @@ Peach Template
     </a>
 </p>
 
-- https://www.npmjs.com/package/stylescape
+- <https://www.npmjs.com/package/stylescape>
 
 ## Links
-
 
 ### Guidelines
 
@@ -206,11 +219,10 @@ Peach Template
 ## Ref
 
 - [Making SVG icon libraries for React apps](https://nicolasgallagher.com/making-svg-icon-libraries-for-react-apps/)
-- https://github.com/mryechkin/acme-icons
-- https://github.com/necolas/icon-builder-example
+- <https://github.com/mryechkin/acme-icons>
+- <https://github.com/necolas/icon-builder-example>
 - [Using npm to create JavaScript icon libraries](https://blog.logrocket.com/using-npm-to-create-javascript-icon-libraries/)
-- https://github.com/kreuzerk/svg-icon-library-starter
-
+- <https://github.com/kreuzerk/svg-icon-library-starter>
 
 ---
 
