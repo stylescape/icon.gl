@@ -3,6 +3,7 @@ import path from 'path';
 import { DirectoryScanner, DirectoryCleaner, DirectoryCopier, DirectoryCreator, FileCopier, FontGenerator, FilenameExtractor, StyleProcessor, SvgPackager, SvgSpriteGenerator, PackageCreator, VersionWriter, TypeScriptCompiler, JavaScriptMinifier, StylizedLogger, SvgToPngConverter, readPackageJson, SvgReader, } from 'pack.gl';
 const CONFIG = {
     path: {
+        root: '.',
         src: './src',
         dist: './dist',
         svg_input: './src/svg',
@@ -36,7 +37,7 @@ function main() {
             packageCreator.createPackageJson(CONFIG.path.dist);
             const directoryCreator = new DirectoryCreator();
             yield directoryCreator.createDirectories(CONFIG.path.dist, ['svg']);
-            const svgPackager = new SvgPackager("./script/ts/config/svgo.config.js");
+            const svgPackager = new SvgPackager(path.join(CONFIG.path.root, 'bin/ts/config/svgo.config.js'));
             try {
                 yield svgPackager.processSvgFiles(CONFIG.path.svg_input, CONFIG.path.svg_output, CONFIG.path.ts_output_icons, CONFIG.path.json_output);
             }

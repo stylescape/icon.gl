@@ -57,6 +57,7 @@ import {
 
 const CONFIG = {
     path: {
+        root:      '.',
         src:      './src',
         dist:      './dist',
 
@@ -137,7 +138,10 @@ async function main() {
         
         // const svgPackager = new SvgPackager()
         const svgPackager = new SvgPackager(
-            "./script/ts/config/svgo.config.js"
+
+            path.join(CONFIG.path.root, 'bin/ts/config/svgo.config.js'),    
+
+            // "./script/ts/config/svgo.config.js"
             // path.join(CONFIG.path.scss_input, 'index.scss'),    
         );
         try {

@@ -48,12 +48,12 @@
     "style": "dist/css/icon.gl.css",
     "sass": "src/scss/index.scss",
     "scripts": {
-        "format": "npx prettier --write .",
-        "lint": "eslint 'src/**/*.ts' || true",
-        "prettify": "prettier --write 'src/**/*.ts'",
         "build": "npm run build-compile && npm run build-process",
         "build-compile": "tsc -p bin/tsconfig.json",
         "build-process": "node bin/js/index.js",
+        "format": "npx prettier --write .",
+        "lint": "eslint 'src/**/*.ts' || true",
+        "prettify": "prettier --write 'src/**/*.ts'",
         "icons-font-min": "cleancss -O1 --format breakWith=lf --with-rebase --output font/bootstrap-icons.min.css font/bootstrap-icons.css",
         "icons-zip": "cross-env-shell \"rm -rf bootstrap-icons-$npm_package_version bootstrap-icons-$npm_package_version.zip && cp -r icons/ bootstrap-icons-$npm_package_version && cp bootstrap-icons.svg bootstrap-icons-$npm_package_version && cp -r font/ bootstrap-icons-$npm_package_version && zip -qr9 bootstrap-icons-$npm_package_version.zip bootstrap-icons-$npm_package_version && rm -rf bootstrap-icons-$npm_package_version\""
     },
