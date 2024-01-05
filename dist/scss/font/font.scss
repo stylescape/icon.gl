@@ -13,8 +13,10 @@
 // limitations under the License.
 
 
-${{ name }}-map: (
-{{# each codepoints }}
-    "{{ @key }}": "\\{{ codepoint this }}",
-{{/ each }}
-);
+// ============================================================================
+// icon.gl | Font
+// ============================================================================
+
+@import "_font_face.scss";
+@import "_font_map.scss";
+@import "_font_var.scss";

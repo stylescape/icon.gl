@@ -135,14 +135,8 @@ async function main() {
 
         const directoryCreator = new DirectoryCreator();
         await directoryCreator.createDirectories(CONFIG.path.dist,  ['svg']);
-        
-        // const svgPackager = new SvgPackager()
         const svgPackager = new SvgPackager(
-
             path.join(CONFIG.path.root, 'bin/ts/config/svgo.config.js'),    
-
-            // "./script/ts/config/svgo.config.js"
-            // path.join(CONFIG.path.scss_input, 'index.scss'),    
         );
         try {
             await svgPackager.processSvgFiles(
@@ -185,13 +179,96 @@ async function main() {
         // Font
         // --------------------------------------------------------------------
     
-        await directoryCreator.createDirectories(CONFIG.path.dist, ['font']);
-        const fontGenerator = new FontGenerator();
         console.log('Starting font generation...');
+        await directoryCreator.createDirectories(CONFIG.path.dist, ['font']);
+        const fontGenerator = new FontGenerator(
+            {
+                name: 'icon',
+                prefix: 'icon',
+                fontsUrl: './fonts',
+                // fontHeight: number;
+                // descent: number;
+                // normalize: boolean;
+                // round: number;
+                selector: '.i',
+                // tag: string;
+
+                fontTypes: [
+                    // FontAssetType.TTF,      // TTF = "ttf"
+                    // FontAssetType.WOFF,     // WOFF = "woff"
+                    // FontAssetType.WOFF2,    // WOFF2 = "woff2"
+                    // FontAssetType.EOT,      // EOT = "eot"
+                    // FontAssetType.SVG,      // SVG = "svg"
+                ],
+                assetTypes: [
+                    // OtherAssetType.CSS,     // CSS = "css",
+                    // OtherAssetType.SCSS,    // SCSS = "scss",
+                    // OtherAssetType.SASS,    // SASS = "sass",
+                    // OtherAssetType.HTML,    // HTML = "html",
+                    // OtherAssetType.JSON,    // JSON = "json",
+                    // OtherAssetType.TS,      // TS = "ts"    
+                ],
+            }
+
+        );
+        const font_custom_config = {
+            templates: {
+                css:  path.join(CONFIG.path.src, 'hbs', 'icon.gl.css.hbs'),    
+                scss: path.join(CONFIG.path.src, 'hbs', 'icon.gl.scss.hbs'),    
+            }, 
+
+        }
+
+
+        // Fonts
         await fontGenerator.generateFonts(
             CONFIG.path.font_input,
             CONFIG.path.font_output,
+            {
+                fontTypes: [
+                    "ttf", "woff", "woff2", "eot", "svg",
+                ],
+                pathOptions: {
+                    ttf:    path.join(CONFIG.path.src, 'font', 'icon.gl.ttf'),
+                    woff:   path.join(CONFIG.path.src, 'font', 'icon.gl.woff'),
+                    woff2:  path.join(CONFIG.path.src, 'font', 'icon.gl.woff2'),
+                    eot:    path.join(CONFIG.path.src, 'font', 'icon.gl.eot'),
+                    svg:    path.join(CONFIG.path.src, 'font', 'icon.gl.svg'),
+                },
+            }
         );
+
+        // SCSS Fontface
+        await fontGenerator.generateFonts(
+            CONFIG.path.font_input,
+            CONFIG.path.font_output,
+            {
+                assetTypes: [ "scss", ],
+                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_face.scss'), },
+                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_face.scss.hbs'), }, 
+            }
+        );
+        // SCSS Fontmap
+        await fontGenerator.generateFonts(
+            CONFIG.path.font_input,
+            CONFIG.path.font_output,
+            {
+                assetTypes: [ "scss", ],
+                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_map.scss'), },
+                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_map.scss.hbs'), }, 
+            }
+        );
+        // SCSS Variables
+        await fontGenerator.generateFonts(
+            CONFIG.path.font_input,
+            CONFIG.path.font_output,
+            {
+                assetTypes: [ "scss", ],
+                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_var.scss'), },
+                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_var.scss.hbs'), }, 
+            }
+        );
+
         console.log('Font generation completed.');
 
 
@@ -254,10 +331,13 @@ async function main() {
             CONFIG.path.ts_input,
             CONFIG.path.ts_output,
         );
-        console.log('Files copied successfully.');
         await directoryCopier.recursiveCopy(
             CONFIG.path.scss_input,
             CONFIG.path.scss_output,
+        );
+        await directoryCopier.recursiveCopy(
+            path.join(CONFIG.path.src, 'font'),
+            path.join(CONFIG.path.dist, 'font'),
         );
         console.log('Files copied successfully.');
 

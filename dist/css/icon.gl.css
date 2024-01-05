@@ -16,6 +16,31 @@ TABLE OF CONTENTS
 2.
 3. 
 */
+@font-face {
+  font-display: swap;
+  font-family: "icon";
+  src: url("./fonts/icon.woff2?24e3eb84d0bcaf83d77f904c78ac1f47") format("woff2") "woff2", url("./fonts/icon.woff?24e3eb84d0bcaf83d77f904c78ac1f47") format("woff") "woff", url("./fonts/icon.ttf?24e3eb84d0bcaf83d77f904c78ac1f47") format("ttf") "truetype";
+}
+.icon_pie_01::before {
+  content: "\f101";
+}
+
+.icon_pie_02::before {
+  content: "\f102";
+}
+
+.icon_pie_03::before {
+  content: "\f103";
+}
+
+.icon_star::before {
+  content: "\f104";
+}
+
+.icon_swirl::before {
+  content: "\f105";
+}
+
 .igl_1x {
   font-size: 1em;
 }

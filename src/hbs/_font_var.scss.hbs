@@ -13,8 +13,12 @@
 // limitations under the License.
 
 
-${{ name }}-map: (
-{{# each codepoints }}
-    "{{ @key }}": "\\{{ codepoint this }}",
-{{/ each }}
-);
+// ============================================================================
+// icon.gl | Font Variables
+// ============================================================================
+
+@each $icon, $codepoint in ${{ name }}_map {
+  .{{ prefix }}_#{$icon}::before { content: $codepoint; }
+}
+
+

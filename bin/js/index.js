@@ -64,10 +64,49 @@ function main() {
                 }
                 ;
             }
-            yield directoryCreator.createDirectories(CONFIG.path.dist, ['font']);
-            const fontGenerator = new FontGenerator();
             console.log('Starting font generation...');
-            yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output);
+            yield directoryCreator.createDirectories(CONFIG.path.dist, ['font']);
+            const fontGenerator = new FontGenerator({
+                name: 'icon',
+                prefix: 'icon',
+                fontsUrl: './fonts',
+                selector: '.i',
+                fontTypes: [],
+                assetTypes: [],
+            });
+            const font_custom_config = {
+                templates: {
+                    css: path.join(CONFIG.path.src, 'hbs', 'icon.gl.css.hbs'),
+                    scss: path.join(CONFIG.path.src, 'hbs', 'icon.gl.scss.hbs'),
+                },
+            };
+            yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
+                fontTypes: [
+                    "ttf", "woff", "woff2", "eot", "svg",
+                ],
+                pathOptions: {
+                    ttf: path.join(CONFIG.path.src, 'font', 'icon.gl.ttf'),
+                    woff: path.join(CONFIG.path.src, 'font', 'icon.gl.woff'),
+                    woff2: path.join(CONFIG.path.src, 'font', 'icon.gl.woff2'),
+                    eot: path.join(CONFIG.path.src, 'font', 'icon.gl.eot'),
+                    svg: path.join(CONFIG.path.src, 'font', 'icon.gl.svg'),
+                },
+            });
+            yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
+                assetTypes: ["scss",],
+                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_face.scss'), },
+                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_face.scss.hbs'), },
+            });
+            yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
+                assetTypes: ["scss",],
+                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_map.scss'), },
+                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_map.scss.hbs'), },
+            });
+            yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
+                assetTypes: ["scss",],
+                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_var.scss'), },
+                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_var.scss.hbs'), },
+            });
             console.log('Font generation completed.');
             const spriteGenerator = new SvgSpriteGenerator();
             console.log('Starting SVG Sprite generation...');
@@ -83,8 +122,8 @@ function main() {
             fileCopier.copyFileToDirectory(path.join('.', 'LICENSE'), CONFIG.path.dist);
             const directoryCopier = new DirectoryCopier();
             yield directoryCopier.recursiveCopy(CONFIG.path.ts_input, CONFIG.path.ts_output);
-            console.log('Files copied successfully.');
             yield directoryCopier.recursiveCopy(CONFIG.path.scss_input, CONFIG.path.scss_output);
+            yield directoryCopier.recursiveCopy(path.join(CONFIG.path.src, 'font'), path.join(CONFIG.path.dist, 'font'));
             console.log('Files copied successfully.');
             const versionWriter = new VersionWriter();
             yield versionWriter.writeVersionToFile('VERSION', packageConfig.version);
