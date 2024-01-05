@@ -83,15 +83,12 @@ The icon grid serves as a fundamental framework, setting forth definitive yet ad
 <img width="45%" align="right" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-circle.png" alt="Keyframe Circle">
 </div>
 
-<div>
-<img height="400" width="400" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-portrait.png" alt="Keyframe Portrait">
-<img height="400" width="400" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-landscape.png" alt="Keyframe Landscape">
-</div>
+
+<img height="450" width="450" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-portrait.png" alt="Keyframe Portrait">
+<img height="450" width="450" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-landscape.png" alt="Keyframe Landscape">
+
 
 <br clear="both"/>
-
-![](https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-portrait.png =250x250)
-![](https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-landscape.png =250x250)
 
 
 
