@@ -84,12 +84,10 @@ The icon grid serves as a fundamental framework, setting forth definitive yet ad
 </div>
 
 <div  width="400">
-<img height="400" width="400" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-portrait.png" alt="Keyframe Portrait">
-<small width="400">Keyframe Square</small>
+
 </div>
 <div  width="400">
-<img height="400" width="400" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-landscape.png" alt="Keyframe Landscape">
-<small width="400">Keyframe Landscape</small>
+
 </div >
 
 <img height="400" width="400" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-landscape.png" alt="Keyframe Landscape">
@@ -103,6 +101,34 @@ The icon grid serves as a fundamental framework, setting forth definitive yet ad
 <small>Keyframe Portrait</small> <small>Keyframe Landscape</small>
 
  <small>Keyframe Circle</small>
+
+
+
+
+<div align="center">
+<table><tbody>
+<tr><td valign="top">
+
+<img height="400" width="400" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-portrait.png" alt="Keyframe Portrait">
+<small width="400">Keyframe Square</small>
+
+
+</td><td valign="top">
+
+<img height="400" width="400" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-landscape.png" alt="Keyframe Landscape">
+<small width="400">Keyframe Landscape</small>
+
+</td></tr>
+</tbody></table>
+</div>
+
+
+
+
+
+
+
+
 
 
 ### Icon sizes
