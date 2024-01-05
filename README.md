@@ -46,6 +46,16 @@ Icon.gl is a modern, innovative icon library infused with the essence of traditi
     <img src="res/yonaguni_symbol.jpg" width="80%" height="80%" alt="Yonaguni Symbols">
 </p>
 
+
+
+## Icons
+
+|      |      |      |      |      |      |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/pie_02.png" alt="pie_02"><small>pie_02</small> | <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/pie_03.png" alt="pie_03"><small>pie_03</small> | <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/star.png" alt="star"><small>star</small> | <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/swirl.png" alt="swirl"><small>swirl</small> | |
+
+
+
 ## Design principles
 
 ### Concept
