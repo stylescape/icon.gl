@@ -76,57 +76,28 @@ Icon.gl is a modern, innovative icon library infused with the essence of traditi
 
 The icon grid serves as a fundamental framework, setting forth definitive yet adaptable guidelines for the placement of graphic elements. At the core of this grid lie the keyline shapes, which form the foundational structure. Adhering to these keyline shapes as guiding principles ensures that system icons maintain consistent visual proportions, creating a harmonious and unified visual language. This approach not only fosters consistency across various icons but also allows for flexibility in their design, ensuring both uniformity and creative versatility.
 
-<br clear="both"/>
-
-<div>
-<img width="45%" align="left" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-square.png" alt="Keyframe Square">
-<img width="45%" align="right" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-circle.png" alt="Keyframe Circle">
-</div>
-
-<div  width="400">
-
-</div>
-<div  width="400">
-
-</div >
-
-<img height="400" width="400" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-landscape.png" alt="Keyframe Landscape">
-
-
-<br clear="both"/>
-
-
-
-
-<small>Keyframe Portrait</small> <small>Keyframe Landscape</small>
-
- <small>Keyframe Circle</small>
-
-
-
-
 <div align="center">
 <table><tbody>
 
 <tr><td valign="top">
-<img height="450" width="450" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-circle.png" alt="Keyframe Circle">
+<img height="400" width="400" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-circle.png" alt="Keyframe Circle">
 Keyframe Circle
 - height:
 - width:
 </td><td valign="top">
-<img height="450" width="450" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-square.png" alt="Keyframe Square">
+<img height="400" width="400" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-square.png" alt="Keyframe Square">
 Keyframe Square
 - height:
 - width:
 </td></tr>
 
 <tr><td valign="top">
-<img height="450" width="450" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-portrait.png" alt="Keyframe Portrait">
+<img height="400" width="400" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-portrait.png" alt="Keyframe Portrait">
 Keyframe Portrait
 - height:
 - width:
 </td><td valign="top">
-<img height="450" width="450" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-landscape.png" alt="Keyframe Landscape">
+<img height="400" width="400" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-landscape.png" alt="Keyframe Landscape">
 Keyframe Landscape
 - height:
 - width:
