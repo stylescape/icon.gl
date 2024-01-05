@@ -76,6 +76,8 @@ Icon.gl is a modern, innovative icon library infused with the essence of traditi
 
 The icon grid serves as a fundamental framework, setting forth definitive yet adaptable guidelines for the placement of graphic elements. At the core of this grid lie the keyline shapes, which form the foundational structure. Adhering to these keyline shapes as guiding principles ensures that system icons maintain consistent visual proportions, creating a harmonious and unified visual language. This approach not only fosters consistency across various icons but also allows for flexibility in their design, ensuring both uniformity and creative versatility.
 
+<br clear="both"/>
+
 <div>
 <img width="50%" align="left" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-square.png" alt="Keyframe Square">
 <img width="50%" align="right" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/docs/icon.gl-docs_keyframe-circle.png" alt="Keyframe Circle">
@@ -88,6 +90,7 @@ The icon grid serves as a fundamental framework, setting forth definitive yet ad
 <small>Keyframe Portrait</small> ><small>Keyframe Landscape</small> 
 </div>
 
+<br clear="both"/>
 
 
 
