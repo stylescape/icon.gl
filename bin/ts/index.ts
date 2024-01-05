@@ -42,7 +42,7 @@ import {
     TypeScriptCompiler,
     JavaScriptMinifier,
     StylizedLogger,
-    // TemplateWriter,
+    TemplateWriter,
     SvgToPngConverter,
     gl_installer,
     readPackageJson,
@@ -75,6 +75,7 @@ const CONFIG = {
         ts_output:          './dist/ts',
         ts_output_icons:    './src/ts/icons',
         js_output:          './dist/js',
+        jinja_input:        './src/jinja',
 
     },
 
@@ -138,16 +139,14 @@ async function main() {
         const svgPackager = new SvgPackager(
             path.join(CONFIG.path.root, 'bin/ts/config/svgo.config.js'),    
         );
-        try {
-            await svgPackager.processSvgFiles(
-                CONFIG.path.svg_input,
-                CONFIG.path.svg_output,
-                CONFIG.path.ts_output_icons,
-                CONFIG.path.json_output,
-            );
-        } catch (error) {
-            console.error('Failed to process SVG files:', error);
-        }
+
+        await svgPackager.processSvgFiles(
+            CONFIG.path.svg_input,
+            CONFIG.path.svg_output,
+            CONFIG.path.ts_output_icons,
+            CONFIG.path.json_output,
+        );
+
 
         
         // PNG
@@ -158,13 +157,16 @@ async function main() {
         const converter = new SvgToPngConverter();
         const extractor = new FilenameExtractor();
         const svg_paths = await directoryScanner.scanDirectory(CONFIG.path.svg_input, true)
+        await directoryCreator.createDirectories(CONFIG.path.dist,  ['png']);
 
-        console.log(svg_paths);
+        // console.log(svg_paths);
         for (const svg_path of svg_paths) {
-            console.log(svg_path);
-            if (path.extname(svg_path) == 'svg'){
+            // console.log(svg_path);
+            if (path.extname(svg_path) == '.svg'){
                 const filenameWithoutExtension = extractor.getFilenameWithoutExtension(svg_path);
                 const svgContent = await svgReader.readSVG(svg_path);
+                // console.log(filenameWithoutExtension);
+                // console.log(svgContent);
                 // Define the desired sizes for the PNG files
                 const sizes = [16, 32, 64, 128, 256, 512, 720];
                 for (const size of sizes) {
@@ -307,6 +309,26 @@ async function main() {
         );
         console.log('SVG Sprite generation completed.');
 
+
+
+        // MD Writer
+        // --------------------------------------------------------------------
+
+        logger.header('MD Writer');
+        const png_paths = await directoryScanner.scanDirectory(path.join(CONFIG.path.dist, 'png', '512'), true)
+        let png_names = []
+        for (const png_path of png_paths) {
+            if (path.extname(png_path) == '.png'){
+
+                let png_name = extractor.getFilenameWithoutExtension(png_path);
+                png_names.push(png_name);
+            }
+        }
+        const template_context = {
+            names: png_names,
+        }
+        const templater_md = new TemplateWriter(CONFIG.path.jinja_input, template_context);
+        await templater_md.generateToFile('icon.gl.md.jinja', path.join(CONFIG.path.dist, 'md', 'icon.gl.md'));
 
         // SASS
         // --------------------------------------------------------------------

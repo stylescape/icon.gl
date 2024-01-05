@@ -1,6 +1,6 @@
 import { __awaiter } from "tslib";
 import path from 'path';
-import { DirectoryScanner, DirectoryCleaner, DirectoryCopier, DirectoryCreator, FileCopier, FontGenerator, FilenameExtractor, StyleProcessor, SvgPackager, SvgSpriteGenerator, PackageCreator, VersionWriter, TypeScriptCompiler, JavaScriptMinifier, StylizedLogger, SvgToPngConverter, readPackageJson, SvgReader, } from 'pack.gl';
+import { DirectoryScanner, DirectoryCleaner, DirectoryCopier, DirectoryCreator, FileCopier, FontGenerator, FilenameExtractor, StyleProcessor, SvgPackager, SvgSpriteGenerator, PackageCreator, VersionWriter, TypeScriptCompiler, JavaScriptMinifier, StylizedLogger, TemplateWriter, SvgToPngConverter, readPackageJson, SvgReader, } from 'pack.gl';
 const CONFIG = {
     path: {
         root: '.',
@@ -20,6 +20,7 @@ const CONFIG = {
         ts_output: './dist/ts',
         ts_output_icons: './src/ts/icons',
         js_output: './dist/js',
+        jinja_input: './src/jinja',
     },
 };
 function main() {
@@ -38,21 +39,15 @@ function main() {
             const directoryCreator = new DirectoryCreator();
             yield directoryCreator.createDirectories(CONFIG.path.dist, ['svg']);
             const svgPackager = new SvgPackager(path.join(CONFIG.path.root, 'bin/ts/config/svgo.config.js'));
-            try {
-                yield svgPackager.processSvgFiles(CONFIG.path.svg_input, CONFIG.path.svg_output, CONFIG.path.ts_output_icons, CONFIG.path.json_output);
-            }
-            catch (error) {
-                console.error('Failed to process SVG files:', error);
-            }
+            yield svgPackager.processSvgFiles(CONFIG.path.svg_input, CONFIG.path.svg_output, CONFIG.path.ts_output_icons, CONFIG.path.json_output);
             const directoryScanner = new DirectoryScanner();
             const svgReader = new SvgReader();
             const converter = new SvgToPngConverter();
             const extractor = new FilenameExtractor();
             const svg_paths = yield directoryScanner.scanDirectory(CONFIG.path.svg_input, true);
-            console.log(svg_paths);
+            yield directoryCreator.createDirectories(CONFIG.path.dist, ['png']);
             for (const svg_path of svg_paths) {
-                console.log(svg_path);
-                if (path.extname(svg_path) == 'svg') {
+                if (path.extname(svg_path) == '.svg') {
                     const filenameWithoutExtension = extractor.getFilenameWithoutExtension(svg_path);
                     const svgContent = yield svgReader.readSVG(svg_path);
                     const sizes = [16, 32, 64, 128, 256, 512, 720];
@@ -118,6 +113,20 @@ function main() {
             console.log('Starting SVG Sprite generation...');
             yield spriteGenerator.generateSprite(CONFIG.path.sprite_input, CONFIG.path.sprite_output);
             console.log('SVG Sprite generation completed.');
+            logger.header('MD Writer');
+            const png_paths = yield directoryScanner.scanDirectory(path.join(CONFIG.path.dist, 'png', '512'), true);
+            let png_names = [];
+            for (const png_path of png_paths) {
+                if (path.extname(png_path) == '.png') {
+                    let png_name = extractor.getFilenameWithoutExtension(png_path);
+                    png_names.push(png_name);
+                }
+            }
+            const template_context = {
+                names: png_names,
+            };
+            const templater_md = new TemplateWriter(CONFIG.path.jinja_input, template_context);
+            yield templater_md.generateToFile('icon.gl.md.jinja', path.join(CONFIG.path.dist, 'md', 'icon.gl.md'));
             const styleProcessor = new StyleProcessor();
             logger.header('Processing SASS...');
             yield styleProcessor.processStyles(path.join(CONFIG.path.scss_input, 'index.scss'), path.join(CONFIG.path.css_output, `icon.css`), 'expanded');

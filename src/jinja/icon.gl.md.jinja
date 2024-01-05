@@ -1,0 +1,9 @@
+|      |      |      |      |      |      | 
+| ---- | ---- | ---- | ---- | ---- | ---- |
+{% for name in names -%}
+{% if loop.index0 % 6 == 0 %}
+|
+{%- else %}
+ <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/{{ name }}.png" alt="{{ name }}"><small>{{ name }}</small> |
+{%- endif -%}
+{% endfor %}
