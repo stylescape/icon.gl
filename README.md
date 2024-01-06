@@ -60,9 +60,13 @@ Icon.gl is a modern, innovative icon library infused with the essence of traditi
 
 ## Features
 
-- Diverse Range: Includes icons representing a broad spectrum of elements from nature, agriculture, and domestic life.
-- Cultural Heritage: Reflects the rich historical context of the Yaeyama Islands.
-- Numerical Symbols: Incorporates unique numeral systems, influenced by Suzhou numerals.
+- Diverse Range
+Includes icons representing a broad spectrum of elements from nature, agriculture, and domestic life.
+- Integrates with Kyū (*q*) hybrid measurement system used by the [`unit.gl`](https://unit.gl/) Layout Engine.
+- Balanced 
+
+<!-- - Cultural Heritage: Reflects the rich historical context of the Yaeyama Islands.
+- Numerical Symbols: Incorporates unique numeral systems, influenced by Suzhou numerals. -->
 
 ## Specifications
 
@@ -78,11 +82,14 @@ Icon.gl is a modern, innovative icon library infused with the essence of traditi
 
 
 
-|                   | Pixel (px)        | / 12      | / 16      | /24       | /32       | /36       | /72       |
+|                   |                   | / 12      | / 16      | /24       | /32       | /36       | /72       |
 | :---------------- | ----------------: | --------: | --------: | --------: | --------: | --------: | --------: |
 | **Canvas**        | 864 *px*          | 72 *px*   | 54 *px*   | 36 *px*   | 27 *px*   | 24 *px*   | 12 *px*   |
+|                   | 24 *q*            | 72 *px*   | 54 *px*   | 36 *px*   | 27 *px*   | 24 *px*   | 12 *px*   |
 | **Live Area**     | 576 *px*          | 48 *px*   | 36 *px*   | 24 *px*   | 18 *px*   | 16 *px*   |  8 *px*   |
+|                   | 24 *q*            | 72 *px*   | 54 *px*   | 36 *px*   | 27 *px*   | 24 *px*   | 12 *px*   |
 | **Bleed**         | 144 *px*          | 12 *px*   |  9 *px*   |  6 *px*   |  4.5 *px* |  4 *px*   |  2 *px*   |
+|                   | 24 *q*            | 72 *px*   | 54 *px*   | 36 *px*   | 27 *px*   | 24 *px*   | 12 *px*   |
 
 
 
