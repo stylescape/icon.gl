@@ -84,7 +84,7 @@ Includes icons representing a broad spectrum of elements from nature, agricultur
 
 |                   |                   | / 12      | / 16      | /24       | /32       | /36       | /72       |
 | :---------------- | ----------------: | --------: | --------: | --------: | --------: | --------: | --------: |
-| **Canvas**        | 864 *px*          | 72 *px*   | 54 *px*   | 36 *px*   | 27 *px*   | 24 *px*   | 12 *px*   |
+| **Canvas**        | 864 *px* <br> 24 *q*        | 72 *px*    | 54 *px*   | 36 *px*   | 27 *px*   | 24 *px*   | 12 *px*   |
 |                   | 24 *q*            | 72 *px*   | 54 *px*   | 36 *px*   | 27 *px*   | 24 *px*   | 12 *px*   |
 | **Live Area**     | 576 *px*          | 48 *px*   | 36 *px*   | 24 *px*   | 18 *px*   | 16 *px*   |  8 *px*   |
 |                   | 24 *q*            | 72 *px*   | 54 *px*   | 36 *px*   | 27 *px*   | 24 *px*   | 12 *px*   |
