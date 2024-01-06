@@ -62,7 +62,7 @@ Icon.gl is a modern, innovative icon library infused with the essence of traditi
 
 - Diverse Range
 Includes icons representing a broad spectrum of elements from nature, agriculture, and domestic life.
-- Integrates with Kyū (*q*) hybrid measurement system used by the [`unit.gl`](https://unit.gl/) Layout Engine.
+- Integrates with Kyū (*q*) hybrid measurement unit used by the [`unit.gl`](https://unit.gl/) Layout Engine.
 - Balanced 
 
 <!-- - Cultural Heritage: Reflects the rich historical context of the Yaeyama Islands.
@@ -70,9 +70,86 @@ Includes icons representing a broad spectrum of elements from nature, agricultur
 
 ## Specifications
 
+### Icon Sizes
+
+The `icon.gl` library employs a unique approach to icon sizing, utilizing the Kyū (*q*) hybrid measurement unit. This unit is integral to the [`unit.gl`](https://unit.gl/) Layout Engine, ensuring a cohesive and scalable design across various platforms and devices. The standard size for `icon.gl` icons is set at 24 x 24 q, which is meticulously calibrated for optimal visibility and sharpness. Designers are encouraged to utilize icons at 100% scale to maintain pixel-perfect accuracy, critical for crisp and clear visuals.
+
+#### Detailed Size Specifications
+
+To cater to diverse design needs, `icon.gl` icons are meticulously crafted in four primary sizes:
+
+1. **Small (16px):** Ideal for compact interfaces or where space is at a premium. These icons maintain their distinctiveness even at reduced scales, making them perfect for mobile applications or intricate web elements.
+
+2. **Medium (20px):** A slightly larger variant, offering a balance between visibility and space efficiency. This size is versatile, suitable for a variety of digital mediums including web interfaces, mobile apps, and interactive displays.
+
+3. **Standard (24px):** This is the default size, optimized for the majority of use cases. It strikes an ideal balance between prominence and subtlety, ensuring readability without overwhelming the user interface.
+
+4. **Large (32px):** Designed for situations where icons need to be more prominent. This size is particularly effective in desktop applications, interactive kiosks, or any interface where icons serve as primary navigation or interaction elements.
+
+#### File Formats and Accessibility
+
+Each icon size is provided in both SVG and Adobe Illustrator file formats. SVGs offer scalability and flexibility, perfect for responsive web design and applications where file size and load times are critical. Adobe Illustrator files provide a vector-based format for high-fidelity editing, allowing designers to customize icons to fit their specific project needs.
+
+- **SVGs:** These are ideal for web use, ensuring that icons scale perfectly across different screen resolutions and sizes. SVGs also support modifications and animations, making them highly adaptable.
+
+- **Responsive Design:** Icons are crafted to be responsive, ensuring they maintain their integrity and legibility across different devices and screen sizes.
+
+#### Using Icons at their Intended Size
+
+It is highly recommended to use the icons at their originally produced sizes. Scaling icons beyond their intended size can lead to a loss of detail or clarity. However, for specialized cases where custom sizes are needed, SVG format should be used to ensure that icons scale properly without quality degradation.
+
+#### Customization and Adaptability
+
+While the provided sizes cover most use cases, `icon.gl` is designed with adaptability in mind. Designers can leverage the vector nature of the icons to create custom sizes or modifications, ensuring seamless integration with their specific design language or branding requirements.
+
+In summary, `icon.gl` offers a versatile range of icon sizes, thoughtfully designed to balance clarity, visibility, and aesthetic appeal across various digital platforms. The use of Kyū (*q*) units in conjunction with standard pixel sizes ensures a harmonious integration with diverse design systems.
 
 
-### Areas
+### Layout Areas
+
+### Enhanced and Expanded Layout Areas for `icon.gl`
+
+#### Comprehensive Layout Area Overview
+
+`icon.gl` icons are meticulously designed within a structured layout framework, ensuring consistency and precision across the entire library. This framework is defined using multiple measurement units including Kyū (*q*), millimeters (mm), relative units (rem), and pixels (px), catering to a wide range of design applications from digital to print.
+
+#### Detailed Layout Area Specifications
+
+1. **Canvas Area (24 q | 6 mm | 1.50 rem | 864 px)**
+   - The **Canvas Area** represents the total graphical boundary of an icon. It is the outermost layer, encompassing all aspects of the icon's design.
+   - This area is crucial for maintaining a uniform size across all icons, ensuring they align perfectly in grid layouts and interface designs.
+   - Icons must be contained within this area to prevent any part of the design from being inadvertently cropped or clipped in different usage contexts.
+
+2. **Live Area (16 q | 4 mm | 1.00 rem | 576 px)**
+   - The **Live Area** is the central zone where the primary elements of an icon are located. This is the focal point of the icon's design.
+   - It is designed to ensure that the key components of the icon are always visible and are not obscured by interface elements like navigation bars, sidebars, or overlays.
+   - The live area serves as a guide to maintain visual consistency and readability, especially in complex or dense UI environments.
+
+3. **Bleed Area (4 q | 2 mm | 0.25 rem | 144 px)**
+   - The **Bleed Area** acts as a buffer zone surrounding the Live Area. It provides additional space for the icon's design elements to extend if necessary, without encroaching on the Canvas Area.
+   - This area is particularly useful when an icon requires extra visual emphasis or a more dynamic composition.
+   - While the Bleed Area offers flexibility, it's important to use this space judiciously to maintain the icon's clarity and recognizability.
+
+#### Enhanced Design Considerations
+
+- **Padding and Margins:** Between each area, there is a carefully calculated padding and margin system. This system ensures that icons have ample breathing room, reducing visual clutter and enhancing legibility.
+  
+- **Scalability:** The defined areas also aid in scalability. By adhering to these guidelines, icons can be scaled up or down for different applications while retaining their intended visual impact and clarity.
+
+- **Versatility in Application:** Whether for digital interfaces, print media, or mixed media applications, these layout areas provide a versatile foundation. They ensure that icons can be adapted to various contexts without losing their essence.
+
+- **Consistency Across Devices:** The use of multiple units (q, mm, rem, px) ensures that icons maintain their intended appearance across devices and mediums, from high-resolution screens to printed materials.
+
+#### Practical Application
+
+- When designing with `icon.gl` icons, consider the context of use. For digital applications, focus on pixel and rem units; for print, refer to mm and q units.
+- Use the Canvas Area as a guide for alignment in layouts, ensuring that icons uniformly line up in grids or lists.
+- The Live Area is key for icon recognition; prioritize the most important elements of your design here.
+- Utilize the Bleed Area for additional decorative elements or to create a more dynamic icon, but always ensure that these elements do not compromise the overall readability.
+
+In summary, the `icon.gl` layout areas provide a robust framework for designing icons that are visually harmonious, easily scalable, and versatile across various applications and devices. These guidelines help designers create icons that are not only aesthetically pleasing but also functionally consistent and recognizably part of the `icon.gl` family.
+
+
 
 |                   | Kyū (*q*)         | Print (*mm*)      | Display (*rem*)   | Template (*px*)   |
 | :---------------- | ----------------: | ----------------: | ----------------: | ----------------: |
@@ -80,15 +157,70 @@ Includes icons representing a broad spectrum of elements from nature, agricultur
 | **Live Area**     | 16 *q*            | 4 *mm*            | 1.00 *rem*        | 576 *px*          |
 | **Bleed Area**    | 4 *q*             | 2 *mm*            | 0.25 *rem*        | 144 *px*          |
 
+#### Canvas Area
+
+The **Canvas Area** is the complete size of a graphic. No parts of the icon should extend outside of the trim area.
+
+##### Live Area
+
+Icon content should remain inside of the **Live Area**, which is the region of an graphic that is unlikely to be hidden from view (such as when sidebars appear upon scrolling).
+
+Icon content is limited to the 20dp x 20dp live area, with 2dp of padding around the perimeter.
+
+##### Bleed Area
+
+4q of padding, the **Bleed Area** surrounds the live area.
+
+If additional visual weight is needed, content may extend into the padding between the live area and the **Bleed area** (the complete size of a graphic). No parts of the icon should extend outside of the trim area.
+
 ### Grid Layouts
 
-|                   | Template          | / 12      | / 16      | /24       | /32       | /36       | /72       |
-| :---------------- | ----------------: | --------: | --------: | --------: | --------: | --------: | --------: |
-| **Canvas**        | 864 *px*          | 72 *px*   | 54 *px*   | 36 *px*   | 27 *px*   | 24 *px*   | 12 *px*   |
-| **Live Area**     | 576 *px*          | 48 *px*   | 36 *px*   | 24 *px*   | 18 *px*   | 16 *px*   |  8 *px*   |
-| **Bleed**         | 144 *px*          | 12 *px*   |  9 *px*   |  6 *px*   |  4.5 *px* |  4 *px*   |  2 *px*   |
+The grid layout in `icon.gl` serves as the backbone for designing icons, providing a structured yet flexible framework. This system ensures that all graphic elements are aligned and proportioned consistently, resulting in a coherent set of icons.
+
+#### Detailed Grid Specifications
+
+1. **Grid Divisions and Measurements:**
+   - The grid is divided into several key divisions: 8x, 12x, 16x, 24x, 32x, 36x, and 72x. Each division offers a different scale, allowing for precise placement and sizing of icon elements.
+   - The divisions are mapped across different measurement units – Pixels (px), Kyū (*q*), Millimeters (mm), and Relative Units (rem) – to cater to various design needs, whether digital or print.
+
+2. **Canvas Grid:**
+   - The Canvas Grid is the largest, spanning 864 px in the template size. It breaks down into smaller divisions (108 px, 72 px, etc.) for detailed design work.
+   - This grid is essential for establishing the overall boundary and scale of the icon, ensuring consistent sizing across the icon set.
+
+3. **Live Area Grid:**
+   - The Live Area Grid, smaller than the Canvas Grid at 576 px, is crucial for the main content of the icon. This area ensures that the most important parts of the icon are highlighted and easily recognizable.
+   - The smaller divisions within this grid help designers align and size elements within the icon effectively, maintaining visual balance.
+
+4. **Bleed Grid:**
+   - The Bleed Grid, the smallest at 144 px, provides additional space around the Live Area. This is particularly useful for creating icons that require a bit more visual flair without compromising the core design.
+   - This grid is especially useful for ensuring that extended elements or decorative features do not encroach on the Live Area.
+
+#### Application in Icon Design:
+
+- **Grid Adaptability:** The grid system in `icon.gl` is designed to be adaptable, allowing designers to choose the appropriate grid size and line thickness based on the complexity and style of the icon.
+  
+- **Scalability and Consistency:** These grids ensure that icons are scalable across different platforms while maintaining consistency in visual style and proportions.
+
+- **Flexibility in Design:** While the grids provide a structured framework, they are flexible enough to accommodate creativity and innovation in icon design.
+
+In conclusion, the expanded grid layouts for `icon.gl` provide a comprehensive and versatile framework for designing icons. This system ensures that icons are not only visually appealing but also consistent and scalable across various applications. By adhering to these guidelines, designers can create icons that are both functional and aesthetically pleasing, enhancing the overall user experience.
+
+
+|                   | Template          | 8 *x*     | 12 *x*    | 16 *x*    | 24 *x*    | 32 *x*    | 36 *x*    | 72 *x*    |
+| :---------------- | ----------------: | --------: | --------: | --------: | --------: | --------: | --------: | --------: |
+| **Canvas**        | 864 *px*          | 108 *px*  | 72 *px*   | 54 *px*   | 36 *px*   | 27 *px*   | 24 *px*   | 12 *px*   |
+| **Live Area**     | 576 *px*          | 72 *px*   | 48 *px*   | 36 *px*   | 24 *px*   | 18 *px*   | 16 *px*   |  8 *px*   |
+| **Bleed**         | 144 *px*          | 18 *px*   | 12 *px*   |  9 *px*   |  6 *px*   |  4.5 *px* |  4 *px*   |  2 *px*   |
 
 ### Lines
+
+
+1. **Line Specifications:**
+   - Five key line thicknesses are defined, ranging from 0.500 *q* to 2.000 *q*. These lines provide a guide for the stroke width in icon design.
+   - The variation in line thicknesses allows for a range of visual weights, from delicate and refined to bold and impactful.
+
+2. **Column Alignments:**
+   - Each line thickness corresponds to a specific column width in the grid, ranging from 32x to 8x. This alignment ensures a harmonious balance between the icon's elements and the overall design.
 
 |                   | Kyū (*q*)         | Print (*mm*)      | Display (*rem*)   | Template (*px*)   | Column (*x*)      |
 | :---------------- | ----------------: | ----------------: | ----------------: | ----------------: | ----------------: |
@@ -98,11 +230,45 @@ Includes icons representing a broad spectrum of elements from nature, agricultur
 | **Line 4**        | 1.333 *q*         | 0.3333 *mm*       | 0.08333 *rem*     | 48 *px*           | 12 *x*            |
 | **Line 5**        | 2.000 *q*         | 0.5000 *mm*       | 0.25000 *rem*     | 72 *px*           |  8 *x*            |
 
-
-
 ### Keyline Shapes
 
-The icon grid serves as a fundamental framework, setting forth definitive yet adaptable guidelines for the placement of graphic elements. At the core of this grid lie the keyline shapes, which form the foundational structure. Adhering to these keyline shapes as guiding principles ensures that system icons maintain consistent visual proportions, creating a harmonious and unified visual language. This approach not only fosters consistency across various icons but also allows for flexibility in their design, ensuring both uniformity and creative versatility.
+### Enhanced and Expanded Keyline Shapes in `icon.gl`
+
+#### Introduction to Keyline Shapes
+
+Keyline shapes are pivotal in the `icon.gl` design system, serving as the fundamental building blocks for creating icons. These shapes ensure a consistent and harmonious visual language across the icon library, balancing uniformity with the flexibility required for creative expression.
+
+#### Detailed Overview of Keyline Shapes
+
+1. **Keyframe Circle:**
+   - **Purpose:** The Keyframe Circle is ideal for icons that require a sense of continuity or encapsulation. It's perfect for symbols representing unity, completeness, or cyclical processes.
+   - **Dimensions:** The circle's height and width are equal, emphasizing symmetry and balance. This shape is often used as a starting point for icons that need to convey a sense of harmony or focus.
+
+2. **Keyframe Square:**
+   - **Purpose:** The square shape is used for icons needing a sense of stability and balance. It's well-suited for symbols that represent strength, security, or structure.
+   - **Dimensions:** Like the circle, the square has equal height and width, providing a stable and balanced foundation for icon design.
+
+3. **Keyframe Portrait:**
+   - **Purpose:** This shape is best for icons that require a vertical orientation, such as those representing growth, power, or upward movement.
+   - **Dimensions:** The portrait shape is taller than it is wide, offering a visually appealing and dynamic structure for icons that need to emphasize verticality.
+
+4. **Keyframe Landscape:**
+   - **Purpose:** Ideal for icons that need a horizontal orientation, representing movement, flow, or progression.
+   - **Dimensions:** Wider than it is tall, the landscape shape provides a broad canvas for icons requiring a more expansive feel.
+
+#### Application and Versatility
+
+- **Consistency in Visual Language:** By using these keyline shapes, designers can ensure that each icon conforms to a cohesive style, making the entire library look unified and professional.
+
+- **Flexibility in Design:** While these shapes provide a guideline, they are not restrictive. Designers have the creative freedom to experiment within these frameworks, ensuring each icon is both unique and part of a larger, harmonious system.
+
+- **Adaptability Across Themes:** These keyline shapes can be adapted to fit various themes and contexts, making them incredibly versatile. Whether designing for a tech-focused app or a nature-themed interface, these shapes provide a reliable starting point.
+
+- **Enhanced User Experience:** Consistent keyline shapes contribute to a more intuitive and familiar user experience, as users learn to associate certain shapes with specific functions or meanings.
+
+#### Conclusion
+
+The expanded and enhanced keyline shapes in `icon.gl` offer a robust foundation for icon design. By adhering to these shapes, designers can create icons that are not only aesthetically pleasing and coherent but also flexible enough to adapt to various design needs and contexts. This approach ensures that the `icon.gl` library remains both diverse in its offerings and unified in its visual language.
 
 <div align="center">
 <table><tbody>
@@ -133,18 +299,12 @@ Keyframe Landscape
 </tbody></table>
 </div>
 
+## Best Practices
 
 
+### Color
 
-
-
-
-
-
-
-### Icon sizes
-
-`icon.gl` icons are displayed as 24 x 24 dp. Create icons for viewing at 100% scale for pixel-perfect accuracy.
+Icons are always a solid, monochromatic color and need to pass the same color contrast ratio as typography (4.5:1). The color of the icon should reflect the importance of the icon’s action which should always be to help guide a user. For more information on color, see Color in UI.
 
 #### Dense layouts
 
@@ -156,9 +316,7 @@ Ideal for projects seeking a blend of historical and cultural aesthetics with fu
 
 Iconography is highly functional in a user interface. When used wisely, icons become an elegant yet efficient way to communicate with and help guide a user through an experience. To maintain this functionality, it’s important to reduce cognitive load on users by employing icons sparingly and strategically throughout your designs.
 
-#### Sizing
 
-Icons have been designed to work best in four sizes: 16px, 20px, 24px, and 32px. Please use icons at their originally produced size. These are provided in SVG and Adobe Illustrator files.
 
 ## Installation
 
@@ -174,19 +332,6 @@ Create your own system and product icons with these Adobe Illustrator files incl
 
 ### Template Setttings
 
-#### Layout
-
-Icon content should remain inside of the **live area**, which is the region of an image that is unlikely to be hidden from view (such as when sidebars appear upon scrolling).
-
-If additional visual weight is needed, content may extend into the padding between the live area and the **trim area** (the complete size of a graphic). No parts of the icon should extend outside of the trim area.
-
-##### Live area
-
-Icon content is limited to the 20dp x 20dp live area, with 2dp of padding around the perimeter.
-
-##### Padding
-
-2dp of padding surrounds the live area.
 
 #### Units
 
