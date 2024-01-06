@@ -70,6 +70,20 @@ Icon.gl is a modern, innovative icon library infused with the essence of traditi
 
 
 
+| **Area**          | Kyū (q)       | Print (mm)    | Display (rem) | Template (px) |
+| :---------------- | ------------: | ------------: | ------------: | ------------: |
+| **Canvas**        | 24 q          | 6mm           | 1.50rem       | 864px   |
+| **Live Area**     | 16 q          | 4mm           | 1.00rem       | 576px     |
+| **Bleed**         | 4 q           | 2mm           | 0.25rem       | 144px     |
+
+
+
+| **Area**          | Kyū (q)   | Pixel (px)    |        12    16    24    32    36    72
+| **Canvas**        | 24q       | 864px        72    54    36    27    24    12
+| **Live Area**     | 576       | 48px    36    24    18    16    8
+| **Bleed**         | 144       | 12px    9    6    4,5    4    2
+
+
 
 
 ### Keyline Shapes
