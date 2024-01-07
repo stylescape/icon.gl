@@ -1,0 +1,228 @@
+{
+
+    "shape_circle": 9675,
+    "shape_circle_xl": 8413,
+    "shape_circle_lg": 9711,
+    "shape_circle_md": 9898,
+
+    "shape_circle_sm": 9900,
+    "shape_circle_xs": 9702,
+
+    "shape_circle_fill": 9679,
+
+    "shape_circle_fill_lg": 11044,
+    "shape_circle_fill_md": 9899,
+
+    "shape_circle_fill_xs": 9679,
+
+    "shape_circle_dotted": 9676,
+
+    "shape_circle_circle": 9678,
+    "shape_circle_dot": 9673,
+
+    "shape_circle_hatch_vertical": 9677,
+
+
+    "shape_circle_fill_half_upper": 9683,
+    "shape_circle_fill_half_lower": 9682,
+    "shape_circle_fill_half_left": 9680,
+    "shape_circle_fill_half_right": 9681,
+
+
+    "shape_circle_part_fill_half_left": 9686,
+    "shape_circle_part_fill_half_right": 9687,
+
+
+    "shape_circle_quarter_upper_left": 9716,
+    "shape_circle_quarter_upper_right": 9719,
+    "shape_circle_quarter_lower_left": 9717,
+    "shape_circle_quarter_lower_right": 9718,
+
+    "shape_circle_fill_quarter_upper_right": 9684,
+    "shape_circle_fill_quarter_three": 9685,
+    
+
+    "shape_circle_arc_half_upper": 9696,
+    "shape_circle_arc_half_lower": 9697,
+
+
+    "shape_circle_arc_quarter_upper_left": 9692,
+    "shape_circle_arc_quarter_upper_right": 9693,
+    "shape_circle_arc_quarter_lower_left": 9695,
+    "shape_circle_arc_quarter_lower_right": 9694,
+
+    "shape_circle_inverse": 9689,
+    "shape_circle_inverse_upper": 9690,
+    "shape_circle_inverse_lower": 9691,
+    "shape_circle_inverse_bullet": 9688,
+
+    
+
+    "shape_ellipse_horizontal": 11053,
+    "shape_ellipse_vertical": 11055,
+    "shape_ellipse_fill_horizontal": 11052,
+    "shape_ellipse_fill_vertical": 11054,
+    
+    "shape_triangle_triangle": 10177,
+
+    "triangle_xl": 8420,
+
+    "shape_triangle": 9651,
+    "shape_triangle_down": 9661,
+    "shape_triangle_left": 9665,
+    "shape_triangle_right": 9655,    
+
+
+
+    "shape_triangle_sm": 9653,
+    "shape_triangle_sm_down": 9663,
+    "shape_triangle_sm_left": 9667,
+    "shape_triangle_sm_right": 9657,
+
+    "shape_triangle_fill": 9650,
+    "shape_triangle_fill_down": 9660,
+    "shape_triangle_fill_left": 9664,
+    "shape_triangle_fill_right": 9654,
+
+
+    "shape_triangle_fill_md": 9206,
+    "shape_triangle_fill_md_down": 9207,
+    "shape_triangle_fill_md_left": 9204,
+    "shape_triangle_fill_md_right": 9205,
+
+    "shape_triangle_fill_sm": 9652,
+    "shape_triangle_fill_sm_down": 9662,
+    "shape_triangle_fill_sm_left": 9666,
+    "shape_triangle_fill_sm_right": 9656,
+
+
+    "shape_triangle_dot": 9708,
+
+    "shape_triangle_fill_half_left": 9709,
+    "shape_triangle_fill_half_right": 9710,
+
+    "shape_triangle_down_fill_half_left": 10728,
+    "shape_triangle_down_fill_half_right": 10729,
+
+    "shape_triangle_lower_left": 9722,
+    "shape_triangle_upper_right": 9721,
+    "shape_triangle_upper_left": 9720,
+    "shape_triangle_lower_right": 9727,
+
+    "shape_triangle_fill_lower_left": 9699,
+    "shape_triangle_fill_upper_right": 9701,
+    "shape_triangle_fill_upper_left": 9700,
+    "shape_triangle_fill_lower_right": 9698,
+
+
+
+    "shape_lozenge": 9674,
+    "shape_lozenge_md": 11048,
+    "shape_lozenge_sm": 11051,
+
+    "shape_lozenge_fill": 10731,
+    "shape_lozenge_fill_md": 11047,
+    "shape_lozenge_fill_sm": 11050,
+    "shape_lozenge_fill_xs": 128926,
+
+    "shape_lozenge_line_horizontal": 10208,
+    "shape_lozenge_lozenge": 128928,
+
+
+
+
+    "shape_square": 9633,
+    "shape_square_xl": 8414,
+    "shape_square_lg": 11036,
+    "shape_square_md": 9723,
+    "shape_square_ms": 9725,
+    "shape_square_sm": 9643,
+    "shape_square_xs": 11038,
+
+    "shape_square_fill": 9632,
+
+    "shape_square_fill_lg": 11035,
+    "shape_square_fill_md": 9724,
+    "shape_square_fill_ms": 9726,
+    "shape_square_fill_sm": 9642,
+    "shape_square_fill_xs": 11037,
+
+
+    
+
+    "shape_square_rounded": 9634,
+    "shape_square_dotted": 11034,
+
+    "shape_square_line_vertical": 9707,
+
+    "shape_square_square": 9635,
+
+    "shape_square_hatch_horizontal": 9636,
+    "shape_square_hatch_vertical": 9637,
+    "shape_square_hatch_diagonal_left": 9640,
+    "shape_square_hatch_diagonal_right": 9639,
+    "shape_square_hatch_cross": 9638,
+    "shape_square_hatch_diagonal_cross": 9641,
+
+
+    "shape_square_quarter_upper_left": 9712,
+    "shape_square_quarter_upper_right": 9715,
+    "shape_square_quarter_lower_left": 9713,
+    "shape_square_quarter_lower_right": 9714,
+    
+    "shape_square_fill_half_upper": 11026,
+    "shape_square_fill_half_lower": 11027,
+    "shape_square_fill_half_left": 9703,
+    "shape_square_fill_half_right": 9704,
+
+    "shape_square_fill_half_upper_left": 9705,
+    "shape_square_fill_half_upper_right": 11028,
+    "shape_square_fill_half_lower_left": 11029,
+    "shape_square_fill_half_lower_right": 9706,
+
+
+    "rectangle_horizontal": 9645,
+    "rectangle_vertical": 9647,
+    "rectangle_fill_horizontal": 9644,
+    "rectangle_fill_vertical": 9646,
+    "paralellogram": 9649,
+    "paralellogram_fill": 9648,
+
+
+    
+    "shape_diamond": 9671,
+    "shape_diamond_xl": 8415,
+    "shape_diamond_md": 11046,
+
+    "shape_diamond_fill": 9670,
+    "shape_diamond_fill_md": 11045,
+    "shape_diamond_fill_sm": 11049,
+
+    "shape_diamond_diamond": 9672,
+
+    "diamond_fill_half_upper": 11032,
+    "diamond_fill_half_lower": 11033,
+    "diamond_fill_half_left": 11030,
+    "diamond_fill_half_right": 11031,
+
+
+
+    "pentagon": 11040,
+    "pentagon_fill": 11039,
+    "pentagon_right": 11092,
+    "pentagon_fill_right": 11091,
+
+    "pentagon_fill_down": 11202,
+
+    "hexagon": 11041,
+    "hexagon_fill": 11042,
+    "hexagon_horizontal_fill": 11043,
+
+
+
+    "octagon_fill": 11204,
+    
+    "octagon_fill_horizontal": 11203
+
+
+}

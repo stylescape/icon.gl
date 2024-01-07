@@ -17,7 +17,7 @@
 // icon.gl | Font Variables
 // ============================================================================
 
-@each $icon, $codepoint in $icon_map {
-  .icon_#{$icon}::before { content: $codepoint; }
+@each $icon, $codepoint in $icongl_map {
+  .i_#{$icon}::before { content: $codepoint; }
 }
 

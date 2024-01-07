@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864">
+  <path d="M702.01,179.53v70.42s35.99,0,35.99,0v-69.84c0-.07,0-.15,0-.22h-22.18s-13.81-.35-13.81-.35Z" style="stroke-width: 0px;"/>
+  <rect x="702" y="600.29" width="36" height="70.07" style="stroke-width: 0px;"/>
+  <rect x="702" y="460.15" width="36" height="70.07" style="stroke-width: 0px;"/>
+  <rect x="460.19" y="126" width="70.07" height="36" style="stroke-width: 0px;"/>
+  <rect x="702" y="320.02" width="36" height="70.07" style="stroke-width: 0px;"/>
+  <rect x="126" y="473.84" width="36" height="70.07" style="stroke-width: 0px;"/>
+  <rect x="126" y="333.7" width="36" height="70.07" style="stroke-width: 0px;"/>
+  <rect x="126" y="193.57" width="36" height="70.07" style="stroke-width: 0px;"/>
+  <polygon points="179.92 162 249.99 162 249.99 126 180 126 179.82 126 179.92 141.54 179.93 141.7 179.92 144 179.92 162" style="stroke-width: 0px;"/>
+  <rect x="193.53" y="702" width="70.07" height="36" style="stroke-width: 0px;"/>
+  <rect x="600.33" y="126" width="70.07" height="36" style="stroke-width: 0px;"/>
+  <rect x="473.8" y="702" width="70.07" height="36" style="stroke-width: 0px;"/>
+  <rect x="320.06" y="126" width="70.07" height="36" style="stroke-width: 0px;"/>
+  <polygon points="684.24 738 684 702 613.93 702 613.93 738 684 738 684.24 738" style="stroke-width: 0px;"/>
+  <rect x="333.67" y="702" width="70.07" height="36" style="stroke-width: 0px;"/>
+  <polygon points="144.47 684.04 161.95 685.41 162 684.7 162 613.97 126 613.97 126 684 126 684 126 684.04 144.47 684.04" style="stroke-width: 0px;"/>
+</svg>

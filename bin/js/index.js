@@ -84,7 +84,7 @@ function main() {
                 if (path.extname(svg_path) == '.svg') {
                     const filenameWithoutExtension = extractor.getFilenameWithoutExtension(svg_path);
                     const svgContent = yield svgReader.readSVG(svg_path);
-                    const sizes = [16, 32, 64, 128, 256, 512, 720];
+                    const sizes = [512];
                     for (const size of sizes) {
                         const pngOutputPath = path.join(CONFIG.path.dist, 'png', `${size}`, `${filenameWithoutExtension}.png`);
                         yield converter.convert(svgContent, pngOutputPath, size, size);
@@ -99,8 +99,8 @@ function main() {
             const codepoint_data = yield jsonLoader.loadJSONFromDirectory(path.join(CONFIG.path.src, 'json', 'codepoint'));
             const codepoints = yield jsonLoader.mergeJSONObjects(codepoint_data);
             const fontGenerator = new FontGenerator({
-                name: 'icon',
-                prefix: 'icon',
+                name: 'icongl',
+                prefix: 'i',
                 fontsUrl: './font',
                 selector: '.i',
                 fontTypes: [],

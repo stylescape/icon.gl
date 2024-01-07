@@ -50,10 +50,6 @@ import {
     // svgspriteConfig
 } from 'pack.gl';
 
-
-
-// import { promises as fs } from 'fs';
-
 class JSONLoader {
     /**
      * Asynchronously loads JSON data from a file and returns it as an object.
@@ -215,17 +211,13 @@ async function main() {
         const extractor = new FilenameExtractor();
         const svg_paths = await directoryScanner.scanDirectory(CONFIG.path.svg_input, true)
         await directoryCreator.createDirectories(CONFIG.path.dist,  ['png']);
-
-        // console.log(svg_paths);
         for (const svg_path of svg_paths) {
-            // console.log(svg_path);
             if (path.extname(svg_path) == '.svg'){
                 const filenameWithoutExtension = extractor.getFilenameWithoutExtension(svg_path);
                 const svgContent = await svgReader.readSVG(svg_path);
-                // console.log(filenameWithoutExtension);
-                // console.log(svgContent);
                 // Define the desired sizes for the PNG files
-                const sizes = [16, 32, 64, 128, 256, 512, 720];
+                // const sizes = [16, 32, 64, 128, 256, 512, 720];
+                const sizes = [512];
                 for (const size of sizes) {
                     const pngOutputPath = path.join(CONFIG.path.dist, 'png', `${size}`, `${filenameWithoutExtension}.png`);
                     await converter.convert(svgContent, pngOutputPath, size, size);
@@ -247,8 +239,8 @@ async function main() {
 
         const fontGenerator = new FontGenerator(
             {
-                name: 'icon',
-                prefix: 'icon',
+                name: 'icongl',
+                prefix: 'i',
                 fontsUrl: './font',
                 // fontHeight: number;
                 // descent: number;
@@ -293,6 +285,7 @@ async function main() {
                 },
             }
         );
+
         // SCSS Font Face
         await fontGenerator.generateFonts(
             CONFIG.path.font_input,

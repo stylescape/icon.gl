@@ -17,9 +17,9 @@
 // icon.gl | Font Variables
 // ============================================================================
 
-.icon::before,
-[class^="icon_"]::before,
-[class*=" icon_"]::before {
-    font-family: $icon_font !important;
+.i::before,
+[class^="i_"]::before,
+[class*=" i_"]::before {
+    font-family: $icongl_font !important;
     @include icon_style;
 }
