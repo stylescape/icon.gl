@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
 * icon.gl
 *
@@ -39,24 +40,524 @@ TABLE OF CONTENTS
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon_pie_01::before {
+.icon_time_clock_0100::before {
+  content: "🕐";
+}
+
+.icon_time_clock_0200::before {
+  content: "🕑";
+}
+
+.icon_time_clock_0300::before {
+  content: "🕒";
+}
+
+.icon_time_clock_0400::before {
+  content: "🕓";
+}
+
+.icon_time_clock_0500::before {
+  content: "🕔";
+}
+
+.icon_time_clock_0600::before {
+  content: "🕕";
+}
+
+.icon_time_clock_0700::before {
+  content: "🕖";
+}
+
+.icon_time_clock_0800::before {
+  content: "🕗";
+}
+
+.icon_time_clock_0900::before {
+  content: "🕘";
+}
+
+.icon_time_clock_1000::before {
+  content: "🕙";
+}
+
+.icon_time_clock_1100::before {
+  content: "🕚";
+}
+
+.icon_time_clock_1200::before {
+  content: "🕛";
+}
+
+.icon_time_clock_0130::before {
+  content: "🕜";
+}
+
+.icon_time_clock_0230::before {
+  content: "🕝";
+}
+
+.icon_time_clock_0330::before {
+  content: "🕞";
+}
+
+.icon_time_clock_0430::before {
+  content: "🕟";
+}
+
+.icon_time_clock_0530::before {
+  content: "🕠";
+}
+
+.icon_time_clock_0630::before {
+  content: "🕡";
+}
+
+.icon_time_clock_0730::before {
+  content: "🕢";
+}
+
+.icon_time_clock_0830::before {
+  content: "🕣";
+}
+
+.icon_time_clock_0930::before {
+  content: "🕤";
+}
+
+.icon_time_clock_1030::before {
+  content: "🕥";
+}
+
+.icon_time_clock_1130::before {
+  content: "🕦";
+}
+
+.icon_time_clock_0030::before {
+  content: "🕧";
+}
+
+.icon_time_watch::before {
+  content: "⌚";
+}
+
+.icon_time_hourglass::before {
+  content: "⌛";
+}
+
+.icon_time_alarm::before {
+  content: "⏰";
+}
+
+.icon_time_stopwatch::before {
+  content: "⏱";
+}
+
+.icon_time_timer::before {
+  content: "⏲";
+}
+
+.icon_time_hourglass_flow::before {
+  content: "⏳";
+}
+
+.icon_time_mantelpiece::before {
+  content: "🕰";
+}
+
+.icon_game_dice_1::before {
+  content: "⚀";
+}
+
+.icon_game_dice_2::before {
+  content: "⚁";
+}
+
+.icon_game_dice_3::before {
+  content: "⚂";
+}
+
+.icon_game_dice_4::before {
+  content: "⚃";
+}
+
+.icon_game_dice_5::before {
+  content: "⚄";
+}
+
+.icon_game_dice_6::before {
+  content: "⚅";
+}
+
+.icon_position_indicator::before {
+  content: "⌖";
+}
+
+.icon_house::before {
+  content: "⌂";
+}
+
+.icon_time_alarm_fill::before {
   content: "\f101";
 }
 
-.icon_pie_02::before {
+.icon_time_clock_0000_fill::before {
   content: "\f102";
 }
 
-.icon_pie_03::before {
+.icon_time_clock_0000_square_fill::before {
   content: "\f103";
 }
 
-.icon_star::before {
+.icon_time_clock_0000_square::before {
   content: "\f104";
 }
 
-.icon_swirl::before {
+.icon_time_clock_0000::before {
   content: "\f105";
+}
+
+.icon_time_clock_0030_fill::before {
+  content: "\f106";
+}
+
+.icon_time_clock_0030_square_fill::before {
+  content: "\f107";
+}
+
+.icon_time_clock_0030_square::before {
+  content: "\f108";
+}
+
+.icon_time_clock_0100_fill::before {
+  content: "\f109";
+}
+
+.icon_time_clock_0100_square_fill::before {
+  content: "\f10a";
+}
+
+.icon_time_clock_0100_square::before {
+  content: "\f10b";
+}
+
+.icon_time_clock_0130_fill::before {
+  content: "\f10c";
+}
+
+.icon_time_clock_0130_square_fill::before {
+  content: "\f10d";
+}
+
+.icon_time_clock_0130_square::before {
+  content: "\f10e";
+}
+
+.icon_time_clock_0200_fill::before {
+  content: "\f10f";
+}
+
+.icon_time_clock_0200_square_fill::before {
+  content: "\f110";
+}
+
+.icon_time_clock_0200_square::before {
+  content: "\f111";
+}
+
+.icon_time_clock_0230_fill::before {
+  content: "\f112";
+}
+
+.icon_time_clock_0230_square_fill::before {
+  content: "\f113";
+}
+
+.icon_time_clock_0230_square::before {
+  content: "\f114";
+}
+
+.icon_time_clock_0300_fill::before {
+  content: "\f115";
+}
+
+.icon_time_clock_0300_square_fill::before {
+  content: "\f116";
+}
+
+.icon_time_clock_0300_square::before {
+  content: "\f117";
+}
+
+.icon_time_clock_0330_fill::before {
+  content: "\f118";
+}
+
+.icon_time_clock_0330_square_fill::before {
+  content: "\f119";
+}
+
+.icon_time_clock_0330_square::before {
+  content: "\f11a";
+}
+
+.icon_time_clock_0400_fill::before {
+  content: "\f11b";
+}
+
+.icon_time_clock_0400_square_fill::before {
+  content: "\f11c";
+}
+
+.icon_time_clock_0400_square::before {
+  content: "\f11d";
+}
+
+.icon_time_clock_0430_fill::before {
+  content: "\f11e";
+}
+
+.icon_time_clock_0430_square_fill::before {
+  content: "\f11f";
+}
+
+.icon_time_clock_0430_square::before {
+  content: "\f120";
+}
+
+.icon_time_clock_0500_fill::before {
+  content: "\f121";
+}
+
+.icon_time_clock_0500_square_fill::before {
+  content: "\f122";
+}
+
+.icon_time_clock_0500_square::before {
+  content: "\f123";
+}
+
+.icon_time_clock_0530_fill::before {
+  content: "\f124";
+}
+
+.icon_time_clock_0530_square_fill::before {
+  content: "\f125";
+}
+
+.icon_time_clock_0530_square::before {
+  content: "\f126";
+}
+
+.icon_time_clock_0600_fill::before {
+  content: "\f127";
+}
+
+.icon_time_clock_0600_square_fill::before {
+  content: "\f128";
+}
+
+.icon_time_clock_0600_square::before {
+  content: "\f129";
+}
+
+.icon_time_clock_0630_fill::before {
+  content: "\f12a";
+}
+
+.icon_time_clock_0630_square_fill::before {
+  content: "\f12b";
+}
+
+.icon_time_clock_0630_square::before {
+  content: "\f12c";
+}
+
+.icon_time_clock_0700_fill::before {
+  content: "\f12d";
+}
+
+.icon_time_clock_0700_square_fill::before {
+  content: "\f12e";
+}
+
+.icon_time_clock_0700_square::before {
+  content: "\f12f";
+}
+
+.icon_time_clock_0730_fill::before {
+  content: "\f130";
+}
+
+.icon_time_clock_0730_square_fill::before {
+  content: "\f131";
+}
+
+.icon_time_clock_0730_square::before {
+  content: "\f132";
+}
+
+.icon_time_clock_0800_fill::before {
+  content: "\f133";
+}
+
+.icon_time_clock_0800_square_fill::before {
+  content: "\f134";
+}
+
+.icon_time_clock_0800_square::before {
+  content: "\f135";
+}
+
+.icon_time_clock_0830_fill::before {
+  content: "\f136";
+}
+
+.icon_time_clock_0830_square_fill::before {
+  content: "\f137";
+}
+
+.icon_time_clock_0830_square::before {
+  content: "\f138";
+}
+
+.icon_time_clock_0900_fill::before {
+  content: "\f139";
+}
+
+.icon_time_clock_0900_square_fill::before {
+  content: "\f13a";
+}
+
+.icon_time_clock_0900_square::before {
+  content: "\f13b";
+}
+
+.icon_time_clock_0930_fill::before {
+  content: "\f13c";
+}
+
+.icon_time_clock_0930_square_fill::before {
+  content: "\f13d";
+}
+
+.icon_time_clock_0930_square::before {
+  content: "\f13e";
+}
+
+.icon_time_clock_1000_fill::before {
+  content: "\f13f";
+}
+
+.icon_time_clock_1000_square_fill::before {
+  content: "\f140";
+}
+
+.icon_time_clock_1000_square::before {
+  content: "\f141";
+}
+
+.icon_time_clock_1030_fill::before {
+  content: "\f142";
+}
+
+.icon_time_clock_1030_square_fill::before {
+  content: "\f143";
+}
+
+.icon_time_clock_1030_square::before {
+  content: "\f144";
+}
+
+.icon_time_clock_1100_fill::before {
+  content: "\f145";
+}
+
+.icon_time_clock_1100_square_fill::before {
+  content: "\f146";
+}
+
+.icon_time_clock_1100_square::before {
+  content: "\f147";
+}
+
+.icon_time_clock_1130_fill::before {
+  content: "\f148";
+}
+
+.icon_time_clock_1130_square_fill::before {
+  content: "\f149";
+}
+
+.icon_time_clock_1130_square::before {
+  content: "\f14a";
+}
+
+.icon_time_clock_fill::before {
+  content: "\f14b";
+}
+
+.icon_time_clock_history::before {
+  content: "\f14c";
+}
+
+.icon_time_clock_mantelpiece_fill::before {
+  content: "\f14d";
+}
+
+.icon_time_clock_mantelpiece::before {
+  content: "\f14e";
+}
+
+.icon_time_clock::before {
+  content: "\f14f";
+}
+
+.icon_time_is_money::before {
+  content: "\f150";
+}
+
+.icon_time_stopwatch_00::before {
+  content: "\f151";
+}
+
+.icon_time_stopwatch_01::before {
+  content: "\f152";
+}
+
+.icon_time_stopwatch_02::before {
+  content: "\f153";
+}
+
+.icon_time_stopwatch_03::before {
+  content: "\f154";
+}
+
+.icon_time_stopwatch_04::before {
+  content: "\f155";
+}
+
+.icon_time_stopwatch_05::before {
+  content: "\f156";
+}
+
+.icon_time_stopwatch_06::before {
+  content: "\f157";
+}
+
+.icon_time_stopwatch_07::before {
+  content: "\f158";
+}
+
+.icon_time_stopwatch_08::before {
+  content: "\f159";
+}
+
+.icon_time_stopwatch_fill::before {
+  content: "\f15a";
+}
+
+.icon_time_timer_fill::before {
+  content: "\f15b";
 }
 
 .igl_1x {

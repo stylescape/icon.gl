@@ -51,6 +51,63 @@ import {
 } from 'pack.gl';
 
 
+
+// import { promises as fs } from 'fs';
+
+class JSONLoader {
+    /**
+     * Asynchronously loads JSON data from a file and returns it as an object.
+     * @param filePath The path to the JSON file.
+     * @returns A promise that resolves to an object containing the JSON data.
+     */
+    async loadJSON<T>(filePath: string): Promise<T> {
+        try {
+            const data = await fs.readFile(filePath, 'utf8');
+            return JSON.parse(data) as T;
+        } catch (error) {
+            console.error(`Error reading JSON file: ${filePath}`, error);
+            throw error;
+        }
+    }
+
+    /**
+     * Asynchronously loads all JSON files from a given directory.
+     * @param dirPath The path to the directory containing JSON files.
+     * @returns A promise that resolves to an array of objects containing the JSON data.
+     */
+     async loadJSONFromDirectory<T>(dirPath: string): Promise<T[]> {
+        try {
+            const files = await fs.readdir(dirPath);
+            const jsonFiles = files.filter(file => file.endsWith('.json'));
+
+            const jsonData = await Promise.all(
+                jsonFiles.map(file =>
+                    this.loadJSON<T>(path.join(dirPath, file))
+                )
+            );
+
+            return jsonData;
+        } catch (error) {
+            console.error(`Error reading JSON files from directory: ${dirPath}`, error);
+            throw error;
+        }
+    }
+
+    /**
+     * Merges an array of objects into a single object.
+     * @param objects An array of objects to merge.
+     * @returns A single object containing all properties from the input objects.
+     */
+    async mergeJSONObjects<T>(objects: T[]): Promise<T> {
+        return objects.reduce((acc, obj) => ({ ...acc, ...obj }), {} as T);
+    }
+}
+
+// export default JSONLoader;
+
+
+
+
 // ============================================================================
 // Constants
 // ============================================================================
@@ -183,6 +240,11 @@ async function main() {
     
         console.log('Starting font generation...');
         await directoryCreator.createDirectories(CONFIG.path.dist, ['font']);
+
+        const jsonLoader = new JSONLoader();
+        const codepoint_data = await jsonLoader.loadJSONFromDirectory(path.join(CONFIG.path.src, 'json', 'codepoint'));
+        const codepoints = await jsonLoader.mergeJSONObjects(codepoint_data);
+
         const fontGenerator = new FontGenerator(
             {
                 name: 'icon',
@@ -208,8 +270,9 @@ async function main() {
                     // OtherAssetType.SASS,    // SASS = "sass",
                     // OtherAssetType.HTML,    // HTML = "html",
                     // OtherAssetType.JSON,    // JSON = "json",
-                    // OtherAssetType.TS,      // TS = "ts"    
+                    // OtherAssetType.TS,      // TS = "ts"
                 ],
+                codepoints: codepoints,
             }
 
         );
@@ -329,6 +392,7 @@ async function main() {
         }
         const templater_md = new TemplateWriter(CONFIG.path.jinja_input, template_context);
         await templater_md.generateToFile('icon.gl.md.jinja', path.join(CONFIG.path.dist, 'md', 'icon.gl.md'));
+
 
         // SASS
         // --------------------------------------------------------------------

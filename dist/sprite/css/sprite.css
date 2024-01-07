@@ -1,45 +1,1080 @@
-.svg-icon-pie_01 {
-    background: url("svg/sprite.css-dceaa503.svg") 0 0 no-repeat;
+.svg-icon-time_alarm {
+    background: url("svg/sprite.css-0575ae7c.svg") 0 0 no-repeat;
 }
 
-.svg-icon-pie_01-dims {
-    width: 72px;
-    height: 72px;
+.svg-icon-time_alarm-dims {
+    width: 864px;
+    height: 864px;
 }
 
-.svg-icon-pie_02 {
-    background: url("svg/sprite.css-dceaa503.svg") 50% 0 no-repeat;
+.svg-icon-time_alarm_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 10% 0 no-repeat;
 }
 
-.svg-icon-pie_02-dims {
-    width: 72px;
-    height: 72px;
+.svg-icon-time_alarm_fill-dims {
+    width: 864px;
+    height: 864px;
 }
 
-.svg-icon-pie_03 {
-    background: url("svg/sprite.css-dceaa503.svg") 0 100% no-repeat;
+.svg-icon-time_clock {
+    background: url("svg/sprite.css-0575ae7c.svg") 0 10% no-repeat;
 }
 
-.svg-icon-pie_03-dims {
-    width: 72px;
-    height: 72px;
+.svg-icon-time_clock-dims {
+    width: 864px;
+    height: 864px;
 }
 
-.svg-icon-star {
-    background: url("svg/sprite.css-dceaa503.svg") 50% 100% no-repeat;
+.svg-icon-time_clock_0000 {
+    background: url("svg/sprite.css-0575ae7c.svg") 10% 10% no-repeat;
 }
 
-.svg-icon-star-dims {
-    width: 72px;
-    height: 72px;
+.svg-icon-time_clock_0000-dims {
+    width: 864px;
+    height: 864px;
 }
 
-.svg-icon-swirl {
-    background: url("svg/sprite.css-dceaa503.svg") 100% 0 no-repeat;
+.svg-icon-time_clock_0000_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 20% 0 no-repeat;
 }
 
-.svg-icon-swirl-dims {
-    width: 72px;
-    height: 72px;
+.svg-icon-time_clock_0000_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0000_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 20% 10% no-repeat;
+}
+
+.svg-icon-time_clock_0000_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0000_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 0 20% no-repeat;
+}
+
+.svg-icon-time_clock_0000_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0030 {
+    background: url("svg/sprite.css-0575ae7c.svg") 10% 20% no-repeat;
+}
+
+.svg-icon-time_clock_0030-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0030_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 20% 20% no-repeat;
+}
+
+.svg-icon-time_clock_0030_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0030_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 30% 0 no-repeat;
+}
+
+.svg-icon-time_clock_0030_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0030_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 30% 10% no-repeat;
+}
+
+.svg-icon-time_clock_0030_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0100 {
+    background: url("svg/sprite.css-0575ae7c.svg") 30% 20% no-repeat;
+}
+
+.svg-icon-time_clock_0100-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0100_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 0 30% no-repeat;
+}
+
+.svg-icon-time_clock_0100_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0100_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 10% 30% no-repeat;
+}
+
+.svg-icon-time_clock_0100_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0100_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 20% 30% no-repeat;
+}
+
+.svg-icon-time_clock_0100_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0130 {
+    background: url("svg/sprite.css-0575ae7c.svg") 30% 30% no-repeat;
+}
+
+.svg-icon-time_clock_0130-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0130_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 40% 0 no-repeat;
+}
+
+.svg-icon-time_clock_0130_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0130_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 40% 10% no-repeat;
+}
+
+.svg-icon-time_clock_0130_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0130_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 40% 20% no-repeat;
+}
+
+.svg-icon-time_clock_0130_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0200 {
+    background: url("svg/sprite.css-0575ae7c.svg") 40% 30% no-repeat;
+}
+
+.svg-icon-time_clock_0200-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0200_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 0 40% no-repeat;
+}
+
+.svg-icon-time_clock_0200_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0200_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 10% 40% no-repeat;
+}
+
+.svg-icon-time_clock_0200_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0200_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 20% 40% no-repeat;
+}
+
+.svg-icon-time_clock_0200_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0230 {
+    background: url("svg/sprite.css-0575ae7c.svg") 30% 40% no-repeat;
+}
+
+.svg-icon-time_clock_0230-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0230_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 40% 40% no-repeat;
+}
+
+.svg-icon-time_clock_0230_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0230_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 50% 0 no-repeat;
+}
+
+.svg-icon-time_clock_0230_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0230_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 50% 10% no-repeat;
+}
+
+.svg-icon-time_clock_0230_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0300 {
+    background: url("svg/sprite.css-0575ae7c.svg") 50% 20% no-repeat;
+}
+
+.svg-icon-time_clock_0300-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0300_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 50% 30% no-repeat;
+}
+
+.svg-icon-time_clock_0300_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0300_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 50% 40% no-repeat;
+}
+
+.svg-icon-time_clock_0300_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0300_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 0 50% no-repeat;
+}
+
+.svg-icon-time_clock_0300_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0330 {
+    background: url("svg/sprite.css-0575ae7c.svg") 10% 50% no-repeat;
+}
+
+.svg-icon-time_clock_0330-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0330_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 20% 50% no-repeat;
+}
+
+.svg-icon-time_clock_0330_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0330_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 30% 50% no-repeat;
+}
+
+.svg-icon-time_clock_0330_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0330_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 40% 50% no-repeat;
+}
+
+.svg-icon-time_clock_0330_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0400 {
+    background: url("svg/sprite.css-0575ae7c.svg") 50% 50% no-repeat;
+}
+
+.svg-icon-time_clock_0400-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0400_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 60% 0 no-repeat;
+}
+
+.svg-icon-time_clock_0400_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0400_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 60% 10% no-repeat;
+}
+
+.svg-icon-time_clock_0400_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0400_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 60% 20% no-repeat;
+}
+
+.svg-icon-time_clock_0400_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0430 {
+    background: url("svg/sprite.css-0575ae7c.svg") 60% 30% no-repeat;
+}
+
+.svg-icon-time_clock_0430-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0430_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 60% 40% no-repeat;
+}
+
+.svg-icon-time_clock_0430_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0430_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 60% 50% no-repeat;
+}
+
+.svg-icon-time_clock_0430_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0430_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 0 60% no-repeat;
+}
+
+.svg-icon-time_clock_0430_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0500 {
+    background: url("svg/sprite.css-0575ae7c.svg") 10% 60% no-repeat;
+}
+
+.svg-icon-time_clock_0500-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0500_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 20% 60% no-repeat;
+}
+
+.svg-icon-time_clock_0500_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0500_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 30% 60% no-repeat;
+}
+
+.svg-icon-time_clock_0500_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0500_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 40% 60% no-repeat;
+}
+
+.svg-icon-time_clock_0500_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0530 {
+    background: url("svg/sprite.css-0575ae7c.svg") 50% 60% no-repeat;
+}
+
+.svg-icon-time_clock_0530-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0530_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 60% 60% no-repeat;
+}
+
+.svg-icon-time_clock_0530_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0530_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 70% 0 no-repeat;
+}
+
+.svg-icon-time_clock_0530_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0530_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 70% 10% no-repeat;
+}
+
+.svg-icon-time_clock_0530_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0600 {
+    background: url("svg/sprite.css-0575ae7c.svg") 70% 20% no-repeat;
+}
+
+.svg-icon-time_clock_0600-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0600_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 70% 30% no-repeat;
+}
+
+.svg-icon-time_clock_0600_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0600_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 70% 40% no-repeat;
+}
+
+.svg-icon-time_clock_0600_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0600_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 70% 50% no-repeat;
+}
+
+.svg-icon-time_clock_0600_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0630 {
+    background: url("svg/sprite.css-0575ae7c.svg") 70% 60% no-repeat;
+}
+
+.svg-icon-time_clock_0630-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0630_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 0 70% no-repeat;
+}
+
+.svg-icon-time_clock_0630_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0630_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 10% 70% no-repeat;
+}
+
+.svg-icon-time_clock_0630_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0630_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 20% 70% no-repeat;
+}
+
+.svg-icon-time_clock_0630_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0700 {
+    background: url("svg/sprite.css-0575ae7c.svg") 30% 70% no-repeat;
+}
+
+.svg-icon-time_clock_0700-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0700_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 40% 70% no-repeat;
+}
+
+.svg-icon-time_clock_0700_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0700_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 50% 70% no-repeat;
+}
+
+.svg-icon-time_clock_0700_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0700_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 60% 70% no-repeat;
+}
+
+.svg-icon-time_clock_0700_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0730 {
+    background: url("svg/sprite.css-0575ae7c.svg") 70% 70% no-repeat;
+}
+
+.svg-icon-time_clock_0730-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0730_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 80% 0 no-repeat;
+}
+
+.svg-icon-time_clock_0730_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0730_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 80% 10% no-repeat;
+}
+
+.svg-icon-time_clock_0730_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0730_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 80% 20% no-repeat;
+}
+
+.svg-icon-time_clock_0730_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0800 {
+    background: url("svg/sprite.css-0575ae7c.svg") 80% 30% no-repeat;
+}
+
+.svg-icon-time_clock_0800-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0800_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 80% 40% no-repeat;
+}
+
+.svg-icon-time_clock_0800_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0800_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 80% 50% no-repeat;
+}
+
+.svg-icon-time_clock_0800_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0800_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 80% 60% no-repeat;
+}
+
+.svg-icon-time_clock_0800_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0830 {
+    background: url("svg/sprite.css-0575ae7c.svg") 80% 70% no-repeat;
+}
+
+.svg-icon-time_clock_0830-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0830_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 0 80% no-repeat;
+}
+
+.svg-icon-time_clock_0830_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0830_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 10% 80% no-repeat;
+}
+
+.svg-icon-time_clock_0830_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0830_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 20% 80% no-repeat;
+}
+
+.svg-icon-time_clock_0830_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0900 {
+    background: url("svg/sprite.css-0575ae7c.svg") 30% 80% no-repeat;
+}
+
+.svg-icon-time_clock_0900-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0900_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 40% 80% no-repeat;
+}
+
+.svg-icon-time_clock_0900_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0900_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 50% 80% no-repeat;
+}
+
+.svg-icon-time_clock_0900_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0900_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 60% 80% no-repeat;
+}
+
+.svg-icon-time_clock_0900_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0930 {
+    background: url("svg/sprite.css-0575ae7c.svg") 70% 80% no-repeat;
+}
+
+.svg-icon-time_clock_0930-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0930_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 80% 80% no-repeat;
+}
+
+.svg-icon-time_clock_0930_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0930_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 90% 0 no-repeat;
+}
+
+.svg-icon-time_clock_0930_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_0930_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 90% 10% no-repeat;
+}
+
+.svg-icon-time_clock_0930_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_1000 {
+    background: url("svg/sprite.css-0575ae7c.svg") 90% 20% no-repeat;
+}
+
+.svg-icon-time_clock_1000-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_1000_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 90% 30% no-repeat;
+}
+
+.svg-icon-time_clock_1000_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_1000_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 90% 40% no-repeat;
+}
+
+.svg-icon-time_clock_1000_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_1000_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 90% 50% no-repeat;
+}
+
+.svg-icon-time_clock_1000_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_1030 {
+    background: url("svg/sprite.css-0575ae7c.svg") 90% 60% no-repeat;
+}
+
+.svg-icon-time_clock_1030-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_1030_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 90% 70% no-repeat;
+}
+
+.svg-icon-time_clock_1030_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_1030_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 90% 80% no-repeat;
+}
+
+.svg-icon-time_clock_1030_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_1030_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 0 90% no-repeat;
+}
+
+.svg-icon-time_clock_1030_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_1100 {
+    background: url("svg/sprite.css-0575ae7c.svg") 10% 90% no-repeat;
+}
+
+.svg-icon-time_clock_1100-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_1100_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 20% 90% no-repeat;
+}
+
+.svg-icon-time_clock_1100_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_1100_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 30% 90% no-repeat;
+}
+
+.svg-icon-time_clock_1100_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_1100_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 40% 90% no-repeat;
+}
+
+.svg-icon-time_clock_1100_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_1130 {
+    background: url("svg/sprite.css-0575ae7c.svg") 50% 90% no-repeat;
+}
+
+.svg-icon-time_clock_1130-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_1130_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 60% 90% no-repeat;
+}
+
+.svg-icon-time_clock_1130_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_1130_square {
+    background: url("svg/sprite.css-0575ae7c.svg") 70% 90% no-repeat;
+}
+
+.svg-icon-time_clock_1130_square-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_1130_square_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 80% 90% no-repeat;
+}
+
+.svg-icon-time_clock_1130_square_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 90% 90% no-repeat;
+}
+
+.svg-icon-time_clock_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_history {
+    background: url("svg/sprite.css-0575ae7c.svg") 100% 0 no-repeat;
+}
+
+.svg-icon-time_clock_history-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_mantelpiece {
+    background: url("svg/sprite.css-0575ae7c.svg") 100% 10% no-repeat;
+}
+
+.svg-icon-time_clock_mantelpiece-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_clock_mantelpiece_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 100% 20% no-repeat;
+}
+
+.svg-icon-time_clock_mantelpiece_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_hourglass {
+    background: url("svg/sprite.css-0575ae7c.svg") 100% 30% no-repeat;
+}
+
+.svg-icon-time_hourglass-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_hourglass_flow {
+    background: url("svg/sprite.css-0575ae7c.svg") 100% 40% no-repeat;
+}
+
+.svg-icon-time_hourglass_flow-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_is_money {
+    background: url("svg/sprite.css-0575ae7c.svg") 100% 50% no-repeat;
+}
+
+.svg-icon-time_is_money-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_stopwatch {
+    background: url("svg/sprite.css-0575ae7c.svg") 100% 60% no-repeat;
+}
+
+.svg-icon-time_stopwatch-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_stopwatch_00 {
+    background: url("svg/sprite.css-0575ae7c.svg") 100% 70% no-repeat;
+}
+
+.svg-icon-time_stopwatch_00-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_stopwatch_01 {
+    background: url("svg/sprite.css-0575ae7c.svg") 100% 80% no-repeat;
+}
+
+.svg-icon-time_stopwatch_01-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_stopwatch_02 {
+    background: url("svg/sprite.css-0575ae7c.svg") 100% 90% no-repeat;
+}
+
+.svg-icon-time_stopwatch_02-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_stopwatch_03 {
+    background: url("svg/sprite.css-0575ae7c.svg") 0 100% no-repeat;
+}
+
+.svg-icon-time_stopwatch_03-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_stopwatch_04 {
+    background: url("svg/sprite.css-0575ae7c.svg") 10% 100% no-repeat;
+}
+
+.svg-icon-time_stopwatch_04-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_stopwatch_05 {
+    background: url("svg/sprite.css-0575ae7c.svg") 20% 100% no-repeat;
+}
+
+.svg-icon-time_stopwatch_05-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_stopwatch_06 {
+    background: url("svg/sprite.css-0575ae7c.svg") 30% 100% no-repeat;
+}
+
+.svg-icon-time_stopwatch_06-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_stopwatch_07 {
+    background: url("svg/sprite.css-0575ae7c.svg") 40% 100% no-repeat;
+}
+
+.svg-icon-time_stopwatch_07-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_stopwatch_08 {
+    background: url("svg/sprite.css-0575ae7c.svg") 50% 100% no-repeat;
+}
+
+.svg-icon-time_stopwatch_08-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_stopwatch_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 60% 100% no-repeat;
+}
+
+.svg-icon-time_stopwatch_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_timer {
+    background: url("svg/sprite.css-0575ae7c.svg") 70% 100% no-repeat;
+}
+
+.svg-icon-time_timer-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_timer_fill {
+    background: url("svg/sprite.css-0575ae7c.svg") 80% 100% no-repeat;
+}
+
+.svg-icon-time_timer_fill-dims {
+    width: 864px;
+    height: 864px;
+}
+
+.svg-icon-time_watch {
+    background: url("svg/sprite.css-0575ae7c.svg") 90% 100% no-repeat;
+}
+
+.svg-icon-time_watch-dims {
+    width: 864px;
+    height: 864px;
 }
 

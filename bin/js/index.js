@@ -1,6 +1,40 @@
 import { __awaiter } from "tslib";
 import path from 'path';
+import { promises as fs } from 'fs';
 import { DirectoryScanner, DirectoryCleaner, DirectoryCopier, DirectoryCreator, FileCopier, FontGenerator, FilenameExtractor, StyleProcessor, SvgPackager, SvgSpriteGenerator, PackageCreator, VersionWriter, TypeScriptCompiler, JavaScriptMinifier, StylizedLogger, TemplateWriter, SvgToPngConverter, readPackageJson, SvgReader, } from 'pack.gl';
+class JSONLoader {
+    loadJSON(filePath) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const data = yield fs.readFile(filePath, 'utf8');
+                return JSON.parse(data);
+            }
+            catch (error) {
+                console.error(`Error reading JSON file: ${filePath}`, error);
+                throw error;
+            }
+        });
+    }
+    loadJSONFromDirectory(dirPath) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const files = yield fs.readdir(dirPath);
+                const jsonFiles = files.filter(file => file.endsWith('.json'));
+                const jsonData = yield Promise.all(jsonFiles.map(file => this.loadJSON(path.join(dirPath, file))));
+                return jsonData;
+            }
+            catch (error) {
+                console.error(`Error reading JSON files from directory: ${dirPath}`, error);
+                throw error;
+            }
+        });
+    }
+    mergeJSONObjects(objects) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return objects.reduce((acc, obj) => (Object.assign(Object.assign({}, acc), obj)), {});
+        });
+    }
+}
 const CONFIG = {
     path: {
         root: '.',
@@ -61,6 +95,9 @@ function main() {
             }
             console.log('Starting font generation...');
             yield directoryCreator.createDirectories(CONFIG.path.dist, ['font']);
+            const jsonLoader = new JSONLoader();
+            const codepoint_data = yield jsonLoader.loadJSONFromDirectory(path.join(CONFIG.path.src, 'json', 'codepoint'));
+            const codepoints = yield jsonLoader.mergeJSONObjects(codepoint_data);
             const fontGenerator = new FontGenerator({
                 name: 'icon',
                 prefix: 'icon',
@@ -68,6 +105,7 @@ function main() {
                 selector: '.i',
                 fontTypes: [],
                 assetTypes: [],
+                codepoints: codepoints,
             });
             yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
                 fontTypes: ["ttf", "woff", "woff2", "eot", "svg",],
