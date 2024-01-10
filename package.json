@@ -75,26 +75,7 @@
         "unit.gl": "^0.0.26"
     },
     "files": [
-        "dist/svg/**/*.{svg}",
-        "dist/js/**/*.{js,map}",
-        "dist/css/**/*.{css,map}",
-        "dist/font/**/*.{eot,otf,ttf,woff,woff2}",
-        "src/ts/**/*.ts",
-        "src/scss/**/*.scss",
-        "src/font/**/*.{ttf,woff,woff2}",
-        "!.DS_Store"
-    ],
-    "hugo-bin": {
-        "buildTags": "extended"
-    },
-    "jspm": {
-        "registry": "npm",
-        "main": "dist/js/icon.gl.js",
-        "directories": {
-            "lib": "src"
-        },
-        "shim": {},
-        "dependencies": {},
-        "peerDependencies": {}
-    }
+        "src/**",
+        "dist/**"
+    ]
 }
