@@ -201,7 +201,6 @@ async function main() {
         );
 
 
-        
         // PNG
         // --------------------------------------------------------------------
 
@@ -277,11 +276,11 @@ async function main() {
             {
                 fontTypes: ["ttf", "woff", "woff2", "eot", "svg",],
                 pathOptions: {
-                    ttf:    path.join(CONFIG.path.src, 'font', 'icon.ttf'),
-                    woff:   path.join(CONFIG.path.src, 'font', 'icon.woff'),
-                    woff2:  path.join(CONFIG.path.src, 'font', 'icon.woff2'),
-                    eot:    path.join(CONFIG.path.src, 'font', 'icon.eot'),
-                    svg:    path.join(CONFIG.path.src, 'font', 'icon.svg'),
+                    ttf:    path.join(CONFIG.path.src, 'font', 'icongl.ttf'),
+                    woff:   path.join(CONFIG.path.src, 'font', 'icongl.woff'),
+                    woff2:  path.join(CONFIG.path.src, 'font', 'icongl.woff2'),
+                    eot:    path.join(CONFIG.path.src, 'font', 'icongl.eot'),
+                    svg:    path.join(CONFIG.path.src, 'font', 'icongl.svg'),
                 },
             }
         );
