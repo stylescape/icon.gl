@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864">
+  <g id="Layer_1_copy" data-name="Layer 1 copy">
+    <polygon points="288 192 180 300 264 300 264 672 312 672 312 300 396 300 288 192" style="stroke-width: 0px;"/>
+    <path d="M504,342h-144c-9.94,0-18,8.06-18,18s8.06,18,18,18h144c9.94,0,18-8.06,18-18s-8.06-18-18-18Z" style="stroke-width: 0px;"/>
+    <path d="M552,438h-192c-9.94,0-18,8.06-18,18s8.06,18,18,18h192c9.94,0,18-8.06,18-18s-8.06-18-18-18Z" style="stroke-width: 0px;"/>
+    <path d="M342,552c0,9.94,8.06,18,18,18h240c9.94,0,18-8.06,18-18s-8.06-18-18-18h-240c-9.94,0-18,8.06-18,18Z" style="stroke-width: 0px;"/>
+    <path d="M648,630h-288c-9.94,0-18,8.06-18,18s8.06,18,18,18h288c9.94,0,18-8.06,18-18s-8.06-18-18-18Z" style="stroke-width: 0px;"/>
+  </g>
+</svg>
