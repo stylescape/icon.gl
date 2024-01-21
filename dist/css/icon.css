@@ -4960,120 +4960,312 @@ TABLE OF CONTENTS
   content: "\f461";
 }
 
-.i_ui_menu_horizontal::before {
+.i_ui_media_back::before {
   content: "\f462";
 }
 
-.i_ui_menu_vertical::before {
+.i_ui_media_circle_back::before {
   content: "\f463";
 }
 
-.i_ui_search_sm::before {
+.i_ui_media_circle_fill_back::before {
   content: "\f464";
 }
 
-.i_ui_search::before {
+.i_ui_media_circle_fill_forward::before {
   content: "\f465";
 }
 
-.i_ui_sliders_horizontal::before {
+.i_ui_media_circle_fill_next::before {
   content: "\f466";
 }
 
-.i_ui_sliders_vertical::before {
+.i_ui_media_circle_fill_pause::before {
   content: "\f467";
 }
 
-.i_ui_sort_down::before {
+.i_ui_media_circle_fill_play::before {
   content: "\f468";
 }
 
-.i_ui_sort_up::before {
+.i_ui_media_circle_fill_record::before {
   content: "\f469";
 }
 
-.i_ui_square_bookmark::before {
+.i_ui_media_circle_fill_rewind::before {
   content: "\f46a";
 }
 
-.i_ui_square_create::before {
+.i_ui_media_circle_fill_stop::before {
   content: "\f46b";
 }
 
-.i_ui_square_delete::before {
+.i_ui_media_circle_forward::before {
   content: "\f46c";
 }
 
-.i_ui_square_detail::before {
+.i_ui_media_circle_next::before {
   content: "\f46d";
 }
 
-.i_ui_square_favorite::before {
+.i_ui_media_circle_pause::before {
   content: "\f46e";
 }
 
-.i_ui_square_fill_bookmark::before {
+.i_ui_media_circle_play::before {
   content: "\f46f";
 }
 
-.i_ui_square_fill_create::before {
+.i_ui_media_circle_record::before {
   content: "\f470";
 }
 
-.i_ui_square_fill_delete::before {
+.i_ui_media_circle_rewind::before {
   content: "\f471";
 }
 
-.i_ui_square_fill_detail::before {
+.i_ui_media_circle_sto::before {
   content: "\f472";
 }
 
-.i_ui_square_fill_favorite::before {
+.i_ui_media_fill_back::before {
   content: "\f473";
 }
 
-.i_ui_square_fill_help::before {
+.i_ui_media_fill_forward::before {
   content: "\f474";
 }
 
-.i_ui_square_fill_search::before {
+.i_ui_media_fill_next::before {
   content: "\f475";
 }
 
-.i_ui_square_fill_update::before {
+.i_ui_media_fill_pause::before {
   content: "\f476";
 }
 
-.i_ui_square_help::before {
+.i_ui_media_fill_play::before {
   content: "\f477";
 }
 
-.i_ui_square_search::before {
+.i_ui_media_fill_record::before {
   content: "\f478";
 }
 
-.i_ui_square_update::before {
+.i_ui_media_fill_rewind::before {
   content: "\f479";
 }
 
-.i_ui_update_sm::before {
+.i_ui_media_fill_stop::before {
   content: "\f47a";
 }
 
-.i_ui_update::before {
+.i_ui_media_forward::before {
   content: "\f47b";
 }
 
-.i_weather_cloud_02::before {
+.i_ui_media_next::before {
   content: "\f47c";
 }
 
-.i_weather_cloud::before {
+.i_ui_media_pause::before {
   content: "\f47d";
 }
 
-.i_weather_sun::before {
+.i_ui_media_play::before {
   content: "\f47e";
+}
+
+.i_ui_media_record::before {
+  content: "\f47f";
+}
+
+.i_ui_media_rewind::before {
+  content: "\f480";
+}
+
+.i_ui_media_square_back::before {
+  content: "\f481";
+}
+
+.i_ui_media_square_fill_back::before {
+  content: "\f482";
+}
+
+.i_ui_media_square_fill_forward::before {
+  content: "\f483";
+}
+
+.i_ui_media_square_fill_next::before {
+  content: "\f484";
+}
+
+.i_ui_media_square_fill_pause::before {
+  content: "\f485";
+}
+
+.i_ui_media_square_fill_play::before {
+  content: "\f486";
+}
+
+.i_ui_media_square_fill_record::before {
+  content: "\f487";
+}
+
+.i_ui_media_square_fill_rewind::before {
+  content: "\f488";
+}
+
+.i_ui_media_square_fill_stop::before {
+  content: "\f489";
+}
+
+.i_ui_media_square_forward::before {
+  content: "\f48a";
+}
+
+.i_ui_media_square_next::before {
+  content: "\f48b";
+}
+
+.i_ui_media_square_pause::before {
+  content: "\f48c";
+}
+
+.i_ui_media_square_play::before {
+  content: "\f48d";
+}
+
+.i_ui_media_square_record::before {
+  content: "\f48e";
+}
+
+.i_ui_media_square_rewind::before {
+  content: "\f48f";
+}
+
+.i_ui_media_square_stop::before {
+  content: "\f490";
+}
+
+.i_ui_media_stop::before {
+  content: "\f491";
+}
+
+.i_ui_menu_horizontal::before {
+  content: "\f492";
+}
+
+.i_ui_menu_vertical::before {
+  content: "\f493";
+}
+
+.i_ui_search_sm::before {
+  content: "\f494";
+}
+
+.i_ui_search::before {
+  content: "\f495";
+}
+
+.i_ui_sliders_horizontal::before {
+  content: "\f496";
+}
+
+.i_ui_sliders_vertical::before {
+  content: "\f497";
+}
+
+.i_ui_sort_down::before {
+  content: "\f498";
+}
+
+.i_ui_sort_up::before {
+  content: "\f499";
+}
+
+.i_ui_square_bookmark::before {
+  content: "\f49a";
+}
+
+.i_ui_square_create::before {
+  content: "\f49b";
+}
+
+.i_ui_square_delete::before {
+  content: "\f49c";
+}
+
+.i_ui_square_detail::before {
+  content: "\f49d";
+}
+
+.i_ui_square_favorite::before {
+  content: "\f49e";
+}
+
+.i_ui_square_fill_bookmark::before {
+  content: "\f49f";
+}
+
+.i_ui_square_fill_create::before {
+  content: "\f4a0";
+}
+
+.i_ui_square_fill_delete::before {
+  content: "\f4a1";
+}
+
+.i_ui_square_fill_detail::before {
+  content: "\f4a2";
+}
+
+.i_ui_square_fill_favorite::before {
+  content: "\f4a3";
+}
+
+.i_ui_square_fill_help::before {
+  content: "\f4a4";
+}
+
+.i_ui_square_fill_search::before {
+  content: "\f4a5";
+}
+
+.i_ui_square_fill_update::before {
+  content: "\f4a6";
+}
+
+.i_ui_square_help::before {
+  content: "\f4a7";
+}
+
+.i_ui_square_search::before {
+  content: "\f4a8";
+}
+
+.i_ui_square_update::before {
+  content: "\f4a9";
+}
+
+.i_ui_update_sm::before {
+  content: "\f4aa";
+}
+
+.i_ui_update::before {
+  content: "\f4ab";
+}
+
+.i_weather_cloud_02::before {
+  content: "\f4ac";
+}
+
+.i_weather_cloud::before {
+  content: "\f4ad";
+}
+
+.i_weather_sun::before {
+  content: "\f4ae";
 }
 
 .igl_1x {

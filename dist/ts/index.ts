@@ -1,4 +1,4 @@
-// Copyright 2020 Scape Agency BV
+// Copyright 2024 Scape Agency BV
 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,4 +13,14 @@
 // limitations under the License.
 
 
-export {};
+// Import
+// ============================================================================
+
+import Icon from './utils/Icon';
+
+
+// Export
+// ============================================================================
+
+export * from './icons';
+export { Icon };

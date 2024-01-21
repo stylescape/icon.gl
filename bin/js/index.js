@@ -183,6 +183,28 @@ function main() {
             console.log('Files copied successfully.');
             const versionWriter = new VersionWriter();
             yield versionWriter.writeVersionToFile('VERSION', packageConfig.version);
+            function generateExports() {
+                return __awaiter(this, void 0, void 0, function* () {
+                    const iconsDir = CONFIG.path.ts_output_icons;
+                    const exportFilePath = path.join(CONFIG.path.ts_input, 'icons.ts');
+                    let exportStatements = '';
+                    try {
+                        const files = yield fs.readdir(iconsDir);
+                        files.forEach(file => {
+                            if (file.endsWith('.ts') && file !== 'index.ts') {
+                                const moduleName = path.basename(file, '.ts');
+                                exportStatements += `export * from './icons/${moduleName}';\n`;
+                            }
+                        });
+                        yield fs.writeFile(exportFilePath, exportStatements);
+                        console.log('Export file created successfully');
+                    }
+                    catch (error) {
+                        console.error('Error generating exports:', error);
+                    }
+                });
+            }
+            generateExports();
             const tsCompiler = new TypeScriptCompiler();
             const tsFiles = [
                 path.join(CONFIG.path.ts_input, 'index.ts'),

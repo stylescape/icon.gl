@@ -464,6 +464,33 @@ async function main() {
         await versionWriter.writeVersionToFile('VERSION', packageConfig.version);
 
 
+
+        // TypeScript Icon Export File
+        // --------------------------------------------------------------------
+        async function generateExports() {
+            const iconsDir = CONFIG.path.ts_output_icons;
+            const exportFilePath = path.join(CONFIG.path.ts_input, 'icons.ts');
+            let exportStatements = '';
+          
+            try {
+                const files = await fs.readdir(iconsDir);
+                files.forEach(file => {
+                  if (file.endsWith('.ts') && file !== 'index.ts') {
+                    const moduleName = path.basename(file, '.ts');
+                    exportStatements += `export * from './icons/${moduleName}';\n`;
+                  }
+                });
+            
+                await fs.writeFile(exportFilePath, exportStatements);
+                console.log('Export file created successfully');
+              } catch (error) {
+                console.error('Error generating exports:', error);
+              }
+            }
+          
+        generateExports();
+        
+
         // Compile TypeScript to JavaScript
         // --------------------------------------------------------------------
         const tsCompiler = new TypeScriptCompiler();
