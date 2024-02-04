@@ -1,0 +1,96 @@
+// https://stackoverflow.com/questions/1567184/sass-and-font-face
+
+@use "../variables" as *;
+
+
+@mixin icon_face(
+    $path,
+    $family,
+    $type: "",
+    // $weight: 400,
+    // $style: normal,
+    // $local1: null,
+    // $local2: null,
+    $ttf: null,
+    $otf: null,
+    $eot: null,
+    $svg: null
+) {
+
+    // Source List
+    // ------------------------------------------------------------------------
+
+    $src: null; // initialize an empty source path
+
+
+    // Local Sources
+    // ------------------------------------------------------------------------
+    // only load local files when both sources are present
+
+    // @if $local1 and $local2 {
+    //     $src: append($src, local("#{$local1}"), comma);
+    //     $src: append($src, local("#{$local2}"), comma);
+    // }
+
+    // ------------------------------------------------------------------------
+
+    @if $otf {
+        $src: append($src, url("#{$path}#{$type}.otf") format("opentype"), comma);
+    }
+
+
+    // Default Formats
+    // ------------------------------------------------------------------------
+    // load default formats (woff and woff2)
+
+    $src: append($src, url("#{$path}#{$type}.woff2") format("woff2"), comma);
+    $src: append($src, url("#{$path}#{$type}.woff") format("woff"), comma);
+
+
+
+    // Other Formats
+    // ------------------------------------------------------------------------
+    // Formats that should only be added at the end
+
+    @if $ttf {
+        $src: append($src, url("#{$path}#{$type}.ttf") format("truetype"), comma);
+    }
+
+    @if $svg {
+        $src: append($src, url("#{$path}#{$type}.svg##{$svg}") format("svg"), comma);
+    }
+
+
+
+    // Font Face Declaration
+    // ------------------------------------------------------------------------
+
+    @font-face {
+        font-family: $family;
+        // for compatibility reasons EOT comes first and is not appended
+        @if $eot {
+            src: url("#{$path}#{$type}.eot");
+        }
+        // load appended sources path
+        src: $src;
+        // font-weight: $weight;
+        // font-style: $style;
+    }
+
+
+}
+
+
+
+
+@include icon_face(
+    "#{$font_dir}/#{$font_name}",
+    $font_name,
+    "",
+    //   600,
+    //   "normal",
+    //   "#{$font_name} SemiBold",
+    //   "#{$font_name}-SemiBold",
+    "ttf",
+    //   "otf"
+);

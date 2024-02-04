@@ -14,7 +14,29 @@
 
 
 // ============================================================================
-// Icon.gl | Font Map
+// Icon.gl | Font Variables
+// ============================================================================
+
+
+// FontFace Variables
+// ============================================================================
+
+$font_name: "{{ name }}" !default;
+$font_dir: ".{{ fontsUrl }}" !default;
+$font_hash: "24e3eb84d0bcaf83d77f904c78ac1f47" !default;
+
+
+// Font Formats
+// ============================================================================
+
+${{ name }}_font_formats: (
+    "woff2" : "woff2",
+    "woff" : "woff",
+    "ttf" : "truetype" // Adding TrueType format for additional compatibility
+);
+
+
+// Icon Map
 // ============================================================================
 
 ${{ name }}_map: (

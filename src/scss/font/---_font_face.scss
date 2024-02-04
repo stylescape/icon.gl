@@ -1,0 +1,51 @@
+// Copyright 2023 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// icon.gl | Font Map
+// ============================================================================
+
+@use "../variables" as *;
+
+
+// FontFace URLs Function
+// ============================================================================
+// Generating font-face URLs with hash
+
+@function icongl_font_url($format) {
+    @return url("#{$icongl_font_dir}/#{$icongl_font}.#{$format}") format($format);
+}
+
+
+
+// FontFace Source Value Variables
+// ============================================================================
+// Constructing src value for @font-face
+
+$icongl_font_src: ();
+@each $format, $type in $icongl_font_formats {
+    $icongl_font_src: append($icongl_font_src, icongl_font_url($format), comma);
+}
+
+
+// FontFace Declaration
+// ============================================================================
+
+@font-face {
+    // Using 'swap' to ensure text remains visible during font loading
+    font-display: swap;
+    font-family: $icongl_font;
+    src: $icongl_font_src;
+}

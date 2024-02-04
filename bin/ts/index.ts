@@ -354,8 +354,8 @@ async function main() {
             CONFIG.path.font_output,
             {
                 assetTypes: [ "scss", ],
-                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'variables', '_font_map.scss'), },
-                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_variables_font_map.scss.hbs'), }, 
+                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'variables', '_font.scss'), },
+                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_variables.scss.hbs'), }, 
             }
         );
         // SCSS Font Classes

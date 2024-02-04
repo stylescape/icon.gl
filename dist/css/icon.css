@@ -1,7 +1,6 @@
 @font-face {
-  font-display: swap;
   font-family: "icongl";
-  src: url("../font/icongl.woff2") format("woff2"), url("../font/icongl.woff") format("woff"), url("../font/icongl.ttf") format("ttf");
+  src: url("../font/icongl.woff2") format("woff2"), url("../font/icongl.woff") format("woff"), url("../font/icongl.ttf") format("truetype");
 }
 .i_icon-interactive:hover {
   color: #0000cc;
