@@ -1,0 +1,51 @@
+// Copyright 2024 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// Icon.gl | Development | Banner
+// ============================================================================
+
+@mixin banner(
+    $file,
+    $version: '1.0.0',
+    $author: 'Scape Agency',
+    $website: 'https://www.icon.gl/',
+    $license: 'Apache 2.0 License',
+    $licenseUrl: 'https://github.com/scape-agency/icon.gl/blob/main/LICENSE',
+    $description: 'Icon Library',
+    $repository: 'https://github.com/scape-agency/icon.gl/',
+) {
+    @at-root {
+    /*!
+     * ============================================================================
+     *
+     * Icon.gl #{$file} v#{$version} (#{$website})
+     * Copyright (c) 2020-2024 #{$author} (https://www.scape.agency)
+     * All rights reserved under #{$license} terms.
+     *
+     * ============================================================================
+     *
+     * @description     #{$description}
+     * @author          #{$author} (https://www.scape.agency)
+     * @version         v#{$version}
+     * @copyright       2020-2024 #{$author} (https://www.scape.agency)
+     * @website         #{$website}
+     * @repository      #{$repository}
+     * @license         #{$license} (#{$licenseUrl})
+     *
+     * ============================================================================
+     */
+    }
+}

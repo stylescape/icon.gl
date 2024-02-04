@@ -1,0 +1,64 @@
+// Copyright 2024 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// icon.gl | Size
+// ============================================================================
+
+@use "../variables" as *;
+
+
+// icon.gl | Size | Literal Magnification Scale
+// ----------------------------------------------------------------------------
+
+@for $i from 1 through 10 {
+    .#{$icongl_prefix}#{$i}x {
+        font-size: $i * 1em;
+    }
+}
+
+// icon.gl | Size | Step-Based Magnification Scale (with alignment)
+// ----------------------------------------------------------------------------
+
+// @each $size, $value in $igl_sizes {
+//     .#{$icongl_prefix}#{$size} {
+//         @include igl_size($value);
+//     }
+// }
+
+
+
+// .icon_size_00 { @include icon_size_00; }
+// .icon_size_01 { @include icon_size_01; }
+// .icon_size_02 { @include icon_size_02; }
+// .icon_size_03 { @include icon_size_03; }
+// .icon_size_04 { @include icon_size_04; }
+// .icon_size_05 { @include icon_size_05; }
+// .icon_size_06 { @include icon_size_06; }
+// .icon_size_07 { @include icon_size_07; }
+// .icon_size_08 { @include icon_size_08; }
+// .icon_size_09 { @include icon_size_09; }
+// .icon_size_10 { @include icon_size_10; }
+
+
+// .icon-very-small {font-size: 16px}
+// .icon-small {font-size: 24px}
+// .icon-medium {font-size: 35px}
+// .icon-extra-medium {font-size: 40px}
+// .icon-large {font-size: 50px}
+// .icon-round-small {border-radius: 100%; display: table-cell; height: 80px; margin: 0 auto; text-align: center; vertical-align: middle; width: 80px; font-size:32px}
+// .icon-round-medium {border-radius: 100%; display: table-cell; height: 90px; margin: 0 auto; text-align: center; vertical-align: middle; width: 90px;}
+
+

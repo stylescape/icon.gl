@@ -17,41 +17,25 @@
 // icon.gl | Font Map
 // ============================================================================
 
+@use "../variables" as *;
 
-// FontFace Variables
+
+// FontFace URLs Function
 // ============================================================================
-
-${{ name }}_font: "{{ name }}" !default;
-${{ name }}_font_dir: "{{ fontsUrl }}" !default;
-${{ name }}_font_hash: "24e3eb84d0bcaf83d77f904c78ac1f47" !default;
-
-
 // Generating font-face URLs with hash
-// ============================================================================
 
 @function {{ name }}_font_url($format) {
-  {{!-- @return url("#{${{ name }}_font_dir}/#{${{ name }}_font}.#{$format}?#{${{ name }}_font_hash}") format($format); --}}
-  @return url("#{${{ name }}_font_dir}/#{${{ name }}_font}.#{$format}") format($format);
+    @return url("#{${{ name }}_font_dir}/#{${{ name }}_font}.#{$format}") format($format);
 }
 
 
-// Defining supported font formats
+// FontFace Source Value Variables
 // ============================================================================
-
-${{ name }}_font_formats: (
-  "woff2" : "woff2",
-  "woff" : "woff",
-  "ttf" : "truetype" // Adding TrueType format for additional compatibility
-);
-
-
 // Constructing src value for @font-face
-// ============================================================================
 
 ${{ name }}_font_src: ();
 @each $format, $type in ${{ name }}_font_formats {
-  ${{ name }}_font_src: append(${{ name }}_font_src, {{ name }}_font_url($format) $type, comma);
-
+    ${{ name }}_font_src: append(${{ name }}_font_src, {{ name }}_font_url($format) $type, comma);
 }
 
 
@@ -64,9 +48,3 @@ ${{ name }}_font_src: ();
     font-family: ${{ name }}_font;
     src: ${{ name }}_font_src;
 }
-
-
-{{!-- 
-${{ name }}_font_file: "#{${{ name }}_font_dir}/#{${{ name }}_font}" !default;
-${{ name }}_font_src: url("#{${{ name }}_font_file}.woff2?#{${{ name }}_font_hash}") format("woff2"),
-                           url("#{${{ name }}_font_file}.woff?#{${{ name }}_font_hash}") format("woff") !default; --}}

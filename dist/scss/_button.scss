@@ -12,7 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-$main-color: #some-color; // Replace #some-color with the actual color value
+@use "variables" as *;
+
 
 
 .btn {
@@ -33,7 +34,7 @@ $main-color: #some-color; // Replace #some-color with the actual color value
     user-select: none;
     border-radius: 4px;
     color: white;
-    background-color: $main-color;
+    background-color: $icon_color_default;
 }
 
 

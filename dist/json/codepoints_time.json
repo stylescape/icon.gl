@@ -1,0 +1,36 @@
+{
+
+    "time_clock_0100": 128336,
+    "time_clock_0200": 128337,
+    "time_clock_0300": 128338,
+    "time_clock_0400": 128339,
+    "time_clock_0500": 128340,
+    "time_clock_0600": 128341,
+    "time_clock_0700": 128342,
+    "time_clock_0800": 128343,
+    "time_clock_0900": 128344,
+    "time_clock_1000": 128345,
+    "time_clock_1100": 128346,
+    "time_clock_0000": 128347,
+    "time_clock_0130": 128348,
+    "time_clock_0230": 128349,
+    "time_clock_0330": 128350,
+    "time_clock_0430": 128351,
+    "time_clock_0530": 128352,
+    "time_clock_0630": 128353,
+    "time_clock_0730": 128354,
+    "time_clock_0830": 128355,
+    "time_clock_0930": 128356,
+    "time_clock_1030": 128357,
+    "time_clock_1130": 128358,
+    "time_clock_0030": 128359,
+
+    "time_watch": 8986,
+    "time_hourglass": 8987,
+    "time_hourglass_flow": 9203,
+    "time_alarm": 9200,
+    "time_stopwatch": 9201,
+    "time_timer": 9202,
+    "time_mantelpiece": 128368
+
+}

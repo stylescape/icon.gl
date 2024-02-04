@@ -17,6 +17,9 @@
 // Media | SVG
 // ============================================================================
 
+@use "variables" as *;
+
+
 svg {
     @include hyperlink_base;
 }
@@ -44,3 +47,18 @@ svg * {
     // top: 0;
     // left: 0;
 }
+
+
+
+
+// svg-icon {
+//     display: inline-block;
+  
+//     svg {
+//         fill: #999;
+//         height: 1.2em;
+//         width: 1.2em;
+//         vertical-align: middle;
+//     }
+//   }
+  

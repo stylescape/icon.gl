@@ -35,6 +35,20 @@ class JSONLoader {
         });
     }
 }
+function getSubdirectories(directory) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const dirents = yield fs.readdir(directory, { withFileTypes: true });
+            return dirents
+                .filter(dirent => dirent.isDirectory())
+                .map(dirent => dirent.name);
+        }
+        catch (error) {
+            console.error('Error reading directory:', error);
+            throw error;
+        }
+    });
+}
 const CONFIG = {
     path: {
         root: '.',
@@ -73,7 +87,17 @@ function main() {
             const directoryCreator = new DirectoryCreator();
             yield directoryCreator.createDirectories(CONFIG.path.dist, ['svg']);
             const svgPackager = new SvgPackager(path.join(CONFIG.path.root, 'bin/ts/config/svgo.config.js'));
-            yield svgPackager.processSvgFiles(CONFIG.path.svg_input, CONFIG.path.svg_output, CONFIG.path.ts_output_icons, CONFIG.path.json_output);
+            try {
+                const subdirectories = yield getSubdirectories(CONFIG.path.svg_input);
+                console.log(subdirectories);
+                for (const subfolder of subdirectories) {
+                    yield svgPackager.processSvgFiles(path.join(CONFIG.path.svg_input, subfolder), CONFIG.path.svg_output, CONFIG.path.ts_output_icons, CONFIG.path.json_output);
+                }
+                console.log(subdirectories);
+            }
+            catch (error) {
+                console.error('Error listing subdirectories:', error);
+            }
             const directoryScanner = new DirectoryScanner();
             const svgReader = new SvgReader();
             const converter = new SvgToPngConverter();
@@ -88,7 +112,6 @@ function main() {
                     for (const size of sizes) {
                         const pngOutputPath = path.join(CONFIG.path.dist, 'png', `${size}`, `${filenameWithoutExtension}.png`);
                         yield converter.convert(svgContent, pngOutputPath, size, size);
-                        console.log(`Converted to PNG: ${pngOutputPath}`);
                     }
                 }
                 ;
@@ -119,6 +142,11 @@ function main() {
             });
             yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
                 assetTypes: ["scss",],
+                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'variables', '_font.scss'), },
+                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_variables_font.scss.hbs'), },
+            });
+            yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
+                assetTypes: ["scss",],
                 pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_face.scss'), },
                 templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_face.scss.hbs'), },
             });
@@ -129,8 +157,8 @@ function main() {
             });
             yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
                 assetTypes: ["scss",],
-                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_map.scss'), },
-                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_map.scss.hbs'), },
+                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'variables', '_font_map.scss'), },
+                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_variables_font_map.scss.hbs'), },
             });
             yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
                 assetTypes: ["scss",],

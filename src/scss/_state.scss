@@ -17,6 +17,8 @@
 // icon.gl | States
 // ============================================================================
 
+@use "variables" as *;
+
 $primary-color: blue; // Define your primary color
 
 @mixin interactive-icon(

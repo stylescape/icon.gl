@@ -17,40 +17,25 @@
 // icon.gl | Font Map
 // ============================================================================
 
+@use "../variables" as *;
 
-// FontFace Variables
+
+// FontFace URLs Function
 // ============================================================================
-
-$icongl_font: "icongl" !default;
-$icongl_font_dir: "./font" !default;
-$icongl_font_hash: "24e3eb84d0bcaf83d77f904c78ac1f47" !default;
-
-
 // Generating font-face URLs with hash
-// ============================================================================
 
 @function icongl_font_url($format) {
-  @return url("#{$icongl_font_dir}/#{$icongl_font}.#{$format}") format($format);
+    @return url("#{$icongl_font_dir}/#{$icongl_font}.#{$format}") format($format);
 }
 
 
-// Defining supported font formats
+// FontFace Source Value Variables
 // ============================================================================
-
-$icongl_font_formats: (
-  "woff2" : "woff2",
-  "woff" : "woff",
-  "ttf" : "truetype" // Adding TrueType format for additional compatibility
-);
-
-
 // Constructing src value for @font-face
-// ============================================================================
 
 $icongl_font_src: ();
 @each $format, $type in $icongl_font_formats {
-  $icongl_font_src: append($icongl_font_src, icongl_font_url($format) $type, comma);
-
+    $icongl_font_src: append($icongl_font_src, icongl_font_url($format) $type, comma);
 }
 
 
@@ -62,5 +47,3 @@ $icongl_font_src: ();
     font-family: $icongl_font;
     src: $icongl_font_src;
 }
-
-

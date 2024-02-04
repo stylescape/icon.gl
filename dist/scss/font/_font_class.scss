@@ -17,7 +17,10 @@
 // icon.gl | Font Variables
 // ============================================================================
 
+@use "../variables" as *;
+@use "../mixins" as *;
+
 @each $icon, $codepoint in $icongl_map {
-  .i_#{$icon}::before { content: $codepoint; }
+    .i_#{$icon}::before { content: $codepoint; }
 }
 

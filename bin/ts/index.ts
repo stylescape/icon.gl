@@ -23,7 +23,7 @@
 
 // Import necessary modules and classes
 import path from 'path';
-import { promises as fs } from 'fs';
+import { PathLike, promises as fs } from 'fs';
 
 import {
     DirectoryScanner,
@@ -101,6 +101,19 @@ class JSONLoader {
 
 // export default JSONLoader;
 
+
+
+async function getSubdirectories(directory: PathLike) {
+    try {
+        const dirents = await fs.readdir(directory, { withFileTypes: true });
+        return dirents
+            .filter(dirent => dirent.isDirectory())
+            .map(dirent => dirent.name);
+    } catch (error) {
+        console.error('Error reading directory:', error);
+        throw error; // or handle it as needed
+    }
+}
 
 
 
@@ -193,12 +206,32 @@ async function main() {
             path.join(CONFIG.path.root, 'bin/ts/config/svgo.config.js'),    
         );
 
-        await svgPackager.processSvgFiles(
-            CONFIG.path.svg_input,
-            CONFIG.path.svg_output,
-            CONFIG.path.ts_output_icons,
-            CONFIG.path.json_output,
-        );
+
+        try {
+            const subdirectories = await getSubdirectories(CONFIG.path.svg_input);
+            console.log(subdirectories);
+
+            // const subfolders = getSubdirectories(CONFIG.path.svg_input);
+
+            for (const subfolder of subdirectories) {
+                await svgPackager.processSvgFiles(
+                    path.join(CONFIG.path.svg_input, subfolder),
+                    CONFIG.path.svg_output,
+                    CONFIG.path.ts_output_icons,
+                    CONFIG.path.json_output,
+                );
+            }
+            console.log(subdirectories);
+        } catch (error) {
+            console.error('Error listing subdirectories:', error);
+        }
+
+        // await svgPackager.processSvgFiles(
+        //     CONFIG.path.svg_input,
+        //     CONFIG.path.svg_output,
+        //     CONFIG.path.ts_output_icons,
+        //     CONFIG.path.json_output,
+        // );
 
 
         // PNG
@@ -220,7 +253,7 @@ async function main() {
                 for (const size of sizes) {
                     const pngOutputPath = path.join(CONFIG.path.dist, 'png', `${size}`, `${filenameWithoutExtension}.png`);
                     await converter.convert(svgContent, pngOutputPath, size, size);
-                    console.log(`Converted to PNG: ${pngOutputPath}`);
+                    // console.log(`Converted to PNG: ${pngOutputPath}`);
                 }
             };
         }
@@ -285,6 +318,16 @@ async function main() {
             }
         );
 
+        // SCSS Font Variables
+        await fontGenerator.generateFonts(
+            CONFIG.path.font_input,
+            CONFIG.path.font_output,
+            {
+                assetTypes: [ "scss", ],
+                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'variables', '_font.scss'), },
+                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_variables_font.scss.hbs'), }, 
+            }
+        );
         // SCSS Font Face
         await fontGenerator.generateFonts(
             CONFIG.path.font_input,
@@ -311,8 +354,8 @@ async function main() {
             CONFIG.path.font_output,
             {
                 assetTypes: [ "scss", ],
-                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_map.scss'), },
-                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_map.scss.hbs'), }, 
+                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'variables', '_font_map.scss'), },
+                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_variables_font_map.scss.hbs'), }, 
             }
         );
         // SCSS Font Classes

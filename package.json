@@ -1,7 +1,7 @@
 {
     "name": "icon.gl",
     "description": "icon.gl is a icon library and framework developed by Scape Agency.",
-    "version": "0.0.13",
+    "version": "0.0.14",
     "config": {
         "version_short": "0.0"
     },
@@ -66,9 +66,9 @@
         "deep.gl": "^0.0.1",
         "grid.gl": "^0.0.1",
         "hue.gl": "^0.0.10",
-        "icon.gl": "^0.0.4",
+        "icon.gl": "^0.0.13",
         "loop.gl": "^0.0.1",
-        "pack.gl": "^0.0.39",
+        "pack.gl": "^0.0.40",
         "page.gl": "^0.0.3",
         "ts-node": "^10.9.1",
         "typescript": "^5.3.3",

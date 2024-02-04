@@ -17,6 +17,8 @@
 // icon.gl | List
 // ============================================================================
 
+@use "variables" as *;
+
 // .#{$icongl_prefix}ul {
 //     list-style-type: none;
 //     margin-left: var(--#{$fa-css-prefix}-li-margin, #{$fa-li-margin});

@@ -12,40 +12,41 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ============================================================================
+// icon.gl
+// ============================================================================
 
+// Ensures the CSS is interpreted using UTF-8 character encoding.
 @charset "utf-8";
 
-/**
-* icon.gl
-*
-* @description     Icon Library
-* @author          Scape Agency (https://www.scape.agency)
-* @version         v0.0.1
-* @copyright       2020-2023 Scape Agency (https://www.scape.agency)
-* @website         https://www.icon.gl/
-* @repository      https://github.com/scape-agency/icon.gl/
-* @license         Apache 2.0 License (https://github.com/scape-agency/icon.gl/blob/main/LICENSE)
-*/
 
-@use "sass:math";
+// Sass Module Imports
+// ============================================================================
+// Importing essential Sass modules and utilities for scalable and
+// maintainable stylesheets.
 
-/**
-TABLE OF CONTENTS
-===============================================================================
-1.
-2.
-3. 
-*/
+@use "sass:math";       // Provides mathematical functions.
 
 
-$icongl_prefix: "igl_";
+// Core Style Imports
+// ============================================================================
+// Forwarding core style modules to enable their use in other stylesheets
+// without direct import.
 
-@import "_icon.scss";
+@forward "variables";   // Centralizes CSS variables for consistent theming.
+@forward "mixins";      // Centralizes SCSS mixins for consistent theming.
+
+@forward "font";        // Contains font-face definitions and font-related utilities.
+// @forward "size";        // Defines size-related utility classes and mixins.
+@forward "state";       // Includes styles for various states (hover, active, etc.).
+@forward "transform";   // Provides CSS transformations utilities.
+@forward "list";        // Utilities for list styles and behaviors.
 
 
-@import "font";
+// Development Utilities
+// ============================================================================
+// Importing development-specific styles for debugging or development phase
+// enhancements.
 
-@import "_size.scss";
-@import "_state.scss";
-@import "_transform.scss";
-@import "_list.scss";
+@use "dev/banner" as *;      // Development banner for branding or notices.
+@include banner(""); // Including the development banner with a custom message.

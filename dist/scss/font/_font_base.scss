@@ -17,6 +17,9 @@
 // icon.gl | Font Variables
 // ============================================================================
 
+@use "../variables" as *;
+@use "../mixins" as *;
+
 .i::before,
 [class^="i_"]::before,
 [class*=" i_"]::before {
