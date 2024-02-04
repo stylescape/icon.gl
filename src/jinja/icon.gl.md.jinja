@@ -1,11 +1,27 @@
+{%- set row_count = 6 %}
+
 # Icon.gl Overview
+
+{% for group in groups %}
+
+## {{ group["group"] }}
 
 |      |      |      |      |      |      |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-{% for name in names -%}
-{% if loop.index0 % 6 == 0 %}
-|
-{%- else %}
- <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/{{ name }}.png" alt="{{ name }}"><small>{{ name }}</small> |
+{# Icons Rows -#}
+{%- for name in group["icons"] %}
+{%- if (loop.index0) % row_count == 0 %}
+{#- New row after every 6 icons -#}
+| 
 {%- endif -%}
-{% endfor %}
+ <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/{{ name }}.png" alt="{{ name }}"><br><small>{{ name }}</small>
+
+{#- Check if it's the end of the row or list -#}
+{%- if loop.index % row_count == 0 or loop.last %}
+ |
+{% else %}
+ |
+{%- endif -%}
+{%- endfor %}
+
+{%- endfor %}

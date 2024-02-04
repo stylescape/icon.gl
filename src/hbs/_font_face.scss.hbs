@@ -29,13 +29,14 @@
 }
 
 
+
 // FontFace Source Value Variables
 // ============================================================================
 // Constructing src value for @font-face
 
 ${{ name }}_font_src: ();
 @each $format, $type in ${{ name }}_font_formats {
-    ${{ name }}_font_src: append(${{ name }}_font_src, {{ name }}_font_url($format) $type, comma);
+    ${{ name }}_font_src: append(${{ name }}_font_src, {{ name }}_font_url($format), comma);
 }
 
 
@@ -44,7 +45,8 @@ ${{ name }}_font_src: ();
 
 @font-face {
     {{!-- font-display: block; --}}
-    font-display: swap; // Using 'swap' to ensure text remains visible during font loading
+    // Using 'swap' to ensure text remains visible during font loading
+    font-display: swap;
     font-family: ${{ name }}_font;
     src: ${{ name }}_font_src;
 }

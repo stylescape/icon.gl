@@ -20,35 +20,72 @@
 @use "../variables" as *;
 
 
-@mixin icon_style(
-    $size: $icon_size_default,
+@mixin icon_style (
+    $font_size: $icon_font_size_default,
     $color: $icon_color_default,
-    $margin: 0,
+    $margin: $icon_margin_default,
+    $padding: $icon_padding_default,
 ) {
-    // @include reset_bleed;
-    // @include box_content;
-    // position:         relative;
+
+    // Position & Size
+    position: relative;
+    display: inline-block;
+    // display: inline-flex;
+    vertical-align: -.125em;
+    // align-items: center;
+    // justify-content: center;
+
+    // Size
+    box-sizing: content-box;
+    margin: $margin;
+    padding: $padding;
     // width:            100%;
     // height:           100%;
-    // align-items:      center;
-    // display:          inline-flex;
-    // justify-content:  center;
-    // fill: $color_02;
-    display: inline-block;
-    font-size: $size;
-    color: $color;
-    line-height: 1;
-    margin: $margin;
 
+    // Style
+    background-color: transparent;
+    color: $color;
+
+    // Other
+    overflow: visible;
+
+    // * {
+    //     font-size: $font_size;
+    // }
+
+    // Icon Font Style
+    ::before{
+        // Font
+        font-family: "icongl" !important;
+        font-size: $font_size;
+        font-style: normal;
+        font-weight: normal !important;
+        font-variant: normal;
+        text-transform: none;
+        text-emphasis-style: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+
+@mixin icon_style_font(
+    $font_size: $icon_font_size_default,
+    $color: $icon_color_default,
+) {
+    // Font
+    font-family: "icongl" !important;
+    font-size: $font_size;
     font-style: normal;
     font-weight: normal !important;
     font-variant: normal;
     text-transform: none;
-    vertical-align: -.125em;
-    // vertical-align: middle;
+    text-emphasis-style: none;
+    line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    // background-color: transparent;
-    // position: relative;
-    // overflow: visible;
+
+    color: $color;
+
 }

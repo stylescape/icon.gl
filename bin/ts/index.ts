@@ -209,7 +209,7 @@ async function main() {
 
         try {
             const subdirectories = await getSubdirectories(CONFIG.path.svg_input);
-            console.log(subdirectories);
+            // console.log(subdirectories);
 
             // const subfolders = getSubdirectories(CONFIG.path.svg_input);
 
@@ -221,7 +221,7 @@ async function main() {
                     CONFIG.path.json_output,
                 );
             }
-            console.log(subdirectories);
+            // console.log(subdirectories);
         } catch (error) {
             console.error('Error listing subdirectories:', error);
         }
@@ -339,15 +339,15 @@ async function main() {
             }
         );
         // SCSS Font Base
-        await fontGenerator.generateFonts(
-            CONFIG.path.font_input,
-            CONFIG.path.font_output,
-            {
-                assetTypes: [ "scss", ],
-                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_base.scss'), },
-                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_base.scss.hbs'), }, 
-            }
-        );
+        // await fontGenerator.generateFonts(
+        //     CONFIG.path.font_input,
+        //     CONFIG.path.font_output,
+        //     {
+        //         assetTypes: [ "scss", ],
+        //         pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_base.scss'), },
+        //         templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_base.scss.hbs'), }, 
+        //     }
+        // );
         // SCSS Font Map
         await fontGenerator.generateFonts(
             CONFIG.path.font_input,
@@ -359,15 +359,15 @@ async function main() {
             }
         );
         // SCSS Font Classes
-        await fontGenerator.generateFonts(
-            CONFIG.path.font_input,
-            CONFIG.path.font_output,
-            {
-                assetTypes: [ "scss", ],
-                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_class.scss'), },
-                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_class.scss.hbs'), }, 
-            }
-        );
+        // await fontGenerator.generateFonts(
+        //     CONFIG.path.font_input,
+        //     CONFIG.path.font_output,
+        //     {
+        //         assetTypes: [ "scss", ],
+        //         pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_class.scss'), },
+        //         templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_class.scss.hbs'), }, 
+        //     }
+        // );
 
         // HTML
         await fontGenerator.generateFonts(
@@ -413,20 +413,65 @@ async function main() {
         // --------------------------------------------------------------------
 
         logger.header('MD Writer');
-        const png_paths = await directoryScanner.scanDirectory(path.join(CONFIG.path.dist, 'png', '512'), true)
-        let png_names = []
-        for (const png_path of png_paths) {
-            if (path.extname(png_path) == '.png'){
 
-                let png_name = extractor.getFilenameWithoutExtension(png_path);
-                png_names.push(png_name);
+        try {
+            const subdirectories = await getSubdirectories(CONFIG.path.svg_input);
+            // console.log(subdirectories);
+            // const subfolders = getSubdirectories(CONFIG.path.svg_input);
+            const groups = []
+            for (const subfolder of subdirectories) {
+                const svg_paths = await directoryScanner.scanDirectory(path.join(CONFIG.path.svg_input, subfolder), false)
+                console.log(svg_paths)
+                const names = []
+
+                for (const svg_path of svg_paths) {
+                    if (path.extname(svg_path) == '.svg'){
+        
+                        let name = extractor.getFilenameWithoutExtension(svg_path);
+                        names.push(name);
+                    }
+                }
+                groups.push(
+                    {
+                        group: subfolder,
+                        icons: names,
+                    }
+                );
+
+            //     await svgPackager.processSvgFiles(
+            //         path.join(CONFIG.path.svg_input, subfolder),
+            //         CONFIG.path.svg_output,
+            //         CONFIG.path.ts_output_icons,
+            //         CONFIG.path.json_output,
+            //     );
             }
+            const template_context = {
+                groups: groups,
+            }
+            const templater_md = new TemplateWriter(CONFIG.path.jinja_input, template_context);
+            await templater_md.generateToFile('icon.gl.md.jinja', path.join(CONFIG.path.dist, 'md', 'icon.gl.md'));
+    
+        } catch (error) {
+            console.error('Error listing subdirectories:', error);
         }
-        const template_context = {
-            names: png_names,
-        }
-        const templater_md = new TemplateWriter(CONFIG.path.jinja_input, template_context);
-        await templater_md.generateToFile('icon.gl.md.jinja', path.join(CONFIG.path.dist, 'md', 'icon.gl.md'));
+
+
+
+
+        // const png_paths = await directoryScanner.scanDirectory(path.join(CONFIG.path.dist, 'png', '512'), true)
+        // let png_names = []
+        // for (const png_path of png_paths) {
+        //     if (path.extname(png_path) == '.png'){
+
+        //         let png_name = extractor.getFilenameWithoutExtension(png_path);
+        //         png_names.push(png_name);
+        //     }
+        // }
+        // const template_context = {
+        //     names: png_names,
+        // }
+        // const templater_md = new TemplateWriter(CONFIG.path.jinja_input, template_context);
+        // await templater_md.generateToFile('icon.gl.md.jinja', path.join(CONFIG.path.dist, 'md', 'icon.gl.md'));
 
 
         // SASS

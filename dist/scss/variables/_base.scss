@@ -14,9 +14,11 @@
 
 
 
-$icongl_prefix: "i_";
+$icongl_prefix: "i_" !default;
 
 
-$icon_size_default: 16px !default;
+$icon_font_size_default: 16px !default;
 $icon_color_default: #000000 !default;
 
+$icon_margin_default: 0 !default;
+$icon_padding_default: 0 !default;

@@ -16,6 +16,12 @@
 
 
 
+button {
+    i {
+      pointer-events: none;
+    }
+  }
+  
 .btn {
     display: inline-block;
     padding: 6px 12px;

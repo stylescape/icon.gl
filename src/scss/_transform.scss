@@ -38,15 +38,15 @@
 // ============================================================================
 
 @mixin flip_horizontal {
-transform: scale(-1, 1);
+    transform: scale(-1, 1);
 }
 
 @mixin flip_vertical {
-transform: scale(1, -1);
+    transform: scale(1, -1);
 }
 
 @mixin flip_both {
-transform: scale(1, -1);
+    transform: scale(1, -1);
 }
 
 .#{$icongl_prefix}flip-horizontal { @include flip_horizontal; }

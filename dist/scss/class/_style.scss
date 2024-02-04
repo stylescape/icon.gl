@@ -1,0 +1,118 @@
+// Copyright 2024 Scape Agency BV
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+// ============================================================================
+// icon.gl | Font Variables
+// ============================================================================
+
+@use "../variables" as *;
+@use "../mixins" as *;
+
+
+
+.i {
+    @include icon_style;
+
+}
+
+@each $icon, $codepoint in $icongl_map {
+    .i_#{$icon}::before { content: $codepoint; }
+}
+
+// .i::before,
+// [class^="i_"]::before,
+// [class*=" i_"]::before {
+//     font-family: $icongl_font !important;
+//     @include icon_style;
+// }
+
+.i::before,
+[class^=i_]::before,
+[class*=" i_"]::before {
+    @include icon_style_font;
+    // font-family: "icongl" !important;
+    // display: inline-block;
+    // // font-size: $q * 20;
+    // color: #000000;
+    // line-height: 1;
+    // margin: 0;
+    // // margin-top: $q * 2;
+    // font-style: normal;
+    // font-weight: normal !important;
+    // font-variant: normal;
+    // text-transform: none;
+    // vertical-align: -0.125em;
+    // -webkit-font-smoothing: antialiased;
+    // -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+.si {
+    &.inline {
+        height: 1.2em;
+        width: 1.2em;
+        vertical-align: sub;
+    }
+    &.white {
+        fill: white;
+    }
+}
+
+
+
+// svg {
+//     @include hyperlink_base;
+// }
+
+// svg * {
+//     @include hyperlink_base;
+//     pointer-events: none;
+// }
+
+
+.svg_container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.svg_container svg {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+}
+
+
+
+
+// svg-icon {
+//     display: inline-block;
+  
+//     svg {
+//         fill: #999;
+//         height: 1.2em;
+//         width: 1.2em;
+//         vertical-align: middle;
+//     }
+//   }
+  

@@ -89,11 +89,9 @@ function main() {
             const svgPackager = new SvgPackager(path.join(CONFIG.path.root, 'bin/ts/config/svgo.config.js'));
             try {
                 const subdirectories = yield getSubdirectories(CONFIG.path.svg_input);
-                console.log(subdirectories);
                 for (const subfolder of subdirectories) {
                     yield svgPackager.processSvgFiles(path.join(CONFIG.path.svg_input, subfolder), CONFIG.path.svg_output, CONFIG.path.ts_output_icons, CONFIG.path.json_output);
                 }
-                console.log(subdirectories);
             }
             catch (error) {
                 console.error('Error listing subdirectories:', error);
@@ -152,18 +150,8 @@ function main() {
             });
             yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
                 assetTypes: ["scss",],
-                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_base.scss'), },
-                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_base.scss.hbs'), },
-            });
-            yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
-                assetTypes: ["scss",],
                 pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'variables', '_font_map.scss'), },
                 templates: { scss: path.join(CONFIG.path.src, 'hbs', '_variables_font_map.scss.hbs'), },
-            });
-            yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
-                assetTypes: ["scss",],
-                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_class.scss'), },
-                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_class.scss.hbs'), },
             });
             yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
                 assetTypes: ["html",],
@@ -180,19 +168,33 @@ function main() {
             yield spriteGenerator.generateSprite(CONFIG.path.sprite_input, CONFIG.path.sprite_output);
             console.log('SVG Sprite generation completed.');
             logger.header('MD Writer');
-            const png_paths = yield directoryScanner.scanDirectory(path.join(CONFIG.path.dist, 'png', '512'), true);
-            let png_names = [];
-            for (const png_path of png_paths) {
-                if (path.extname(png_path) == '.png') {
-                    let png_name = extractor.getFilenameWithoutExtension(png_path);
-                    png_names.push(png_name);
+            try {
+                const subdirectories = yield getSubdirectories(CONFIG.path.svg_input);
+                const groups = [];
+                for (const subfolder of subdirectories) {
+                    const svg_paths = yield directoryScanner.scanDirectory(path.join(CONFIG.path.svg_input, subfolder), false);
+                    console.log(svg_paths);
+                    const names = [];
+                    for (const svg_path of svg_paths) {
+                        if (path.extname(svg_path) == '.svg') {
+                            let name = extractor.getFilenameWithoutExtension(svg_path);
+                            names.push(name);
+                        }
+                    }
+                    groups.push({
+                        group: subfolder,
+                        icons: names,
+                    });
                 }
+                const template_context = {
+                    groups: groups,
+                };
+                const templater_md = new TemplateWriter(CONFIG.path.jinja_input, template_context);
+                yield templater_md.generateToFile('icon.gl.md.jinja', path.join(CONFIG.path.dist, 'md', 'icon.gl.md'));
             }
-            const template_context = {
-                names: png_names,
-            };
-            const templater_md = new TemplateWriter(CONFIG.path.jinja_input, template_context);
-            yield templater_md.generateToFile('icon.gl.md.jinja', path.join(CONFIG.path.dist, 'md', 'icon.gl.md'));
+            catch (error) {
+                console.error('Error listing subdirectories:', error);
+            }
             const styleProcessor = new StyleProcessor();
             logger.header('Processing SASS...');
             yield styleProcessor.processStyles(path.join(CONFIG.path.scss_input, 'index.scss'), path.join(CONFIG.path.css_output, `icon.css`), 'expanded');

@@ -29,13 +29,14 @@
 }
 
 
+
 // FontFace Source Value Variables
 // ============================================================================
 // Constructing src value for @font-face
 
 $icongl_font_src: ();
 @each $format, $type in $icongl_font_formats {
-    $icongl_font_src: append($icongl_font_src, icongl_font_url($format) $type, comma);
+    $icongl_font_src: append($icongl_font_src, icongl_font_url($format), comma);
 }
 
 
@@ -43,7 +44,8 @@ $icongl_font_src: ();
 // ============================================================================
 
 @font-face {
-    font-display: swap; // Using 'swap' to ensure text remains visible during font loading
+    // Using 'swap' to ensure text remains visible during font loading
+    font-display: swap;
     font-family: $icongl_font;
     src: $icongl_font_src;
 }
