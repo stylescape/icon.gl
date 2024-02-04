@@ -319,15 +319,15 @@ async function main() {
         );
 
         // SCSS Font Variables
-        await fontGenerator.generateFonts(
-            CONFIG.path.font_input,
-            CONFIG.path.font_output,
-            {
-                assetTypes: [ "scss", ],
-                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'variables', '_font.scss'), },
-                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_variables_font.scss.hbs'), }, 
-            }
-        );
+        // await fontGenerator.generateFonts(
+        //     CONFIG.path.font_input,
+        //     CONFIG.path.font_output,
+        //     {
+        //         assetTypes: [ "scss", ],
+        //         pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'variables', '_font.scss'), },
+        //         templates: { scss: path.join(CONFIG.path.src, 'hbs', '_variables_font.scss.hbs'), }, 
+        //     }
+        // );
         // SCSS Font Face
         await fontGenerator.generateFonts(
             CONFIG.path.font_input,
@@ -512,10 +512,10 @@ async function main() {
         //     path.join('.', 'LICENSE-CODE'),
         //     CONFIG.path.dist,
         // )
-        fileCopier.copyFileToDirectory(
-            path.join(CONFIG.path.src, 'html', 'test.html'),
-            CONFIG.path.dist,
-        )
+        // fileCopier.copyFileToDirectory(
+        //     path.join(CONFIG.path.src, 'html', 'test.html'),
+        //     CONFIG.path.dist,
+        // )
 
         // Copy Dirs
         // --------------------------------------------------------------------

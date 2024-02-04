@@ -140,11 +140,6 @@ function main() {
             });
             yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
                 assetTypes: ["scss",],
-                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'variables', '_font.scss'), },
-                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_variables_font.scss.hbs'), },
-            });
-            yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
-                assetTypes: ["scss",],
                 pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_face.scss'), },
                 templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_face.scss.hbs'), },
             });
@@ -203,7 +198,6 @@ function main() {
             const fileCopier = new FileCopier();
             fileCopier.copyFileToDirectory(path.join('.', 'README.md'), CONFIG.path.dist);
             fileCopier.copyFileToDirectory(path.join('.', 'LICENSE'), CONFIG.path.dist);
-            fileCopier.copyFileToDirectory(path.join(CONFIG.path.src, 'html', 'test.html'), CONFIG.path.dist);
             const directoryCopier = new DirectoryCopier();
             yield directoryCopier.recursiveCopy(CONFIG.path.ts_input, CONFIG.path.ts_output);
             yield directoryCopier.recursiveCopy(CONFIG.path.scss_input, CONFIG.path.scss_output);
