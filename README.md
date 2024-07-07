@@ -466,9 +466,15 @@ Peach Template
 - [Microsoft Windows - Icons (Design basics)](https://learn.microsoft.com/en-us/windows/win32/uxguide/vis-icons)
 - [Pluralsight | Design System | Iconography](https://design-system.pluralsight.com/core/iconography)
 
-#### Fort Awesome
+#### Other Sets
 
 - [Fort Awesome | GitHub](https://github.com/FortAwesome/Font-Awesome)
+- https://labs.mapbox.com/maki-icons/
+- https://github.com/joypixels/emoji-toolkit
+- https://github.com/primer/octicons
+- https://github.com/fontello/fontello
+- https://github.com/ionic-team/ionicons
+- https://github.com/somerandomdude/Iconic
 
 ## Ref
 
