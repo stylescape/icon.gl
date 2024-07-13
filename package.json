@@ -71,7 +71,7 @@
         "page.gl": "^0.0.3",
         "ts-node": "^10.9.1",
         "typescript": "^5.3.3",
-        "unit.gl": "^0.0.29"
+        "unit.gl": "^0.0.35"
     },
     "files": [
         "src/**",
