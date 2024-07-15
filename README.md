@@ -63,28 +63,24 @@ Icon.gl is a modern, innovative icon library infused with the essence of traditi
 - Diverse Range
 Includes icons representing a broad spectrum of elements from nature, agriculture, and domestic life.
 - Integrates with Kyū (*q*) hybrid measurement unit used by the [`unit.gl`](https://unit.gl/) Layout Engine.
-- Balanced 
+- Balanced
 
 <!-- - Cultural Heritage: Reflects the rich historical context of the Yaeyama Islands.
 - Numerical Symbols: Incorporates unique numeral systems, influenced by Suzhou numerals. -->
 
 ## Specifications
 
-
 ### Icon Sizes
 
 The `icon.gl` library employs a unique approach to icon sizing, utilizing the Kyū (*q*) hybrid measurement unit. This unit is integral to the [`unit.gl`](https://unit.gl/) Layout Engine, ensuring a cohesive and scalable design across various platforms and devices. The standard size for `icon.gl` icons is set at 24 x 24 q, which is meticulously calibrated for optimal visibility and sharpness. Designers are encouraged to utilize icons at 100% scale to maintain pixel-perfect accuracy, critical for crisp and clear visuals.
 
-
 #### Typographic Integration
-
 
 #### Customization and Adaptability
 
 While the provided sizes cover most use cases, `icon.gl` is designed with adaptability in mind. Designers can leverage the vector nature of the icons to create custom sizes or modifications, ensuring seamless integration with their specific design language or branding requirements.
 
 In summary, `icon.gl` offers a versatile range of icon sizes, thoughtfully designed to balance clarity, visibility, and aesthetic appeal across various digital platforms. The use of Kyū (*q*) units in conjunction with standard pixel sizes ensures a harmonious integration with diverse design systems.
-
 
 ### Layout Areas
 
@@ -95,7 +91,6 @@ In summary, `icon.gl` offers a versatile range of icon sizes, thoughtfully desig
 | **Canvas Area**   | 24 *q*            | 6 *mm*            | 1.50 *rem*        | 864 *px*          |
 | **Live Area**     | 16 *q*            | 4 *mm*            | 1.00 *rem*        | 576 *px*          |
 | **Bleed Area**    | 4 *q*             | 2 *mm*            | 0.25 *rem*        | 144 *px*          |
-
 
 #### Detailed Layout Area Specifications
 
@@ -132,9 +127,6 @@ In summary, `icon.gl` offers a versatile range of icon sizes, thoughtfully desig
 - Utilize the Bleed Area for additional decorative elements or to create a more dynamic icon, but always ensure that these elements do not compromise the overall readability.
 
 In summary, the `icon.gl` layout areas provide a robust framework for designing icons that are visually harmonious, easily scalable, and versatile across various applications and devices. These guidelines help designers create icons that are not only aesthetically pleasing but also functionally consistent and recognizably part of the `icon.gl` family.
-
-
-
 
 #### Canvas Area
 
@@ -174,7 +166,7 @@ The grid layout in `icon.gl` serves as the backbone for designing icons, providi
    - The Bleed Grid, the smallest at 144 px, provides additional space around the Live Area. This is particularly useful for creating icons that require a bit more visual flair without compromising the core design.
    - This grid is especially useful for ensuring that extended elements or decorative features do not encroach on the Live Area.
 
-#### Application in Icon Design:
+#### Application in Icon Design
 
 - **Grid Adaptability:** The grid system in `icon.gl` is designed to be adaptable, allowing designers to choose the appropriate grid size and line thickness based on the complexity and style of the icon.
   
@@ -184,7 +176,6 @@ The grid layout in `icon.gl` serves as the backbone for designing icons, providi
 
 In conclusion, the expanded grid layouts for `icon.gl` provide a comprehensive and versatile framework for designing icons. This system ensures that icons are not only visually appealing but also consistent and scalable across various applications. By adhering to these guidelines, designers can create icons that are both functional and aesthetically pleasing, enhancing the overall user experience.
 
-
 |                   | Template          | 8 *x*     | 12 *x*    | 16 *x*    | 24 *x*    | 32 *x*    | 36 *x*    | 72 *x*    |
 | :---------------- | ----------------: | --------: | --------: | --------: | --------: | --------: | --------: | --------: |
 | **Canvas**        | 864 *px*          | 108 *px*  | 72 *px*   | 54 *px*   | 36 *px*   | 27 *px*   | 24 *px*   | 12 *px*   |
@@ -192,7 +183,6 @@ In conclusion, the expanded grid layouts for `icon.gl` provide a comprehensive a
 | **Bleed**         | 144 *px*          | 18 *px*   | 12 *px*   |  9 *px*   |  6 *px*   |  4.5 *px* |  4 *px*   |  2 *px*   |
 
 ### Lines
-
 
 1. **Line Specifications:**
    - Five key line thicknesses are defined, ranging from 0.500 *q* to 2.000 *q*. These lines provide a guide for the stroke width in icon design.
@@ -246,7 +236,6 @@ The line specifications in `icon.gl` are meticulously defined, offering a range 
 - **Consistent Aesthetics:** Adhering to these specifications helps maintain a consistent look and feel across the icon set, enhancing the overall user experience.
 
 In summary, the expanded line guidelines in `icon.gl` provide a comprehensive framework for designers to create icons with varied visual weights and styles. These guidelines ensure that icons are not only visually appealing but also coherent and functionally versatile, enhancing the overall design quality of the icon library.
-
 
 |                   | Kyū (*q*)         | Print (*mm*)      | Display (*rem*)   | Template (*px*)   | Column (*x*)      |
 | :---------------- | ----------------: | ----------------: | ----------------: | ----------------: | ----------------: |
@@ -325,8 +314,6 @@ Keyframe Landscape
 </tbody></table>
 </div>
 
-
-
 ### Icon Scaling
 
 It is highly recommended to use the icons at their originally produced sizes. Scaling icons beyond their intended size can lead to a loss of detail or clarity. However, for specialized cases where custom sizes are needed, SVG format should be used to ensure that icons scale properly without quality degradation.
@@ -341,7 +328,6 @@ To cater to diverse design needs, `icon.gl` icons are meticulously crafted in fo
 
 4. **Large (32px):** Designed for situations where icons need to be more prominent. This size is particularly effective in desktop applications, interactive kiosks, or any interface where icons serve as primary navigation or interaction elements.
 
-
 ## File Formats and Accessibility
 
 Each icon size is provided in both SVG and Adobe Illustrator file formats. SVGs offer scalability and flexibility, perfect for responsive web design and applications where file size and load times are critical. Adobe Illustrator files provide a vector-based format for high-fidelity editing, allowing designers to customize icons to fit their specific project needs.
@@ -350,10 +336,7 @@ Each icon size is provided in both SVG and Adobe Illustrator file formats. SVGs 
 
 - **Responsive Design:** Icons are crafted to be responsive, ensuring they maintain their integrity and legibility across different devices and screen sizes.
 
-
-
 ## Best Practices
-
 
 ### Color
 
@@ -369,8 +352,6 @@ Ideal for projects seeking a blend of historical and cultural aesthetics with fu
 
 Iconography is highly functional in a user interface. When used wisely, icons become an elegant yet efficient way to communicate with and help guide a user through an experience. To maintain this functionality, it’s important to reduce cognitive load on users by employing icons sparingly and strategically throughout your designs.
 
-
-
 ## Installation
 
 Instructions on how to integrate icon.gl into your project.
@@ -384,7 +365,6 @@ npm i icon.gl
 Create your own system and product icons with these Adobe Illustrator files including the 24dp icon grid.
 
 ### Template Setttings
-
 
 #### Units
 
@@ -469,12 +449,12 @@ Peach Template
 #### Other Sets
 
 - [Fort Awesome | GitHub](https://github.com/FortAwesome/Font-Awesome)
-- https://labs.mapbox.com/maki-icons/
-- https://github.com/joypixels/emoji-toolkit
-- https://github.com/primer/octicons
-- https://github.com/fontello/fontello
-- https://github.com/ionic-team/ionicons
-- https://github.com/somerandomdude/Iconic
+- <https://labs.mapbox.com/maki-icons/>
+- <https://github.com/joypixels/emoji-toolkit>
+- <https://github.com/primer/octicons>
+- <https://github.com/fontello/fontello>
+- <https://github.com/ionic-team/ionicons>
+- <https://github.com/somerandomdude/Iconic>
 
 ## Ref
 
@@ -493,7 +473,7 @@ Peach Template
 #### Version
 
 This documentation is in version `v0.0.1`.
-Last edited: `07/2023`
+Last edited: `07/2024`
 
 <!-- #### Versions
 
@@ -558,7 +538,7 @@ We have compiled a list of frequently asked questions for easier navigation and 
 
 #### Copyright
 
-Copyright &copy; 2023 [Scape Agency BV](https://www.scape.agency/ "Scape Agency website"). All Rights Reserved.
+Copyright &copy; 2024 [Scape Agency BV](https://www.scape.agency/ "Scape Agency website"). All Rights Reserved.
 
 #### License
 
