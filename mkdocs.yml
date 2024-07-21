@@ -14,7 +14,7 @@ dev_addr: 127.0.0.1:8888
 
 # Copyright
 copyright: >
-  Copyright &copy; 2023 <a href="https://www.scape.agency">Scape Agency</a>. All Rights Reserved.
+  Copyright &copy; 2024 <a href="https://www.scape.agency">Scape Agency</a>. All Rights Reserved.
 
 
 # hide:
@@ -99,7 +99,7 @@ extra:
   generator: false
   analytics:
     provider: google
-    property: G-QC1W520T96
+    property: G-W6XEMQ15PJ
   social:
     - icon: fontawesome/solid/globe 
       link: https://www.scape.agency
@@ -122,7 +122,7 @@ extra_css:
   - assets/style/extra.css
 extra_javascript:
   - assets/script/extra.js
-extra_templates:
+# extra_templates:
 
 
 # Extensions
@@ -166,7 +166,9 @@ markdown_extensions:
   # - pymdownx.tilde
 
 
-# Page tree
+# Page Tree
+# =============================================================================
+
 nav:
   - Introduction: 'index.md'
   - Quick Start: 'quick_start.md'
