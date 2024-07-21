@@ -1,4 +1,4 @@
-# Template
+# Templates
 
 Create your own system and product icons with these Adobe Illustrator files including the 24dp icon grid.
 
