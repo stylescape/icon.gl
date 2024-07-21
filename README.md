@@ -52,22 +52,6 @@ Icon.gl is a modern, innovative icon library infused with the essence of traditi
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/pie_02.png" alt="pie_02"><small>pie_02</small> | <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/pie_03.png" alt="pie_03"><small>pie_03</small> | <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/star.png" alt="star"><small>star</small> | <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/swirl.png" alt="swirl"><small>swirl</small> | |
 
-## Design principles
-
-### Concept
-
-`icon.gl` icons are designed to be simple, modern, friendly, and sometimes quirky. Each icon is reduced to its minimal form, expressing essential characteristics.
-
-## Features
-
-- Diverse Range
-Includes icons representing a broad spectrum of elements from nature, agriculture, and domestic life.
-- Integrates with Kyū (*q*) hybrid measurement unit used by the [`unit.gl`](https://unit.gl/) Layout Engine.
-- Balanced
-
-<!-- - Cultural Heritage: Reflects the rich historical context of the Yaeyama Islands.
-- Numerical Symbols: Incorporates unique numeral systems, influenced by Suzhou numerals. -->
-
 ## Usage
 
 Ideal for projects seeking a blend of historical and cultural aesthetics with functional iconography.
