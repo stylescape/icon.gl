@@ -171,7 +171,15 @@ nav:
   - Introduction: 'index.md'
   - Quick Start: 'quick_start.md'
   - Specifications:
+      - 'Overview': 'specifications/index.md'
       - 'Layout Areas': 'specifications/layout_areas.md'
+      - 'Grid Layouts': 'specifications/grid_layouts.md'
+      - 'Icon Sizes': 'specifications/icon_sizes.md'
+      - 'Keyline Shapes': 'specifications/keyline_shapes.md'
+      - 'Lines': 'specifications/lines.md'
+      - 'Scales': 'specifications/scales.md'
+  - Templates:
+      - 'Overview': 'templates/index.md'
   - Resources:
       - 'Glossary': 'resources/glossary.md'
       - 'Links': 'resources/links.md'
