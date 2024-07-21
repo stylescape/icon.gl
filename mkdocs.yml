@@ -178,6 +178,8 @@ nav:
       - 'Keyline Shapes': 'specifications/keyline_shapes.md'
       - 'Lines': 'specifications/lines.md'
       - 'Scales': 'specifications/scales.md'
+  - Icons:
+      - 'Overview': 'icons/index.md'
   - Templates:
       - 'Overview': 'templates/index.md'
   - Resources:
