@@ -61,7 +61,7 @@
         "@babel/core": "^7.23.6",
         "@babel/preset-env": "^7.23.6",
         "@babel/preset-typescript": "^7.23.3",
-        "@types/node": "^20.10.5",
+        "@types/node": "^22.0.0",
         "block.gl": "^0.0.1",
         "deep.gl": "^0.0.1",
         "grid.gl": "^0.0.1",
