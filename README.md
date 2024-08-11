@@ -1,21 +1,21 @@
 <div align="right">
 
-[![GitHub License](https://img.shields.io/github/license/scape-agency/icon.gl?style=flat-square&logo=readthedocs&logoColor=FFFFFF&label=&labelColor=%23041B26&color=%23041B26&link=LICENSE)](https://github.com/scape-agency/icon.gl/blob/main/LICENSE)
-[![devContainer](https://img.shields.io/badge/Container-Remote?style=flat-square&logo=visualstudiocode&logoColor=%23FFFFFF&label=Remote&labelColor=%23041B26&color=%23041B26)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/scape-agency/icon.gl)
+[![GitHub License](https://img.shields.io/github/license/stylescape/icon.gl?style=flat-square&logo=readthedocs&logoColor=FFFFFF&label=&labelColor=%23041B26&color=%23041B26&link=LICENSE)](https://github.com/stylescape/icon.gl/blob/main/LICENSE)
+[![devContainer](https://img.shields.io/badge/Container-Remote?style=flat-square&logo=visualstudiocode&logoColor=%23FFFFFF&label=Remote&labelColor=%23041B26&color=%23041B26)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/stylescape/icon.gl)
 
 </div>
 
 ---
 
 <div>
-    <img align="right" src="https://raw.githubusercontent.com/scape-agency/brand/master/src/logo/icon.gl.png" width="96" alt="icon.gl logo">
+    <img align="right" src="https://raw.githubusercontent.com/stylescape/brand/master/src/logo/icon.gl.png" width="96" alt="icon.gl logo">
     <h1 align="left">icon.gl</h1>
     <h3 align="left">Stylescape Icon Library</h3>
 </div>
 
 ---
 
-<img align="right" width="50%" src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/res/icon.gl.png" alt="icon.gl cover">
+<img align="right" width="50%" src="https://raw.githubusercontent.com/stylescape/icon.gl/main/res/icon.gl.png" alt="icon.gl cover">
 
 ### Contents
 
@@ -28,11 +28,11 @@
 
 <div align="right">
 
-[![Report a Bug](https://img.shields.io/badge/Report%20a%20Bug-GitHub?style=flat-square&&logoColor=%23FFFFFF&color=%23E1E4E5)](https://github.com/scape-agency/icon.gl/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&projects=&template=bug_report.yml)
-[![Request a Feature](https://img.shields.io/badge/Request%20a%20Feature-GitHub?style=flat-square&&logoColor=%23FFFFFF&color=%23E1E4E5)](https://github.com/scape-agency/icon.gl/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&projects=&template=feature_request.yml)
-[![Ask a Question](https://img.shields.io/badge/Ask%20a%20Question-GitHub?style=flat-square&&logoColor=%23FFFFFF&color=%23E1E4E5)](https://github.com/scape-agency/icon.gl/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&projects=&template=question.yml)
-[![Make a Suggestion](https://img.shields.io/badge/Make%20a%20Suggestion-GitHub?style=flat-square&&logoColor=%23FFFFFF&color=%23E1E4E5)](https://github.com/scape-agency/icon.gl/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&projects=&template=suggestion.yml)
-[![Start a Discussion](https://img.shields.io/badge/Start%20a%20Discussion-GitHub?style=flat-square&&logoColor=%23FFFFFF&color=%23E1E4E5)](https://github.com/scape-agency/icon.gl/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&projects=&template=discussion.yml)
+[![Report a Bug](https://img.shields.io/badge/Report%20a%20Bug-GitHub?style=flat-square&&logoColor=%23FFFFFF&color=%23E1E4E5)](https://github.com/stylescape/icon.gl/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&projects=&template=bug_report.yml)
+[![Request a Feature](https://img.shields.io/badge/Request%20a%20Feature-GitHub?style=flat-square&&logoColor=%23FFFFFF&color=%23E1E4E5)](https://github.com/stylescape/icon.gl/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&projects=&template=feature_request.yml)
+[![Ask a Question](https://img.shields.io/badge/Ask%20a%20Question-GitHub?style=flat-square&&logoColor=%23FFFFFF&color=%23E1E4E5)](https://github.com/stylescape/icon.gl/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&projects=&template=question.yml)
+[![Make a Suggestion](https://img.shields.io/badge/Make%20a%20Suggestion-GitHub?style=flat-square&&logoColor=%23FFFFFF&color=%23E1E4E5)](https://github.com/stylescape/icon.gl/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&projects=&template=suggestion.yml)
+[![Start a Discussion](https://img.shields.io/badge/Start%20a%20Discussion-GitHub?style=flat-square&&logoColor=%23FFFFFF&color=%23E1E4E5)](https://github.com/stylescape/icon.gl/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&projects=&template=discussion.yml)
 
 </div>
 
@@ -50,7 +50,7 @@ Icon.gl is a modern, innovative icon library infused with the essence of traditi
 
 |      |      |      |      |      |      |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/pie_02.png" alt="pie_02"><small>pie_02</small> | <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/pie_03.png" alt="pie_03"><small>pie_03</small> | <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/star.png" alt="star"><small>star</small> | <img src="https://raw.githubusercontent.com/scape-agency/icon.gl/main/dist/png/512/swirl.png" alt="swirl"><small>swirl</small> | |
+| <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/pie_02.png" alt="pie_02"><small>pie_02</small> | <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/pie_03.png" alt="pie_03"><small>pie_03</small> | <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/star.png" alt="star"><small>star</small> | <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/swirl.png" alt="swirl"><small>swirl</small> | |
 
 ## Usage
 
@@ -69,22 +69,22 @@ npm i icon.gl
 ### Stylescape
 
 <p align="center">
-    <a href="https://github.com/scape-agency/kyu">
+    <a href="https://github.com/stylescape/kyu">
         <img src=".github/images/logo_kyu.png" width="10%" height="10%" alt="Kyū Logo">
     </a>
-    <a href="https://github.com/scape-agency/yoki">
+    <a href="https://github.com/stylescape/yoki">
         <img src=".github/images/logo_yoki.png" width="10%" height="10%" alt="Yōki Logo">
     </a>
-    <a href="https://github.com/scape-agency/kaida">
+    <a href="https://github.com/stylescape/kaida">
         <img src=".github/images/logo_kaida.png" width="10%" height="10%" alt="Kaidā Logo">
     </a>
-    <a href="https://github.com/scape-agency/niji">
+    <a href="https://github.com/stylescape/niji">
         <img src=".github/images/logo_niji.png" width="10%" height="10%" alt="Niji Logo">
     </a>
-    <a href="https://github.com/scape-agency/suru">
+    <a href="https://github.com/stylescape/suru">
         <img src=".github/images/logo_suru.png" width="10%" height="10%" alt="Suru Logo">
     </a>
-    <a href="https://github.com/scape-agency/shodo">
+    <a href="https://github.com/stylescape/shodo">
         <img src=".github/images/logo_shodo.png" width="10%" height="10%" alt="Shodō Logo">
     </a>
 </p>
@@ -131,7 +131,7 @@ The repository provides a track of different versions of the assets for easier n
 Scape Agency is a spatial innovation collective that dreams, discovers and designs the everyday of tomorrow. We blend design thinking with emerging technologies to create a brighter perspective for people and planet. Our products and services naturalise technology in liveable and sustainable –scapes that spark the imagination and inspire future generations.
 
 - website: [scape.agency](https://www.scape.agency "Scape Agency website")
-- github: [github.com/scape-agency](https://github.com/scape-agency "Scape Agency GitHub")
+- github: [github.com/stylescape](https://github.com/stylescape "Scape Agency GitHub")
 
 <!-- #### Contributors
 
