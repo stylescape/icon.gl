@@ -7,7 +7,7 @@ lang: en
 
 # Repository
 repo_name: 'GitHub'
-repo_url: https://github.com/scape-agency/icon.gl/
+repo_url: https://github.com/stylescape/icon.gl/
 edit_uri_template: 'docs/{path}'
 
 dev_addr: 127.0.0.1:8888
@@ -104,9 +104,9 @@ extra:
     - icon: fontawesome/solid/globe 
       link: https://www.scape.agency
     - icon: fontawesome/brands/github 
-      link: https://github.com/scape-agency/
+      link: https://github.com/stylescape/
     - icon: fontawesome/brands/linkedin 
-      link: https://www.linkedin.com/company/scape-agency/
+      link: https://www.linkedin.com/company/stylescape/
     - icon: fontawesome/brands/instagram 
       link: https://www.instagram.com/scape.agency/
     - icon: fontawesome/brands/facebook 
