@@ -1,49 +1,13 @@
-;
-; Global Editor Config for Adaptive Labbers
-;
-; This is an ini style configuration. See http://editorconfig.org/ for more information on this file.
-;
-; Top level editor config.
+# EditorConfig is awesome: https://editorconfig.org
+
+# Top level editor config.
 root = true
 
-; Always use Unix style new lines with new line ending on every file and trim whitespace
+# Unix-style newlines with a newline ending every file
 [*]
 charset = utf-8
 end_of_line = lf
-indent_style = space
 indent_size = 4
+indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
-
-; Python: PEP8 defines 4 spaces for indentation
-[*.py]
-indent_style = space
-indent_size = 4
-
-
-[{src,scripts}/**.{ts,json,js}]
-end_of_line = crlf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
-indent_style = space
-indent_size = 4
-
-
-; Salt state files, YAML format, 2 spaces
-[*.sls, *.yaml, *.yml]
-indent_style = space
-indent_size = 2
-
-
-[*.{md,Rmd,rst}]
-trim_trailing_whitespace = false
-indent_style = space
-indent_size = 2
-
-
-; The indent size used in the `package.json` file cannot be changed
-; https://github.com/npm/npm/pull/3180#issuecomment-16336516
-[{.travis.yml,npm-shrinkwrap.json,package.json}]
-indent_style = space
-indent_size = 4
