@@ -1,0 +1,19 @@
+# Browserslist configuration
+# This file is used by various tools like Autoprefixer, Babel, ESLint, and others
+# Documentation: https://github.com/browserslist/browserslist#readme
+
+# Target browsers with significant usage globally
+>= 0.5%                        # Browsers with more than 0.5% global market share
+
+# Support the last 2 major versions of each browser
+last 2 major versions          # The last 2 major versions of each browser
+
+# Include Firefox ESR (Extended Support Release)
+Firefox ESR                    # The latest Extended Support Release of Firefox
+
+# Exclude outdated and unsupported browsers
+not dead                       # Exclude browsers that are no longer maintained
+not Explorer <= 11             # Exclude Internet Explorer 11 and below
+not ie <= 11                   # (Redundant, but ensures exclusion of IE 11)
+not op_mini all                # Exclude all versions of Opera Mini
+not Android <= 4.4             # Exclude Android versions <= 4.4 with poor web support
