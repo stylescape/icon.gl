@@ -1,8 +1,59 @@
 {
-    "editor.fontLigatures": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.bracketPairColorization.enabled": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.wordWrap": "on"
+    "editor.fontLigatures": false,                      // Disable font ligatures for better readability
+    "editor.formatOnSave": true,                        // Automatically format files on save
+    "editor.formatOnPaste": true,                       // Automatically format code when pasting
+    "editor.wordWrap": "on",                            // Enable word wrapping for better visibility
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // Set Prettier as the default formatter
+    "editor.tabSize": 4,                                // Set tab size to 4 spaces for better readability
+    "editor.detectIndentation": false,                  // Ensure consistent indentation
+    "editor.cursorSmoothCaretAnimation": true,          // Smooth cursor animation for a better visual experience
+    "editor.minimap.enabled": true,                     // Enable the minimap for code overview
+    "editor.rulers": [80, 120],                         // Show rulers at 80 and 120 characters for code readability
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,                     // Automatically fix ESLint issues on save
+        "source.organizeImports": true                    // Automatically organize imports on save
+    },
+    "files.eol": "\n",                                  // Use LF for end-of-line characters
+    "files.trimTrailingWhitespace": true,               // Trim trailing whitespace in all files
+    "files.insertFinalNewline": true,                   // Ensure a final newline at the end of files
+    "files.associations": {
+        "*.jinja": "jinja",
+        "*.yml": "yaml",
+        "*.yaml": "yaml"
+    },
+    "files.exclude": {
+        "**/.git": true,                                  // Hide .git folder in file explorer
+        "**/.DS_Store": true,                             // Hide .DS_Store files (macOS specific)
+        "**/node_modules": true,                          // Hide node_modules folder in file explorer
+        "**/dist": true                                   // Hide dist folder in file explorer
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "html",
+        "vue"
+    ],
+    "eslint.options": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".html", ".vue"] // ESLint validation for additional file types
+    },
+    "prettier.requireConfig": true,                     // Require a Prettier config file to run
+    "prettier.trailingComma": "es5",                    // Add trailing commas where valid in ES5 (objects, arrays, etc.)
+    "prettier.arrowParens": "always",                   // Always include parentheses around arrow function parameters
+    "prettier.singleQuote": true,                       // Use single quotes instead of double quotes
+    "typescript.tsdk": "node_modules/typescript/lib",   // Use the TypeScript version from node_modules
+    "search.exclude": {
+        "**/node_modules": true,                          // Exclude node_modules from search results
+        "**/dist": true,                                  // Exclude dist folder from search results
+        "**/coverage": true                               // Exclude coverage folder from search results
+    },
+    "workbench.editor.enablePreview": false,            // Disable preview mode for editors to keep files open
+    "workbench.colorTheme": "Default Dark+",            // Set the color theme to Default Dark+
+    "workbench.iconTheme": "vscode-icons",              // Use vscode-icons for file icons
+    "git.autofetch": true,                              // Automatically fetch changes from the remote repository
+    "terminal.integrated.shell.linux": "/bin/bash",     // Set the default shell to Bash on Linux
+    "terminal.integrated.shell.osx": "/bin/zsh",        // Set the default shell to Zsh on macOS
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe", // Set the default shell to cmd on Windows
+    "explorer.confirmDelete": false                     // Disable confirmation when deleting files
 }
