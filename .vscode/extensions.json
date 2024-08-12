@@ -1,4 +1,41 @@
 {
-    "recommendations": [],
-    "unwantedRecommendations": []
+    "recommendations": [
+        // Linting and Formatting
+        "dbaeumer.vscode-eslint",                   // ESLint for JavaScript/TypeScript linting
+        "esbenp.prettier-vscode",                   // Prettier for code formatting
+        "stylelint.vscode-stylelint",               // Stylelint for CSS/SCSS linting
+    
+        // Language Support
+        "ms-vscode.vscode-typescript-next",         // Enhanced TypeScript support
+        "redhat.vscode-yaml",                       // YAML language support
+        "syler.sass-indented",                      // SCSS/SASS language support
+        "jinja.html-formatter",                     // Jinja2 templating language support
+    
+        // Development Tools
+        "ritwickdey.LiveServer",                    // Live Server for HTML/JS development
+        "gruntfuggly.todo-tree",                    // TODO Tree for managing TODOs
+        "github.vscode-pull-request-github",        // GitHub Pull Request integration
+        "eamodio.gitlens",                          // GitLens for advanced Git capabilities
+        "ms-azuretools.vscode-docker",              // Docker support for containerized applications
+    
+        // Code Quality and Documentation
+        "streetsidesoftware.code-spell-checker",    // Spell checker for code comments and strings
+        "microsoft.vscode-code-annotations",        // Code annotations for better documentation
+    
+        // Theming and UI Enhancements
+        "PKief.material-icon-theme",                // Material icon theme
+        "vscode-icons-team.vscode-icons",           // VSCode Icons for better file icons
+    
+        // Performance and Productivity
+        "shardulm94.trailing-spaces",               // Trailing spaces visualizer
+        "christian-kohler.path-intellisense",       // Path Intellisense for faster file path completion
+        "formulahendry.auto-rename-tag",            // Auto rename paired HTML/XML tags
+        "editorconfig.editorconfig"                 // EditorConfig support for maintaining consistent coding styles
+    ],
+    "unwantedRecommendations": [
+        // Unwanted Extensions (if any)
+        "hookyqr.beautify",                        // Beautify conflicts with Prettier
+        "coenraads.bracket-pair-colorizer",        // Can impact performance, prefer built-in bracket highlighting
+        "vscode.typescript-language-features"      // Built-in TypeScript support, but might conflict with custom setup
+    ]
 }
