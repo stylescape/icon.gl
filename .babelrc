@@ -1,6 +1,3 @@
-// .babelrc
-// Babel configuration for compiling JavaScript code
-
 {
     "presets": [
         [
