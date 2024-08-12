@@ -1,21 +1,73 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}\\node_modules\\jest\\bin\\jest.js",
-            "args": [
-                
-            ],
-            "outFiles": [
-                "${workspaceFolder}/**/*.js"
-            ],
-            "sourceMaps": true
-        }
+      {
+        "name": "Launch Program",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceFolder}/index.js",     // Entry point of the application
+        "preLaunchTask": "npm: build",                // Task to run before launching
+        "outFiles": ["${workspaceFolder}/dist/**/*.js"], // Compiled output files for debugging
+        "env": {
+          "NODE_ENV": "development"
+        },
+        "console": "integratedTerminal",             // Use integrated terminal for output
+        "internalConsoleOptions": "neverOpen",
+        "args": [],                                  // Arguments passed to the Node.js program
+        "sourceMaps": true,                          // Enable source maps for better debugging
+        "cwd": "${workspaceFolder}",                 // Set the current working directory
+        "runtimeExecutable": "node",                 // Specify the Node.js runtime
+        "runtimeArgs": [
+          "--nolazy",                                // Disable lazy loading for better debugging
+          "--inspect-brk"                            // Start debugger and break before the first line
+        ],
+        "skipFiles": [
+          "<node_internals>/**"                      // Skip internal Node.js modules while debugging
+        ]
+      },
+      {
+        "name": "Launch via NPM",
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "npm",
+        "runtimeArgs": [
+          "run-script", 
+          "start"                                    // Replace "start" with your npm script
+        ],
+        "env": {
+          "NODE_ENV": "development"
+        },
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "sourceMaps": true,
+        "outFiles": ["${workspaceFolder}/dist/**/*.js"]
+      },
+      {
+        "name": "Attach to Process",
+        "type": "node",
+        "request": "attach",
+        "processId": "${command:PickProcess}",        // Dynamically pick the process to attach to
+        "restart": true,                             // Automatically restart if the Node.js process stops
+        "protocol": "inspector",                     // Use the inspector protocol for debugging
+        "sourceMaps": true,
+        "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+        "skipFiles": [
+          "<node_internals>/**"
+        ]
+      },
+      {
+        "name": "Attach to Remote",
+        "type": "node",
+        "request": "attach",
+        "address": "localhost",                      // Replace with the remote host if needed
+        "port": 9229,                                // Default port for Node.js inspector
+        "localRoot": "${workspaceFolder}",           // Local folder mapped to the remote workspace
+        "remoteRoot": "/app",                        // Remote folder in the container or server
+        "sourceMaps": true,
+        "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+        "skipFiles": [
+          "<node_internals>/**"
+        ]
+      }
     ]
-}
+  }
