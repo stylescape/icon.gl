@@ -20,16 +20,17 @@
 @use "../variables" as *;
 
 
-/**
- * Applies standard icon styling with customizable properties.
- *
- * @param {Number} [$font_size=$icon_font_size_default] - Font size for the icon.
- * @param {Color} [$color=$icon_color_default] - Color of the icon.
- * @param {String} [$margin=$icon_margin_default] - Margin around the icon.
- * @param {String} [$padding=$icon_padding_default] - Padding around the icon.
- * @example
- * @include icon_style(16px, #000, 0, 0);
- */
+///
+/// Applies standard icon styling with customizable properties.
+/// 
+/// @param {Number} $font_size [$icon_font_size_default] - Font size for the icon.
+/// @param {Color} $color [$icon_color_default] - Color of the icon.
+/// @param {String} $margin [$icon_margin_default] - Margin around the icon.
+/// @param {String} $padding [$icon_padding_default] - Padding around the icon.
+/// 
+/// @example
+/// @include icon_style(16px, #000, 0, 0);
+///
 @mixin icon_style (
     $font_size: $icon_font_size_default,
     $color: $icon_color_default,
@@ -80,14 +81,15 @@
 }
 
 
-/**
- * Sets the font style for icons with essential customization.
- *
- * @param {Number} [$font_size=$icon_font_size_default] - Font size for the icon.
- * @param {Color} [$color=$icon_color_default] - Color of the icon text.
- * @example
- * @include icon_style_font(20px, #fff);
- */
+///
+/// Sets the font style for icons with essential customization.
+/// 
+/// @param {Number} $font_size [$icon_font_size_default] - Font size for the icon.
+/// @param {Color} $color [$icon_color_default] - Color of the icon text.
+/// 
+/// @example
+/// @include icon_style_font(20px, #fff);
+///
 @mixin icon_style_font(
     $font_size: $icon_font_size_default,
     $color: $icon_color_default,
