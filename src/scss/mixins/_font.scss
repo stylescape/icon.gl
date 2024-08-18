@@ -1,8 +1,21 @@
 // https://stackoverflow.com/questions/1567184/sass-and-font-face
 
+// Import required variables
 @use "../variables" as *;
 
-
+/**
+ * Generates a custom `@font-face` rule based on given parameters.
+ *
+ * @param {String} $path - The path to the font file.
+ * @param {String} $family - The font family name.
+ * @param {String} [$type=""] - The type or variant of the font.
+ * @param {String} [$ttf=null] - Indicates if TTF format is included.
+ * @param {String} [$otf=null] - Indicates if OTF format is included.
+ * @param {String} [$eot=null] - Indicates if EOT format is included.
+ * @param {String} [$svg=null] - The ID for the SVG font along with indication to include SVG format.
+ * @example
+ * @include icon_face("#{$icon_dir}/#{$icon_name}", $icon_name, "", "ttf");
+ */
 @mixin icon_face(
     $path,
     $family,
@@ -20,6 +33,7 @@
     // Source List
     // ------------------------------------------------------------------------
 
+    // Initialize an empty source list
     $src: null; // initialize an empty source path
 
 
@@ -34,6 +48,7 @@
 
     // ------------------------------------------------------------------------
 
+    // Append OpenType font if specified
     @if $otf {
         $src: append($src, url("#{$path}#{$type}.otf") format("opentype"), comma);
     }
@@ -43,6 +58,7 @@
     // ------------------------------------------------------------------------
     // load default formats (woff and woff2)
 
+    // Append WOFF2 and WOFF formats by default
     $src: append($src, url("#{$path}#{$type}.woff2") format("woff2"), comma);
     $src: append($src, url("#{$path}#{$type}.woff") format("woff"), comma);
 
@@ -52,10 +68,12 @@
     // ------------------------------------------------------------------------
     // Formats that should only be added at the end
 
+    // Append TrueType font if specified
     @if $ttf {
         $src: append($src, url("#{$path}#{$type}.ttf") format("truetype"), comma);
     }
 
+    // Append SVG font if specified
     @if $svg {
         $src: append($src, url("#{$path}#{$type}.svg##{$svg}") format("svg"), comma);
     }
@@ -65,14 +83,16 @@
     // Font Face Declaration
     // ------------------------------------------------------------------------
 
+    // Define the font-face with the composed source list
     @font-face {
         font-family: $family;
         // for compatibility reasons EOT comes first and is not appended
+        // Include EOT specifically for IE compatibility
         @if $eot {
-            src: url("#{$path}#{$type}.eot");
+            src: url("#{$path}#{$type}.eot"); // EOT should be first for IE
         }
         // load appended sources path
-        src: $src;
+        src: $src; // Include all other font formats
         // font-weight: $weight;
         // font-style: $style;
     }
