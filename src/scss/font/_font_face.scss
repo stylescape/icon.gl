@@ -20,51 +20,50 @@
 @use "../variables" as *;
 
 
-// FontFace URLs Function
-// ============================================================================
-// Generating font-face URLs with hash
-
-
-/**
- * Returns a font URL with the specified format.
- *
- * @param {String} $format - The font file format (e.g., 'woff', 'woff2').
- * @return {String} - Formatted URL string for the font file.
- * @example
- * icongl_font_url('woff'); // Outputs: url("path/to/font.woff") format("woff")
- */
+///
+/// FontFace URLs Function
+/// ---------------------------------------------------------------------------
+/// 
+/// Generating font-face URLs with hash
+/// Returns a font URL with the specified format.
+/// 
+/// @param {String} $format - The font file format (e.g., 'woff', 'woff2').
+/// @return {String} - Formatted URL string for the font file.
+/// 
+/// @example
+/// icongl_font_url('woff'); // Outputs: url("path/to/font.woff") format("woff")
+///
 @function icongl_font_url($format) {
     @return url("#{$icongl_font_dir}/#{$icongl_font}.#{$format}") format($format);
 }
 
 
 
-// FontFace Source Value Variables
-// ============================================================================
-// Constructing src value for @font-face
-
-/**
- * Constructs the source list for a @font-face rule by iterating over available formats.
- *
- * @var {List} $icongl_font_src - Accumulates URLs for all specified font formats.
- */
+/// 
+/// FontFace Source Value Variables
+/// ---------------------------------------------------------------------------
+/// 
+/// Constructing src value for @font-face
+/// Constructs the source list for a @font-face rule by iterating over
+/// available formats.
+/// 
+/// @param {List} $icongl_font_src - Accumulates URLs for all specified font formats.
+///
 $icongl_font_src: ();
 @each $format, $type in $icongl_font_formats {
     $icongl_font_src: append($icongl_font_src, icongl_font_url($format), comma);
 }
 
 
-// FontFace Declaration
-// ============================================================================
-
-
-/**
- * Declares @font-face for icongl fonts with a strategy to swap fonts during loading.
- *
- * @property {String} font-display - Controls font display strategy.
- * @property {String} font-family - Declares the font family.
- * @property {List} src - Specifies the source files for the font.
- */
+/// FontFace Declaration
+/// ---------------------------------------------------------------------------
+///
+/// Declares @font-face for icongl fonts with a strategy to swap fonts during loading.
+/// 
+/// @property {String} font-display - Controls font display strategy.
+/// @property {String} font-family - Declares the font family.
+/// @property {List} src - Specifies the source files for the font.
+///
 @font-face {
     // Using 'swap' to ensure text remains visible during font loading
     font-display: swap;
