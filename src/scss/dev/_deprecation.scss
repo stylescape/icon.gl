@@ -13,8 +13,9 @@
 // limitations under the License.
 
 
-// Deprecation Warning Mixin
-// This mixin can be used to mark deprecated mixins or styles, displaying a warning in the console during compilation.
+/// Deprecation Warning Mixin
+/// This mixin can be used to mark deprecated mixins or styles, displaying a
+/// warning in the console during compilation.
 @mixin deprecate($feature, $version, $alternative: null) {
     @warn 'Deprecation Warning: #{$feature} will be removed in version #{$version}.' + if($alternative, ' Use #{$alternative} instead.', '');
   }
