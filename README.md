@@ -5,22 +5,11 @@
 
 </div>
 
----
-
-<div>
-    <img align="right" src="https://raw.githubusercontent.com/stylescape/brand/master/src/logo/icon.gl.png" width="96" alt="icon.gl logo">
-    <h1 align="left">icon.gl</h1>
-    <h3 align="left">Stylescape Icon Library</h3>
-</div>
-
----
-
-<img align="right" width="50%" src="https://raw.githubusercontent.com/stylescape/icon.gl/main/res/icon.gl.png" alt="icon.gl cover">
-
-### Contents
-
-- [Introduction](#introduction)
-- [Colophon](#colophon)
+<p align="center">
+    <img src="https://raw.githubusercontent.com/stylescape/brand/master/src/logo/logo-transparant.png" width="20%" height="20%" alt="Stylescape Logo">
+</p>
+<h1 align="center" style='border-bottom: none;'>icon.gl</h1>
+<h3 align="center">Modular Icon Library</h3>
 
 <br clear="both"/>
 
