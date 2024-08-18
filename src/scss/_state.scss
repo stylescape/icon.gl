@@ -1,16 +1,3 @@
-// Copyright 2024 Scape Agency BV
-
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-
-// http://www.apache.org/licenses/LICENSE-2.0
-
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
 
 
 // ============================================================================
@@ -22,17 +9,18 @@
 // Define your primary color for interactive icons
 $primary-color: blue; // Define your primary color
 
-/**
- * Mixin for adding interactive states to an icon with customizable properties.
- *
- * @param {Color} [$hover-color=darken($primary-color, 10%)] - Color on hover.
- * @param {CSSValue} [$focus-outline=2px solid lighten($primary-color, 20%)] - Outline on focus.
- * @param {CSSValue} [$hover-shadow=0 2px 4px rgba(0, 0, 0, 0.2)] - Shadow on hover.
- * @param {Number} [$hover-scale=1.1] - Scale transformation on hover.
- * @param {Time} [$transition-duration=0.3s] - Duration of the transition.
- * @example
- * .custom-icon { @include interactive-icon(); } // Applies interactive styles
- */
+///
+/// Mixin for adding interactive states to an icon with customizable properties.
+/// 
+/// @param {Color} $hover-color [darken($primary-color, 10%)] - Color on hover.
+/// @param {CSSValue} $focus-outline [2px solid lighten($primary-color, 20%)] - Outline on focus.
+/// @param {CSSValue} $hover-shadow [0 2px 4px rgba(0, 0, 0, 0.2)] - Shadow on hover.
+/// @param {Number} $hover-scale [1.1] - Scale transformation on hover.
+/// @param {Time} $transition-duration [0.3s] - Duration of the transition.
+/// 
+/// @example
+/// .custom-icon { @include interactive-icon(); } // Applies interactive styles
+///
 @mixin interactive-icon(
     $hover-color: darken($primary-color, 10%),
     $focus-outline: 2px solid lighten($primary-color, 20%),
@@ -58,10 +46,10 @@ $primary-color: blue; // Define your primary color
     }
 }
 
-/**
- * Example class using the interactive-icon mixin for quick use.
- * Uses the default values provided in the mixin definition.
- */
+///
+/// Example class using the interactive-icon mixin for quick use.
+/// Uses the default values provided in the mixin definition.
+///
 .#{$icongl_prefix}icon-interactive {
     @include interactive-icon();
 }
