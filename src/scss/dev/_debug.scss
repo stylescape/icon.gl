@@ -17,9 +17,12 @@
 // StyleScape | Development | Debug
 // ============================================================================
 
-// Debug Mixin
-// A debug mixin to output property values directly into the DOM for quick
-// debugging purposes, particularly useful during development.
+/// 
+/// Debug Mixin
+/// 
+/// A debug mixin to output property values directly into the DOM for quick
+/// debugging purposes, particularly useful during development.
+/// 
 @mixin debug($property, $value) {
     &:after {
         content: '#{$property}: #{$value}';
