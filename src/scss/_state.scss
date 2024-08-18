@@ -19,8 +19,20 @@
 
 @use "variables" as *;
 
+// Define your primary color for interactive icons
 $primary-color: blue; // Define your primary color
 
+/**
+ * Mixin for adding interactive states to an icon with customizable properties.
+ *
+ * @param {Color} [$hover-color=darken($primary-color, 10%)] - Color on hover.
+ * @param {CSSValue} [$focus-outline=2px solid lighten($primary-color, 20%)] - Outline on focus.
+ * @param {CSSValue} [$hover-shadow=0 2px 4px rgba(0, 0, 0, 0.2)] - Shadow on hover.
+ * @param {Number} [$hover-scale=1.1] - Scale transformation on hover.
+ * @param {Time} [$transition-duration=0.3s] - Duration of the transition.
+ * @example
+ * .custom-icon { @include interactive-icon(); } // Applies interactive styles
+ */
 @mixin interactive-icon(
     $hover-color: darken($primary-color, 10%),
     $focus-outline: 2px solid lighten($primary-color, 20%),
@@ -46,6 +58,10 @@ $primary-color: blue; // Define your primary color
     }
 }
 
+/**
+ * Example class using the interactive-icon mixin for quick use.
+ * Uses the default values provided in the mixin definition.
+ */
 .#{$icongl_prefix}icon-interactive {
     @include interactive-icon();
 }
