@@ -41,7 +41,7 @@ $icongl_font_dir: "../font" !default;
 @forward "font";        // Contains font-face definitions and font-related utilities.
 // @forward "size";        // Defines size-related utility classes and mixins.
 @forward "state";       // Includes styles for various states (hover, active, etc.).
-@forward "transform";   // Provides CSS transformations utilities.
+// @forward "transform";   // Provides CSS transformations utilities.
 @forward "list";        // Utilities for list styles and behaviors.
 
 @forward "class";      // Centralizes CSS classes for consistent theming.
