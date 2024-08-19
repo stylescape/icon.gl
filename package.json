@@ -62,16 +62,9 @@
         "@babel/preset-env": "^7.23.6",
         "@babel/preset-typescript": "^7.23.3",
         "@types/node": "^22.0.2",
-        "block.gl": "^0.0.1",
-        "deep.gl": "^0.0.1",
-        "grid.gl": "^0.0.1",
-        "hue.gl": "^0.0.11",
-        "loop.gl": "^0.0.1",
         "pack.gl": "^0.0.40",
-        "page.gl": "^0.0.3",
         "ts-node": "^10.9.1",
-        "typescript": "^5.3.3",
-        "unit.gl": "^0.0.35"
+        "typescript": "^5.3.3"
     },
     "files": [
         "src/**",
