@@ -1,5 +1,61 @@
+# .dockerignore
+
+# Node.js dependencies
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Logs
+logs
+*.log
+*.log.*
+
+# Dependency directories
+jspm_packages/
+
+# Build outputs
+dist/
+build/
+coverage/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+._.Trashes
+__MACOSX
+
+# Git
+.git
+.gitignore
+README.md
+
+# Docker related
+Dockerfile
+docker-compose.yml
 .dockerignore
 devcontainer.json
-docker-compose.yml
-Dockerfile
-README.md
+
+# Python virtual environments
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+.env.*
