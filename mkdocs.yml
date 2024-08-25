@@ -27,7 +27,7 @@ theme:
   locale: en
   language: en
   palette:
-    scheme: scapeagency
+    scheme: stylescape
   # palette:
   #   - scheme: default
   #     primary: indigo
@@ -44,7 +44,7 @@ theme:
   # font:
   #   text: 'Manrope'
   #   code: 'Roboto Mono'
-  logo: assets/image/scape_agency-logo_transparent.png
+  logo: assets/image/stylescape-logo-transparent.png
   favicon: assets/favicon/favicon.ico
   features:
     # - announce.dismiss
