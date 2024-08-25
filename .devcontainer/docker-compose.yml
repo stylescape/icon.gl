@@ -1,7 +1,23 @@
 version: '3.8'
 
 services:
+  stylescape-dev:
+    image: ghcr.io/stylescape/stylescape-devcontainer/devcontainer:latest
+    container_name: stylescape-dev-container
+    environment:
+      NODE_ENV: development
+      # Add other environment variables here if needed
+    volumes:
+      - .:/workspace:cached
+      - /workspace/node_modules # Ensures node_modules isn't overwritten by the bind mount
+    ports:
+      - "3000:3000"
+    command: /usr/local/bin/start.sh
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
-  devcontainer:
-    build:
-      dockerfile: Dockerfile
+volumes:
+  node_modules:
