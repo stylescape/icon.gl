@@ -9,7 +9,7 @@
 .md-footer__inner {
     display: none;
 }
-[data-md-color-scheme="scapeagency"] {
+[data-md-color-scheme="stylescape"] {
     --md-primary-fg-color:        rgb(0, 0, 15);
     --md-primary-fg-color--light: #ffffff;
     --md-primary-fg-color--dark:  rgb(0, 0, 15);
