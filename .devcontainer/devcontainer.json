@@ -1,4 +1,56 @@
 {
-    "name": "devenv",
-    "dockerFile": "Dockerfile"
-} 
+    "name": "Stylescape DevContainer",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "."
+    },
+    "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:0-18",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "18"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "ms-python.python",
+                "ms-vscode.vscode-typescript-next",
+                "stylelint.vscode-stylelint",
+                "streetsidesoftware.code-spell-checker",
+                "redhat.vscode-yaml",
+                "PKief.material-icon-theme",
+                "syler.sass-indented",
+                "vscode-icons-team.vscode-icons",
+                "jinja.html-formatter",
+                "ritwickdey.LiveServer",
+                "gruntfuggly.todo-tree",
+                "svelte.svelte-vscode",
+                "octref.vetur"  // Vue.js support
+            ],
+            "settings": {
+                "editor.formatOnSave": true,
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "files.associations": {
+                    "*.jinja": "jinja"
+                }
+            }
+        }
+    },
+    "forwardPorts": [
+        3000
+    ],
+    "postCreateCommand": "npm install && pip3 install -r requirements.txt",
+    "remoteUser": "vscode",
+    "workspaceFolder": "/workspace",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+    ],
+    "remoteEnv": {
+        "NODE_ENV": "development"
+    },
+    "containerEnv": {
+        "NODE_ENV": "development"
+    }
+}
