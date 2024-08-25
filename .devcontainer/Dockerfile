@@ -1,8 +1,11 @@
-# Use an official Node runtime as a parent image
-FROM node:22
+# syntax=docker/dockerfile:1.4
 
-# Set the working directory
-WORKDIR /usr/src/app
+
+# Base Image
+# =============================================================================
+
+FROM ghcr.io/stylescape/stylescape-devcontainer/devcontainer:latest
+
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
@@ -16,5 +19,8 @@ COPY . .
 # Make port available to the world outside this container
 EXPOSE 3000
 
+# Start Command
+# =============================================================================
 # Define the command to run your app
-CMD [ "npm", "start" ]
+# CMD [ "npm", "start" ]
+CMD ["/usr/local/bin/start.sh"]
