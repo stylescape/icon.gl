@@ -20,7 +20,7 @@ updates:
       day: "monday"
       time: "09:00"
       timezone: "Europe/Amsterdam"
-    target-branch: "main"
+    target-branch: "dev"
     commit-message:
       prefix: "dependabot-gitsubmodule"
       include: "scope"
@@ -41,7 +41,7 @@ updates:
       day: "monday"
       time: "09:00"
       timezone: "Europe/Amsterdam"
-    target-branch: "main"
+    target-branch: "dev"
     commit-message:
       prefix: "dependabot-github-actions"
       include: "scope"
@@ -61,7 +61,7 @@ updates:
       day: "monday"
       time: "09:00"
       timezone: "Europe/Amsterdam"
-    target-branch: "main"
+    target-branch: "dev"
     commit-message:
       prefix: "npm"
     labels:
@@ -80,7 +80,7 @@ updates:
       day: "monday"
       time: "09:00"
       timezone: "Europe/Amsterdam"
-    target-branch: "main"
+    target-branch: "dev"
     commit-message:
       prefix: "dependabot-docker"
     labels:
@@ -99,7 +99,7 @@ updates:
       day: "monday"
       time: "09:00"
       timezone: "Europe/Amsterdam"
-    target-branch: "main"
+    target-branch: "dev"
     commit-message:
       prefix: "dependabot-devcontainer"
     labels:
@@ -114,7 +114,7 @@ updates:
       day: "monday"
       time: "09:00"
       timezone: "Europe/Amsterdam"
-    target-branch: "main"
+    target-branch: "dev"
     commit-message:
       prefix: "dependabot-devcontainer"
     labels:
@@ -133,7 +133,7 @@ updates:
       day: "monday"
       time: "09:00"
       timezone: "Europe/Amsterdam"
-    target-branch: "main"
+    target-branch: "dev"
     commit-message:
       prefix: "dependabot-pip"
     labels:
