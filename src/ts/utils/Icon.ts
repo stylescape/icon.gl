@@ -1,22 +1,7 @@
-// Copyright 2024 Scape Agency BV
-
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-
-// http://www.apache.org/licenses/LICENSE-2.0
-
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
-
 // Import
 // ============================================================================
 
-import * as Icons from '../icons';
+import * as Icons from "../icons";
 
 
 // Types
@@ -33,7 +18,7 @@ type IconProps = {
 type IconCache = {
     [key: string]: string;
 };
-  
+
 
 // Class
 // ============================================================================
@@ -53,7 +38,7 @@ class Icon {
         const svgMarkup = Icons[key as keyof typeof Icons];
         return svgMarkup || null;
     }
-  
+
     /**
      * Generates an SVG string with applied styles, classes, and other attributes.
      * @param {IconProps} props - Icon properties including name, size, color, className, and otherAttributes.
@@ -62,27 +47,27 @@ class Icon {
     static getIcon(props: IconProps): string {
         const { name, size, color, className, otherAttributes } = props;
         const svgString = Icons[name];
-        if (!svgString) return '';
-    
+        if (!svgString) return "";
+
             let attributes = `style="${this.getStyleAttribute(size, color)}"`;
-            attributes += className ? ` class="${className}"` : '';
+            attributes += className ? ` class="${className}"` : "";
         if (otherAttributes) {
             for (const [attr, value] of Object.entries(otherAttributes)) {
                 attributes += ` ${attr}="${value}"`;
             }
         }
-    
-        return svgString.replace('<svg', `<svg ${attributes}`);
+
+        return svgString.replace("<svg", `<svg ${attributes}`);
     }
-  
+
 
     // /**
     //  * Retrieves an icon with a preset size.
     //  * @param {string} key - The key representing the icon.
-    //  * @param {'small' | 'medium' | 'large'} preset - The preset size of the icon.
+    //  * @param {"small" | "medium" | "large"} preset - The preset size of the icon.
     //  * @returns {string | null} The SVG markup of the icon with the preset size.
     //  */
-    // static getIconWithPreset(key: string, preset: 'small' | 'medium' | 'large'): string | null {
+    // static getIconWithPreset(key: string, preset: "small" | "medium" | "large"): string | null {
     //     const sizeMap = { small: 16, medium: 32, large: 48 };
     //     return this.getIcon({ name: key, size: sizeMap[preset] });
     // }
@@ -95,7 +80,7 @@ class Icon {
      * @returns {string} The SVG string with accessibility attributes.
      */
     static withAccessibility(svgString: string, label: string): string {
-        return svgString.replace('<svg', `<svg aria-label="${label}" role="img"`);
+        return svgString.replace("<svg", `<svg aria-label="${label}" role="img"`);
     }
 
 
@@ -120,11 +105,11 @@ class Icon {
      * @returns {string} The style attribute string.
      */
     private static getStyleAttribute(size?: number, color?: string): string {
-        const sizeStyle = size ? `width: ${size}px; height: ${size}px;` : '';
-        const colorStyle = color ? `fill: ${color};` : '';
+        const sizeStyle = size ? `width: ${size}px; height: ${size}px;` : "";
+        const colorStyle = color ? `fill: ${color};` : "";
         return `${sizeStyle} ${colorStyle}`.trim();
     }
-  
+
 
     /**
      * Applies styles to an SVG string.
@@ -134,8 +119,8 @@ class Icon {
      */
     static applyStylesToSvg(svgString: string, styles: Record<string, string>): string {
         const parser = new DOMParser();
-        const doc = parser.parseFromString(svgString, 'image/svg+xml');
-        const svgElement = doc.querySelector('svg');
+        const doc = parser.parseFromString(svgString, "image/svg+xml");
+        const svgElement = doc.querySelector("svg");
         if (svgElement) {
             for (const [key, value] of Object.entries(styles)) {
                 svgElement.style[key as any] = value;
@@ -149,7 +134,7 @@ class Icon {
 
 
 }
-  
+
 
 // Export
 // ============================================================================
