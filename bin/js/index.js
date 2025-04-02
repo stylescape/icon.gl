@@ -1,7 +1,7 @@
 import { __awaiter } from "tslib";
-import path from 'path';
 import { promises as fs } from 'fs';
-import { DirectoryScanner, DirectoryCleaner, DirectoryCopier, DirectoryCreator, FileCopier, FontGenerator, FilenameExtractor, StyleProcessor, SvgPackager, SvgSpriteGenerator, PackageCreator, VersionWriter, TypeScriptCompiler, JavaScriptMinifier, StylizedLogger, TemplateWriter, SvgToPngConverter, readPackageJson, SvgReader, } from 'pack.gl';
+import path from 'path';
+import { DirectoryCleaner, DirectoryCopier, DirectoryCreator, DirectoryScanner, FileCopier, FilenameExtractor, FontGenerator, JavaScriptMinifier, PackageCreator, readPackageJson, StyleProcessor, StylizedLogger, SvgPackager, SvgReader, SvgSpriteGenerator, SvgToPngConverter, TemplateWriter, TypeScriptCompiler, VersionWriter } from 'pack.gl';
 class JSONLoader {
     loadJSON(filePath) {
         return __awaiter(this, void 0, void 0, function* () {
