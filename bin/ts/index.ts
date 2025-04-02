@@ -22,40 +22,50 @@
 // ============================================================================
 
 // Import necessary modules and classes
+import { promises as fs, PathLike } from 'fs';
 import path from 'path';
-import { PathLike, promises as fs } from 'fs';
 
 import {
-    DirectoryScanner,
     DirectoryCleaner,
     DirectoryCopier,
     DirectoryCreator,
+    DirectoryScanner,
     FileCopier,
-    FileRenamer,
-    FontGenerator,
     FilenameExtractor,
-    StyleProcessor,
-    SvgPackager,
-    SvgSpriteGenerator,
-    PackageCreator,
-    VersionWriter,
-    TypeScriptCompiler,
+    FontGenerator,
     JavaScriptMinifier,
-    StylizedLogger,
-    TemplateWriter,
-    SvgToPngConverter,
-    gl_installer,
+    PackageCreator,
     readPackageJson,
+    StyleProcessor,
+    StylizedLogger,
+    SvgPackager,
     SvgReader,
-    // svgspriteConfig
+    SvgSpriteGenerator,
+    SvgToPngConverter,
+    TemplateWriter,
+    TypeScriptCompiler,
+    VersionWriter
 } from 'pack.gl';
 
+
+interface CodepointsMap {
+    [key: string]: number; // Adjust based on actual data structure
+}
 class JSONLoader {
     /**
      * Asynchronously loads JSON data from a file and returns it as an object.
      * @param filePath The path to the JSON file.
      * @returns A promise that resolves to an object containing the JSON data.
      */
+    // async loadJSON<T>(filePath: string): Promise<T> {
+    //     try {
+    //         const data = await fs.readFile(filePath, 'utf8');
+    //         return JSON.parse(data) as T;
+    //     } catch (error) {
+    //         console.error(`Error reading JSON file: ${filePath}`, error);
+    //         throw error;
+    //     }
+    // }
     async loadJSON<T>(filePath: string): Promise<T> {
         try {
             const data = await fs.readFile(filePath, 'utf8');
@@ -114,8 +124,6 @@ async function getSubdirectories(directory: PathLike) {
         throw error; // or handle it as needed
     }
 }
-
-
 
 // ============================================================================
 // Constants
@@ -203,7 +211,7 @@ async function main() {
         const directoryCreator = new DirectoryCreator();
         await directoryCreator.createDirectories(CONFIG.path.dist,  ['svg']);
         const svgPackager = new SvgPackager(
-            path.join(CONFIG.path.root, 'bin/ts/config/svgo.config.js'),    
+            path.join(CONFIG.path.root, 'bin/ts/config/svgo.config.js'),
         );
 
 
@@ -261,14 +269,15 @@ async function main() {
 
         // Font
         // --------------------------------------------------------------------
-    
+
         console.log('Starting font generation...');
         await directoryCreator.createDirectories(CONFIG.path.dist, ['font']);
 
         const jsonLoader = new JSONLoader();
-        const codepoint_data = await jsonLoader.loadJSONFromDirectory(path.join(CONFIG.path.src, 'json', 'codepoint'));
-        const codepoints = await jsonLoader.mergeJSONObjects(codepoint_data);
-
+        // const codepoint_data = await jsonLoader.loadJSONFromDirectory(path.join(CONFIG.path.src, 'json', 'codepoint'));
+        // const codepoints = await jsonLoader.mergeJSONObjects(codepoint_data);
+        const codepoint_data = await jsonLoader.loadJSONFromDirectory<CodepointsMap>(path.join(CONFIG.path.src, 'json', 'codepoint'));
+        const codepoints = await jsonLoader.mergeJSONObjects<CodepointsMap>(codepoint_data);
         const fontGenerator = new FontGenerator(
             {
                 name: 'icongl',
@@ -325,7 +334,7 @@ async function main() {
         //     {
         //         assetTypes: [ "scss", ],
         //         pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'variables', '_font.scss'), },
-        //         templates: { scss: path.join(CONFIG.path.src, 'hbs', '_variables_font.scss.hbs'), }, 
+        //         templates: { scss: path.join(CONFIG.path.src, 'hbs', '_variables_font.scss.hbs'), },
         //     }
         // );
         // SCSS Font Face
@@ -335,7 +344,7 @@ async function main() {
             {
                 assetTypes: [ "scss", ],
                 pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_face.scss'), },
-                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_face.scss.hbs'), }, 
+                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_face.scss.hbs'), },
             }
         );
         // SCSS Font Base
@@ -345,7 +354,7 @@ async function main() {
         //     {
         //         assetTypes: [ "scss", ],
         //         pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_base.scss'), },
-        //         templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_base.scss.hbs'), }, 
+        //         templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_base.scss.hbs'), },
         //     }
         // );
         // SCSS Font Map
@@ -355,7 +364,7 @@ async function main() {
             {
                 assetTypes: [ "scss", ],
                 pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'variables', '_font.scss'), },
-                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_variables.scss.hbs'), }, 
+                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_variables.scss.hbs'), },
             }
         );
         // SCSS Font Classes
@@ -365,7 +374,7 @@ async function main() {
         //     {
         //         assetTypes: [ "scss", ],
         //         pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_class.scss'), },
-        //         templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_class.scss.hbs'), }, 
+        //         templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_class.scss.hbs'), },
         //     }
         // );
 
@@ -376,7 +385,7 @@ async function main() {
             {
                 assetTypes: [ "html", ],
                 pathOptions: { html: path.join(CONFIG.path.src, 'html', 'test.html'), },
-                templates: { html: path.join(CONFIG.path.src, 'hbs', 'test.html.hbs'), }, 
+                templates: { html: path.join(CONFIG.path.src, 'hbs', 'test.html.hbs'), },
             }
         );
 
@@ -388,7 +397,7 @@ async function main() {
             {
                 assetTypes: [ "json", ],
                 pathOptions: { json: path.join(CONFIG.path.src, 'json', 'icon.json'), },
-                // templates: { json: path.join(CONFIG.path.src, 'hbs', 'test.html.hbs'), }, 
+                // templates: { json: path.join(CONFIG.path.src, 'hbs', 'test.html.hbs'), },
             }
         );
 
@@ -426,7 +435,7 @@ async function main() {
 
                 for (const svg_path of svg_paths) {
                     if (path.extname(svg_path) == '.svg'){
-        
+
                         let name = extractor.getFilenameWithoutExtension(svg_path);
                         names.push(name);
                     }
@@ -450,7 +459,7 @@ async function main() {
             }
             const templater_md = new TemplateWriter(CONFIG.path.jinja_input, template_context);
             await templater_md.generateToFile('icon.gl.md.jinja', path.join(CONFIG.path.dist, 'md', 'icon.gl.md'));
-    
+
         } catch (error) {
             console.error('Error listing subdirectories:', error);
         }
@@ -559,7 +568,7 @@ async function main() {
             const iconsDir = CONFIG.path.ts_output_icons;
             const exportFilePath = path.join(CONFIG.path.ts_input, 'icons.ts');
             let exportStatements = '';
-          
+
             try {
                 const files = await fs.readdir(iconsDir);
                 files.forEach(file => {
@@ -568,16 +577,16 @@ async function main() {
                     exportStatements += `export * from './icons/${moduleName}';\n`;
                   }
                 });
-            
+
                 await fs.writeFile(exportFilePath, exportStatements);
                 console.log('Export file created successfully');
               } catch (error) {
                 console.error('Error generating exports:', error);
               }
             }
-          
+
         generateExports();
-        
+
 
         // Compile TypeScript to JavaScript
         // --------------------------------------------------------------------
