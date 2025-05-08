@@ -49,26 +49,6 @@ updates:
       - "github-actions"
 
 
-  # Docker dependencies
-  # ===========================================================================
-
-#   -
-#     package-ecosystem: "docker"
-#     directory: "/src/"
-#     schedule:
-#       interval: "weekly"
-#       day: "sunday"
-#       time: "08:00"
-#       timezone: "Europe/Amsterdam"
-#     target-branch: "dev"
-#     commit-message:
-#       prefix: "dependabot-docker"
-#       include: "scope"
-#     labels:
-#       - "dependencies"
-#       - "docker"
-
-
   # devContainer dependencies
   # ===========================================================================
 
@@ -108,21 +88,21 @@ updates:
   # PIP dependencies
   # ===========================================================================
 
-#   -
-#     package-ecosystem: "pip"
-#     directory: "/"
-#     schedule:
-#       interval: "weekly"
-#       day: "sunday"
-#       time: "08:00"
-#       timezone: "Europe/Amsterdam"
-#     target-branch: "dev"
-#     commit-message:
-#       prefix: "dependabot-pip"
-#       include: "scope"
-#     labels:
-#       - "dependencies"
-#       - "pip"
+  -
+    package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "08:00"
+      timezone: "Europe/Amsterdam"
+    target-branch: "dev"
+    commit-message:
+      prefix: "dependabot-pip"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "pip"
 
 
   # NPM dependencies
@@ -143,3 +123,4 @@ updates:
     labels:
       - "dependencies"
       - "npm"
+
