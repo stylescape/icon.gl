@@ -117,7 +117,7 @@ function main() {
             console.log('Starting font generation...');
             yield directoryCreator.createDirectories(CONFIG.path.dist, ['font']);
             const jsonLoader = new JSONLoader();
-            const codepoint_data = yield jsonLoader.loadJSONFromDirectory(path.join(CONFIG.path.src, 'json', 'codepoint'));
+            const codepoint_data = yield jsonLoader.loadJSONFromDirectory(path.join(CONFIG.path.src, 'json'));
             const codepoints = yield jsonLoader.mergeJSONObjects(codepoint_data);
             const fontGenerator = new FontGenerator({
                 name: 'icongl',

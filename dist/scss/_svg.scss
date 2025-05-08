@@ -1,0 +1,66 @@
+// ============================================================================
+// Media | SVG
+// ============================================================================
+
+@use "variables" as *;
+
+
+
+///
+/// Applies basic hyperlink styles to all SVG elements.
+/// Ensure to define `hyperlink_base` mixin in your mixins or styles.
+///
+svg {
+    @include hyperlink_base; // Applies hyperlink base styles to SVG elements
+}
+
+///
+/// Applies hyperlink styles to all child elements of SVG and disables pointer events.
+/// This prevents interaction with individual SVG components, ensuring the SVG acts as a single clickable item.
+///
+svg * {
+    @include hyperlink_base; // Ensures consistent styling for all child elements
+    pointer-events: none; // Disables pointer events to ensure SVG acts as a whole
+}
+
+///
+/// Sets up a container for SVGs that ensures they are displayed in a block and maintain aspect ratio.
+///
+.svg_container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+///
+/// Ensures SVG within containers are properly scaled and positioned.
+///
+.svg_container svg {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+}
+
+
+
+///
+/// Optional style for an SVG icon with predefined dimensions and fill color.
+/// Uncomment and adjust as necessary.
+///
+
+// svg-icon {
+//     display: inline-block;
+
+//     svg {
+//         fill: #999;
+//         height: 1.2em;
+//         width: 1.2em;
+//         vertical-align: middle;
+//     }
+//   }

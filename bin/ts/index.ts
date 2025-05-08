@@ -276,7 +276,9 @@ async function main() {
         const jsonLoader = new JSONLoader();
         // const codepoint_data = await jsonLoader.loadJSONFromDirectory(path.join(CONFIG.path.src, 'json', 'codepoint'));
         // const codepoints = await jsonLoader.mergeJSONObjects(codepoint_data);
-        const codepoint_data = await jsonLoader.loadJSONFromDirectory<CodepointsMap>(path.join(CONFIG.path.src, 'json', 'codepoint'));
+        // const codepoint_data = await jsonLoader.loadJSONFromDirectory<CodepointsMap>(path.join(CONFIG.path.src, 'json', 'codepoint'));
+        // const codepoint_data = await jsonLoader.loadJSONFromDirectory<CodepointsMap>(path.join(CONFIG.path.src, 'json', 'icon.json'));
+        const codepoint_data = await jsonLoader.loadJSONFromDirectory<CodepointsMap>(path.join(CONFIG.path.src, 'json'));
         const codepoints = await jsonLoader.mergeJSONObjects<CodepointsMap>(codepoint_data);
         const fontGenerator = new FontGenerator(
             {
