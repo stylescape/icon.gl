@@ -1,4 +1,4 @@
-
+@use "sass:color";
 
 // ============================================================================
 // icon.gl | States
@@ -6,50 +6,42 @@
 
 @use "variables" as *;
 
-// Define your primary color for interactive icons
-$primary-color: blue; // Define your primary color
-
 ///
 /// Mixin for adding interactive states to an icon with customizable properties.
-/// 
-/// @param {Color} $hover-color [darken($primary-color, 10%)] - Color on hover.
-/// @param {CSSValue} $focus-outline [2px solid lighten($primary-color, 20%)] - Outline on focus.
+///
+/// @param {Color} $hover-color - Color on hover.
+/// @param {CSSValue} $focus-outline - Outline on focus.
 /// @param {CSSValue} $hover-shadow [0 2px 4px rgba(0, 0, 0, 0.2)] - Shadow on hover.
 /// @param {Number} $hover-scale [1.1] - Scale transformation on hover.
 /// @param {Time} $transition-duration [0.3s] - Duration of the transition.
-/// 
-/// @example
-/// .custom-icon { @include interactive-icon(); } // Applies interactive styles
 ///
-@mixin interactive-icon(
-    $hover-color: darken($primary-color, 10%),
-    $focus-outline: 2px solid lighten($primary-color, 20%),
+/// @example
+/// .custom-icon {
+///   @include interactive-icon($hover-color: red, $focus-outline: 2px solid red);
+/// }
+///
+@mixin interactive-icon($hover-color,
+    $focus-outline,
     $hover-shadow: 0 2px 4px rgba(0, 0, 0, 0.2),
     $hover-scale: 1.1,
-    $transition-duration: 0.3s
-) {
+    $transition-duration: 0.3s) {
     &:hover {
         color: $hover-color;
         box-shadow: $hover-shadow;
         transform: scale($hover-scale);
         transition: all $transition-duration ease-in-out;
     }
+
     &:focus {
         outline: $focus-outline;
     }
+
     &:active {
-        color: lighten($hover-color, 5%);
+        color: color.adjust($hover-color, $lightness: 5%);
     }
+
     &:disabled {
-        color: grayscale($primary-color);
+        color: color.grayscale($hover-color);
         cursor: not-allowed;
     }
-}
-
-///
-/// Example class using the interactive-icon mixin for quick use.
-/// Uses the default values provided in the mixin definition.
-///
-.#{$icongl_prefix}icon-interactive {
-    @include interactive-icon();
 }

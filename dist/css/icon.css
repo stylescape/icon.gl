@@ -1,21 +1,4 @@
 @charset "UTF-8";
-.i_icon-interactive:hover {
-  color: #0000cc;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transform: scale(1.1);
-  transition: all 0.3s ease-in-out;
-}
-.i_icon-interactive:focus {
-  outline: 2px solid #6666ff;
-}
-.i_icon-interactive:active {
-  color: #0000e6;
-}
-.i_icon-interactive:disabled {
-  color: gray;
-  cursor: not-allowed;
-}
-
 .i_1x {
   font-size: 1em;
 }
