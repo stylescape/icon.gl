@@ -1,4 +1,4 @@
-// Import required variables
+@use "sass:list";
 @use "../variables" as *;
 
 ///
@@ -41,15 +41,15 @@
     // only load local files when both sources are present
 
     // @if $local1 and $local2 {
-    //     $src: append($src, local("#{$local1}"), comma);
-    //     $src: append($src, local("#{$local2}"), comma);
+    //     $src: list.append($src, local("#{$local1}"), comma);
+    //     $src: list.append($src, local("#{$local2}"), comma);
     // }
 
     // ------------------------------------------------------------------------
 
-    // Append OpenType font if specified
+    // list.append OpenType font if specified
     @if $otf {
-        $src: append($src, url("#{$path}#{$type}.otf") format("opentype"), comma);
+        $src: list.append($src, url("#{$path}#{$type}.otf") format("opentype"), comma);
     }
 
 
@@ -57,9 +57,9 @@
     // ------------------------------------------------------------------------
     // load default formats (woff and woff2)
 
-    // Append WOFF2 and WOFF formats by default
-    $src: append($src, url("#{$path}#{$type}.woff2") format("woff2"), comma);
-    $src: append($src, url("#{$path}#{$type}.woff") format("woff"), comma);
+    // list.append WOFF2 and WOFF formats by default
+    $src: list.append($src, url("#{$path}#{$type}.woff2") format("woff2"), comma);
+    $src: list.append($src, url("#{$path}#{$type}.woff") format("woff"), comma);
 
 
 
@@ -67,14 +67,14 @@
     // ------------------------------------------------------------------------
     // Formats that should only be added at the end
 
-    // Append TrueType font if specified
+    // list.append TrueType font if specified
     @if $ttf {
-        $src: append($src, url("#{$path}#{$type}.ttf") format("truetype"), comma);
+        $src: list.append($src, url("#{$path}#{$type}.ttf") format("truetype"), comma);
     }
 
-    // Append SVG font if specified
+    // list.append SVG font if specified
     @if $svg {
-        $src: append($src, url("#{$path}#{$type}.svg##{$svg}") format("svg"), comma);
+        $src: list.append($src, url("#{$path}#{$type}.svg##{$svg}") format("svg"), comma);
     }
 
 
@@ -85,12 +85,12 @@
     // Define the font-face with the composed source list
     @font-face {
         font-family: $family;
-        // for compatibility reasons EOT comes first and is not appended
+        // for compatibility reasons EOT comes first and is not list.appended
         // Include EOT specifically for IE compatibility
         @if $eot {
             src: url("#{$path}#{$type}.eot"); // EOT should be first for IE
         }
-        // load appended sources path
+        // load list.appended sources path
         src: $src; // Include all other font formats
         // font-weight: $weight;
         // font-style: $style;
