@@ -15,7 +15,6 @@
 
 @use "sass:math";       // Provides mathematical functions.
 
-$icongl_font_dir: "../font" !default;
 
 
 // Core Style Imports
@@ -25,14 +24,14 @@ $icongl_font_dir: "../font" !default;
 
 @forward "variables";   // Centralizes CSS variables for consistent theming.
 @forward "mixins";      // Centralizes SCSS mixins for consistent theming.
+@forward "classes"; // Centralizes CSS classes for consistent theming.
 
 @forward "font";        // Contains font-face definitions and font-related utilities.
 // @forward "size";        // Defines size-related utility classes and mixins.
-@forward "state";       // Includes styles for various states (hover, active, etc.).
+// @forward "state";       // Includes styles for various states (hover, active, etc.).
 // @forward "transform";   // Provides CSS transformations utilities.
-@forward "list";        // Utilities for list styles and behaviors.
+// @forward "list";        // Utilities for list styles and behaviors.
 
-@forward "classes";      // Centralizes CSS classes for consistent theming.
 
 // Development Utilities
 // ============================================================================

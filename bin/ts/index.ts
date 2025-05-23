@@ -340,15 +340,16 @@ async function main() {
         //     }
         // );
         // SCSS Font Face
-        await fontGenerator.generateFonts(
-            CONFIG.path.font_input,
-            CONFIG.path.font_output,
-            {
-                assetTypes: [ "scss", ],
-                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_face.scss'), },
-                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_face.scss.hbs'), },
-            }
-        );
+        // await fontGenerator.generateFonts(
+        //     CONFIG.path.font_input,
+        //     CONFIG.path.font_output,
+        //     {
+        //         assetTypes: [ "scss", ],
+        //         pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_face.scss'), },
+        //         templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_face.scss.hbs'), },
+        //     }
+        // );
+
         // SCSS Font Base
         // await fontGenerator.generateFonts(
         //     CONFIG.path.font_input,
@@ -381,15 +382,15 @@ async function main() {
         // );
 
         // HTML
-        await fontGenerator.generateFonts(
-            CONFIG.path.font_input,
-            CONFIG.path.font_output,
-            {
-                assetTypes: [ "html", ],
-                pathOptions: { html: path.join(CONFIG.path.src, 'html', 'test.html'), },
-                templates: { html: path.join(CONFIG.path.src, 'hbs', 'test.html.hbs'), },
-            }
-        );
+        // await fontGenerator.generateFonts(
+        //     CONFIG.path.font_input,
+        //     CONFIG.path.font_output,
+        //     {
+        //         assetTypes: [ "html", ],
+        //         pathOptions: { html: path.join(CONFIG.path.src, 'html', 'test.html'), },
+        //         templates: { html: path.join(CONFIG.path.src, 'hbs', 'test.html.hbs'), },
+        //     }
+        // );
 
 
         // JSON

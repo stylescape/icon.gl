@@ -140,18 +140,8 @@ function main() {
             });
             yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
                 assetTypes: ["scss",],
-                pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'font', '_font_face.scss'), },
-                templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_face.scss.hbs'), },
-            });
-            yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
-                assetTypes: ["scss",],
                 pathOptions: { scss: path.join(CONFIG.path.src, 'scss', 'variables', '_font.scss'), },
                 templates: { scss: path.join(CONFIG.path.src, 'hbs', '_font_variables.scss.hbs'), },
-            });
-            yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
-                assetTypes: ["html",],
-                pathOptions: { html: path.join(CONFIG.path.src, 'html', 'test.html'), },
-                templates: { html: path.join(CONFIG.path.src, 'hbs', 'test.html.hbs'), },
             });
             yield fontGenerator.generateFonts(CONFIG.path.font_input, CONFIG.path.font_output, {
                 assetTypes: ["json",],
