@@ -390,6 +390,7 @@
 
     "files.associations": {
         "*.jinja": "jinja",
+        "*.html.jinja": "jinja-html",
         "*.njk": "jinja",
         "*.yml": "yaml",
         "*.yaml": "yaml"
