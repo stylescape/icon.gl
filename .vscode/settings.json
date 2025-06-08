@@ -26,7 +26,7 @@
     // ========================================================================
 
 
-    "git.autofetch": true,                              // Automatically fetch changes from the remote repository
+    "git.autofetch": true,                              
 
     // Prettier
     // ========================================================================
@@ -449,9 +449,9 @@
 
 
 
-    "workbench.editor.enablePreview": false,            // Disable preview mode for editors to keep files open
-    "workbench.colorTheme": "Default Dark+",            // Set the color theme to Default Dark+
-    "workbench.iconTheme": "vscode-icons",              // Use vscode-icons for file icons
+    "workbench.editor.enablePreview": false,            
+    "workbench.colorTheme": "Default Dark Modern",            
+    "workbench.iconTheme": "vscode-icons",              
 
     // ...
 
