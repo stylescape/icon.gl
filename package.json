@@ -1,7 +1,7 @@
 {
     "name": "icon.gl",
     "description": "icon.gl is a icon library and framework developed by Scape Agency.",
-    "version": "0.0.29",
+    "version": "0.0.30",
     "config": {
         "version_short": "0.0"
     },
@@ -48,7 +48,7 @@
     "module": "dist/js/icon.gl.js",
     "style": "dist/css/icon.gl.css",
     "scripts": {
-        "build": "npm run build-compile && npm run build-process &&  npm run kist-build",
+        "build": "npm run build-compile && npm run build-process && npm run kist-build",
         "build-compile": "tsc -p bin/tsconfig.json",
         "build-process": "node bin/js/index.js",
         "kist-build": "npx kist --config ./kist.yml",
@@ -65,7 +65,7 @@
         "@babel/preset-env": "^7.23.6",
         "@babel/preset-typescript": "^7.23.3",
         "@types/node": "^22.0.2",
-        "kist": "^0.1.31",
+        "kist": "^0.1.40",
         "pack.gl": "0.1.29",
         "ts-node": "^10.9.1",
         "typescript": "^5.3.3"

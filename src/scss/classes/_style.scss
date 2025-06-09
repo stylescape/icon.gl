@@ -1,97 +1,110 @@
-
-
 // ============================================================================
 // icon.gl | Font Variables
 // ============================================================================
 
 @use "../variables" as *;
-@use "../mixins" as *;
 
-
-
-///
-/// Base icon class with standard styling.
-/// 
-/// @example
-/// .i { ... } // Applies icon styling
-///
-.i {
-    @include icon_style;
-}
-
-///
-/// Generates CSS rules for icons based on a mapping of icon names to codepoints.
-/// 
-/// @example
-/// .i_home::before { content: "\e900"; }
-///
-@each $icon, $codepoint in $icongl_map {
-    .i_#{$icon}::before { content: $codepoint; }
-}
-
-
-// .i::before,
-// [class^="i_"]::before,
-// [class*=" i_"]::before {
-//     font-family: $icongl_font !important;
-//     @include icon_style;
-// }
-
-///
-/// Provides consistent styling for icons using pseudo-elements.
-///
-.i::before,
-[class^=i_]::before,
-[class*=" i_"]::before {
-    @include icon_style_font;
-    // font-family: "icongl" !important;
+/// Mixin: icon_style
+/// Applies box-level icon styling.
+/// @param {Number} $font_size - Font size for the icon container (default: inherit).
+/// @param {Color} $color - Text/icon color.
+/// @param {String} $margin - Margin to apply around icon.
+/// @param {String} $padding - Padding inside icon box.
+@mixin icon__span(
+    $font_size: inherit,
+    // $font_size: inherit,
+    $color: $icon_color_default,
+    $margin: $icon_margin_default,
+    $padding: $icon_padding_default
+) {
     // display: inline-block;
-    // // font-size: $q * 20;
-    // color: #000000;
-    // line-height: 1;
-    // margin: 0;
-    // // margin-top: $q * 2;
-    // font-style: normal;
-    // font-weight: normal !important;
-    // font-variant: normal;
-    // text-transform: none;
-    // vertical-align: -0.125em;
-    // -webkit-font-smoothing: antialiased;
-    // -moz-osx-font-smoothing: grayscale;
+    display: inline;
+    vertical-align: baseline;
+    position: relative;
+    box-sizing: content-box;
+    margin: $margin;
+    padding: $padding;
+    font-size: $font_size;
+    // width: 100%;
+    // width: 1em;
+    width: 150%;
+    // width: 66%;
+    height: 150%;
+    aspect-ratio: 1 / 1;
+    background-color: transparent;
+    color: $color;
+    overflow: visible;
+    // font-size: $font_size; // stays original size
+    &::before {
+        @include icon__font();
+    }
+}
+
+/// Mixin: icon__font
+/// Applies font style to ::before or element using icon font directly.
+/// @param {Number} $font_size - Font size for the icon character.
+/// @param {Color} $color - Color for the icon.
+@mixin icon__font(
+    $font_size: 1.5em,
+    // $font_size: 1em,
+    $color: $icon_color_default
+) {
+    font-family: "icongl" !important;
+    font-size: $font_size;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    text-emphasis-style: none;
+    line-height: 1;
+    display: inline;
+    // vertical-align: baseline;
+    vertical-align: middle;
+    color: $color;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 
+/// Base class for icon container
+/// @example <span class="i i_alert"></span>
+.i {
+    @include icon__span();
+}
 
-///
-/// Styling for SVG icons with specific class modifiers for inline and
-/// white versions.
-///
+/// Generates icon content from $icongl_map
+/// @example .i_alert::before { content: "\e900"; }
+@each $icon, $codepoint in $icongl_map {
+    .i_#{$icon}::before {
+        content: $codepoint;
+    }
+}
+
+/// Applies consistent icon font styling to pseudo-elements
+/// Matches all classes that start or include `i_`
+/// Ensures icons work without extra declarations
+.i::before,
+[class^="i_"]::before,
+[class*=" i_"]::before {
+    @include icon__font();
+}
+
+
+/// SVG fallback / modifier support
 .si {
     &.inline {
-        height: 1.2em;
         width: 1.2em;
+        height: 1.2em;
         vertical-align: sub;
     }
+
     &.white {
         fill: white;
     }
 }
 
 
-
-// svg {
-//     @include hyperlink_base;
-// }
-
-// svg * {
-//     @include hyperlink_base;
-//     pointer-events: none;
-// }
-
-///
-/// Container for SVGs ensuring they maintain aspect ratio and fill their
-/// container.
-///
+/// Square aspect-ratio SVG container
 .svg_container {
     display: inline-block;
     position: relative;
@@ -101,29 +114,8 @@
     overflow: hidden;
 }
 
-///
-/// Ensures SVGs within containers are properly aligned and sized.
-///
 .svg_container svg {
     display: inline-block;
     position: relative;
     width: 100%;
-    // position: absolute;
-    // top: 0;
-    // left: 0;
 }
-
-
-
-
-// svg-icon {
-//     display: inline-block;
-  
-//     svg {
-//         fill: #999;
-//         height: 1.2em;
-//         width: 1.2em;
-//         vertical-align: middle;
-//     }
-//   }
-  

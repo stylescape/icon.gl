@@ -1,4 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.icon_symbol_star_half_fill_md = void 0;
-exports.icon_symbol_star_half_fill_md = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M432 225.91c-5.85 0-11.03 3.77-12.84 9.33l-44.77 137.8H229.5c-5.85 0-11.03 3.77-12.84 9.33s.17 11.66 4.9 15.09l117.22 85.16-44.77 137.8c-1.81 5.56.17 11.66 4.9 15.09 2.37 1.72 5.15 2.58 7.93 2.58s5.57-.86 7.94-2.58L432 550.35l13.85-10.06-1.01-305.05a13.51 13.51 0 0 0-12.84-9.33"/></svg>`;

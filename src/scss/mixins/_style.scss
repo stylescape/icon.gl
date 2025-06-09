@@ -6,82 +6,48 @@
 
 @use "../variables" as *;
 
-
-///
-/// Applies standard icon styling with customizable properties.
-///
-/// @param {Number} $font_size [$icon_font_size_default] - Font size for the icon.
-/// @param {Color} $color [$icon_color_default] - Color of the icon.
-/// @param {String} $margin [$icon_margin_default] - Margin around the icon.
-/// @param {String} $padding [$icon_padding_default] - Padding around the icon.
-///
-/// @example
-/// @include icon_style(16px, #000, 0, 0);
-///
-@mixin icon_style (
-    $font_size: $icon_font_size_default,
+/// Mixin: icon_style
+/// Applies box-level icon styling.
+/// @param {Number} $font_size - Font size for the icon container (default: inherit).
+/// @param {Color} $color - Text/icon color.
+/// @param {String} $margin - Margin to apply around icon.
+/// @param {String} $padding - Padding inside icon box.
+@mixin icon__span($font_size: inherit,
+    // $font_size: inherit,
     $color: $icon_color_default,
     $margin: $icon_margin_default,
-    $padding: $icon_padding_default,
-) {
-
-    // Position & Size
+    $padding: $icon_padding_default) {
+    // display: inline-block;
+    display: inline;
+    vertical-align: baseline;
     position: relative;
-    display: inline-block;
-    // display: inline-flex;
-    vertical-align: -.125em;
-    // align-items: center;
-    // justify-content: center;
-
-    // Size
     box-sizing: content-box;
     margin: $margin;
     padding: $padding;
-    // width:            100%;
-    // height:           100%;
-
-    // Style
+    font-size: $font_size;
+    // width: 100%;
+    // width: 1em;
+    width: 150%;
+    // width: 66%;
+    height: 150%;
+    aspect-ratio: 1 / 1;
     background-color: transparent;
     color: $color;
-
-    // Other
     overflow: visible;
 
-    // * {
-    //     font-size: $font_size;
-    // }
-
-    // Icon Font Style
-    ::before{
-        // Font
-        font-family: "icongl" !important;
-        font-size: $font_size;
-        font-style: normal;
-        font-weight: normal !important;
-        font-variant: normal;
-        text-transform: none;
-        text-emphasis-style: none;
-        line-height: 1;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+    // font-size: $font_size; // stays original size
+    &::before {
+        @include icon__font();
     }
 }
 
-
-///
-/// Sets the font style for icons with essential customization.
-///
-/// @param {Number} $font_size [$icon_font_size_default] - Font size for the icon.
-/// @param {Color} $color [$icon_color_default] - Color of the icon text.
-///
-/// @example
-/// @include icon_style_font(20px, #fff);
-///
-@mixin icon_style_font(
-    $font_size: $icon_font_size_default,
-    $color: $icon_color_default,
-) {
-    // Font
+/// Mixin: icon__font
+/// Applies font style to ::before or element using icon font directly.
+/// @param {Number} $font_size - Font size for the icon character.
+/// @param {Color} $color - Color for the icon.
+@mixin icon__font($font_size: 1.5em,
+    // $font_size: 1em,
+    $color: $icon_color_default) {
     font-family: "icongl" !important;
     font-size: $font_size;
     font-style: normal;
@@ -90,9 +56,10 @@
     text-transform: none;
     text-emphasis-style: none;
     line-height: 1;
+    display: inline;
+    // vertical-align: baseline;
+    vertical-align: middle;
+    color: $color;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    color: $color;
-
 }
