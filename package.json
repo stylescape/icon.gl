@@ -51,8 +51,8 @@
         "build": "npm run build-compile && npm run build-process && npm run kist-build",
         "build-compile": "tsc -p bin/tsconfig.json",
         "build-process": "node bin/js/index.js",
-        "kist-build": "npx kist --config ./kist.yml",
-        "kist-watch": "npx kist --config ./kist.yml --live",
+        "kist-build": "npx kist --config ./kist.pro.yml",
+        "kist-watch": "npx kist --config ./kist.dev.yml --live",
         "format": "npx prettier --write .",
         "lint": "eslint 'src/**/*.ts' || true",
         "prettify": "prettier --write 'src/**/*.ts'"
