@@ -40,19 +40,22 @@
 }
 
 .i {
-  display: inline;
-  vertical-align: baseline;
+  display: inline-flex;
   position: relative;
+  vertical-align: baseline;
   box-sizing: content-box;
   margin: 0;
   padding: 0;
   font-size: inherit;
-  width: 150%;
-  height: 150%;
+  width: 1.5em;
+  height: 1.5em;
   aspect-ratio: 1/1;
-  background-color: transparent;
   color: #000000;
+  background-color: transparent;
   overflow: visible;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 .i::before {
   font-family: "icongl" !important;
@@ -64,9 +67,27 @@
   -webkit-text-emphasis-style: none;
           text-emphasis-style: none;
   line-height: 1;
+  color: #000000;
   display: inline;
   vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.i * {
+  font-family: "icongl" !important;
+  font-size: 1.5em;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-text-emphasis-style: none;
+          text-emphasis-style: none;
+  line-height: 1.5em !important;
   color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -5947,9 +5968,9 @@
   -webkit-text-emphasis-style: none;
           text-emphasis-style: none;
   line-height: 1;
+  color: #000000;
   display: inline;
   vertical-align: middle;
-  color: #000000;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -5,31 +5,141 @@
 @use "../variables" as *;
 @use "../mixins" as *;
 
+/// 
+/// Mixin: icon__span
+/// Applies container styling to an icon wrapper (`<span class="i">`).
+/// The container is square with a fixed aspect ratio and hosts a ::before glyph.
+/// @param {Number} $font_size - Base font size of the span (default: inherit).
+/// @param {Color} $color - Icon color.
+/// @param {String} $margin - Margin around the icon container.
+/// @param {String} $padding - Padding inside the icon container.
+/// 
+@mixin icon__span(
+    $font_size: inherit,
+    $color: $icon_color_default,
+    $margin: $icon_margin_default,
+    $padding: $icon_padding_default
+) {
+    // display: inline;
+    display: inline-flex;
+    position: relative;
+    vertical-align: baseline;
+    box-sizing: content-box;
+
+    margin: $margin;
+    padding: $padding;
+    font-size: $font_size;
+
+    width: 1.5em; // scalable width
+    height: 1.5em; // matches width
+    // width: 150%;
+    // height: 150%;
+    aspect-ratio: 1 / 1;
+
+    color: $color;
+    background-color: transparent;
+    overflow: visible;
+
+    // display: flex; // enable flex centering
+    align-items: center; // vertical centering
+    justify-content: center; // horizontal centering
+    text-align: center;
+    &::before {
+        @include icon__glyph();
+    }
+    * {
+        @include icon__font();
+    }
+}
+
+/// 
+/// Mixin: icon__glyph
+/// Styles the font-based glyph (icon character) used inside ::before or inline.
+/// @param {Number} $font_size - Icon size relative to container (default: 1.5em).
+/// @param {Color} $color - Icon color (inherits by default).
+/// 
+@mixin icon__glyph($font_size: 1.5em,
+    // $font_size: 1em,
+    $color: $icon_color_default
+) {
+    font-family: "icongl" !important;
+    font-size: $font_size;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    text-emphasis-style: none;
+    line-height: 1;
+
+    color: $color;
+    
+    display: inline;
+    vertical-align: middle;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin icon__font(
+    $font_size: 1.5em,
+    // $font_size: 1em,
+    $color: $icon_color_default
+) {
+    font-family: "icongl" !important;
+    font-size: $font_size;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    text-emphasis-style: none;
+    line-height: 1.5em !important;
+    color: $color;
+    display: flex; // enable flex centering
+    align-items: center; // vertical centering
+    justify-content: center; // horizontal centering
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    // vertical-align: baseline;
+}
+
+// ============================================================================
+
+
+/// 
 /// Base class for icon container
 /// @example <span class="i i_alert"></span>
+/// 
 .i {
     @include icon__span();
 }
 
-/// Generates icon content from $icongl_map
+
+/// 
+/// Generate icon glyphs from the icon map
 /// @example .i_alert::before { content: "\e900"; }
+/// 
 @each $icon, $codepoint in $icongl_map {
     .i_#{$icon}::before {
         content: $codepoint;
     }
 }
 
+/// 
 /// Applies consistent icon font styling to pseudo-elements
 /// Matches all classes that start or include `i_`
 /// Ensures icons work without extra declarations
+/// 
 .i::before,
 [class^="i_"]::before,
 [class*=" i_"]::before {
-    @include icon__font();
+    @include icon__glyph();
 }
 
 
+/// 
 /// SVG fallback / modifier support
+/// 
 .si {
     &.inline {
         width: 1.2em;
@@ -43,7 +153,9 @@
 }
 
 
+/// 
 /// Square aspect-ratio SVG container
+/// 
 .svg_container {
     display: inline-block;
     position: relative;
