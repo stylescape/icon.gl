@@ -1,0 +1,22 @@
+
+
+// ============================================================================
+// icon.gl | Size
+// ============================================================================
+
+$igl_size_scale_2xs      : 10 !default;
+$igl_size_scale_xs       : 12 !default;
+$igl_size_scale_sm       : 14 !default;
+$igl_size_scale_base     : 16 !default;
+$igl_size_scale_lg       : 20 !default;
+$igl_size_scale_xl       : 24 !default;
+$igl_size_scale_2xl      : 32 !default;
+
+$igl_sizes: (
+    "2xs"   : $igl_size_scale_2xs,
+    "xs"    : $igl_size_scale_xs,
+    "sm"    : $igl_size_scale_sm,
+    "lg"    : $igl_size_scale_lg,
+    "xl"    : $igl_size_scale_xl,
+    "2xl"   : $igl_size_scale_2xl
+) !default;

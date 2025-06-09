@@ -1,0 +1,38 @@
+
+
+// ============================================================================
+// icon.gl | Font Map
+// ============================================================================
+
+@use "sass:list";
+@use "../variables" as *;
+
+// FontFace URLs Function
+// ============================================================================
+// Generating font-face URLs with hash
+
+@function icongl_font_url($format) {
+    @return url("#{$icon_dir}/#{$icon_name}.#{$format}") format($format);
+}
+
+
+
+// FontFace Source Value Variables
+// ============================================================================
+// Constructing src value for @font-face
+
+$icongl_font_src: ();
+@each $format, $type in $icongl_font_formats {
+    $icongl_font_src: list.append($icongl_font_src, icongl_font_url($format), comma);
+}
+
+
+// FontFace Declaration
+// ============================================================================
+
+@font-face {
+    // Using 'swap' to ensure text remains visible during font loading
+    font-display: swap;
+    font-family: $icon_name;
+    src: $icongl_font_src;
+}
