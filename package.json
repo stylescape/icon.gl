@@ -64,7 +64,7 @@
         "@babel/core": "^7.23.6",
         "@babel/preset-env": "^7.23.6",
         "@babel/preset-typescript": "^7.23.3",
-        "@types/node": "^22.0.2",
+        "@types/node": "^24.0.3",
         "kist": "^0.1.40",
         "pack.gl": "0.1.29",
         "ts-node": "^10.9.1",
