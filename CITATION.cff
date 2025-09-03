@@ -1,15 +1,15 @@
 cff-version: 1.2.0
 title: icon.gl
-version: 0.0.31
+version: 0.0.32
 date-released: 2024-07-01
-url: "https://github.com/stylescape/icon.gl"
+url: 'https://github.com/stylescape/icon.gl'
 message: >-
-  If you use icon.gl, please cite it using
-  the metadata from this file.
+    If you use icon.gl, please cite it using
+    the metadata from this file.
 type: software
 authors:
-  - given-names: Lars Bastiaan
-    family-names: van Vianen
-    email: lars@scape.agency
-    affiliation: Scape Agency
-    orcid: 'https://orcid.org/0000-0002-8790-8630'
+    - given-names: Lars Bastiaan
+      family-names: van Vianen
+      email: lars@scape.agency
+      affiliation: Scape Agency
+      orcid: 'https://orcid.org/0000-0002-8790-8630'

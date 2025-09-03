@@ -309,7 +309,7 @@
     // Minimap
     // ========================================================================
 
-    "editor.minimap.autohide": true,
+    "editor.minimap.autohide": "mouseover",
     "editor.minimap.enabled": true,
     "editor.minimap.maxColumn": 120,
     "editor.minimap.renderCharacters": true,
