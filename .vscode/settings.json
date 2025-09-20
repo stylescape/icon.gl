@@ -705,7 +705,7 @@
     "python.analysis.stubPath": "typings",
     "python.analysis.supportDocstringTemplate": true,
     "python.analysis.supportRestructuredText": false,
-    "python.analysis.typeCheckingMode": "off",
+    "python.analysis.typeCheckingMode": "standard",
     "python.analysis.typeEvaluation.analyzeUnannotatedFunctions": true,
     "python.analysis.typeEvaluation.deprecateTypingAliases": false,
     "python.analysis.typeEvaluation.disableBytesTypePromotions": false,
