@@ -5956,6 +5956,198 @@
   content: "\f692";
 }
 
+.i_badge_country_us::before {
+  content: "\f693";
+}
+
+.i_badge_country_tr::before {
+  content: "\f694";
+}
+
+.i_badge_country_se::before {
+  content: "\f695";
+}
+
+.i_badge_country_ru::before {
+  content: "\f696";
+}
+
+.i_badge_country_pt::before {
+  content: "\f697";
+}
+
+.i_badge_country_pl::before {
+  content: "\f698";
+}
+
+.i_badge_country_no::before {
+  content: "\f699";
+}
+
+.i_badge_country_nl::before {
+  content: "\f69a";
+}
+
+.i_badge_country_ma::before {
+  content: "\f69b";
+}
+
+.i_badge_country_jp::before {
+  content: "\f69c";
+}
+
+.i_badge_country_it::before {
+  content: "\f69d";
+}
+
+.i_badge_country_in::before {
+  content: "\f69e";
+}
+
+.i_badge_country_gr::before {
+  content: "\f69f";
+}
+
+.i_badge_country_gl::before {
+  content: "\f6a0";
+}
+
+.i_badge_country_fr::before {
+  content: "\f6a1";
+}
+
+.i_badge_country_fill_us::before {
+  content: "\f6a2";
+}
+
+.i_badge_country_fill_tr::before {
+  content: "\f6a3";
+}
+
+.i_badge_country_fill_se::before {
+  content: "\f6a4";
+}
+
+.i_badge_country_fill_ru::before {
+  content: "\f6a5";
+}
+
+.i_badge_country_fill_pt::before {
+  content: "\f6a6";
+}
+
+.i_badge_country_fill_pl::before {
+  content: "\f6a7";
+}
+
+.i_badge_country_fill_no::before {
+  content: "\f6a8";
+}
+
+.i_badge_country_fill_nl::before {
+  content: "\f6a9";
+}
+
+.i_badge_country_fill_ma::before {
+  content: "\f6aa";
+}
+
+.i_badge_country_fill_jp::before {
+  content: "\f6ab";
+}
+
+.i_badge_country_fill_it::before {
+  content: "\f6ac";
+}
+
+.i_badge_country_fill_in::before {
+  content: "\f6ad";
+}
+
+.i_badge_country_fill_gr::before {
+  content: "\f6ae";
+}
+
+.i_badge_country_fill_gl::before {
+  content: "\f6af";
+}
+
+.i_badge_country_fill_fr::before {
+  content: "\f6b0";
+}
+
+.i_badge_country_fill_fi::before {
+  content: "\f6b1";
+}
+
+.i_badge_country_fill_es::before {
+  content: "\f6b2";
+}
+
+.i_badge_country_fill_en::before {
+  content: "\f6b3";
+}
+
+.i_badge_country_fill_dk::before {
+  content: "\f6b4";
+}
+
+.i_badge_country_fill_de::before {
+  content: "\f6b5";
+}
+
+.i_badge_country_fill_cn::before {
+  content: "\f6b6";
+}
+
+.i_badge_country_fill_be::before {
+  content: "\f6b7";
+}
+
+.i_badge_country_fill_at::before {
+  content: "\f6b8";
+}
+
+.i_badge_country_fill_aq::before {
+  content: "\f6b9";
+}
+
+.i_badge_country_fi::before {
+  content: "\f6ba";
+}
+
+.i_badge_country_es::before {
+  content: "\f6bb";
+}
+
+.i_badge_country_en::before {
+  content: "\f6bc";
+}
+
+.i_badge_country_dk::before {
+  content: "\f6bd";
+}
+
+.i_badge_country_de::before {
+  content: "\f6be";
+}
+
+.i_badge_country_cn::before {
+  content: "\f6bf";
+}
+
+.i_badge_country_be::before {
+  content: "\f6c0";
+}
+
+.i_badge_country_at::before {
+  content: "\f6c1";
+}
+
+.i_badge_country_aq::before {
+  content: "\f6c2";
+}
+
 .i::before,
 [class^=i_]::before,
 [class*=" i_"]::before {
