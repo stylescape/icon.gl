@@ -1512,5 +1512,21 @@
     "badge_country_cn": 63167,
     "badge_country_be": 63168,
     "badge_country_at": 63169,
-    "badge_country_aq": 63170
+    "badge_country_aq": 63170,
+    "ui_table": 63171,
+    "ui_solution": 63172,
+    "ui_pattern": 63173,
+    "ui_paper_list": 63174,
+    "ui_list_filled": 63175,
+    "ui_list_box": 63176,
+    "ui_list": 63177,
+    "ui_home_round": 63178,
+    "ui_home_plain": 63179,
+    "ui_home_filled": 63180,
+    "ui_edit_pen": 63181,
+    "ui_document_list": 63182,
+    "ui_create_simple_round": 63183,
+    "ui_create_simple_corner": 63184,
+    "ui_create_layers": 63185,
+    "ui_book": 63186
 }

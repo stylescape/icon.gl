@@ -6148,6 +6148,70 @@
   content: "\f6c2";
 }
 
+.i_ui_table::before {
+  content: "\f6c3";
+}
+
+.i_ui_solution::before {
+  content: "\f6c4";
+}
+
+.i_ui_pattern::before {
+  content: "\f6c5";
+}
+
+.i_ui_paper_list::before {
+  content: "\f6c6";
+}
+
+.i_ui_list_filled::before {
+  content: "\f6c7";
+}
+
+.i_ui_list_box::before {
+  content: "\f6c8";
+}
+
+.i_ui_list::before {
+  content: "\f6c9";
+}
+
+.i_ui_home_round::before {
+  content: "\f6ca";
+}
+
+.i_ui_home_plain::before {
+  content: "\f6cb";
+}
+
+.i_ui_home_filled::before {
+  content: "\f6cc";
+}
+
+.i_ui_edit_pen::before {
+  content: "\f6cd";
+}
+
+.i_ui_document_list::before {
+  content: "\f6ce";
+}
+
+.i_ui_create_simple_round::before {
+  content: "\f6cf";
+}
+
+.i_ui_create_simple_corner::before {
+  content: "\f6d0";
+}
+
+.i_ui_create_layers::before {
+  content: "\f6d1";
+}
+
+.i_ui_book::before {
+  content: "\f6d2";
+}
+
 .i::before,
 [class^=i_]::before,
 [class*=" i_"]::before {
