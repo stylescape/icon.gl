@@ -1,8 +1,6 @@
 {
-
     // Eslint
     // ========================================================================
-
     "eslint.validate": [
         "javascript",
         "javascriptreact",
@@ -21,42 +19,21 @@
             ".vue"
         ] // ESLint validation for additional file types
     },
-
     // Git
     // ========================================================================
-
-
-    "git.autofetch": true,                              
-
+    "git.autofetch": true,
     // Prettier
     // ========================================================================
-
-    "prettier.requireConfig": true,                     // Require a Prettier config file to run
-    "prettier.trailingComma": "es5",                    // Add trailing commas where valid in ES5 (objects, arrays, etc.)
-    "prettier.arrowParens": "always",                   // Always include parentheses around arrow function parameters
-    "prettier.singleQuote": true,                       // Use single quotes instead of double quotes
-
-
-
-
-
+    "prettier.requireConfig": true, // Require a Prettier config file to run
+    "prettier.trailingComma": "es5", // Add trailing commas where valid in ES5 (objects, arrays, etc.)
+    "prettier.arrowParens": "always", // Always include parentheses around arrow function parameters
+    "prettier.singleQuote": true, // Use single quotes instead of double quotes
     // Typescript
     // ========================================================================
-
-    "typescript.tsdk": "node_modules/typescript/lib",   // Use the TypeScript version from node_modules
-
-
-
-
-
-
-
-
-
+    "typescript.tsdk": "node_modules/typescript/lib", // Use the TypeScript version from node_modules
     // ========================================================================
     // Text Editor
     // ========================================================================
-
     "editor.accessibilityPageSize": 10,
     "editor.accessibilitySupport": "auto",
     "editor.autoClosingBrackets": "languageDefined",
@@ -132,7 +109,7 @@
     "editor.hideCursorInOverviewRuler": false,
     "editor.hover.above": true,
     "editor.hover.delay": 300,
-    "editor.hover.enabled": true,
+    "editor.hover.enabled": "on",
     "editor.hover.hidingDelay": 300,
     "editor.hover.sticky": true,
     "editor.indentSize": "tabSize",
@@ -261,54 +238,37 @@
     "editor.wordWrapColumn": 79,
     "editor.wrappingIndent": "same",
     "editor.wrappingStrategy": "simple",
-
-
     // Cursor
     // ========================================================================
-
     "editor.cursorBlinking": "blink",
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.cursorStyle": "line",
     "editor.cursorSurroundingLines": 0,
     "editor.cursorWidth": 0,
-
     // Find
     // ========================================================================
-
     // ...
-
     // Font
     // ========================================================================
-
     "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
     "editor.fontLigatures": false,
     "editor.fontSize": 12,
     "editor.fontVariations": false,
     "editor.fontWeight": "normal",
-
     // Formatting
     // ========================================================================
-
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file",
     "editor.formatOnType": true,
-
     // Diff Editor
     // ========================================================================
-
     // ...
-
-
     // Multi-File Diff Editor
     // ========================================================================
-
     // ...
-
-
     // Minimap
     // ========================================================================
-
     "editor.minimap.autohide": "mouseover",
     "editor.minimap.enabled": true,
     "editor.minimap.maxColumn": 120,
@@ -321,10 +281,8 @@
     "editor.minimap.showSlider": "mouseover",
     "editor.minimap.side": "right",
     "editor.minimap.size": "proportional",
-
     // Suggestions
     // ========================================================================
-
     "editor.acceptSuggestionOnCommitCharacter": true,
     "editor.acceptSuggestionOnEnter": "on",
     "editor.inlineSuggest.edits.experimental.enabled": true,
@@ -384,10 +342,8 @@
     "editor.suggestOnTriggerCharacters": true,
     "editor.suggestSelection": "first",
     "editor.wordBasedSuggestions": "matchingDocuments",
-
     // Files
     // ========================================================================
-
     "files.associations": {
         "*.jinja": "jinja",
         "*.html.jinja": "jinja-html",
@@ -431,35 +387,23 @@
         "**/.hg/store/**": true
     },
     // "files.watcherInclude": [""],
-
-
-
     // ========================================================================
     // Workbench
     // ========================================================================
-
     "workbench.cloudChanges.autoResume": "onReload",
     "workbench.cloudChanges.continueOn": "prompt",
     "workbench.commandPalette.experimental.askChatLocation": "chatView",
     "workbench.commandPalette.experimental.enableNaturalLanguageSearch": true,
     "workbench.commandPalette.experimental.suggestCommands": false,
     "workbench.commandPalette.history": 50,
-
     // ...
-
-
-
-    "workbench.editor.enablePreview": false,            
-    "workbench.colorTheme": "Default Dark Modern",            
-    "workbench.iconTheme": "vscode-icons",              
-
+    "workbench.editor.enablePreview": false,
+    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.iconTheme": "vscode-icons",
     // ...
-
-
     // ========================================================================
     // Window
     // ========================================================================
-
     "window.autoDetectColorScheme": false,
     "window.closeWhenEmpty": false,
     "window.commandCenter": true,
@@ -469,27 +413,18 @@
     "window.titleSeparator": " — ",
     "window.zoomLevel": -1,
     "window.zoomPerWindow": true,
-
     // ========================================================================
     // Features
     // ========================================================================
-
     // Accessibility Signals
     // ========================================================================
-
     "accessibility.signalOptions.debouncePositionChanges": false,
-
-
     // ...
-
     // Accessibility
     // ========================================================================
-
     // ...
-
     // Explorer
     // ========================================================================
-
     "explorer.autoOpenDroppedFile": true,
     "explorer.autoReveal": true,
     "explorer.autoRevealExclude": {
@@ -556,54 +491,34 @@
     "outline.showStructs": true,
     "outline.showTypeParameters": true,
     "outline.showVariables": true,
-
-
     // Search
     // ========================================================================
-
     "search.exclude": {
-        "**/node_modules": true,                          // Exclude node_modules from search results
-        "**/dist": true,                                  // Exclude dist folder from search results
-        "**/coverage": true                               // Exclude coverage folder from search results
+        "**/node_modules": true, // Exclude node_modules from search results
+        "**/dist": true, // Exclude dist folder from search results
+        "**/coverage": true // Exclude coverage folder from search results
     },
-
-
     // Terminal
     // ========================================================================
-
-    "terminal.integrated.shell.linux": "/bin/bash",     // Set the default shell to Bash on Linux
-    "terminal.integrated.shell.osx": "/bin/zsh",        // Set the default shell to Zsh on macOS
+    "terminal.integrated.shell.linux": "/bin/bash", // Set the default shell to Bash on Linux
+    "terminal.integrated.shell.osx": "/bin/zsh", // Set the default shell to Zsh on macOS
     "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe", // Set the default shell to cmd on Windows
-
-
-
     // ========================================================================
     // Extensions
     // ========================================================================
-
-
-
-
-
     // Processing
     // ========================================================================
-
     "processing.docs": "processing.org",
     "processing.path": "processing-java",
     "processing.search": "Google",
-
-
     // Python
     // ========================================================================
-
     "[python]": {
         "editor.formatOnPaste": false, // Disable auto-formatting on paste
         "editor.formatOnSave": true,
         "editor.formatOnSaveMode": "file",
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
-
-
     "python.activeStateToolPath": "state",
     // "python.autoComplete.extraPaths": [""],
     "python.createEnvironment.contentButton": "show",
@@ -636,11 +551,8 @@
     "python.testing.pytestEnabled": true,
     "python.testing.pytestPath": "pytest",
     "python.testing.unittestEnabled": false,
-
-
     // Pylance
     // ========================================================================
-
     // "python.analysis.aiCodeActions": {
     // },
     "python.analysis.autoFormatStrings": false,
@@ -656,7 +568,10 @@
     "python.analysis.displayEnglishDiagnostics": false,
     "python.analysis.enablePytestSupport": true,
     "python.analysis.enableSyncServer": false,
-    "python.analysis.exclude": ["**/typeshed-fallback/**", ".venv"],
+    "python.analysis.exclude": [
+        "**/typeshed-fallback/**",
+        ".venv"
+    ],
     "python.analysis.extraCommitChars": false,
     // "python.analysis.extraPaths": [""],
     "python.analysis.fixAll": [
@@ -721,19 +636,12 @@
     ],
     "python.analysis.useLibraryCodeForTypes": true,
     "python.analysis.userFileIndexingLimit": 2000,
-
-
     // Python Debugger
     // ========================================================================
-
     "debugpy.debugJustMyCode": true,
     "debugpy.showPythonInlineValues": false,
-
-
     // AutoPEP8
     // ========================================================================
-
-
     "autopep8.args": [
         "--max-line-length=79",
     ],
@@ -745,24 +653,19 @@
     "autopep8.path": [
         // ""
     ],
-
-
     // Black Formatter
     // ========================================================================
-
     "black-formatter.args": [
-        "--line-length", "79",
+        "--line-length",
+        "79",
     ],
     "black-formatter.cwd": "${workspaceFolder}",
     "black-formatter.importStrategy": "useBundled",
     // "black-formatter.interpreter": [""],
     // "black-formatter.path": [""],
     "black-formatter.serverTransport": "stdio",
-
-
     // Flake8
     // ========================================================================
-
     "flake8.args": [
         "--max-line-length=79",
         "--ignore=E126,E221,E222,E251",
@@ -782,10 +685,8 @@
         "I": "Information",
         "W": "Warning"
     },
-
     // Pylint
     // ========================================================================
-
     "pylint.args": [
         "--max-line-length=79",
         "--ignore=E126,E221,E222,E251",
@@ -807,7 +708,5 @@
         "warning": "Warning",
         "info": "Information"
     },
-
-
-
+    "cSpell.enabled": false
 }
