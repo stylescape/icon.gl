@@ -1,15 +1,15 @@
-import { describe, it, expect, beforeAll } from 'vitest';
 import { promises as fs } from 'fs';
 import path from 'path';
+import { describe, expect, it } from 'vitest';
 
 describe('Build Process Tests', () => {
     const rootDir = path.resolve(__dirname, '..');
     const packageJsonPath = path.join(rootDir, 'package.json');
-    
+
     it('should have valid package.json', async () => {
         const content = await fs.readFile(packageJsonPath, 'utf-8');
         const pkg = JSON.parse(content);
-        
+
         expect(pkg.name).toBe('icon.gl');
         expect(pkg.version).toBeTruthy();
         expect(pkg.license).toBe('MIT');
@@ -18,7 +18,7 @@ describe('Build Process Tests', () => {
     it('should have required build scripts', async () => {
         const content = await fs.readFile(packageJsonPath, 'utf-8');
         const pkg = JSON.parse(content);
-        
+
         expect(pkg.scripts.build).toBeTruthy();
         expect(pkg.scripts['build-compile']).toBeTruthy();
         expect(pkg.scripts['build-process']).toBeTruthy();
@@ -27,7 +27,7 @@ describe('Build Process Tests', () => {
     it('should have test scripts configured', async () => {
         const content = await fs.readFile(packageJsonPath, 'utf-8');
         const pkg = JSON.parse(content);
-        
+
         expect(pkg.scripts.test).toBeTruthy();
         expect(pkg.scripts['test:coverage']).toBeTruthy();
     });
@@ -39,7 +39,7 @@ describe('TypeScript Configuration', () => {
     it('should have valid tsconfig.json', async () => {
         const exists = await fs.access(tsconfigPath).then(() => true).catch(() => false);
         expect(exists).toBe(true);
-        
+
         // Just verify it exists and can be read, parsing JSONC is complex
         const content = await fs.readFile(tsconfigPath, 'utf-8');
         expect(content).toContain('compilerOptions');
@@ -54,11 +54,11 @@ describe('Source Directory Structure', () => {
         const tsDir = path.join(srcDir, 'ts');
         const scssDir = path.join(srcDir, 'scss');
         const svgDir = path.join(srcDir, 'svg');
-        
+
         const tsDirExists = await fs.access(tsDir).then(() => true).catch(() => false);
         const scssDirExists = await fs.access(scssDir).then(() => true).catch(() => false);
         const svgDirExists = await fs.access(svgDir).then(() => true).catch(() => false);
-        
+
         expect(tsDirExists).toBe(true);
         expect(scssDirExists).toBe(true);
         expect(svgDirExists).toBe(true);
@@ -67,9 +67,9 @@ describe('Source Directory Structure', () => {
     it('should have main TypeScript entry point', async () => {
         const indexPath = path.join(srcDir, 'ts', 'index.ts');
         const exists = await fs.access(indexPath).then(() => true).catch(() => false);
-        
+
         expect(exists).toBe(true);
-        
+
         if (exists) {
             const content = await fs.readFile(indexPath, 'utf-8');
             expect(content).toContain('export');
@@ -79,7 +79,7 @@ describe('Source Directory Structure', () => {
     it('should have SCSS entry point', async () => {
         const indexPath = path.join(srcDir, 'scss', 'index.scss');
         const exists = await fs.access(indexPath).then(() => true).catch(() => false);
-        
+
         expect(exists).toBe(true);
     });
 });

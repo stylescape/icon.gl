@@ -5,6 +5,7 @@ This document describes the testing infrastructure for icon.gl.
 ## Overview
 
 The project uses [Vitest](https://vitest.dev/) as its testing framework, providing:
+
 - Fast, modern testing with native ESM support
 - Built-in TypeScript support
 - Code coverage reporting
@@ -31,20 +32,26 @@ npm run test:coverage
 ## Test Structure
 
 ### Unit Tests
+
 Located in `src/ts/Icon.test.ts`, these tests cover:
+
 - **Icon utility class** - Core icon manipulation functions
 - **Icon caching** - Performance optimization validation
 - **Accessibility features** - ARIA attributes and labels
 - **Style application** - Size, color, and custom styling
 
 ### Integration Tests
+
 Located in `test/integration.test.ts`, covering:
+
 - **SVG file validation** - Ensuring proper SVG syntax
 - **Codepoint management** - JSON codepoint file validation
 - **Build output** - Generated TypeScript exports
 
 ### Build Tests
+
 Located in `test/build.test.ts`, validating:
+
 - **Project configuration** - package.json, tsconfig.json
 - **Directory structure** - Required source directories
 - **Documentation** - Presence of required files
@@ -52,6 +59,7 @@ Located in `test/build.test.ts`, validating:
 ## Coverage
 
 Coverage thresholds are set at 80% for:
+
 - Lines
 - Functions
 - Branches
@@ -62,6 +70,7 @@ View coverage reports in `coverage/` after running `npm run test:coverage`.
 ## CI/CD Integration
 
 Tests run automatically on:
+
 - Push to `dev` and `main` branches
 - Pull requests
 - Multiple Node.js versions (18.x, 20.x, 22.x)
@@ -73,15 +82,15 @@ Coverage reports are uploaded to Codecov (when configured).
 ### Example Unit Test
 
 ```typescript
-import { describe, it, expect } from 'vitest';
-import Icon from './utils/Icon';
+import { describe, it, expect } from 'vitest'
+import Icon from './utils/Icon'
 
 describe('My Feature', () => {
     it('should behave as expected', () => {
-        const result = Icon.getIconByKey('testIcon');
-        expect(result).toContain('<svg');
-    });
-});
+        const result = Icon.getIconByKey('testIcon')
+        expect(result).toContain('<svg')
+    })
+})
 ```
 
 ### Best Practices

@@ -32,7 +32,6 @@
 
 <br/>
 
-
 **`icon.gl` is an inspired icon library based on the traditional Kaidā glyphs used historically in the Yaeyama Islands of Japan. These glyphs, rooted in local administration and communication, encompass a variety of symbols representing animals, plants, numerals, and household items.**
 
 ## Introduction
@@ -45,9 +44,9 @@ Icon.gl is a modern, innovative icon library infused with the essence of traditi
 
 ## Icons
 
-|      |      |      |      |      |      |
-| ---- | ---- | ---- | ---- | ---- | ---- |
-| <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/pie_02.png" alt="pie_02"><small>pie_02</small> | <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/pie_03.png" alt="pie_03"><small>pie_03</small> | <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/star.png" alt="star"><small>star</small> | <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/swirl.png" alt="swirl"><small>swirl</small> | |
+|                                                                                                                                 |                                                                                                                                 |                                                                                                                           |                                                                                                                              |     |     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | --- | --- |
+| <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/pie_02.png" alt="pie_02"><small>pie_02</small> | <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/pie_03.png" alt="pie_03"><small>pie_03</small> | <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/star.png" alt="star"><small>star</small> | <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/swirl.png" alt="swirl"><small>swirl</small> |     |
 
 ## Usage
 
@@ -59,7 +58,7 @@ Iconography is highly functional in a user interface. When used wisely, icons be
 
 Instructions on how to integrate icon.gl into your project.
 
-``` sh
+```sh
 npm i icon.gl
 ```
 
@@ -121,14 +120,14 @@ The repository provides a track of different versions of the assets for easier n
 
 #### Authors
 
-**icon.gl** is an open-source project by **[Scape Agency](https://www.scape.agency "Scape Agency website")**.
+**icon.gl** is an open-source project by **[Scape Agency](https://www.scape.agency 'Scape Agency website')**.
 
 ##### Scape Agency
 
 Scape Agency is a spatial innovation collective that dreams, discovers and designs the everyday of tomorrow. We blend design thinking with emerging technologies to create a brighter perspective for people and planet. Our products and services naturalise technology in liveable and sustainable –scapes that spark the imagination and inspire future generations.
 
-- website: [scape.agency](https://www.scape.agency "Scape Agency website")
-- github: [github.com/stylescape](https://github.com/stylescape "Scape Agency GitHub")
+- website: [scape.agency](https://www.scape.agency 'Scape Agency website')
+- github: [github.com/stylescape](https://github.com/stylescape 'Scape Agency GitHub')
 
 <!-- #### Contributors
 
@@ -162,7 +161,7 @@ We have compiled a list of frequently asked questions for easier navigation and 
 
 #### Copyright
 
-Copyright &copy; 2025 [Scape Agency BV](https://www.scape.agency/ "Scape Agency website"). All Rights Reserved.
+Copyright &copy; 2025 [Scape Agency BV](https://www.scape.agency/ 'Scape Agency website'). All Rights Reserved.
 
 #### License
 
