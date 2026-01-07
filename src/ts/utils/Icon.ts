@@ -23,6 +23,9 @@ type IconCache = {
 // Class
 // ============================================================================
 
+/**
+ * Icon utilities for retrieving and customizing SVG strings from the bundled icon set.
+ */
 class Icon {
 
 
