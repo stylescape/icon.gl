@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>icon.gl - Icon Font Library Test Page</title>
+
+    <!-- Load icon.gl CSS from unpkg -->
+    <link rel="stylesheet" href="https://unpkg.com/icon.gl@0.0.35/css/icon.css">
+
+    <!-- Load icon.gl font from unpkg -->
+    <style>
+        @font-face {
+            font-family: 'icongl';
+            src: url('https://unpkg.com/icon.gl@0.0.35/font/icongl.woff2') format('woff2'),
+                 url('https://unpkg.com/icon.gl@0.0.35/font/icongl.woff') format('woff'),
+                 url('https://unpkg.com/icon.gl@0.0.35/font/icongl.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        :root {
+            --color-primary: #2563eb;
+            --color-primary-light: #3b82f6;
+            --color-bg: #0f172a;
+            --color-bg-light: #1e293b;
+            --color-bg-lighter: #334155;
+            --color-text: #f8fafc;
+            --color-text-muted: #94a3b8;
+            --color-border: #475569;
+            --icon-size: 2em;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--color-bg-light) 0%, var(--color-bg) 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        header h1 span {
+            color: var(--color-primary-light);
+        }
+
+        header p {
+            color: var(--color-text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            background: var(--color-bg-lighter);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary-light);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+        }
+
+        .controls {
+            background: var(--color-bg-light);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: var(--color-text);
+            font-size: 1rem;
+            width: 100%;
+            outline: none;
+        }
+
+        .search-box input::placeholder {
+            color: var(--color-text-muted);
+        }
+
+        .size-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .size-control label {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        .size-control select {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            color: var(--color-text);
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .category {
+            margin-bottom: 3rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .category-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        .category-count {
+            background: var(--color-bg-lighter);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 0.5rem;
+            background: var(--color-bg-light);
+            border: 1px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .icon-item:hover {
+            background: var(--color-bg-lighter);
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
+        .icon-item.hidden {
+            display: none;
+        }
+
+        .icon-item .i {
+            font-size: var(--icon-size);
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .icon-item .i::before {
+            color: var(--color-text);
+        }
+
+        .icon-name {
+            font-size: 0.65rem;
+            color: var(--color-text-muted);
+            text-align: center;
+            word-break: break-word;
+            line-height: 1.3;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--color-primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: var(--color-text-muted);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--color-text-muted);
+            border-top: 1px solid var(--color-border);
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: var(--color-primary-light);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 2rem 1rem;
+            }
+
+            header h1 {
+                font-size: 1.75rem;
+            }
+
+            .controls {
+                padding: 1rem;
+            }
+
+            .search-box {
+                max-width: 100%;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .icon-grid {
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>icon<span>.gl</span></h1>
+        <p>A comprehensive icon font library and framework. Browse and explore all available icons below using the icon font from unpkg.</p>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value" id="total-icons">1530</div>
+                <div class="stat-label">Total Icons</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="total-categories">-</div>
+                <div class="stat-label">Categories</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">v0.0.35</div>
+                <div class="stat-label">Version</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="controls">
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Search icons..." autocomplete="off">
+        </div>
+        <div class="size-control">
+            <label for="size">Size:</label>
+            <select id="size">
+                <option value="1em">1x</option>
+                <option value="1.5em">1.5x</option>
+                <option value="2em" selected>2x</option>
+                <option value="3em">3x</option>
+                <option value="4em">4x</option>
+                <option value="5em">5x</option>
+            </select>
+        </div>
+    </div>
+
+    <main id="icon-container"></main>
+
+    <div class="toast" id="toast">Icon name copied!</div>
+
+    <footer>
+        <p>
+            <strong>icon.gl</strong> by <a href="https://github.com/scape-agency" target="_blank">Scape Agency</a> |
+            <a href="https://github.com/scape-agency/icon.gl" target="_blank">GitHub</a> |
+            <a href="https://www.icon.gl/" target="_blank">Documentation</a> |
+            Loaded via <a href="https://unpkg.com/icon.gl@0.0.35/" target="_blank">unpkg</a>
+        </p>
+    </footer>
+
+    <script>
+        // All icon classes organized by category
+        const iconsByCategory = {
+            arrow: [
+                'i_arrow_up', 'i_arrow_down', 'i_arrow_left', 'i_arrow_right',
+                'i_arrow_up_left', 'i_arrow_up_right', 'i_arrow_down_left', 'i_arrow_down_right',
+                'i_arrow_long_left', 'i_arrow_long_right', 'i_arrow_long_left_right',
+                'i_arrow_long_from_bar_left', 'i_arrow_long_from_bar_right',
+                'i_arrow_dotted_up', 'i_arrow_dotted_down', 'i_arrow_dotted_left', 'i_arrow_dotted_right',
+                'i_arrow_double_up', 'i_arrow_double_down', 'i_arrow_double_left', 'i_arrow_double_right',
+                'i_arrow_tripple_right',
+                'i_arrow_harpoon_up_barb_left', 'i_arrow_harpoon_up_barb_right',
+                'i_arrow_harpoon_down_barb_left', 'i_arrow_harpoon_down_barb_right',
+                'i_arrow_harpoon_left_barb_up', 'i_arrow_harpoon_left_barb_down',
+                'i_arrow_harpoon_right_barb_up', 'i_arrow_harpoon_right_barb_down',
+                'i_arrow_circle_gap_left', 'i_arrow_circle_gap_right',
+                'i_arrow_circle_semi_gap_right', 'i_arrow_circle_semi_gap_left',
+                'i_arrow_circle_closed_left', 'i_arrow_circle_closed_right',
+                'i_arrow_corner_down_right', 'i_arrow_corner_left_up', 'i_arrow_corner_left_down',
+                'i_arrow_corner_right_up', 'i_arrow_corner_right_down',
+                'i_arrow_up_down', 'i_arrow_left_right',
+                'i_arrow_up_left_down_right', 'i_arrow_up_right_down_left',
+                'i_arrow_two_headed_up', 'i_arrow_two_headed_down', 'i_arrow_two_headed_left', 'i_arrow_two_headed_right',
+                'i_arrow_from_bar_up', 'i_arrow_from_bar_down', 'i_arrow_from_bar_left', 'i_arrow_from_bar_right',
+                'i_arrow_to_bar_up', 'i_arrow_to_bar_down', 'i_arrow_to_bar_left', 'i_arrow_to_bar_right',
+                'i_arrow_to_corner_upper_left', 'i_arrow_to_corner_lower_right'
+            ],
+            shape: [
+                'i_shape_29', 'i_shape_36', 'i_shape_37',
+                'i_shape_circle_arc_half_left', 'i_shape_circle_arc_half_right',
+                'i_shape_circle_fill_ms', 'i_shape_circle_fill_sm', 'i_shape_circle_fill_xl',
+                'i_shape_circle_fill_quarter_lower_left', 'i_shape_circle_fill_quarter_lower_right',
+                'i_shape_circle_fill_quarter_upper_left',
+                'i_shape_circle_hatch_horizontal', 'i_shape_circle_ms',
+                'i_shape_circle_part_fill_half_lower', 'i_shape_circle_part_fill_half_upper',
+                'i_shape_circle_part_half_left', 'i_shape_circle_part_half_lower',
+                'i_shape_circle_part_half_right', 'i_shape_circle_part_half_upper',
+                'i_shape_diamond_fill_half_left', 'i_shape_diamond_fill_half_lower',
+                'i_shape_diamond_fill_half_right', 'i_shape_diamond_fill_half_upper',
+                'i_shape_diamond_fill_xl', 'i_shape_diamond_sm',
+                'i_shape_hexagon', 'i_shape_hexagon_fill',
+                'i_shape_hexagon_fill_half_left', 'i_shape_hexagon_fill_half_right',
+                'i_shape_hexagon_fill_md_60', 'i_shape_hexagon_fill_md_62',
+                'i_shape_hexagon_hatch_horizontal', 'i_shape_hexagon_hatch_vertical',
+                'i_shape_hexagon_horizontal', 'i_shape_hexagon_horizontal_fill',
+                'i_shape_hexagon_md_44', 'i_shape_hexagon_md_46', 'i_shape_hexagon_part',
+                'i_shape_lozenge_line_vertical', 'i_shape_lozenge_xs',
+                'i_shape_octagon', 'i_shape_octagon_fill_horizontal', 'i_shape_octagon_horizontal',
+                'i_shape_paralellogram', 'i_shape_paralellogram_fill',
+                'i_shape_pentagon', 'i_shape_pentagon_down', 'i_shape_pentagon_fill',
+                'i_shape_pentagon_fill_down', 'i_shape_pentagon_fill_half_left', 'i_shape_pentagon_fill_half_right',
+                'i_shape_pentagon_fill_left', 'i_shape_pentagon_fill_right',
+                'i_shape_pentagon_left', 'i_shape_pentagon_md', 'i_shape_pentagon_part',
+                'i_shape_pentagon_right', 'i_shape_pentagon_sm',
+                'i_shape_rectangle_fill_horizontal', 'i_shape_rectangle_fill_vertical',
+                'i_shape_rectangle_horizontal', 'i_shape_rectangle_vertical',
+                'i_shape_square_fill_xl', 'i_shape_square_line_horizontal',
+                'i_shape_triangle_dotted', 'i_shape_triangle_down_line_vertical',
+                'i_shape_triangle_fill_xl', 'i_shape_triangle_line_vertical',
+                'i_shape_triangle_md', 'i_shape_triangle_md_down',
+                'i_shape_triangle_md_left', 'i_shape_triangle_md_right', 'i_shape_triangle_xl'
+            ],
+            symbol: [
+                'i_symbol_01', 'i_symbol_02', 'i_symbol_03', 'i_symbol_04',
+                'i_symbol_09', 'i_symbol_10', 'i_symbol_11', 'i_symbol_12',
+                'i_symbol_atom', 'i_symbol_diamond', 'i_symbol_diamond_md',
+                'i_symbol_heart', 'i_symbol_heart_fill', 'i_symbol_heart_fill_md',
+                'i_symbol_heart_fill_sm', 'i_symbol_heart_fill_xs',
+                'i_symbol_heart_ms', 'i_symbol_heart_sm', 'i_symbol_heart_xs',
+                'i_symbol_qr',
+                'i_symbol_star', 'i_symbol_star_fill', 'i_symbol_star_fill_md',
+                'i_symbol_star_fill_sm', 'i_symbol_star_fill_xs',
+                'i_symbol_star_ms', 'i_symbol_star_sm', 'i_symbol_star_xs',
+                'i_symbol_star_8', 'i_symbol_star_8_fill', 'i_symbol_star_8_fill_md',
+                'i_symbol_star_8_fill_sm', 'i_symbol_star_8_fill_xs',
+                'i_symbol_star_8_md', 'i_symbol_star_8_sm', 'i_symbol_star_8_xs',
+                'i_symbol_star_half_fill', 'i_symbol_star_half_fill_md',
+                'i_symbol_star_half_fill_sm', 'i_symbol_star_half_fill_xs',
+                'i_symbol_star_half_ms', 'i_symbol_star_half_sm', 'i_symbol_star_half_xs',
+                'i_symbol_swir_left', 'i_symbol_swirl_left_02',
+                'i_symbol_swirl_right', 'i_symbol_swirl_right_02'
+            ],
+            ui: [
+                'i_ui_book', 'i_ui_bookmark', 'i_ui_bookmark_sm',
+                'i_ui_circle_bookmark', 'i_ui_circle_create', 'i_ui_circle_delete',
+                'i_ui_circle_detail', 'i_ui_circle_favorite', 'i_ui_circle_help',
+                'i_ui_circle_search', 'i_ui_circle_update',
+                'i_ui_circle_fill_bookmark', 'i_ui_circle_fill_create', 'i_ui_circle_fill_delete',
+                'i_ui_circle_fill_detail', 'i_ui_circle_fill_favorite', 'i_ui_circle_fill_help',
+                'i_ui_circle_fill_search', 'i_ui_circle_fill_update',
+                'i_ui_create', 'i_ui_create_sm', 'i_ui_create_layers',
+                'i_ui_create_simple_corner', 'i_ui_create_simple_round',
+                'i_ui_delete', 'i_ui_delete_sm', 'i_ui_detail', 'i_ui_detail_sm',
+                'i_ui_document_list', 'i_ui_edit_pen',
+                'i_ui_favorite', 'i_ui_favorite_sm', 'i_ui_help', 'i_ui_help_sm',
+                'i_ui_home_filled', 'i_ui_home_plain', 'i_ui_home_round',
+                'i_ui_list', 'i_ui_list_box', 'i_ui_list_filled',
+                'i_ui_menu_horizontal', 'i_ui_menu_vertical',
+                'i_ui_paper_list', 'i_ui_pattern', 'i_ui_search', 'i_ui_search_sm',
+                'i_ui_sliders_horizontal', 'i_ui_sliders_vertical',
+                'i_ui_solution', 'i_ui_sort_down', 'i_ui_sort_up',
+                'i_ui_square_bookmark', 'i_ui_square_create', 'i_ui_square_delete',
+                'i_ui_square_detail', 'i_ui_square_favorite', 'i_ui_square_help',
+                'i_ui_square_search', 'i_ui_square_update',
+                'i_ui_square_fill_bookmark', 'i_ui_square_fill_create', 'i_ui_square_fill_delete',
+                'i_ui_square_fill_detail', 'i_ui_square_fill_favorite', 'i_ui_square_fill_help',
+                'i_ui_square_fill_search', 'i_ui_square_fill_update',
+                'i_ui_table', 'i_ui_update', 'i_ui_update_sm'
+            ],
+            'ui media': [
+                'i_ui_media_back', 'i_ui_media_forward', 'i_ui_media_next',
+                'i_ui_media_pause', 'i_ui_media_play', 'i_ui_media_record',
+                'i_ui_media_rewind', 'i_ui_media_stop',
+                'i_ui_media_fill_back', 'i_ui_media_fill_forward', 'i_ui_media_fill_next',
+                'i_ui_media_fill_pause', 'i_ui_media_fill_play', 'i_ui_media_fill_record',
+                'i_ui_media_fill_rewind', 'i_ui_media_fill_stop',
+                'i_ui_media_circle_back', 'i_ui_media_circle_forward', 'i_ui_media_circle_next',
+                'i_ui_media_circle_pause', 'i_ui_media_circle_play', 'i_ui_media_circle_record',
+                'i_ui_media_circle_rewind', 'i_ui_media_circle_sto',
+                'i_ui_media_circle_fill_back', 'i_ui_media_circle_fill_forward', 'i_ui_media_circle_fill_next',
+                'i_ui_media_circle_fill_pause', 'i_ui_media_circle_fill_play', 'i_ui_media_circle_fill_record',
+                'i_ui_media_circle_fill_rewind', 'i_ui_media_circle_fill_stop',
+                'i_ui_media_square_back', 'i_ui_media_square_forward', 'i_ui_media_square_next',
+                'i_ui_media_square_pause', 'i_ui_media_square_play', 'i_ui_media_square_record',
+                'i_ui_media_square_rewind', 'i_ui_media_square_stop',
+                'i_ui_media_square_fill_back', 'i_ui_media_square_fill_forward', 'i_ui_media_square_fill_next',
+                'i_ui_media_square_fill_pause', 'i_ui_media_square_fill_play', 'i_ui_media_square_fill_record',
+                'i_ui_media_square_fill_rewind', 'i_ui_media_square_fill_stop'
+            ],
+            system: [
+                'i_system_key', 'i_system_settings', 'i_system_trash'
+            ],
+            social: [
+                'i_social_academia', 'i_social_adobe_cc', 'i_social_airtable_18', 'i_social_airtable_19',
+                'i_social_amazon', 'i_social_anaconda', 'i_social_apple', 'i_social_atlassian',
+                'i_social_baidu', 'i_social_behance', 'i_social_bing', 'i_social_bitcoin',
+                'i_social_blender', 'i_social_celery', 'i_social_cloudflare', 'i_social_creative_commons',
+                'i_social_css3', 'i_social_dependabot', 'i_social_discord', 'i_social_docker',
+                'i_social_epic_games', 'i_social_eslint', 'i_social_ethereum', 'i_social_facebook',
+                'i_social_figma', 'i_social_firebase', 'i_social_flickr', 'i_social_git',
+                'i_social_github', 'i_social_google', 'i_social_graphql', 'i_social_gravatar',
+                'i_social_helm', 'i_social_html5', 'i_social_ideal', 'i_social_imdb',
+                'i_social_instagram', 'i_social_internet_archive', 'i_social_internet_explorer',
+                'i_social_issuu', 'i_social_javascript', 'i_social_jinja', 'i_social_json',
+                'i_social_linkedin', 'i_social_squarespace', 'i_social_vimeo',
+                'i_social_wikipedia', 'i_social_x'
+            ],
+            number: [
+                'i_number_0', 'i_number_1', 'i_number_2', 'i_number_3', 'i_number_4',
+                'i_number_5', 'i_number_6', 'i_number_7', 'i_number_8', 'i_number_9', 'i_number_10',
+                'i_number_circle_0', 'i_number_circle_1', 'i_number_circle_2', 'i_number_circle_3',
+                'i_number_circle_4', 'i_number_circle_5', 'i_number_circle_6', 'i_number_circle_7',
+                'i_number_circle_8', 'i_number_circle_9', 'i_number_circle_10',
+                'i_number_circle_11', 'i_number_circle_12', 'i_number_circle_13', 'i_number_circle_14',
+                'i_number_circle_15', 'i_number_circle_16', 'i_number_circle_17', 'i_number_circle_18',
+                'i_number_circle_19', 'i_number_circle_20', 'i_number_circle_21', 'i_number_circle_22',
+                'i_number_circle_23', 'i_number_circle_24',
+                'i_number_circle_fill_1', 'i_number_circle_fill_2', 'i_number_circle_fill_3',
+                'i_number_circle_fill_4', 'i_number_circle_fill_5', 'i_number_circle_fill_6',
+                'i_number_circle_fill_7', 'i_number_circle_fill_8', 'i_number_circle_fill_9',
+                'i_number_square_0', 'i_number_square_1', 'i_number_square_2', 'i_number_square_3',
+                'i_number_square_4', 'i_number_square_5', 'i_number_square_6', 'i_number_square_7',
+                'i_number_square_8', 'i_number_square_9', 'i_number_square_10',
+                'i_number_square_11', 'i_number_square_12', 'i_number_square_13', 'i_number_square_14',
+                'i_number_square_15', 'i_number_square_16', 'i_number_square_17', 'i_number_square_18',
+                'i_number_square_19', 'i_number_square_20',
+                'i_number_square_fill_0', 'i_number_square_fill_1', 'i_number_square_fill_2',
+                'i_number_square_fill_3', 'i_number_square_fill_4', 'i_number_square_fill_5',
+                'i_number_square_fill_6', 'i_number_square_fill_7', 'i_number_square_fill_8',
+                'i_number_square_fill_9', 'i_number_square_fill_10', 'i_number_square_fill_11',
+                'i_number_square_fill_12', 'i_number_square_fill_13', 'i_number_square_fill_14',
+                'i_number_square_fill_15', 'i_number_square_fill_16', 'i_number_square_fill_17',
+                'i_number_square_fill_18', 'i_number_square_fill_19', 'i_number_square_fill_20'
+            ],
+            letters: [
+                'i_letters_circle_a', 'i_letters_circle_b', 'i_letters_circle_c', 'i_letters_circle_d',
+                'i_letters_circle_e', 'i_letters_circle_f', 'i_letters_circle_g', 'i_letters_circle_h',
+                'i_letters_circle_i', 'i_letters_circle_j', 'i_letters_circle_k', 'i_letters_circle_l',
+                'i_letters_circle_m', 'i_letters_circle_n', 'i_letters_circle_o', 'i_letters_circle_p',
+                'i_letters_circle_q', 'i_letters_circle_r', 'i_letters_circle_s', 'i_letters_circle_t',
+                'i_letters_circle_u', 'i_letters_circle_v', 'i_letters_circle_w', 'i_letters_circle_x',
+                'i_letters_circle_y', 'i_letters_circle_z',
+                'i_letters_circle_at', 'i_letters_circle_exclamation', 'i_letters_circle_hashtag', 'i_letters_circle_question',
+                'i_letters_circle_fill_a', 'i_letters_circle_fill_b', 'i_letters_circle_fill_c', 'i_letters_circle_fill_d',
+                'i_letters_circle_fill_e', 'i_letters_circle_fill_f', 'i_letters_circle_fill_g', 'i_letters_circle_fill_h',
+                'i_letters_circle_fill_i', 'i_letters_circle_fill_j', 'i_letters_circle_fill_k', 'i_letters_circle_fill_l',
+                'i_letters_circle_fill_m', 'i_letters_circle_fill_n', 'i_letters_circle_fill_o', 'i_letters_circle_fill_p',
+                'i_letters_circle_fill_q', 'i_letters_circle_fill_r', 'i_letters_circle_fill_s', 'i_letters_circle_fill_t',
+                'i_letters_circle_fill_u', 'i_letters_circle_fill_v', 'i_letters_circle_fill_w', 'i_letters_circle_fill_x',
+                'i_letters_circle_fill_y', 'i_letters_circle_fill_z',
+                'i_letters_square_a', 'i_letters_square_b', 'i_letters_square_c', 'i_letters_square_d',
+                'i_letters_square_e', 'i_letters_square_f', 'i_letters_square_g', 'i_letters_square_h',
+                'i_letters_square_i', 'i_letters_square_j', 'i_letters_square_k', 'i_letters_square_l',
+                'i_letters_square_m', 'i_letters_square_n', 'i_letters_square_o', 'i_letters_square_p',
+                'i_letters_square_q', 'i_letters_square_r', 'i_letters_square_s', 'i_letters_square_t',
+                'i_letters_square_u', 'i_letters_square_v', 'i_letters_square_w', 'i_letters_square_x',
+                'i_letters_square_y', 'i_letters_square_z',
+                'i_letters_square_fill_a', 'i_letters_square_fill_b', 'i_letters_square_fill_c', 'i_letters_square_fill_d',
+                'i_letters_square_fill_e', 'i_letters_square_fill_f', 'i_letters_square_fill_g', 'i_letters_square_fill_h',
+                'i_letters_square_fill_i', 'i_letters_square_fill_j', 'i_letters_square_fill_k', 'i_letters_square_fill_l',
+                'i_letters_square_fill_m', 'i_letters_square_fill_n', 'i_letters_square_fill_o', 'i_letters_square_fill_p',
+                'i_letters_square_fill_q', 'i_letters_square_fill_r', 'i_letters_square_fill_s', 'i_letters_square_fill_t',
+                'i_letters_square_fill_u', 'i_letters_square_fill_v', 'i_letters_square_fill_w', 'i_letters_square_fill_x',
+                'i_letters_square_fill_y', 'i_letters_square_fill_z'
+            ],
+            game: [
+                'i_game_cards', 'i_game_dices', 'i_game_dices_fill',
+                'i_game_dice_0', 'i_game_dice_0_fill',
+                'i_game_dice_1', 'i_game_dice_1_fill',
+                'i_game_dice_2', 'i_game_dice_2_fill',
+                'i_game_dice_3', 'i_game_dice_3_fill',
+                'i_game_dice_4', 'i_game_dice_4_fill',
+                'i_game_dice_5', 'i_game_dice_5_fill',
+                'i_game_dice_6', 'i_game_dice_6_fill'
+            ],
+            time: [
+                'i_time_alarm_fill', 'i_time_clock', 'i_time_clock_fill', 'i_time_clock_history',
+                'i_time_clock_mantelpiece', 'i_time_clock_mantelpiece_fill', 'i_time_is_money',
+                'i_time_stopwatch_00', 'i_time_stopwatch_01', 'i_time_stopwatch_02', 'i_time_stopwatch_03',
+                'i_time_stopwatch_04', 'i_time_stopwatch_05', 'i_time_stopwatch_06', 'i_time_stopwatch_07',
+                'i_time_stopwatch_08', 'i_time_stopwatch_fill', 'i_time_timer_fill',
+                'i_time_clock_0000_fill', 'i_time_clock_0030_fill', 'i_time_clock_0100_fill', 'i_time_clock_0130_fill',
+                'i_time_clock_0200_fill', 'i_time_clock_0230_fill', 'i_time_clock_0300_fill', 'i_time_clock_0330_fill',
+                'i_time_clock_0400_fill', 'i_time_clock_0430_fill', 'i_time_clock_0500_fill', 'i_time_clock_0530_fill',
+                'i_time_clock_0600_fill', 'i_time_clock_0630_fill', 'i_time_clock_0700_fill', 'i_time_clock_0730_fill',
+                'i_time_clock_0800_fill', 'i_time_clock_0830_fill', 'i_time_clock_0900_fill', 'i_time_clock_0930_fill',
+                'i_time_clock_1000_fill', 'i_time_clock_1030_fill', 'i_time_clock_1100_fill', 'i_time_clock_1130_fill',
+                'i_time_clock_0000_square', 'i_time_clock_0030_square', 'i_time_clock_0100_square', 'i_time_clock_0130_square',
+                'i_time_clock_0200_square', 'i_time_clock_0230_square', 'i_time_clock_0300_square', 'i_time_clock_0330_square',
+                'i_time_clock_0400_square', 'i_time_clock_0430_square', 'i_time_clock_0500_square', 'i_time_clock_0530_square',
+                'i_time_clock_0600_square', 'i_time_clock_0630_square', 'i_time_clock_0700_square', 'i_time_clock_0730_square',
+                'i_time_clock_0800_square', 'i_time_clock_0830_square', 'i_time_clock_0900_square', 'i_time_clock_0930_square',
+                'i_time_clock_1000_square', 'i_time_clock_1030_square', 'i_time_clock_1100_square', 'i_time_clock_1130_square'
+            ],
+            'file types': [
+                'i_file_type_3dm', 'i_file_type_3gp', 'i_file_type_aac', 'i_file_type_ai',
+                'i_file_type_aspx', 'i_file_type_avi', 'i_file_type_bib', 'i_file_type_bin',
+                'i_file_type_blend', 'i_file_type_bmp', 'i_file_type_cs', 'i_file_type_css',
+                'i_file_type_csv', 'i_file_type_dll', 'i_file_type_dmg', 'i_file_type_doc',
+                'i_file_type_docx', 'i_file_type_dwg', 'i_file_type_eml', 'i_file_type_eot',
+                'i_file_type_exe', 'i_file_type_gh', 'i_file_type_gif', 'i_file_type_git',
+                'i_file_type_hbs', 'i_file_type_heic', 'i_file_type_html', 'i_file_type_ico',
+                'i_file_type_indd', 'i_file_type_ini', 'i_file_type_iso', 'i_file_type_jar',
+                'i_file_type_java', 'i_file_type_jinja', 'i_file_type_jpg', 'i_file_type_js',
+                'i_file_type_json', 'i_file_type_jsx', 'i_file_type_key', 'i_file_type_m4p',
+                'i_file_type_md', 'i_file_type_mdx', 'i_file_type_mkv', 'i_file_type_mov',
+                'i_file_type_mp3', 'i_file_type_mp4', 'i_file_type_mpg', 'i_file_type_msi',
+                'i_file_type_obj', 'i_file_type_ogg', 'i_file_type_otf', 'i_file_type_pdf',
+                'i_file_type_php', 'i_file_type_png', 'i_file_type_ppt', 'i_file_type_pptx',
+                'i_file_type_psd', 'i_file_type_psql', 'i_file_type_py', 'i_file_type_qgs',
+                'i_file_type_rar', 'i_file_type_raw', 'i_file_type_rb', 'i_file_type_ris',
+                'i_file_type_rtf', 'i_file_type_sass', 'i_file_type_scss', 'i_file_type_sh',
+                'i_file_type_shp', 'i_file_type_skp', 'i_file_type_sql', 'i_file_type_stl',
+                'i_file_type_svg', 'i_file_type_tar', 'i_file_type_tex', 'i_file_type_tiff',
+                'i_file_type_tmp', 'i_file_type_ts', 'i_file_type_tsx', 'i_file_type_ttf',
+                'i_file_type_txt', 'i_file_type_wav', 'i_file_type_webp', 'i_file_type_woff',
+                'i_file_type_woff2', 'i_file_type_xls', 'i_file_type_xlsx', 'i_file_type_yml', 'i_file_type_zip'
+            ],
+            transport: [
+                'i_transport_airport', 'i_transport_anchor', 'i_transport_bicycle', 'i_transport_bicycle_storage',
+                'i_transport_boat', 'i_transport_bridge', 'i_transport_bridge_02', 'i_transport_bus',
+                'i_transport_camper', 'i_transport_camper_02', 'i_transport_car', 'i_transport_car_rental',
+                'i_transport_cargo_ship', 'i_transport_cargo_ship_02', 'i_transport_crane_truck',
+                'i_transport_electric_car', 'i_transport_excavator', 'i_transport_ferry', 'i_transport_ferry_vehicle',
+                'i_transport_fire_truck', 'i_transport_garbage_truck', 'i_transport_gas_station', 'i_transport_gondola',
+                'i_transport_helicopter', 'i_transport_highway', 'i_transport_hot_air_balloon', 'i_transport_jeep',
+                'i_transport_maintenance', 'i_transport_metro', 'i_transport_motorcycle', 'i_transport_motorcycle_02',
+                'i_transport_no_parking', 'i_transport_nuclear_waste', 'i_transport_package_truck', 'i_transport_parking',
+                'i_transport_quad_bike', 'i_transport_roundabout', 'i_transport_sailboat', 'i_transport_scooter',
+                'i_transport_scooter_02', 'i_transport_submarine', 'i_transport_taxi', 'i_transport_taxi_02',
+                'i_transport_taxi_boat', 'i_transport_taxi_bus', 'i_transport_tractor', 'i_transport_traffic_light',
+                'i_transport_train', 'i_transport_tram', 'i_transport_tram_02', 'i_transport_tram_03',
+                'i_transport_truck', 'i_transport_truck_02', 'i_transport_truck_03', 'i_transport_ufo', 'i_transport_walking'
+            ],
+            travel: [
+                'i_travel_bar', 'i_travel_cafe', 'i_travel_cathedral', 'i_travel_cloakroom', 'i_travel_customs',
+                'i_travel_daycare_center', 'i_travel_dollar', 'i_travel_earth', 'i_travel_elevator',
+                'i_travel_escalator_down', 'i_travel_escalator_up', 'i_travel_euro', 'i_travel_exchange_office',
+                'i_travel_exchange_office_02', 'i_travel_exit', 'i_travel_fire_extinguisher', 'i_travel_gift_shop',
+                'i_travel_hairdresser', 'i_travel_hotel', 'i_travel_hotel_lobby', 'i_travel_information',
+                'i_travel_information_02', 'i_travel_information_03', 'i_travel_kremlin', 'i_travel_lockers',
+                'i_travel_lost_and_found', 'i_travel_luggage', 'i_travel_luggage_belt', 'i_travel_luggage_trolley',
+                'i_travel_meeting_point', 'i_travel_no_access', 'i_travel_no_pets_allowed', 'i_travel_no_phones',
+                'i_travel_non_smokng_area', 'i_travel_nursery', 'i_travel_oxygen', 'i_travel_passport_control',
+                'i_travel_post_office', 'i_travel_pound', 'i_travel_public_telephone', 'i_travel_restaurant',
+                'i_travel_ruble', 'i_travel_russian_church', 'i_travel_safe', 'i_travel_security', 'i_travel_shops',
+                'i_travel_smoking_area', 'i_travel_stairs', 'i_travel_temple', 'i_travel_ticket_office',
+                'i_travel_toilet', 'i_travel_toilet_men', 'i_travel_toilet_women', 'i_travel_traveler',
+                'i_travel_usa', 'i_travel_waiting_area', 'i_travel_water_fountain', 'i_travel_wheelchair_accessible', 'i_travel_yuan'
+            ],
+            people: [
+                'i_people_and_heart', 'i_people_and_min', 'i_people_and_plus', 'i_people_and_star',
+                'i_people_arrow_growth', 'i_people_arrow_linear', 'i_people_circle',
+                'i_people_connection', 'i_people_connection_inner', 'i_people_family',
+                'i_people_heart', 'i_people_heart_02',
+                'i_people_person_lg', 'i_people_person_lm', 'i_people_person_md', 'i_people_person_ms',
+                'i_people_person_sm', 'i_people_person_us', 'i_people_person_xs',
+                'i_people_person_fill_lg', 'i_people_person_fill_lm', 'i_people_person_fill_md', 'i_people_person_fill_ms',
+                'i_people_person_fill_sm', 'i_people_person_fill_us', 'i_people_person_fill_xs',
+                'i_people_two_01', 'i_people_two_02', 'i_people_two_03',
+                'i_people_two_growth', 'i_people_two_linear', 'i_people_two_merged',
+                'i_people_three_03', 'i_people_three_diamond', 'i_people_three_growth',
+                'i_people_three_heart', 'i_people_three_lg', 'i_people_three_linear', 'i_people_three_star'
+            ],
+            nature: [
+                'i_nature_animal_bear', 'i_nature_animal_bull', 'i_nature_animal_camel', 'i_nature_animal_chicken',
+                'i_nature_animal_cow', 'i_nature_animal_dear', 'i_nature_animal_duck_01', 'i_nature_animal_duck_27',
+                'i_nature_animal_elephant', 'i_nature_animal_flamingo', 'i_nature_animal_fox', 'i_nature_animal_giraffe',
+                'i_nature_animal_gorilla', 'i_nature_animal_hippo', 'i_nature_animal_horse', 'i_nature_animal_kangaroo',
+                'i_nature_animal_koala', 'i_nature_animal_lama', 'i_nature_animal_leopard', 'i_nature_animal_lion',
+                'i_nature_animal_monkey', 'i_nature_animal_pelican', 'i_nature_animal_pig', 'i_nature_animal_rabbit',
+                'i_nature_animal_sheep', 'i_nature_animal_snake', 'i_nature_animal_squirrel', 'i_nature_animal_toucan', 'i_nature_animal_zebra',
+                'i_nature_animal_fill_beaver', 'i_nature_animal_fill_bull', 'i_nature_animal_fill_dog',
+                'i_nature_animal_fill_elephant', 'i_nature_animal_fill_fish', 'i_nature_animal_fill_flamingo',
+                'i_nature_animal_fill_goose', 'i_nature_animal_fill_pig', 'i_nature_animal_fill_polar_bear',
+                'i_nature_animal_fill_rhinoceros', 'i_nature_animal_fill_seal', 'i_nature_animal_fill_snake', 'i_nature_animal_fill_whale'
+            ],
+            map: [
+                'i_map_compass_n', 'i_map_compass_ne', 'i_map_compass_e', 'i_map_compass_se',
+                'i_map_compass_s', 'i_map_compass_sw', 'i_map_compass_w', 'i_map_compass_nw',
+                'i_map_compass_fill_n', 'i_map_compass_fill_ne', 'i_map_compass_fill_e', 'i_map_compass_fill_se',
+                'i_map_compass_fill_s', 'i_map_compass_fill_sw', 'i_map_compass_fill_w', 'i_map_compass_fill_nw',
+                'i_map_compass_circle_n', 'i_map_compass_circle_ne', 'i_map_compass_circle_e', 'i_map_compass_circle_se',
+                'i_map_compass_circle_s', 'i_map_compass_circle_sw', 'i_map_compass_circle_w', 'i_map_compass_circle_nw',
+                'i_map_compass_circle_fill_n', 'i_map_compass_circle_fill_ne', 'i_map_compass_circle_fill_e', 'i_map_compass_circle_fill_se',
+                'i_map_compass_circle_fill_s', 'i_map_compass_circle_fill_sw', 'i_map_compass_circle_fill_w', 'i_map_compass_circle_fill_nw',
+                'i_map_compass_stripe_n', 'i_map_compass_stripe_ne', 'i_map_compass_stripe_e', 'i_map_compass_stripe_se',
+                'i_map_compass_stripe_s', 'i_map_compass_stripe_sw', 'i_map_compass_stripe_w', 'i_map_compass_stripe_nw',
+                'i_map_globe_01', 'i_map_globe_01_tilt', 'i_map_globe_02', 'i_map_globe_02_tilt',
+                'i_map_globe_03', 'i_map_globe_03_tilt'
+            ],
+            badge: [
+                'i_badge_media_fullhd', 'i_badge_media_hd', 'i_badge_media_sd', 'i_badge_media_uhd',
+                'i_badge_media_hdtv', 'i_badge_media_sdtv', 'i_badge_media_vga', 'i_badge_media_hdmi',
+                'i_badge_media_mp3', 'i_badge_media_mp4', 'i_badge_media_h264',
+                'i_badge_media_vr', 'i_badge_media_xr',
+                'i_badge_media_fill_fullhd', 'i_badge_media_fill_hd', 'i_badge_media_fill_sd', 'i_badge_media_fill_uhd',
+                'i_badge_media_fill_hdtv', 'i_badge_media_fill_sdtv', 'i_badge_media_fill_vga', 'i_badge_media_fill_hdmi',
+                'i_badge_media_fill_mp3', 'i_badge_media_fill_mp4', 'i_badge_media_fill_h264',
+                'i_badge_media_fill_vr', 'i_badge_media_fill_xr',
+                'i_badge_country_us', 'i_badge_country_en', 'i_badge_country_de', 'i_badge_country_fr',
+                'i_badge_country_es', 'i_badge_country_it', 'i_badge_country_nl', 'i_badge_country_jp',
+                'i_badge_country_cn', 'i_badge_country_in', 'i_badge_country_ru',
+                'i_badge_country_fill_us', 'i_badge_country_fill_en', 'i_badge_country_fill_de', 'i_badge_country_fill_fr',
+                'i_badge_country_fill_es', 'i_badge_country_fill_it', 'i_badge_country_fill_nl', 'i_badge_country_fill_jp',
+                'i_badge_country_fill_cn', 'i_badge_country_fill_in', 'i_badge_country_fill_ru'
+            ],
+            data: [
+                'i_data_chart_pie_01', 'i_data_chart_pie_02', 'i_data_chart_pie_03', 'i_data_chart_pie_04',
+                'i_data_chart_pyramid_01', 'i_data_chart_pyramid_02', 'i_data_chart_pyramid_03',
+                'i_data_chart_radar_01'
+            ],
+            type: [
+                'i_type_123', 'i_type_abc_case_caps', 'i_type_abc_case_lower', 'i_type_abc_case_title',
+                'i_type_align_center', 'i_type_align_left', 'i_type_align_right',
+                'i_type_case', 'i_type_case_camel_lower', 'i_type_case_caps', 'i_type_case_lower', 'i_type_case_title',
+                'i_type_code', 'i_type_code_slash', 'i_type_font',
+                'i_type_justify_center', 'i_type_justify_left', 'i_type_justify_right',
+                'i_type_style_bold', 'i_type_style_italic', 'i_type_style_strikethrough', 'i_type_style_underline',
+                'i_type_style_subscript', 'i_type_style_superscript',
+                'i_type_style_h1', 'i_type_style_h2', 'i_type_style_h3', 'i_type_style_h4', 'i_type_style_h5', 'i_type_style_h6'
+            ],
+            weather: [
+                'i_weather_cloud', 'i_weather_cloud_02', 'i_weather_sun'
+            ],
+            science: [
+                'i_science_erlenmeyer', 'i_science_erlenmeyer_pour', 'i_science_vial', 'i_science_vial_two'
+            ],
+            design: [
+                'i_design_palette'
+            ],
+            solid: [
+                'i_solid_cube', 'i_solid_cube_02', 'i_solid_cube_arrow', 'i_solid_cube_scene', 'i_solid_cube_scene_02', 'i_solid_pyramid'
+            ],
+            logo: [
+                'i_logo_starling', 'i_logo_starling_md', 'i_logo_starling_sm', 'i_logo_starling_xl'
+            ]
+        };
+
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+
+        // Create an icon element
+        function createIconElement(iconClass) {
+            const item = document.createElement('div');
+            item.className = 'icon-item';
+            item.dataset.name = iconClass;
+            
+            const displayName = iconClass.replace('i_', '').replace(/_/g, ' ');
+            
+            item.innerHTML = `
+                <span class="i ${iconClass}"></span>
+                <span class="icon-name">${displayName}</span>
+            `;
+
+            item.addEventListener('click', () => {
+                navigator.clipboard.writeText(iconClass).then(() => {
+                    showToast(`Copied: ${iconClass}`);
+                });
+            });
+
+            return item;
+        }
+
+        // Filter icons based on search
+        function filterIcons(query) {
+            const items = document.querySelectorAll('.icon-item');
+            const q = query.toLowerCase().trim();
+            let visibleCount = 0;
+
+            items.forEach(item => {
+                const name = item.dataset.name.toLowerCase();
+                const match = !q || name.includes(q);
+                item.classList.toggle('hidden', !match);
+                if (match) visibleCount++;
+            });
+
+            // Show/hide category sections based on visible icons
+            document.querySelectorAll('.category').forEach(cat => {
+                const visibleItems = cat.querySelectorAll('.icon-item:not(.hidden)');
+                cat.style.display = visibleItems.length ? 'block' : 'none';
+            });
+
+            // Show no results message if needed
+            let noResults = document.getElementById('no-results');
+            if (visibleCount === 0 && q) {
+                if (!noResults) {
+                    noResults = document.createElement('div');
+                    noResults.id = 'no-results';
+                    noResults.className = 'no-results';
+                    document.getElementById('icon-container').appendChild(noResults);
+                }
+                noResults.innerHTML = `<p>No icons found matching "<strong>${q}</strong>"</p>`;
+            } else if (noResults) {
+                noResults.remove();
+            }
+        }
+
+        // Update icon size
+        function updateIconSize(size) {
+            document.documentElement.style.setProperty('--icon-size', size);
+        }
+
+        // Initialize the page
+        function init() {
+            const container = document.getElementById('icon-container');
+            let totalIcons = 0;
+
+            // Render icons by category
+            for (const [category, icons] of Object.entries(iconsByCategory)) {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'category';
+                categoryDiv.innerHTML = `
+                    <div class="category-header">
+                        <h2 class="category-title">${category}</h2>
+                        <span class="category-count">${icons.length} icons</span>
+                    </div>
+                    <div class="icon-grid" id="grid-${category.replace(/\s+/g, '-')}"></div>
+                `;
+                container.appendChild(categoryDiv);
+
+                const grid = categoryDiv.querySelector('.icon-grid');
+                icons.forEach(iconClass => {
+                    grid.appendChild(createIconElement(iconClass));
+                    totalIcons++;
+                });
+            }
+
+            // Update stats
+            document.getElementById('total-icons').textContent = totalIcons;
+            document.getElementById('total-categories').textContent = Object.keys(iconsByCategory).length;
+
+            // Setup search
+            const searchInput = document.getElementById('search');
+            searchInput.addEventListener('input', (e) => filterIcons(e.target.value));
+
+            // Setup size select
+            const sizeSelect = document.getElementById('size');
+            sizeSelect.addEventListener('change', (e) => updateIconSize(e.target.value));
+        }
+
+        // Start
+        init();
+    </script>
+</body>
+</html>
