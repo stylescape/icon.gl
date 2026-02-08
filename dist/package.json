@@ -22,7 +22,7 @@
   ],
   "license": "MIT",
   "homepage": "https://www.icon.gl/",
-  "main": "js/index.js",
+  "main": "src/ts/index.ts",
   "types": "js/index.d.ts",
   "files": [
     "code-snippets/**/*.code-snippets",
@@ -46,9 +46,6 @@
     "ts/**/*.ts",
     "!.DS_Store"
   ],
-  "dependencies": {
-    "tslib": "^2.8.1"
-  },
   "author": "Lars van Vianen",
   "contributors": [
     "Scape Agency"
@@ -68,5 +65,8 @@
       "sass": "./scss/index.scss",
       "typescript": "./ts/index.ts"
     }
-  }
+  },
+  "module": "dist/js/icon.gl.js",
+  "style": "dist/css/icon.gl.css",
+  "sass": "src/scss/index.scss"
 }

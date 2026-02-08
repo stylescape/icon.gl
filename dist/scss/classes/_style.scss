@@ -5,7 +5,7 @@
 @use "../variables" as *;
 @use "../mixins" as *;
 
-/// 
+///
 /// Mixin: icon__span
 /// Applies container styling to an icon wrapper (`<span class="i">`).
 /// The container is square with a fixed aspect ratio and hosts a ::before glyph.
@@ -13,7 +13,7 @@
 /// @param {Color} $color - Icon color.
 /// @param {String} $margin - Margin around the icon container.
 /// @param {String} $padding - Padding inside the icon container.
-/// 
+///
 @mixin icon__span(
     $font_size: inherit,
     $color: $icon_color_default,
@@ -52,12 +52,12 @@
     }
 }
 
-/// 
+///
 /// Mixin: icon__glyph
 /// Styles the font-based glyph (icon character) used inside ::before or inline.
 /// @param {Number} $font_size - Icon size relative to container (default: 1.5em).
 /// @param {Color} $color - Icon color (inherits by default).
-/// 
+///
 @mixin icon__glyph($font_size: 1.5em,
     // $font_size: 1em,
     $color: $icon_color_default
@@ -72,7 +72,7 @@
     line-height: 1;
 
     color: $color;
-    
+
     display: inline;
     vertical-align: middle;
 
@@ -106,30 +106,30 @@
 // ============================================================================
 
 
-/// 
+///
 /// Base class for icon container
 /// @example <span class="i i_alert"></span>
-/// 
+///
 .i {
     @include icon__span();
 }
 
 
-/// 
+///
 /// Generate icon glyphs from the icon map
 /// @example .i_alert::before { content: "\e900"; }
-/// 
+///
 @each $icon, $codepoint in $icongl_map {
     .i_#{$icon}::before {
         content: $codepoint;
     }
 }
 
-/// 
+///
 /// Applies consistent icon font styling to pseudo-elements
 /// Matches all classes that start or include `i_`
 /// Ensures icons work without extra declarations
-/// 
+///
 .i::before,
 [class^="i_"]::before,
 [class*=" i_"]::before {
@@ -137,9 +137,9 @@
 }
 
 
-/// 
+///
 /// SVG fallback / modifier support
-/// 
+///
 .si {
     &.inline {
         width: 1.2em;
@@ -153,9 +153,9 @@
 }
 
 
-/// 
+///
 /// Square aspect-ratio SVG container
-/// 
+///
 .svg_container {
     display: inline-block;
     position: relative;

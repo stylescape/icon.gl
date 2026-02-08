@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864">
+  <g id="Layer_1" data-name="Layer 1">
+    <polygon points="665.83 297 432 162 198.17 297 432 432 665.83 297" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 24px;"/>
+    <polygon points="665.83 297 432 432 432 702 665.83 567 665.83 297" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 24px;"/>
+    <polygon points="198.17 297 198.17 567 432 702 432 432 198.17 297" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 24px;"/>
+  </g>
+  <g id="Layer_1_copy" data-name="Layer 1 copy">
+    <path d="M671.83,286.61l-233.83-135c-3.71-2.14-8.29-2.14-12,0l-233.83,135c-3.71,2.14-6,6.1-6,10.39v270c0,4.29,2.29,8.25,6,10.39l233.83,135c1.86,1.07,3.93,1.61,6,1.61s4.14-.54,6-1.61l233.83-135c3.71-2.14,6-6.1,6-10.39v-270c0-4.29-2.29-8.25-6-10.39ZM432,175.86l209.83,121.14-209.83,121.14-209.83-121.14,209.83-121.14ZM210.17,317.78l209.83,121.14v242.29l-209.83-121.14v-242.29ZM653.83,560.07l-209.83,121.14v-242.29l209.83-121.14v242.29Z" style="stroke-width: 0px;"/>
+  </g>
+</svg>

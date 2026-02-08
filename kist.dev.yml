@@ -1,13 +1,10 @@
-
 ---
-
 
 # =============================================================================
 # Options
 # =============================================================================
 
 options:
-
     mode: development
     live:
         enabled: false
@@ -20,129 +17,110 @@ options:
             - node_modules/**
     logLevel: debug
 
-
 # =============================================================================
 # Stages
 # =============================================================================
 
 stages:
+    - name: Build
+      description: "Build icon.gl assets"
+      steps:
+          # Clean dist directory
+          - name: CleanBuildDir
+            action: DirectoryCleanAction
+            options:
+                dirPath: "./dist"
 
-    # Preprocessing
-    # =========================================================================
-    -
-        name: Preprocessing
-        description: "Before starting a new build."
+          # Process SCSS - minified
+          - name: ProcessMainStyles
+            action: StyleProcessingAction
+            options:
+                inputFile: "./src/scss/index.scss"
+                outputFile: "./dist/css/icon.gl.min.css"
+                styleOption: "compressed"
 
-        steps:
+          # Process SCSS - expanded
+          - name: ProcessExpandedStyles
+            action: StyleProcessingAction
+            options:
+                inputFile: "./src/scss/index.scss"
+                outputFile: "./dist/css/icon.gl.css"
+                styleOption: "expanded"
 
-            # # Dirs Clean
-            # # -----------------------------------------------------------------
-            # -
-            #     name: CleanBuildDirStep
-            #     action: DirectoryCleanAction
-            #     options:
-            #         dirPath: "./dist"
+          # Copy LICENSE
+          - name: CopyLICENSE
+            action: FileCopyAction
+            options:
+                srcFile: "./LICENSE"
+                destDir: "./dist"
 
-            # # Dirs Clean
-            # # -----------------------------------------------------------------
-            # -   name: ProcessMainStyles
-            #     action: StyleProcessingAction
-            #     options:
-            #         inputFile: "./src/scss/index.scss"
-            #         outputFile: "./dist/css/unit.gl.min.css"
-            #         styleOption: "compressed"
-            # -
-            #     name: ProcessAdditionalStyles
-            #     action: StyleProcessingAction
-            #     options:
-            #         inputFile: "./src/scss/index.scss"
-            #         outputFile: "./dist/css/unit.gl.css"
-            #         styleOption: "expanded"
+          # Copy README
+          - name: CopyREADME
+            action: FileCopyAction
+            options:
+                srcFile: "./README.md"
+                destDir: "./dist"
 
-            # # Copy Files
-            # # -----------------------------------------------------------------
-            # -
-            #     name: CopyLICENSE
-            #     action: FileCopyAction
-            #     options:
-            #         srcFile: "./LICENSE"
-            #         destDir: "./dist"
-            # -
-            #     name: CopyREADME
-            #     action: FileCopyAction
-            #     options:
-            #         srcFile: "./README.md"
-            #         destDir: "./dist"
+          # Copy SCSS sources
+          - name: CopySrcSCSS
+            action: DirectoryCopyAction
+            options:
+                srcDir: "./src/scss"
+                destDir: "./dist/scss"
 
-            # # Copy Dirs
-            # # -----------------------------------------------------------------
-            # -
-            #     name: CopySrcSCSS
-            #     action: DirectoryCopyAction
-            #     options:
-            #         srcDir: "./src/scss"
-            #         destDir: "./dist/scss"
-            # -
-            #     name: CopySrcTS
-            #     action: DirectoryCopyAction
-            #     options:
-            #         srcDir: "./src/ts"
-            #         destDir: "./dist/ts"
+          # Copy TypeScript sources
+          - name: CopySrcTS
+            action: DirectoryCopyAction
+            options:
+                srcDir: "./src/ts"
+                destDir: "./dist/ts"
 
-            # Compile TS to JS
-            # -----------------------------------------------------------------
+          # Copy SVG sources
+          - name: CopySrcSVG
+            action: DirectoryCopyAction
+            options:
+                srcDir: "./src/svg"
+                destDir: "./dist/svg"
 
-            # -
-            #     name: Compile TS to JS
-            #     action: TypeScriptCompilerAction
-            #     options:
-            #         tsConfigPath: "./tsconfig.json"
-            #         filePaths:
-            #             - "src/ts/index.ts"
-            #             # - "src/utils.ts"
-            #         outputDir: "./dist/js"
-            #         compilerOptions:
-            #             target: "ES2020"
-            #             module: "CommonJS"
+          # Copy JSON sources
+          - name: CopySrcJSON
+            action: DirectoryCopyAction
+            options:
+                srcDir: "./src/json"
+                destDir: "./dist/json"
 
-            # Package.json
-            # -----------------------------------------------------------------
-            -
-                name: Package.json
-                action: PackageManagerAction
-                options:
-                    packageJsonPath: "./package.json"
-                    outputDir: "./dist"
-                    fields:
-                        - name
-                        - version
-                        - bin
-                        - dependencies
-                        - description
-                        - keywords
-                        - license
-                        - homepage
-                        - author
-                        - contributors
-                        - repository
-                        - funding
-                        - exports
-                    # customConfig:
-                    #     private: true
-                    #     scripts:
-                    #     start: "node index.js"
-                    #     build: "npm run build"
-                    #     devDependencies:
-                    #     typescript: "^5.0.0"
+          # NOTE: TypeScript compilation disabled - source files need .js extensions in imports
+          # - name: CompileTypeScript
+          #   action: TypeScriptCompilerAction
+          #   options:
+          #       tsConfigPath: "./tsconfig.json"
 
-            # Replace Version
-            # -----------------------------------------------------------------
-            -
-                name: ReplaceVersion
-                action: VersionWriteAction
-                options:
-                    files:
-                    -   path: "./CITATION.cff"
-                        key: "version: "
-                    -   path: "./VERSION"
-                        key: "v"
+          # Generate package.json for dist
+          - name: GeneratePackageJson
+            action: PackageManagerAction
+            options:
+                packageJsonPath: "./package.json"
+                outputDir: "./dist"
+                fields:
+                    - name
+                    - version
+                    - dependencies
+                    - description
+                    - keywords
+                    - license
+                    - homepage
+                    - author
+                    - contributors
+                    - repository
+                    - funding
+                    - exports
+
+          # Update version in files
+          - name: UpdateVersion
+            action: VersionWriteAction
+            options:
+                files:
+                    - path: "./CITATION.cff"
+                      key: "version: "
+                    - path: "./VERSION"
+                      key: "v"

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864">
+  <g id="Layer_1" data-name="Layer 1">
+    <polygon points="265.72 624 265.72 624 99.45 720 261.33 626.53 265.72 624" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 24px;"/>
+    <polyline points="99.45 720 265.72 624 265.72 624 265.72 432 432 336 432 336 432 144" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 24px;"/>
+    <polyline points="432 144 432 336 598.28 432 598.28 624 598.28 624 764.55 720" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 24px;"/>
+    <polyline points="764.55 720 598.28 624 432 720 265.72 624 261.33 626.53 99.45 720" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 24px;"/>
+    <polygon points="432 336 432 336 265.72 432 432 528 432 528 598.28 432 432 336" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 24px;"/>
+    <polygon points="432 528 432 528 432 528 432 528" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 24px;"/>
+    <rect x="432" y="528" width="0" height="0" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 24px;"/>
+    <polygon points="432 528 432 528 432 528 432 720 598.28 624 598.28 624 598.28 432 432 528" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 24px;"/>
+    <polygon points="265.72 432 265.72 624 265.72 624 432 720 432 528 432 528 265.72 432" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 24px;"/>
+  </g>
+  <g id="Layer_1_copy" data-name="Layer 1 copy">
+    <path d="M775.38,714.84s-.03-.07-.05-.11c-.67-1.39-1.62-2.65-2.81-3.71-.6-.53-1.26-1.01-1.97-1.42l-160.28-92.54v-185.07c0-4.29-2.29-8.25-6-10.39l-160.28-92.54v-185.07c0-6.63-5.37-12-12-12s-12,5.37-12,12v185.07l-160.28,92.54c-3.71,2.14-6,6.1-6,10.39v185.07l-160.28,92.54c-1.79,1.04-3.22,2.46-4.23,4.11-2.22,3.63-2.44,8.33-.16,12.28,0,0,0,.01.01.02.25.43.52.82.81,1.21.09.12.18.23.27.34.23.28.46.55.71.8.1.1.19.2.29.29.34.33.7.64,1.07.92.02.02.04.03.07.04.36.27.73.5,1.11.73.12.07.24.13.36.2.31.17.62.32.95.46.08.03.15.08.23.11.04.02.08.03.13.04.43.17.87.32,1.32.44.04.01.09.02.13.03.41.1.82.18,1.24.24.14.02.27.03.41.05.35.04.7.06,1.06.07.08,0,.17.02.25.02.04,0,.08,0,.12,0,.46,0,.92-.03,1.38-.09.05,0,.09-.02.14-.02.41-.06.82-.14,1.23-.24.14-.03.28-.08.42-.12.33-.1.66-.21.99-.33.13-.05.27-.1.4-.16.44-.19.88-.4,1.31-.64l160.28-92.54,160.28,92.54c.46.27.94.5,1.43.7,1.46.6,3.02.9,4.57.9s3.11-.3,4.57-.9c.49-.2.97-.44,1.43-.7l160.28-92.54,160.28,92.54c1.89,1.09,3.95,1.61,5.99,1.61,1.04,0,2.07-.13,3.06-.4,2.99-.79,5.67-2.72,7.34-5.61,1.67-2.88,1.99-6.17,1.18-9.15-.19-.69-.44-1.36-.75-2.01ZM290.26,431.69l141.74-81.84,141.74,81.84.53.31-142.28,82.14-142.28-82.14.53-.31ZM586.28,617.07l-142.28,82.14v-164.29l142.28-82.14v164.29ZM420,534.93v164.29l-142.28-82.14v-164.29l142.28,82.14Z" style="stroke-width: 0px;"/>
+  </g>
+</svg>

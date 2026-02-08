@@ -1,4 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.icon_ui_paper_list = void 0;
-exports.icon_ui_paper_list = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M669.31 720H204V144h387.43l77.88 77.51zM535.53 563.34H258.67v-25.33h276.86zm79.1-79.16H258.68v-25.27h355.95zm0-158.19H258.68v-25.27h355.95zm-79.1 79.1H258.67v-25.27h276.86zm63.45-217.98v27.03h27.16zm-25.33-17.78H229.33v525.34h414.65v-455.2h-70.33z"/></svg>`;

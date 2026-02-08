@@ -1,1 +1,0 @@
-export declare const icon_ui_document_list = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 864 864\"><path d=\"M144 724h580V144H144zm23.05-556.95h533.9v533.9h-533.9z\"/><path d=\"M239.9 569.55h388.2v23.05H239.9zm0-77.92H434v23.05H239.9zm0-156.76H434v23.05H239.9zm0 78.84h388.2v23.05H239.9zm0-138.31h388.2v23.05H239.9z\"/></svg>";
