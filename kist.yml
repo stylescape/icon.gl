@@ -86,7 +86,7 @@ stages:
             action: StyleProcessingAction
             options:
                 inputFile: "./src/scss/index.scss"
-                outputFile: "./dist/css/icon.css"
+                outputFile: "./dist/css/icon.gl.css"
                 styleOption: "expanded"
 
           # Minified CSS
@@ -94,7 +94,7 @@ stages:
             action: StyleProcessingAction
             options:
                 inputFile: "./src/scss/index.scss"
-                outputFile: "./dist/css/icon.min.css"
+                outputFile: "./dist/css/icon.gl.min.css"
                 styleOption: "compressed"
 
           # =====================================================================

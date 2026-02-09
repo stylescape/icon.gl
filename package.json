@@ -48,19 +48,15 @@
     "module": "dist/js/icon.gl.js",
     "style": "dist/css/icon.gl.css",
     "scripts": {
-        "build": "npm run build-compile && npm run build-process && npm run kist-build",
-        "build-compile": "tsc -p bin/tsconfig.json",
-        "build-process": "node bin/js/index.js",
-        "kist-build": "npx kist --config ./kist.yml",
-        "kist-watch": "npx kist --config ./kist.yml --live",
+        "build": "npx kist --config ./kist.yml",
+        "watch": "npx kist --config ./kist.yml --live",
         "dev": "vite",
-        "format": "npx prettier --write .",
-        "lint": "eslint 'src/**/*.ts' || true",
-        "prettify": "prettier --write 'src/**/*.ts'",
         "test": "vitest run",
         "test:watch": "vitest watch",
         "test:ui": "vitest --ui",
-        "test:coverage": "vitest run --coverage"
+        "test:coverage": "vitest run --coverage",
+        "format": "npx prettier --write .",
+        "lint": "eslint 'src/**/*.ts' || true"
     },
     "dependencies": {
         "@getkist/action-nunjucks": "^2.0.9",
