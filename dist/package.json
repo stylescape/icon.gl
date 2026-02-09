@@ -22,7 +22,7 @@
   ],
   "license": "MIT",
   "homepage": "https://www.icon.gl/",
-  "main": "src/ts/index.ts",
+  "main": "./dist/js/index.cjs",
   "types": "js/index.d.ts",
   "files": [
     "code-snippets/**/*.code-snippets",
@@ -62,11 +62,16 @@
   ],
   "exports": {
     ".": {
-      "sass": "./scss/index.scss",
-      "typescript": "./ts/index.ts"
-    }
+      "sass": "./src/scss/index.scss",
+      "types": "./dist/js/index.d.ts",
+      "import": "./dist/js/index.mjs",
+      "require": "./dist/js/index.cjs"
+    },
+    "./scss": "./dist/scss/index.scss",
+    "./css/icon.gl.css": "./dist/css/icon.gl.css",
+    "./css/icon.gl.min.css": "./dist/css/icon.gl.min.css"
   },
-  "module": "dist/js/icon.gl.js",
+  "module": "./dist/js/index.mjs",
   "style": "dist/css/icon.gl.css",
   "sass": "src/scss/index.scss"
 }

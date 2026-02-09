@@ -43,12 +43,14 @@
         }
     ],
     "type": "module",
-    "main": "src/ts/index.ts",
+    "main": "./dist/js/index.cjs",
+    "module": "./dist/js/index.mjs",
+    "types": "./dist/js/index.d.ts",
     "sass": "src/scss/index.scss",
-    "module": "dist/js/icon.gl.js",
     "style": "dist/css/icon.gl.css",
     "scripts": {
-        "build": "npx kist --config ./kist.yml",
+        "build": "npx kist --config ./kist.yml && npm run build:ts",
+        "build:ts": "tsup",
         "watch": "npx kist --config ./kist.yml --live",
         "dev": "vite",
         "test": "vitest run",
@@ -79,6 +81,7 @@
         "kist": "^0.1.60",
         "sass": "^1.97.3",
         "ts-node": "^10.9.1",
+        "tsup": "^8.5.1",
         "typescript": "^5.3.3",
         "vitest": "^4.0.16"
     },
@@ -88,8 +91,13 @@
     ],
     "exports": {
         ".": {
-            "sass": "./scss/index.scss",
-            "typescript": "./ts/index.ts"
-        }
+            "sass": "./src/scss/index.scss",
+            "types": "./dist/js/index.d.ts",
+            "import": "./dist/js/index.mjs",
+            "require": "./dist/js/index.cjs"
+        },
+        "./scss": "./dist/scss/index.scss",
+        "./css/icon.gl.css": "./dist/css/icon.gl.css",
+        "./css/icon.gl.min.css": "./dist/css/icon.gl.min.css"
     }
 }
