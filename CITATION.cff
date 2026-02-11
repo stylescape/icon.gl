@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 title: icon.gl
-version: 0.0.35
+version: 0.0.36
 date-released: 2024-07-01
 url: 'https://github.com/stylescape/icon.gl'
 message: >-
@@ -13,6 +13,8 @@ authors:
       email: lars@scape.agency
       affiliation: Scape Agency
       orcid: 'https://orcid.org/0000-0002-8790-8630'
+
+
 
 
 
