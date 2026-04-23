@@ -72,7 +72,7 @@ header p {
 .stat {
     background: var(--color-bg-lighter);
     padding: 1rem 1.5rem;
-    border-radius: 8px;
+    border-radius: 0;
     text-align: center;
 }
 
@@ -103,7 +103,7 @@ header p {
     align-items: center;
     background: var(--color-bg);
     border: 1px solid var(--color-border);
-    border-radius: 8px;
+    border-radius: 0;
     padding: 0.5rem 1rem;
     flex: 1;
     max-width: 400px;
@@ -138,7 +138,7 @@ header p {
     border: 1px solid var(--color-border);
     color: var(--color-text);
     padding: 0.5rem;
-    border-radius: 4px;
+    border-radius: 0;
     font-size: 0.9rem;
 }
 
@@ -170,7 +170,7 @@ main {
 .category-count {
     background: var(--color-bg-lighter);
     padding: 0.25rem 0.75rem;
-    border-radius: 20px;
+    border-radius: 0;
     font-size: 0.8rem;
     color: var(--color-text-muted);
 }
@@ -188,7 +188,7 @@ main {
     padding: 1rem 0.5rem;
     background: var(--color-bg-light);
     border: 1px solid transparent;
-    border-radius: 8px;
+    border-radius: 0;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -232,7 +232,7 @@ main {
     background: var(--color-primary);
     color: white;
     padding: 1rem 2rem;
-    border-radius: 8px;
+    border-radius: 0;
     font-weight: 500;
     opacity: 0;
     transition: all 0.3s ease;
