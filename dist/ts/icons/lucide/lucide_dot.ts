@@ -1,0 +1,1 @@
+export const icon_lucide_dot = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><circle cx="434.4" cy="434.4" r="24"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

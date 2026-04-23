@@ -1,0 +1,1 @@
+export const icon_lucide_bluetooth = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="m312 312 240 240 -120 120V192l120 120L312 552"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

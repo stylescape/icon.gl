@@ -1,0 +1,1 @@
+export const icon_lucide_play = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M264 264a48 48 0 0 1 72.19 -41.47l287.93 167.95a48 48 0 0 1 0.07 82.99l-288 168A48 48 0 0 1 264 600z"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

@@ -1,0 +1,1 @@
+export const icon_lucide_audio_waveform = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M192 456a48 48 0 0 0 48 -48V312a48 48 0 0 1 96 0v312a48 48 0 0 0 96 0V240a48 48 0 0 1 96 0v312a48 48 0 0 0 96 0v-96a48 48 0 0 1 48 -48"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

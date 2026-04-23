@@ -1,0 +1,1 @@
+export const icon_lucide_radical_bold = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M216 432h78.72a24 24 0 0 1 22.75 16.42l55.15 190.42a12 12 0 0 0 23.04 -1.06L475.68 258.5A24 24 0 0 1 499.01 240H648"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864">
+  <path d="M432 240V192"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M264 384v96a168.1 168.1 0 0 0 126.65 162.89c9.89 2.5 19.25 7.01 26.45 14.21L432 672l14.9 -14.9c7.2 -7.2 16.56 -11.71 26.45 -14.21a168.24 168.24 0 0 0 99 -70.54"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M600 384v80.23"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M432 432c-32.38 -13.75 -45.72 -24.12 -60 -48 -13.1 21.65 -25.15 32.47 -60 48 -24.43 -15.46 -35.04 -25.92 -48 -48 -24.67 17.04 -40.56 22.03 -72 24 25.94 -25.15 42.17 -48.72 48 -72 4.66 -18.62 20.16 -37.22 42.96 -53.04m279.7 143.93c21.29 -10.97 30.72 -21.38 37.34 -42.89 24.77 21.98 40.39 27.77 72 24 -31.13 -24.86 -42.19 -48.72 -48 -72 -12 -48 -96 -96 -192 -96 -17.76 0 -35.06 1.63 -51.6 4.61"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <line x1="192" x2="672" y1="192" y2="672"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
