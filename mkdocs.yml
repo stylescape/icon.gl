@@ -154,12 +154,11 @@ markdown_extensions:
   #     repo: mkdocs-material
   # - pymdownx.mark
   # - pymdownx.smartsymbols
-  - pymdownx.superfences:
-        # make exceptions to highlighting of code:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:mermaid2.fence_mermaid_custom
+  # - pymdownx.superfences:
+  #     custom_fences:
+  #       - name: mermaid
+  #         class: mermaid
+  #         format: !!python/name:mermaid2.fence_mermaid_custom
   # - pymdownx.tabbed:
   #     alternate_style: true
   # - pymdownx.tasklist:

@@ -20,8 +20,7 @@ describe('Build Process Tests', () => {
         const pkg = JSON.parse(content);
 
         expect(pkg.scripts.build).toBeTruthy();
-        expect(pkg.scripts['build-compile']).toBeTruthy();
-        expect(pkg.scripts['build-process']).toBeTruthy();
+        expect(pkg.scripts['build:ts']).toBeTruthy();
     });
 
     it('should have test scripts configured', async () => {
