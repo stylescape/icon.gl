@@ -1504,3 +1504,6 @@ export * from './icons/ui_update_sm';
 export * from './icons/weather_cloud';
 export * from './icons/weather_cloud_02';
 export * from './icons/weather_sun';
+
+// Lucide Icons (normal + bold variants)
+export * from './icons/lucide';

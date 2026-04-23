@@ -1,0 +1,1 @@
+export const icon_lucide_slice_bold = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M408 542.06V600a24 24 0 0 1 -24 24H192L584.88 231.12a24 24 0 1 1 72 72l-231.91 231.91a24 24 0 0 1 -33.94 0L336 480"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>icon.gl - Development</title>
+    <link rel="stylesheet" href="/dist/css/icon.gl.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+        h1 span { color: #646cff; }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .stat { text-align: center; }
+        .stat-value { font-size: 1.5rem; font-weight: bold; color: #646cff; }
+        .stat-label { font-size: 0.75rem; color: #888; }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            background: #0a0a0a;
+            padding: 1rem 0;
+            z-index: 100;
+        }
+        input, select {
+            padding: 0.5rem 1rem;
+            border: 1px solid #333;
+            border-radius: 6px;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            font-size: 1rem;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #646cff;
+        }
+        #search { width: 300px; }
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 0.5rem;
+            contain: layout style;
+        }
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 0.5rem;
+            background: #1a1a1a;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.15s, transform 0.15s;
+            /* Critical for performance with many items */
+            content-visibility: auto;
+            contain-intrinsic-size: 100px 90px;
+        }
+        .icon-item:hover {
+            background: #252525;
+            transform: translateY(-2px);
+        }
+        .icon-item .icon-svg {
+            width: var(--icon-size, 2rem);
+            height: var(--icon-size, 2rem);
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        .icon-item .icon-svg svg {
+            width: 100%;
+            height: 100%;
+            stroke: white;
+            fill: white;
+        }
+        .icon-item span {
+            font-size: 0.65rem;
+            color: #888;
+            text-align: center;
+            word-break: break-all;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #646cff;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #666;
+        }
+        footer a { color: #646cff; text-decoration: none; }
+        .status-bar {
+            text-align: center;
+            color: #888;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>icon<span>.gl</span></h1>
+        <p>Development Server</p>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value" id="total-icons">-</div>
+                <div class="stat-label">Icons</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="total-categories">-</div>
+                <div class="stat-label">Categories</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="controls">
+        <select id="category">
+            <option value="">All Categories</option>
+        </select>
+        <select id="weight">
+            <option value="normal" selected>Normal</option>
+            <option value="bold">Bold</option>
+        </select>
+        <input type="text" id="search" placeholder="Search icons...">
+        <select id="size">
+            <option value="1.5rem">Small</option>
+            <option value="2rem" selected>Medium</option>
+            <option value="3rem">Large</option>
+            <option value="4rem">X-Large</option>
+        </select>
+    </div>
+
+    <div class="status-bar" id="status">Loading icons...</div>
+    <main id="icon-container"></main>
+
+    <div class="toast" id="toast">Copied!</div>
+
+    <footer>
+        <p>icon.gl Development Server | <a href="/dist/svg/">Browse SVGs</a></p>
+    </footer>
+
+    <script type="module">
+        // Eagerly load ALL SVGs at build time using Vite's glob import
+        const svgModules = import.meta.glob('/dist/svg/**/*.svg', {
+            eager: true,
+            query: '?raw',
+            import: 'default'
+        });
+
+        // Create a map for fast lookup: name -> SVG content
+        const svgMap = new Map();
+        for (const [path, content] of Object.entries(svgModules)) {
+            // Extract filename without extension
+            // e.g., "/dist/svg/lucide/lucide_search.svg" -> "lucide_search"
+            // e.g., "/dist/svg/arrows/arrow_up.svg" -> "arrow_up"
+            const match = path.match(/\/([^/]+)\.svg$/);
+            if (match) {
+                svgMap.set(match[1], content);
+            }
+        }
+
+        console.log(`[icon.gl] Loaded ${svgMap.size} SVGs via import.meta.glob`);
+
+        // Load metadata
+        const [lucideMetadata, iconGlMetadata] = await Promise.all([
+            fetch('/dist/json/lucide/index.json').then(r => r.json()),
+            fetch('/dist/json/icongl/index.json').then(r => r.json())
+        ]);
+
+        const container = document.getElementById('icon-container');
+        const searchInput = document.getElementById('search');
+        const sizeSelect = document.getElementById('size');
+        const categorySelect = document.getElementById('category');
+        const weightSelect = document.getElementById('weight');
+        const statusEl = document.getElementById('status');
+        const toast = document.getElementById('toast');
+
+        // Build icon list from metadata
+        const allIcons = [];
+
+        // Add original icon.gl icons
+        for (const [cat, icons] of Object.entries(iconGlMetadata.categories)) {
+            for (const name of icons) {
+                allIcons.push({
+                    name,
+                    cleanName: name,
+                    category: cat,
+                    tags: [],
+                    source: 'icongl'
+                });
+            }
+        }
+
+        // Add Lucide icons (both weights)
+        for (const [baseName, data] of Object.entries(lucideMetadata.icons)) {
+            allIcons.push({
+                name: data.normal,
+                cleanName: baseName,
+                category: 'lucide',
+                tags: data.tags || [],
+                lucideCategories: data.categories || [],
+                source: 'lucide',
+                weight: 'normal'
+            });
+            allIcons.push({
+                name: data.bold,
+                cleanName: baseName,
+                category: 'lucide',
+                tags: data.tags || [],
+                lucideCategories: data.categories || [],
+                source: 'lucide',
+                weight: 'bold'
+            });
+        }
+
+        // Group by category
+        const iconsByCategory = {};
+        allIcons.forEach(icon => {
+            if (!iconsByCategory[icon.category]) iconsByCategory[icon.category] = [];
+            iconsByCategory[icon.category].push(icon);
+        });
+
+        // Populate category dropdown
+        const categories = Object.keys(iconsByCategory).sort();
+        categories.forEach(cat => {
+            const opt = document.createElement('option');
+            opt.value = cat;
+            const uniqueCount = iconsByCategory[cat].filter(i => i.weight !== 'bold').length;
+            opt.textContent = `${cat} (${uniqueCount})`;
+            categorySelect.appendChild(opt);
+        });
+
+        // Update stats
+        const uniqueIconCount = allIcons.filter(i => i.weight !== 'bold').length;
+        document.getElementById('total-icons').textContent = uniqueIconCount.toLocaleString();
+        document.getElementById('total-categories').textContent = categories.length;
+
+        // Render icons - all at once, browser handles visibility optimization
+        function renderIcons(filter = '') {
+            const size = sizeSelect.value;
+            const selectedCategory = categorySelect.value;
+            const selectedWeight = weightSelect.value;
+            document.documentElement.style.setProperty('--icon-size', size);
+
+            // Filter icons
+            const filteredIcons = allIcons.filter(icon => {
+                if (selectedCategory && icon.category !== selectedCategory) return false;
+                if (icon.source === 'lucide' && icon.weight !== selectedWeight) return false;
+                if (filter) {
+                    const searchLower = filter.toLowerCase();
+                    const matchesName = icon.cleanName.toLowerCase().includes(searchLower);
+                    const matchesTags = icon.tags.some(t => t.toLowerCase().includes(searchLower));
+                    if (!matchesName && !matchesTags) return false;
+                }
+                return true;
+            });
+
+            statusEl.textContent = `Showing ${filteredIcons.length.toLocaleString()} icons`;
+
+            // Use DocumentFragment for efficient DOM insertion
+            const fragment = document.createDocumentFragment();
+            const grid = document.createElement('div');
+            grid.className = 'icon-grid';
+
+            for (const icon of filteredIcons) {
+                const svg = svgMap.get(icon.name) || '<svg viewBox="0 0 864 864"><text x="432" y="432" text-anchor="middle" fill="#666">?</text></svg>';
+
+                const item = document.createElement('div');
+                item.className = 'icon-item';
+                item.innerHTML = `
+                    <div class="icon-svg">${svg}</div>
+                    <span>${icon.cleanName}</span>
+                `;
+                item.onclick = () => {
+                    navigator.clipboard.writeText(icon.name);
+                    toast.classList.add('show');
+                    setTimeout(() => toast.classList.remove('show'), 1500);
+                };
+                grid.appendChild(item);
+            }
+
+            fragment.appendChild(grid);
+            container.innerHTML = '';
+            container.appendChild(fragment);
+        }
+
+        // Debounce search for performance
+        let searchTimeout;
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => renderIcons(e.target.value), 150);
+        });
+
+        sizeSelect.addEventListener('change', () => renderIcons(searchInput.value));
+        categorySelect.addEventListener('change', () => renderIcons(searchInput.value));
+        weightSelect.addEventListener('change', () => renderIcons(searchInput.value));
+
+        // Initial render
+        renderIcons();
+    </script>
+</body>
+</html>

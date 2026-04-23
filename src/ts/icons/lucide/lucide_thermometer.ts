@@ -1,0 +1,1 @@
+export const icon_lucide_thermometer = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M480 240v252.96a96 96 0 1 1 -96 0V240a48 48 0 0 1 96 0Z"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

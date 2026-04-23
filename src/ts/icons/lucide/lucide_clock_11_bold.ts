@@ -1,0 +1,1 @@
+export const icon_lucide_clock_11_bold = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><circle cx="432" cy="432" r="240"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M432 288v144l-48 -96"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

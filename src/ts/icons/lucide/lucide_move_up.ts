@@ -1,0 +1,1 @@
+export const icon_lucide_move_up = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M336 288L432 192L528 288"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M432 192V672"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

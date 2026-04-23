@@ -1,0 +1,1 @@
+export const icon_lucide_omega = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M216 624h108a12 12 0 0 0 12 -12v-6.77a12.48 12.48 0 0 0 -5.93 -10.49 192 192 0 1 1 203.86 -0.02 12.48 12.48 0 0 0 -5.93 10.51v6.77a12 12 0 0 0 12 12H648"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

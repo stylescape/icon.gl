@@ -1,0 +1,1 @@
+export const icon_lucide_bookmark = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M552 216a48 48 0 0 1 48 48v360a24 24 0 0 1 -35.9 20.83l-108.29 -61.87a48 48 0 0 0 -47.62 0l-108.29 61.87A24 24 0 0 1 264 624V264a48 48 0 0 1 48 -48z"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

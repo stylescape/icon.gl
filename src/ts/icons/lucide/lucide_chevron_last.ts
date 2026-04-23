@@ -1,0 +1,1 @@
+export const icon_lucide_chevron_last = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="m312 576 144 -144 -144 -144"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M552 288v288"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864">
+  <path d="m192 672 240 -240"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="m528 336 -28.08 28.08"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M227.28 444.72 264 408l36.72 36.72a84 84 0 0 1 0 118.56L264 600l-36.72 -36.72a84 84 0 0 1 0 -118.56Z"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="m336 336 -12.72 12.72a84 84 0 0 0 0 118.56L360 504l36.72 -36.72c13.2 -13.2 21.12 -30 23.52 -47.28"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M405.84 270.24c3.6 -6.24 8.16 -12.24 13.44 -17.52L456 216l36.72 36.72a84 84 0 0 1 6.72 110.88"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M624 192h48v48a96 96 0 0 1 -96 96h-48V288a96 96 0 0 1 96 -96Z"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M419.28 563.28 456 600l-36.72 36.72a84 84 0 0 1 -118.56 0L264 600l36.72 -36.72a84 84 0 0 1 118.56 0Z"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="m528 528 -12.72 12.72a84 84 0 0 1 -118.56 0L360 504l36.72 -36.72a83.76 83.76 0 0 1 47.28 -23.52"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M593.76 458.16c6.24 -3.6 12.24 -8.16 17.52 -13.44L648 408l-36.72 -36.72a84 84 0 0 0 -110.88 -6.72"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <line x1="192" x2="672" y1="192" y2="672"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
