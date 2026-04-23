@@ -3,10 +3,8 @@
 # =============================================================================
 # icon.gl Production Build Configuration
 # =============================================================================
-# This kist configuration replaces the build functionality from bin/ts/index.ts
-# Run with: npx kist --config ./kist.pro.yml
-#
-# All steps are in a single stage to ensure sequential execution.
+# Simplified configuration focusing on available Kist actions
+# Includes icon font generation from SVG files
 # =============================================================================
 
 options:
@@ -16,7 +14,7 @@ options:
     logLevel: info
 
 # =============================================================================
-# Build Pipeline (Single Stage for Sequential Execution)
+# Build Pipeline
 # =============================================================================
 
 stages:
@@ -24,7 +22,7 @@ stages:
       description: "Build icon.gl assets"
       steps:
           # =====================================================================
-          # 1. Clean
+          # 1. Clean Distribution Directory
           # =====================================================================
           - name: CleanDistDirectory
             action: DirectoryCleanAction
@@ -32,7 +30,7 @@ stages:
                 dirPath: "./dist"
 
           # =====================================================================
-          # 2. Create Directory Structure
+          # 2. Create Distribution Directory Structure
           # =====================================================================
           - name: CreateDistDirs
             action: DirectoryCreateAction
@@ -40,8 +38,6 @@ stages:
                 basePath: "./dist"
                 directories:
                     - svg
-                    - png
-                    - sprite
                     - font
                     - css
                     - scss
@@ -52,97 +48,62 @@ stages:
                     - md
 
           # =====================================================================
-          # 3. Process SVG Files
+          # 3. Copy SVG Source Files
           # =====================================================================
-          # NOTE: For full SVG processing (optimization, TypeScript generation,
-          # sprite generation with recursive directories), use the original
-          # bin/js/index.js script via:
-          #   npm run build-compile && npm run build-process
-          #
-          # The kist SVG actions currently have the following limitations:
-          # - SvgPackagerAction: timing issues with large file sets
-          # - SvgSpriteAction: doesn't search subdirectories recursively
-          #
-          # For now, kist handles: copying, SCSS, templates, packaging
-          
-          # Copy SVG files (preserves directory structure)
           - name: CopySvgFiles
             action: DirectoryCopyAction
             options:
                 srcDir: "./src/svg"
                 destDir: "./dist/svg"
 
-          # For full SVG processing, uncomment and use RunScriptAction:
-          # - name: ProcessSvgWithScript
-          #   action: RunScriptAction
-          #   options:
-          #       command: "npm run build-compile && npm run build-process"
-
           # =====================================================================
-          # 4. Process Styles
+          # 4. Generate Icon Fonts from SVG
           # =====================================================================
-          # Expanded CSS
-          - name: CompileScssExpanded
-            action: StyleProcessingAction
+          - name: GenerateIconFonts
+            action: FantasticonAction
             options:
-                inputFile: "./src/scss/index.scss"
-                outputFile: "./dist/css/icon.gl.css"
-                styleOption: "expanded"
-
-          # Minified CSS
-          - name: CompileScssMinified
-            action: StyleProcessingAction
-            options:
-                inputFile: "./src/scss/index.scss"
-                outputFile: "./dist/css/icon.gl.min.css"
-                styleOption: "compressed"
+                inputDir: "./src/svg"
+                outputDir: "./dist/font"
+                fontName: "icon.gl"
+                classPrefix: "icon"
+                formats:
+                    - woff2
+                    - woff
+                typescript: true
 
           # =====================================================================
           # 5. Copy Source Files
           # =====================================================================
-          # Copy TypeScript sources
           - name: CopyTypeScriptSources
             action: DirectoryCopyAction
             options:
                 srcDir: "./src/ts"
                 destDir: "./dist/ts"
 
-          # Copy SCSS sources
           - name: CopyScssSources
             action: DirectoryCopyAction
             options:
                 srcDir: "./src/scss"
                 destDir: "./dist/scss"
 
-          # Copy Font files
-          - name: CopyFontFiles
-            action: DirectoryCopyAction
-            options:
-                srcDir: "./src/font"
-                destDir: "./dist/font"
-
-          # Copy HTML files
           - name: CopyHtmlFiles
             action: DirectoryCopyAction
             options:
                 srcDir: "./src/html"
                 destDir: "./dist/html"
 
-          # Copy JSON files
           - name: CopyJsonFiles
             action: DirectoryCopyAction
             options:
                 srcDir: "./src/json"
                 destDir: "./dist/json"
 
-          # Copy README
           - name: CopyReadme
             action: FileCopyAction
             options:
                 srcFile: "./README.md"
                 destDir: "./dist"
 
-          # Copy LICENSE
           - name: CopyLicense
             action: FileCopyAction
             options:
@@ -150,21 +111,8 @@ stages:
                 destDir: "./dist"
 
           # =====================================================================
-          # 6. Generate Documentation
+          # 6. Finalize
           # =====================================================================
-          - name: GenerateIconMarkdown
-            action: TemplateRenderAction
-            options:
-                templatePath: "./src/jinja/icon.gl.md.jinja"
-                outputPath: "./dist/md/icon.gl.md"
-                context:
-                    title: "icon.gl Icons"
-                    version: "0.0.35"
-
-          # =====================================================================
-          # 7. Finalize
-          # =====================================================================
-          # Generate package.json for dist
           - name: GeneratePackageJson
             action: PackageManagerAction
             options:
@@ -187,7 +135,6 @@ stages:
                     - style
                     - sass
 
-          # Update version in files
           - name: UpdateVersionFiles
             action: VersionWriteAction
             options:
