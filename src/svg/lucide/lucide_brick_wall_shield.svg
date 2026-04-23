@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864">
+  <path d="M432 360v30.19"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M528 216v131.04"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M648 362.83V264a48 48 0 0 0 -48 -48H264a48 48 0 0 0 -48 48v336a48 48 0 0 0 48 48h138"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M672 564c0 59.98 -42 89.98 -91.92 107.38a12 12 0 0 1 -8.04 -0.12c-50.04 -17.28 -92.04 -47.28 -92.04 -107.28V480a12 12 0 0 1 12 -11.98c24 0 54 -14.4 74.88 -32.64a14.4 14.4 0 0 1 18.24 -0.02c21 18.36 50.88 32.64 74.88 32.64a12 12 0 0 1 12 12z"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M216 504h168"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M216 360h291.41"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M336 504v144"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M336 216v144"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

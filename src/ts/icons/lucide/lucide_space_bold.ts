@@ -1,0 +1,1 @@
+export const icon_lucide_space_bold = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M672 552v24c0 12 -12 24 -24 24H216c-12 0 -24 -12 -24 -24v-24"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

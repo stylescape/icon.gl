@@ -1,0 +1,77 @@
+---
+
+# =============================================================================
+# icon.gl Development Build Configuration
+# =============================================================================
+# Fast rebuild for development - skips cleaning and non-essential steps
+# Run with: npx kist --config ./kist.dev.yml
+# =============================================================================
+
+options:
+    mode: development
+    live:
+        enabled: false
+    logLevel: warn
+
+# =============================================================================
+# Development Pipeline (Fast Incremental Build)
+# =============================================================================
+
+stages:
+    - name: DevBuild
+      description: "Fast development build"
+      steps:
+          # =====================================================================
+          # 1. Create Directory Structure (if missing)
+          # =====================================================================
+          - name: CreateDistDirs
+            action: DirectoryCreateAction
+            options:
+                basePath: "./dist"
+                directories:
+                    - svg
+                    - css
+                    - scss
+                    - ts
+                    - js
+                    - html
+
+          # =====================================================================
+          # 2. Copy SVG Files
+          # =====================================================================
+          - name: CopySvgFiles
+            action: DirectoryCopyAction
+            options:
+                srcDir: "./src/svg"
+                destDir: "./dist/svg"
+
+          # =====================================================================
+          # 3. Process Styles (expanded only for dev)
+          # =====================================================================
+          - name: CompileScss
+            action: StyleProcessingAction
+            options:
+                inputFile: "./src/scss/index.scss"
+                outputFile: "./dist/css/icon.gl.css"
+                styleOption: "expanded"
+
+          # =====================================================================
+          # 4. Copy Source Files
+          # =====================================================================
+          - name: CopyTypeScriptSources
+            action: DirectoryCopyAction
+            options:
+                srcDir: "./src/ts"
+                destDir: "./dist/ts"
+
+          - name: CopyScssSources
+            action: DirectoryCopyAction
+            options:
+                srcDir: "./src/scss"
+                destDir: "./dist/scss"
+
+          - name: CopyHtmlFiles
+            action: DirectoryCopyAction
+            options:
+                srcDir: "./src/html"
+                destDir: "./dist/html"

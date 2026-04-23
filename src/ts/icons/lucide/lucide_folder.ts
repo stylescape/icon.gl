@@ -1,0 +1,1 @@
+export const icon_lucide_folder = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M624 624a48 48 0 0 0 48 -48V336a48 48 0 0 0 -48 -48h-189.6a48 48 0 0 1 -40.56 -21.6L374.4 237.6A48 48 0 0 0 334.32 216H240a48 48 0 0 0 -48 48v312a48 48 0 0 0 48 48Z"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

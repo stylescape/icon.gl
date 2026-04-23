@@ -1,0 +1,1 @@
+export const icon_lucide_check_bold = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M624 288 360 552l-120 -120"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

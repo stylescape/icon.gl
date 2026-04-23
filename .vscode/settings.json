@@ -398,7 +398,7 @@
     "workbench.commandPalette.history": 50,
     // ...
     "workbench.editor.enablePreview": false,
-    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.colorTheme": "Dark Modern",
     "workbench.iconTheme": "vscode-icons",
     // ...
     // ========================================================================
@@ -708,5 +708,6 @@
         "warning": "Warning",
         "info": "Information"
     },
-    "cSpell.enabled": false
+    "cSpell.enabled": false,
+    "liveServer.settings.port": 5501
 }

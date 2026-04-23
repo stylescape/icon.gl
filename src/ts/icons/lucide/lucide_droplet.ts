@@ -1,0 +1,1 @@
+export const icon_lucide_droplet = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M432 672a168 168 0 0 0 168 -168c0 -48 -24 -93.6 -72 -132s-84 -96 -96 -156c-12 60 -48 117.6 -96 156C288 410.4 264 456 264 504a168 168 0 0 0 168 168z"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

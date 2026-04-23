@@ -1,0 +1,1 @@
+export const icon_lucide_blend_bold = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><circle cx="360" cy="360" r="168"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="504" cy="504" r="168"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

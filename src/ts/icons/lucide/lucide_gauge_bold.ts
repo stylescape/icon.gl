@@ -1,0 +1,1 @@
+export const icon_lucide_gauge_bold = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="m432 480 96 -96"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M224.16 600a240 240 0 1 1 415.68 0"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;
