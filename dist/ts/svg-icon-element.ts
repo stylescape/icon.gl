@@ -4,7 +4,7 @@
 
 "use strict";
 
-import "./style/svg-icon-element.less";
+// import "./style/svg-icon-element.less"; // TODO: Add styles when needed
 
 
 // ============================================================================

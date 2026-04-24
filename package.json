@@ -1,7 +1,7 @@
 {
     "name": "icon.gl",
     "description": "icon.gl is a icon library and framework developed by Scape Agency.",
-    "version": "0.0.41",
+    "version": "0.0.42",
     "config": {
         "version_short": "0.0"
     },
@@ -50,7 +50,9 @@
     "style": "dist/css/icon.gl.css",
     "scripts": {
         "build": "npx kist --config ./kist.yml && npm run build:ts",
-        "build:ts": "tsup",
+        "build:ts": "npm run build:js && npm run build:dts",
+        "build:js": "tsup",
+        "build:dts": "NODE_OPTIONS=--max-old-space-size=4096 tsc --declaration --emitDeclarationOnly --outDir dist/js --skipLibCheck",
         "watch": "npx kist --config ./kist.yml --live",
         "dev": "vite",
         "test": "vitest run",
