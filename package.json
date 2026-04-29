@@ -1,7 +1,7 @@
 {
     "name": "icon.gl",
     "description": "icon.gl is a icon library and framework developed by Scape Agency.",
-    "version": "0.0.44",
+    "version": "0.0.45",
     "config": {
         "version_short": "0.0"
     },
@@ -31,10 +31,10 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/scape-agency/icon.gl.git"
+        "url": "git+https://github.com/stylescape/icon.gl.git"
     },
     "bugs": {
-        "url": "https://github.com/scape-agency/icon.gl/issues"
+        "url": "https://github.com/stylescape/icon.gl/issues"
     },
     "funding": [
         {
