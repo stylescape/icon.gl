@@ -3,31 +3,28 @@ name: Publish Package
 on:
   push:
     tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'
+      - "v[0-9]+.[0-9]+.[0-9]+"
 
+permissions:
+  id-token: write # Required for OIDC trusted publishing
+  contents: write # Required for creating releases
+  packages: write # Required for GitHub Packages
 
 jobs:
-
-
-# =============================================================================
-# Build
-# =============================================================================
+  # =============================================================================
+  # Build
+  # =============================================================================
 
   build:
-
     name: Build
 
     runs-on: ubuntu-latest
 
     steps:
-
-
-      -
-        name: Checkout
+      - name: Checkout
         uses: actions/checkout@v6
 
-      -
-        name: Setup Node
+      - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: 22.x
@@ -36,45 +33,39 @@ jobs:
       #   id: check
       #   uses: EndBug/version-check@v2
 
-      -
-        name: NPM Install
+      - name: NPM Install
         # if: steps.check.outputs.changed == 'true'
         run: |
-          npm clean-install
+          rm -rf node_modules package-lock.json
+          npm install
 
       # -
       #   name: NPM Run Lint
       #   run: |
       #     npm run lint --if-present
 
-      -
-        name: NPM Run Test
+      - name: NPM Run Test
         run: |
           npm run test --if-present
 
-      -
-        name: NPM Run Build
+      - name: NPM Run Build
         run: |
           npm run build --if-present
 
-      -
-        name: Zip dist & node_modules
+      - name: Zip dist & node_modules
         run: zip -9qry "build.zip" "./" -i "node_modules/*" -i "dist/*"
 
-      -
-        name: Upload build.zip
+      - name: Upload build.zip
         uses: actions/upload-artifact@v7
         with:
           name: build.zip
           path: build.zip
 
-
-# =============================================================================
-# Create a GitHub Release
-# =============================================================================
+  # =============================================================================
+  # Create a GitHub Release
+  # =============================================================================
 
   release:
-
     name: Create GitHub Release
 
     needs: build
@@ -82,19 +73,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-      -
-        name: Checkout
+      - name: Checkout
         uses: actions/checkout@master
 
-      -
-        name: Download build.zip
-        uses: actions/download-artifact@v8
+      - name: Download build.zip
+        uses: actions/download-artifact@v7
         with:
           name: build.zip
 
-      -
-        name: Create Release
+      - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
@@ -103,8 +90,7 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
 
-      -
-        name: Upload Release Asset
+      - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -114,13 +100,11 @@ jobs:
           asset_name: build.zip
           asset_content_type: application/zip
 
-
-# =============================================================================
-# Publish to NPM
-# =============================================================================
+  # =============================================================================
+  # Publish to NPM
+  # =============================================================================
 
   publish-npm:
-
     name: Publish NPM
 
     needs: build
@@ -128,76 +112,68 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-      -
-        name: Checkout
+      - name: Checkout
         uses: actions/checkout@v6
 
-      -
-        name: Setup Node
+      - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: 18.x
+          node-version: 24
           registry-url: https://registry.npmjs.org/
 
-      -
-        name: Download build.zip
-        uses: actions/download-artifact@v8
+      - name: Download build.zip
+        uses: actions/download-artifact@v7
         with:
           name: build.zip
 
-      -
-        name: Unzip build.zip
+      - name: Unzip build.zip
         run: unzip -q -o build.zip
 
-      -
-        name: Publish NPM
+      - name: Publish NPM with Trusted Publishing
         run: |
           cd dist
           npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.PUBLISH_NPM_TOKEN}}
-
+        # No NODE_AUTH_TOKEN needed - uses OIDC automatically
 
 # =============================================================================
 # Publish to GitHub Packages
 # =============================================================================
 
-  # publish-gpr:
+# publish-gpr:
 
-  #   needs: build
+#   needs: build
 
-  #   runs-on: ubuntu-latest
+#   runs-on: ubuntu-latest
 
-  #   permissions:
-  #     contents: read
-  #     packages: write
+#   permissions:
+#     contents: read
+#     packages: write
 
-  #   steps:
+#   steps:
 
-  #     -
-  #       # uses: actions/checkout@v6
-  #       uses: actions/checkout@v6
+#     -
+#       # uses: actions/checkout@v6
+#       uses: actions/checkout@v6
 
-  #     -
-  #       uses: actions/setup-node@v6
-  #       with:
-  #         # node-version: 16
-  #         node-version: 18
-  #         registry-url: https://npm.pkg.github.com/
-  #         # scope: '@scape-agency'
+#     -
+#       uses: actions/setup-node@v6
+#       with:
+#         # node-version: 16
+#         node-version: 18
+#         registry-url: https://npm.pkg.github.com/
+#         # scope: '@scape-agency'
 
-  #     -
-  #       name: Download build.zip
-  #       uses: actions/download-artifact@v8
-  #       with:
-  #         name: build.zip
+#     -
+#       name: Download build.zip
+#       uses: actions/download-artifact@v7
+#       with:
+#         name: build.zip
 
-  #     -
-  #       name: Unzip build.zip
-  #       run: unzip -q build.zip
+#     -
+#       name: Unzip build.zip
+#       run: unzip -q build.zip
 
-  #     -
-  #       run: npm publish
-  #       env:
-  #         NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+#     -
+#       run: npm publish
+#       env:
+#         NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
