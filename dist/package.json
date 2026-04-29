@@ -1,6 +1,6 @@
 {
   "name": "icon.gl",
-  "version": "0.0.43",
+  "version": "0.0.45",
   "description": "icon.gl is a icon library and framework developed by Scape Agency.",
   "keywords": [
     "icon.gl",
@@ -25,25 +25,18 @@
   "main": "./dist/js/index.cjs",
   "types": "js/index.d.ts",
   "files": [
-    "code-snippets/**/*.code-snippets",
     "css/**/*.{css,map}",
-    "font/**/*.{eot,otf,ttf,woff,woff2}",
-    "inkscape/**/*.inkscape",
+    "font/**/*.{css,eot,otf,ttf,woff,woff2,scss,ts}",
+    "html/**/*.html",
     "jinja/**/*.jinja",
-    "js/**/*.d.ts",
-    "js/**/*.{js,map}",
-    "less/**/*.less",
+    "js/**/*.{js,map,d.ts}",
+    "json/**/*.json",
     "md/**/*.md",
-    "oco/**/*.oco",
-    "png/**/*.png",
-    "py/**/*.py",
-    "rcpx/**/*.rcpx",
     "scss/**/*.scss",
-    "sketchpalette/**/*.sketchpalette",
-    "styl/**/*.styl",
     "svg/**/*.svg",
-    "tex/**/*.tex",
     "ts/**/*.ts",
+    "LICENSE",
+    "README.md",
     "!.DS_Store"
   ],
   "author": "Lars van Vianen",
@@ -52,7 +45,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/scape-agency/icon.gl.git"
+    "url": "git+https://github.com/stylescape/icon.gl.git"
   },
   "funding": [
     {

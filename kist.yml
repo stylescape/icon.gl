@@ -134,6 +134,7 @@ stages:
                     - module
                     - style
                     - sass
+                    - files
 
           - name: UpdateVersionFiles
             action: VersionWriteAction
