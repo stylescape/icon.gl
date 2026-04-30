@@ -1,6 +1,6 @@
 {
   "name": "icon.gl",
-  "version": "0.0.45",
+  "version": "0.0.49",
   "description": "icon.gl is a icon library and framework developed by Scape Agency.",
   "keywords": [
     "icon.gl",
@@ -22,11 +22,11 @@
   ],
   "license": "MIT",
   "homepage": "https://www.icon.gl/",
-  "main": "./dist/js/index.cjs",
+  "main": "./js/index.cjs",
   "types": "js/index.d.ts",
   "files": [
     "css/**/*.{css,map}",
-    "font/**/*.{css,eot,otf,ttf,woff,woff2,scss,ts}",
+    "font/**/*.{css,eot,otf,ttf,woff,woff2,scss,ts,json}",
     "html/**/*.html",
     "jinja/**/*.jinja",
     "js/**/*.{js,map,d.ts}",
@@ -55,16 +55,16 @@
   ],
   "exports": {
     ".": {
-      "sass": "./src/scss/index.scss",
-      "types": "./dist/js/index.d.ts",
-      "import": "./dist/js/index.mjs",
-      "require": "./dist/js/index.cjs"
+      "sass": "./scss/index.scss",
+      "types": "./js/index.d.ts",
+      "import": "./js/index.mjs",
+      "require": "./js/index.cjs"
     },
-    "./scss": "./dist/scss/index.scss",
-    "./css/icon.gl.css": "./dist/css/icon.gl.css",
-    "./css/icon.gl.min.css": "./dist/css/icon.gl.min.css"
+    "./scss": "./scss/index.scss",
+    "./css/icon.gl.css": "./css/icon.gl.css",
+    "./css/icon.gl.min.css": "./css/icon.gl.min.css"
   },
-  "module": "./dist/js/index.mjs",
-  "style": "dist/css/icon.gl.css",
-  "sass": "src/scss/index.scss"
+  "module": "./js/index.mjs",
+  "style": "./css/icon.gl.css",
+  "sass": "./scss/index.scss"
 }
