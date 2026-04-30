@@ -43,11 +43,11 @@
         }
     ],
     "type": "module",
-    "main": "./dist/js/index.cjs",
-    "module": "./dist/js/index.mjs",
-    "types": "./dist/js/index.d.ts",
-    "sass": "src/scss/index.scss",
-    "style": "dist/css/icon.gl.css",
+    "main": "./js/index.cjs",
+    "module": "./js/index.mjs",
+    "types": "./js/index.d.ts",
+    "sass": "./scss/index.scss",
+    "style": "./css/icon.gl.css",
     "scripts": {
         "build": "npx kist --config ./kist.yml && npm run build:ts",
         "build:ts": "npm run build:js && npm run build:dts",
@@ -91,7 +91,7 @@
     },
     "files": [
         "css/**/*.{css,map}",
-        "font/**/*.{css,eot,otf,ttf,woff,woff2,scss,ts}",
+        "font/**/*.{css,eot,otf,ttf,woff,woff2,scss,ts,json}",
         "html/**/*.html",
         "jinja/**/*.jinja",
         "js/**/*.{js,map,d.ts}",
@@ -106,14 +106,14 @@
     ],
     "exports": {
         ".": {
-            "sass": "./src/scss/index.scss",
-            "types": "./dist/js/index.d.ts",
-            "import": "./dist/js/index.mjs",
-            "require": "./dist/js/index.cjs"
+            "sass": "./scss/index.scss",
+            "types": "./js/index.d.ts",
+            "import": "./js/index.mjs",
+            "require": "./js/index.cjs"
         },
-        "./scss": "./dist/scss/index.scss",
-        "./css/icon.gl.css": "./dist/css/icon.gl.css",
-        "./css/icon.gl.min.css": "./dist/css/icon.gl.min.css"
+        "./scss": "./scss/index.scss",
+        "./css/icon.gl.css": "./css/icon.gl.css",
+        "./css/icon.gl.min.css": "./css/icon.gl.min.css"
     },
     "overrides": {
         "@xmldom/xmldom": "^0.9.10",

@@ -71,7 +71,24 @@ stages:
                 scriptPath: "./scripts/build-font.mjs"
 
           # =====================================================================
-          # 5. Copy Source Files
+          # 5. Compile SCSS to CSS
+          # =====================================================================
+          - name: CompileScss
+            action: StyleProcessingAction
+            options:
+                inputFile: "./src/scss/index.scss"
+                outputFile: "./dist/css/icon.gl.css"
+                styleOption: "expanded"
+
+          - name: CompileScssMin
+            action: StyleProcessingAction
+            options:
+                inputFile: "./src/scss/index.scss"
+                outputFile: "./dist/css/icon.gl.min.css"
+                styleOption: "compressed"
+
+          # =====================================================================
+          # 6. Copy Source Files
           # =====================================================================
           - name: CopyTypeScriptSources
             action: DirectoryCopyAction
