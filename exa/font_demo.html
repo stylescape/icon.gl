@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>icon.gl — Font Demo (every i_* class)</title>
+    <style>
+        @font-face {
+            font-display: swap;
+            font-family: "icongl";
+            src: url("../dist/font/icongl.woff2") format("woff2"),
+                 url("../dist/font/icongl.woff") format("woff");
+        }
+        :root {
+            color-scheme: light dark;
+            --bg: #fafafa;
+            --card: #ffffff;
+            --fg: #1a1a1a;
+            --muted: #6b6b6b;
+            --border: #e5e5e5;
+            --accent: #0066ff;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #111;
+                --card: #1d1d1d;
+                --fg: #f0f0f0;
+                --muted: #999;
+                --border: #2c2c2c;
+                --accent: #5e9aff;
+            }
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 24px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+        }
+        header { max-width: 1400px; margin: 0 auto 24px; }
+        header h1 { margin: 0 0 4px; font-size: 1.6rem; }
+        header p { margin: 0; color: var(--muted); }
+        .toolbar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: var(--bg);
+            padding: 12px 0;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .toolbar input, .toolbar select {
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--card);
+            color: var(--fg);
+            font: inherit;
+        }
+        .toolbar input { flex: 1 1 240px; min-width: 200px; }
+        .toolbar .stat { color: var(--muted); font-size: 0.9rem; }
+        main { max-width: 1400px; margin: 0 auto; }
+        section.category { margin: 24px 0; }
+        section.category > h2 {
+            margin: 0 0 8px;
+            font-size: 1.05rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 8px;
+        }
+        .icon-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: transform 80ms ease, border-color 120ms ease;
+            text-align: center;
+        }
+        .icon-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+        .icon-card .name {
+            font-size: 0.72rem;
+            color: var(--fg);
+            word-break: break-all;
+        }
+        .icon-card .cp {
+            font-size: 0.65rem;
+            color: var(--muted);
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(40px);
+            background: var(--fg);
+            color: var(--bg);
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            opacity: 0;
+            transition: opacity 180ms ease, transform 180ms ease;
+            pointer-events: none;
+        }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+        .empty { color: var(--muted); padding: 40px 0; text-align: center; }
+
+        /* ================================================================
+           icon.gl base styles — mirrors src/scss/classes/_style.scss
+           This is exactly how icons are rendered in production.
+           ================================================================ */
+        .i {
+            display: inline-flex;
+            position: relative;
+            vertical-align: baseline;
+            box-sizing: content-box;
+            margin: 0;
+            padding: 0;
+            font-size: inherit;
+            width: 1.5em;
+            height: 1.5em;
+            aspect-ratio: 1 / 1;
+            color: inherit;
+            background-color: transparent;
+            overflow: visible;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .i::before,
+        [class^="i_"]::before,
+        [class*=" i_"]::before {
+            font-family: "icongl" !important;
+            font-size: 1.5em;
+            font-style: normal;
+            font-weight: normal !important;
+            font-variant: normal;
+            text-transform: none;
+            text-emphasis-style: none;
+            line-height: 1;
+            color: inherit;
+            display: inline;
+            vertical-align: middle;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+    <!-- Dynamic icon class rules are injected here by JS -->
+    <style id="icon-classes"></style>
+</head>
+<body>
+    <header>
+        <h1>icon.gl — font demo</h1>
+        <p>
+            Every icon is rendered using the actual CSS class convention:
+            <code>&lt;i class="i i_&lt;name&gt;"&gt;&lt;/i&gt;</code> with
+            <code>::before { content: "\\xxxx"; }</code>. This validates
+            that the built font + SCSS class map work correctly.
+        </p>
+    </header>
+
+    <div class="toolbar">
+        <input id="search" type="search" placeholder="Filter by name (e.g. arrow_up, app_solution)..." autocomplete="off">
+        <label>Size
+            <select id="size">
+                <option value="1.5em">1.5x</option>
+                <option value="2em">2x</option>
+                <option value="2.4em" selected>2.4x</option>
+                <option value="3em">3x</option>
+                <option value="4em">4x</option>
+            </select>
+        </label>
+        <span class="stat" id="stat">loading…</span>
+    </div>
+
+    <main id="root"><div class="empty">Loading icons…</div></main>
+    <div class="toast" id="toast">copied</div>
+
+    <script type="module">
+        const root = document.getElementById("root");
+        const stat = document.getElementById("stat");
+        const search = document.getElementById("search");
+        const sizeSel = document.getElementById("size");
+        const toast = document.getElementById("toast");
+        const iconClassesStyle = document.getElementById("icon-classes");
+
+        async function load() {
+            const [codepoints, categoriesDoc] = await Promise.all([
+                fetch("../dist/font/icongl.json").then(r => r.json()),
+                fetch("../src/json/icongl/index.json").then(r => r.json()).catch(() => ({ categories: {} })),
+            ]);
+
+            // Generate .i_<name>::before { content: "\\xxxx"; } rules dynamically
+            // This mirrors what src/scss/classes/_style.scss produces.
+            const cssRules = Object.entries(codepoints)
+                .map(([name, cp]) => `.i_${name}::before { content: "\\${cp.toString(16)}"; }`)
+                .join("\n");
+            iconClassesStyle.textContent = cssRules;
+
+            // Build name -> category lookup; fall back to "uncategorized".
+            const cats = categoriesDoc.categories || {};
+            const nameToCat = new Map();
+            for (const [cat, names] of Object.entries(cats)) {
+                for (const n of names) nameToCat.set(n, cat);
+            }
+
+            const allNames = Object.keys(codepoints).sort();
+            for (const n of allNames) {
+                if (!nameToCat.has(n)) nameToCat.set(n, "uncategorized");
+            }
+
+            const grouped = new Map();
+            for (const n of allNames) {
+                const c = nameToCat.get(n);
+                if (!grouped.has(c)) grouped.set(c, []);
+                grouped.get(c).push(n);
+            }
+            const sortedCats = [...grouped.keys()].sort();
+
+            stat.textContent = `${allNames.length} icons across ${sortedCats.length} categories`;
+
+            function render(filter) {
+                const f = filter.trim().toLowerCase();
+                root.innerHTML = "";
+                let total = 0;
+                for (const cat of sortedCats) {
+                    const items = grouped.get(cat).filter(n => !f || n.toLowerCase().includes(f));
+                    if (!items.length) continue;
+                    total += items.length;
+                    const sec = document.createElement("section");
+                    sec.className = "category";
+                    const h = document.createElement("h2");
+                    h.textContent = `${cat}  (${items.length})`;
+                    sec.appendChild(h);
+                    const grid = document.createElement("div");
+                    grid.className = "grid";
+                    for (const name of items) {
+                        const cp = codepoints[name];
+                        const card = document.createElement("button");
+                        card.type = "button";
+                        card.className = "icon-card";
+                        card.title = `<i class="i i_${name}"></i>  \\${cp.toString(16)}`;
+                        card.dataset.name = name;
+                        // Use the actual .i .i_<name> class convention
+                        const icon = document.createElement("i");
+                        icon.className = `i i_${name}`;
+                        const nm = document.createElement("span");
+                        nm.className = "name";
+                        nm.textContent = name;
+                        const c = document.createElement("span");
+                        c.className = "cp";
+                        c.textContent = `\\${cp.toString(16)}`;
+                        card.append(icon, nm, c);
+                        grid.appendChild(card);
+                    }
+                    sec.appendChild(grid);
+                    root.appendChild(sec);
+                }
+                if (!total) {
+                    root.innerHTML = `<div class="empty">No icons match "${filter}"</div>`;
+                }
+            }
+
+            function applySize() {
+                document.querySelectorAll(".icon-card .i").forEach(icon => {
+                    icon.style.fontSize = sizeSel.value;
+                });
+            }
+
+            render("");
+            applySize();
+
+            search.addEventListener("input", () => { render(search.value); applySize(); });
+            sizeSel.addEventListener("change", applySize);
+
+            root.addEventListener("click", async (e) => {
+                const card = e.target.closest(".icon-card");
+                if (!card) return;
+                try {
+                    await navigator.clipboard.writeText(`i i_${card.dataset.name}`);
+                    toast.textContent = `copied: i i_${card.dataset.name}`;
+                    toast.classList.add("show");
+                    setTimeout(() => toast.classList.remove("show"), 1100);
+                } catch {
+                    /* ignore */
+                }
+            });
+        }
+
+        load().catch(err => {
+            root.innerHTML = `<div class="empty">Failed to load: ${err.message}</div>`;
+            console.error(err);
+        });
+    </script>
+</body>
+</html>
+                        c.className = "cp";
+                        c.textContent = `\\${cp.toString(16)}`;
+                        card.append(g, nm, c);
+                        grid.appendChild(card);
+                    }
+                    sec.appendChild(grid);
+                    root.appendChild(sec);
+                }
+                if (!total) {
+                    root.innerHTML = `<div class="empty">No icons match "${filter}"</div>`;
+                }
+            }
+
+            function applySize() {
+                document.querySelectorAll(".icon-card .glyph").forEach(g => {
+                    g.style.fontSize = sizeSel.value;
+                });
+            }
+
+            render("");
+            applySize();
+
+            search.addEventListener("input", () => { render(search.value); applySize(); });
+            sizeSel.addEventListener("change", applySize);
+
+            root.addEventListener("click", async (e) => {
+                const card = e.target.closest(".icon-card");
+                if (!card) return;
+                try {
+                    await navigator.clipboard.writeText(`i_${card.dataset.name}`);
+                    toast.textContent = `copied: i_${card.dataset.name}`;
+                    toast.classList.add("show");
+                    setTimeout(() => toast.classList.remove("show"), 1100);
+                } catch {
+                    /* ignore */
+                }
+            });
+        }
+
+        load().catch(err => {
+            root.innerHTML = `<div class="empty">Failed to load: ${err.message}</div>`;
+            console.error(err);
+        });
+    </script>
+</body>
+</html>

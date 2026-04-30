@@ -57,19 +57,18 @@ stages:
                 destDir: "./dist/svg"
 
           # =====================================================================
-          # 4. Generate Icon Fonts from SVG
+          # 4. Generate Icon Fonts + sync SCSS map
           # =====================================================================
+          # build-font.mjs:
+          #   - runs Fantasticon over src/svg/** with basename-only ids
+          #     (so SVG file names match SCSS .i_<name> classes)
+          #   - emits dist/font/icongl.{woff2,woff,json,ts}
+          #   - regenerates src/scss/variables/_font.scss from the codepoints
+          #     so $icongl_map is always in sync with the actual font.
           - name: GenerateIconFonts
-            action: FantasticonAction
+            action: RunScriptAction
             options:
-                inputDir: "./src/svg"
-                outputDir: "./dist/font"
-                fontName: "icon.gl"
-                classPrefix: "icon"
-                formats:
-                    - woff2
-                    - woff
-                typescript: true
+                scriptPath: "./scripts/build-font.mjs"
 
           # =====================================================================
           # 5. Copy Source Files
