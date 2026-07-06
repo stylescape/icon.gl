@@ -1,1 +1,0 @@
-export const icon_lucide_chevron_down = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="m288 360 144 144 144 -144"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

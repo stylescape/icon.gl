@@ -2,7 +2,7 @@
 site_name: icon.gl
 site_url: https://www.icon.gl/
 site_description: Identity Framework
-site_author: Scape Agency
+site_author: Scape Press
 lang: en
 
 # Repository
@@ -14,7 +14,7 @@ dev_addr: 127.0.0.1:8888
 
 # Copyright
 copyright: >
-  Copyright &copy; 2024 <a href="https://www.scape.agency">Scape Agency</a>. All Rights Reserved.
+  Copyright &copy; 2024 <a href="https://www.scape.press">Scape Press</a>. All Rights Reserved.
 
 
 # hide:
@@ -102,15 +102,15 @@ extra:
     property: G-W6XEMQ15PJ
   social:
     - icon: fontawesome/solid/globe
-      link: https://www.scape.agency
+      link: https://www.scape.press
     - icon: fontawesome/brands/github
       link: https://github.com/stylescape/
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/scape-agency/
     - icon: fontawesome/brands/instagram
-      link: https://www.instagram.com/scape.agency/
+      link: https://www.instagram.com/scape.press/
     - icon: fontawesome/brands/facebook
-      link: https://www.facebook.com/scape.agency/
+      link: https://www.facebook.com/scape.press/
   # consent:
   #   title: Cookie consent
   #   description: >-

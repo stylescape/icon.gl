@@ -1,1 +1,0 @@
-export const icon_lucide_squircle_bold = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M432 216c172.8 0 216 43.2 216 216s-43.2 216 -216 216 -216 -43.2 -216 -216 43.2 -216 216 -216"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

@@ -5,7 +5,7 @@
 @mixin banner(
     $file,
     $version: '1.0.0',
-    $author: 'Scape Agency',
+    $author: 'Scape Press',
     $website: 'https://www.icon.gl/',
     $license: 'Apache 2.0 License',
     $licenseUrl: 'https://github.com/scape-agency/icon.gl/blob/main/LICENSE',
@@ -17,15 +17,15 @@
      * ============================================================================
      *
      * Icon.gl #{$file} v#{$version} (#{$website})
-     * Copyright (c) 2020-2024 #{$author} (https://www.scape.agency)
+     * Copyright (c) 2020-2024 #{$author} (https://www.scape.press)
      * All rights reserved under #{$license} terms.
      *
      * ============================================================================
      *
      * @description     #{$description}
-     * @author          #{$author} (https://www.scape.agency)
+     * @author          #{$author} (https://www.scape.press)
      * @version         v#{$version}
-     * @copyright       2020-2024 #{$author} (https://www.scape.agency)
+     * @copyright       2020-2024 #{$author} (https://www.scape.press)
      * @website         #{$website}
      * @repository      #{$repository}
      * @license         #{$license} (#{$licenseUrl})

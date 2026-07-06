@@ -1,1 +1,0 @@
-export const icon_lucide_command = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M504 288v288a72 72 0 1 0 72 -72H288a72 72 0 1 0 72 72V288a72 72 0 1 0 -72 72h288a72 72 0 1 0 -72 -72"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

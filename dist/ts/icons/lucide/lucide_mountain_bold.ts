@@ -1,1 +1,0 @@
-export const icon_lucide_mountain_bold = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="m336 216 96 192 120 -120 120 360H192L336 216z"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

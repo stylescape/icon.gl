@@ -1,1 +1,0 @@
-export const icon_lucide_triangle = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M473.52 240a48 48 0 0 0 -83.04 0l-192 336A48 48 0 0 0 240 648h384a48 48 0 0 0 41.52 -72Z"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

@@ -1,1 +1,0 @@
-export const icon_lucide_navigation_2 = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><polygon points="432 192 600 648 432 552 264 648 432 192"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

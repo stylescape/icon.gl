@@ -9,4 +9,4 @@
 
 **icon.gl** is a icon framework.
 
-**icon.gl** is an open-source project by [Scape Agency](https://www.scape.agency "Scape Agency website").
+**icon.gl** is an open-source project by [Scape Press](https://www.scape.press "Scape Press website").

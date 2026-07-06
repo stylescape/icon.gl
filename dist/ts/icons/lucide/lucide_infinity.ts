@@ -1,1 +1,0 @@
-export const icon_lucide_infinity = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M288 528c120 0 168 -192 288 -192a96 96 0 0 1 0 192c-120 0 -168 -192 -288 -192a96 96 0 1 0 0 192"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

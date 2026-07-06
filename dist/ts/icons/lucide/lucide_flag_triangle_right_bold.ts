@@ -1,1 +1,0 @@
-export const icon_lucide_flag_triangle_right_bold = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M288 672V211.2a19.2 19.2 0 0 1 28.08 -17.04l273.12 136.56a19.2 19.2 0 0 1 0 34.56L288 516"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

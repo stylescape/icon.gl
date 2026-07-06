@@ -2,7 +2,7 @@
 Canonical: https://www.icon.gl/security.txt
 
 # Contact
-Contact: mailto:info@scape.agency
+Contact: mailto:info@scape.press
 
 # Preferred-Languages
 Preferred-Languages: en

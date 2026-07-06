@@ -1,1 +1,0 @@
-export const icon_lucide_activity_bold = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M672 432h-59.52a48 48 0 0 0 -46.32 35.04l-56.4 200.64a6 6 0 0 1 -11.52 0L365.76 196.32a6 6 0 0 0 -11.52 0l-56.4 200.64A48 48 0 0 1 251.76 432H192"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

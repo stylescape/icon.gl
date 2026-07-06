@@ -1,1 +1,0 @@
-export const icon_lucide_unlink_2_bold = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M504 312h48a120 120 0 0 1 0 240h-48m-144 0H312A120 120 0 0 1 312 312h48"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

@@ -1,1 +1,0 @@
-export const icon_lucide_sigma = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M576 312V264a24 24 0 0 0 -24 -24H300a12 12 0 0 0 -9.6 19.2l108 144a48 48 0 0 1 0 57.6l-108 144a12 12 0 0 0 9.6 19.2H552a24 24 0 0 0 24 -24v-48"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

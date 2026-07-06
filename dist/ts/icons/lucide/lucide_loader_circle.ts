@@ -1,1 +1,0 @@
-export const icon_lucide_loader_circle = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M648 432a216 216 0 1 1 -149.26 -205.44"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

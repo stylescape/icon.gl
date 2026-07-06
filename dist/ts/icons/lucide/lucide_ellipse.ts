@@ -1,1 +1,0 @@
-export const icon_lucide_ellipse = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><ellipse cx="432" cy="432" rx="240" ry="144"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

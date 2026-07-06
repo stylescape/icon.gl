@@ -1,1 +1,0 @@
-export const icon_lucide_paperclip_bold = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="m528 288 -201.94 206.06a48 48 0 0 0 67.9 67.9l201.94 -206.06a96 96 0 1 0 -135.77 -135.77l-201.1 205.22a144 144 0 1 0 203.64 203.64l201.1 -205.22"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

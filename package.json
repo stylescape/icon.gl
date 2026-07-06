@@ -1,6 +1,6 @@
 {
     "name": "icon.gl",
-    "description": "icon.gl is a icon library and framework developed by Scape Agency.",
+    "description": "icon.gl is a icon library and framework developed by Scape Press.",
     "version": "0.0.45",
     "config": {
         "version_short": "0.0"
@@ -26,7 +26,7 @@
     "homepage": "https://www.icon.gl/",
     "author": "Lars van Vianen",
     "contributors": [
-        "Scape Agency"
+        "Scape Press"
     ],
     "license": "MIT",
     "repository": {

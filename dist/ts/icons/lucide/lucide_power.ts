@@ -1,1 +1,0 @@
-export const icon_lucide_power = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M432 192v240"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M585.6 302.4a216 216 0 1 1 -306.48 0.96"  stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;

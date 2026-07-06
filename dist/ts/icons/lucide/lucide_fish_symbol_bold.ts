@@ -1,1 +1,0 @@
-export const icon_lucide_fish_symbol_bold = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864"><path d="M192 528s216 -360 480 -96C408 696 192 336 192 336"  stroke="currentColor" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;
