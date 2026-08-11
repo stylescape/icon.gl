@@ -77,7 +77,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Download build.zip
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: build.zip
 
@@ -122,7 +122,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - name: Download build.zip
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: build.zip
 
@@ -165,7 +165,7 @@ jobs:
 
 #     -
 #       name: Download build.zip
-#       uses: actions/download-artifact@v7
+#       uses: actions/download-artifact@v8
 #       with:
 #         name: build.zip
 
