@@ -6,7 +6,7 @@
     },
     "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:0-18",
     "features": {
-        "ghcr.io/devcontainers/features/node:1": {
+        "ghcr.io/devcontainers/features/node:2": {
             "version": "18"
         }
     },
