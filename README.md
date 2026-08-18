@@ -11,7 +11,6 @@
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fwww.icon.gl&up_message=Up&up_color=%23000000&down_message=Down&down_color=%23000000&style=flat-square&logo=Firefox&logoColor=FFFFFF&label=Website&labelColor=%23000000&color=%23000000)
 ](https://www.icon.gl)
 [![NPM Version](https://img.shields.io/npm/v/icon.gl?style=flat-square&logo=npm&logoColor=FFFFFF&label=NPM&labelColor=%23000000&color=%23000000&link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Ficon.gl)](https://www.npmjs.com/package/icon.gl)
-[![Tests](https://github.com/stylescape/icon.gl/actions/workflows/test.yml/badge.svg)](https://github.com/stylescape/icon.gl/actions/workflows/test.yml)
 [![devContainer](https://img.shields.io/badge/devContainer-23354351?style=flat-square&logo=Docker&logoColor=%23FFFFFF&labelColor=%23000000&color=%23000000)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/stylescape/icon.gl)
 [![StackBlitz](https://img.shields.io/badge/StackBlitz-23354351?style=flat-square&logo=StackBlitz&logoColor=%23FFFFFF&labelColor=%23000000&color=%23000000)](https://stackblitz.com/github/stylescape/icon.gl/tree/main?file=src%2Findex.html)
 [![GitHub License](https://img.shields.io/github/license/stylescape/icon.gl?style=flat-square&logo=readthedocs&logoColor=FFFFFF&label=&labelColor=%23000000&color=%23000000&link=LICENSE)](https://github.com/stylescape/icon.gl/blob/main/LICENSE)
