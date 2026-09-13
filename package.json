@@ -67,7 +67,7 @@
     },
     "devDependencies": {
         "@babel/core": "^8.0.1",
-        "@babel/preset-env": "^7.23.6",
+        "@babel/preset-env": "^8.0.2",
         "@babel/preset-typescript": "^8.0.1",
         "@getkist/action-fantasticon": "^0.1.17",
         "@getkist/action-nunjucks": "^2.0.28",
