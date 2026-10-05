@@ -38,7 +38,7 @@ tests/
 *.test.js
 *.test.ts
 coverage/
-docs/
+doc/
 *.md
 
 # Ignore all dotfiles (except for specific ones needed)

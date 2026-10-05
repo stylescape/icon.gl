@@ -8,7 +8,8 @@ lang: en
 # Repository
 repo_name: 'GitHub'
 repo_url: https://github.com/stylescape/icon.gl/
-edit_uri_template: 'docs/{path}'
+edit_uri_template: 'doc/{path}'
+docs_dir: doc
 
 dev_addr: 127.0.0.1:8888
 
@@ -23,7 +24,7 @@ copyright: >
 # Configuration
 theme:
   name: material
-  custom_dir: 'docs/overrides'
+  custom_dir: 'doc/overrides'
   locale: en
   language: en
   palette:
