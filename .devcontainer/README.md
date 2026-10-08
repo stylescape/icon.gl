@@ -47,15 +47,11 @@ The development container is configured with the following settings:
             }
         }
     },
-    "forwardPorts": [
-        3000
-    ],
+    "forwardPorts": [3000],
     "postCreateCommand": "npm install && pip3 install -r requirements.txt",
     "remoteUser": "vscode",
     "workspaceFolder": "/workspace",
-    "mounts": [
-        "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
-    ],
+    "mounts": ["source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"],
     "remoteEnv": {
         "NODE_ENV": "development"
     },
@@ -68,52 +64,52 @@ The development container is configured with the following settings:
 ### Key Components
 
 1. **Base Image**:
-   - **Node.js Dev Container**: The development environment is based on the official Node.js Dev Container image `mcr.microsoft.com/vscode/devcontainers/javascript-node:0-18`, which includes Node.js 18, ensuring consistency across development environments.
+    - **Node.js Dev Container**: The development environment is based on the official Node.js Dev Container image `mcr.microsoft.com/vscode/devcontainers/javascript-node:0-18`, which includes Node.js 18, ensuring consistency across development environments.
 
 2. **VS Code Extensions**:
    The container is pre-configured with a comprehensive set of Visual Studio Code extensions to enhance your development experience:
-   - **JavaScript/TypeScript**:
-     - `dbaeumer.vscode-eslint`: Linting for JavaScript and TypeScript.
-     - `esbenp.prettier-vscode`: Code formatting with Prettier.
-     - `ms-vscode.vscode-typescript-next`: Enhanced TypeScript support.
-   - **CSS/SCSS**:
-     - `stylelint.vscode-stylelint`: Linting for CSS and SCSS files.
-     - `syler.sass-indented`: Syntax highlighting for SCSS/SASS.
-   - **Templating & Markup**:
-     - `jinja.html-formatter`: Formatting for Jinja2 templates.
-     - `redhat.vscode-yaml`: YAML support for configuration files.
-     - `ritwickdey.LiveServer`: Live reloading for HTML files.
-   - **Utility & Productivity**:
-     - `streetsidesoftware.code-spell-checker`: Spell checking for text files.
-     - `gruntfuggly.todo-tree`: Managing TODO comments effectively.
-     - `PKief.material-icon-theme` and `vscode-icons-team.vscode-icons`: Custom icons for a better file explorer experience.
-   - **Framework-Specific**:
-     - `svelte.svelte-vscode`: Support for Svelte development.
-     - `octref.vetur`: Support for Vue.js development.
+    - **JavaScript/TypeScript**:
+        - `dbaeumer.vscode-eslint`: Linting for JavaScript and TypeScript.
+        - `esbenp.prettier-vscode`: Code formatting with Prettier.
+        - `ms-vscode.vscode-typescript-next`: Enhanced TypeScript support.
+    - **CSS/SCSS**:
+        - `stylelint.vscode-stylelint`: Linting for CSS and SCSS files.
+        - `syler.sass-indented`: Syntax highlighting for SCSS/SASS.
+    - **Templating & Markup**:
+        - `jinja.html-formatter`: Formatting for Jinja2 templates.
+        - `redhat.vscode-yaml`: YAML support for configuration files.
+        - `ritwickdey.LiveServer`: Live reloading for HTML files.
+    - **Utility & Productivity**:
+        - `streetsidesoftware.code-spell-checker`: Spell checking for text files.
+        - `gruntfuggly.todo-tree`: Managing TODO comments effectively.
+        - `PKief.material-icon-theme` and `vscode-icons-team.vscode-icons`: Custom icons for a better file explorer experience.
+    - **Framework-Specific**:
+        - `svelte.svelte-vscode`: Support for Svelte development.
+        - `octref.vetur`: Support for Vue.js development.
 
 3. **Post-Creation Commands**:
-   - Automatically installs Node.js and Python dependencies using `npm install` and `pip3 install -r requirements.txt` after the container is created, ensuring your development environment is ready to go.
+    - Automatically installs Node.js and Python dependencies using `npm install` and `pip3 install -r requirements.txt` after the container is created, ensuring your development environment is ready to go.
 
 4. **Environment Variables**:
-   - The `NODE_ENV` is set to `development` for both the remote and container environments, ensuring your application runs in development mode.
+    - The `NODE_ENV` is set to `development` for both the remote and container environments, ensuring your application runs in development mode.
 
 5. **VS Code Custom Settings**:
-   - **Formatting**: Automatically formats your code on save, maintaining code consistency.
-   - **File Associations**: Associates `.jinja` files with Jinja2 syntax highlighting.
+    - **Formatting**: Automatically formats your code on save, maintaining code consistency.
+    - **File Associations**: Associates `.jinja` files with Jinja2 syntax highlighting.
 
 ### Usage Instructions
 
 1. **Setup**:
-   - Ensure Docker and Visual Studio Code are installed on your machine. Also, install the VS Code Dev Containers extension if not already installed.
+    - Ensure Docker and Visual Studio Code are installed on your machine. Also, install the VS Code Dev Containers extension if not already installed.
 
 2. **Add the DevContainer Configuration**:
-   - Place the `devcontainer.json` file inside a `.devcontainer` directory at the root of your project.
+    - Place the `devcontainer.json` file inside a `.devcontainer` directory at the root of your project.
 
 3. **Open in Container**:
-   - Open your project in Visual Studio Code. When prompted to "Reopen in Container", select this option to launch the development container.
+    - Open your project in Visual Studio Code. When prompted to "Reopen in Container", select this option to launch the development container.
 
 4. **Working in the Container**:
-   - Once the container is up, you can work in a fully-featured development environment with all necessary tools and dependencies configured.
+    - Once the container is up, you can work in a fully-featured development environment with all necessary tools and dependencies configured.
 
 ### Benefits
 

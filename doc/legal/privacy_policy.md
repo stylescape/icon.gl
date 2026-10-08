@@ -1,4 +1,4 @@
-__Last revised on January 1, 2023__
+**Last revised on January 1, 2023**
 
 Scape Press BV will collect certain non-personally identify information
 about you as you use our sites. We may use this data to better understand our

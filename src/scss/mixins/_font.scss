@@ -1,5 +1,5 @@
-@use "sass:list";
-@use "../variables" as *;
+@use 'sass:list';
+@use '../variables' as *;
 
 ///
 /// Generates a custom `@font-face` rule based on given parameters.
@@ -18,7 +18,7 @@
 @mixin icon_face(
     $path,
     $family,
-    $type: "",
+    $type: '',
     // $weight: 400,
     // $style: normal,
     // $local1: null,
@@ -28,13 +28,11 @@
     $eot: null,
     $svg: null
 ) {
-
     // Source List
     // ------------------------------------------------------------------------
 
     // Initialize an empty source list
     $src: null; // initialize an empty source path
-
 
     // Local Sources
     // ------------------------------------------------------------------------
@@ -49,19 +47,16 @@
 
     // list.append OpenType font if specified
     @if $otf {
-        $src: list.append($src, url("#{$path}#{$type}.otf") format("opentype"), comma);
+        $src: list.append($src, url('#{$path}#{$type}.otf') format('opentype'), comma);
     }
-
 
     // Default Formats
     // ------------------------------------------------------------------------
     // load default formats (woff and woff2)
 
     // list.append WOFF2 and WOFF formats by default
-    $src: list.append($src, url("#{$path}#{$type}.woff2") format("woff2"), comma);
-    $src: list.append($src, url("#{$path}#{$type}.woff") format("woff"), comma);
-
-
+    $src: list.append($src, url('#{$path}#{$type}.woff2') format('woff2'), comma);
+    $src: list.append($src, url('#{$path}#{$type}.woff') format('woff'), comma);
 
     // Other Formats
     // ------------------------------------------------------------------------
@@ -69,15 +64,13 @@
 
     // list.append TrueType font if specified
     @if $ttf {
-        $src: list.append($src, url("#{$path}#{$type}.ttf") format("truetype"), comma);
+        $src: list.append($src, url('#{$path}#{$type}.ttf') format('truetype'), comma);
     }
 
     // list.append SVG font if specified
     @if $svg {
-        $src: list.append($src, url("#{$path}#{$type}.svg##{$svg}") format("svg"), comma);
+        $src: list.append($src, url('#{$path}#{$type}.svg##{$svg}') format('svg'), comma);
     }
-
-
 
     // Font Face Declaration
     // ------------------------------------------------------------------------
@@ -88,13 +81,11 @@
         // for compatibility reasons EOT comes first and is not list.appended
         // Include EOT specifically for IE compatibility
         @if $eot {
-            src: url("#{$path}#{$type}.eot"); // EOT should be first for IE
+            src: url('#{$path}#{$type}.eot'); // EOT should be first for IE
         }
         // load list.appended sources path
         src: $src; // Include all other font formats
         // font-weight: $weight;
         // font-style: $style;
     }
-
-
 }

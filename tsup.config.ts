@@ -1,16 +1,16 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from 'tsup'
 
 export default defineConfig([
     // Main library build (ESM + CJS)
     {
-        entry: { 'index': 'src/ts/index.ts' },
+        entry: { index: 'src/ts/index.ts' },
         format: ['esm', 'cjs'],
         dts: false,
         outDir: 'dist/js',
         outExtension({ format }) {
             return {
                 js: format === 'esm' ? '.mjs' : '.cjs',
-            };
+            }
         },
         target: 'es2020',
         splitting: false,
@@ -18,4 +18,4 @@ export default defineConfig([
         clean: false,
         minify: false,
     },
-]);
+])

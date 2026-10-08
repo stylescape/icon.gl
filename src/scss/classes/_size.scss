@@ -1,12 +1,8 @@
-
-
-
 // ============================================================================
 // icon.gl | Size
 // ============================================================================
 
-@use "../variables" as *;
-
+@use '../variables' as *;
 
 ///
 /// Literal Magnification Scale
@@ -39,8 +35,6 @@
 //     }
 // }
 
-
-
 // .icon_size_00 { @include icon_size_00; }
 // .icon_size_01 { @include icon_size_01; }
 // .icon_size_02 { @include icon_size_02; }
@@ -53,7 +47,6 @@
 // .icon_size_09 { @include icon_size_09; }
 // .icon_size_10 { @include icon_size_10; }
 
-
 // .icon-very-small {font-size: 16px}
 // .icon-small {font-size: 24px}
 // .icon-medium {font-size: 35px}
@@ -61,5 +54,3 @@
 // .icon-large {font-size: 50px}
 // .icon-round-small {border-radius: 100%; display: table-cell; height: 80px; margin: 0 auto; text-align: center; vertical-align: middle; width: 80px; font-size:32px}
 // .icon-round-medium {border-radius: 100%; display: table-cell; height: 90px; margin: 0 auto; text-align: center; vertical-align: middle; width: 90px;}
-
-

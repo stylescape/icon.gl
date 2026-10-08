@@ -1,12 +1,9 @@
-
-
 // ============================================================================
 // icon.gl | Font Variables
 // ============================================================================
 
-@use "../variables" as *;
-@use "../mixins" as *;
-
+@use '../variables' as *;
+@use '../mixins' as *;
 
 ///
 /// Generates CSS classes for each icon by iterating over a map of icon names
@@ -17,9 +14,10 @@
 /// .i_user::before { content: "\e901"; }
 ///
 @each $icon, $codepoint in $icongl_map {
-    .i_#{$icon}::before { content: $codepoint; }
+    .i_#{$icon}::before {
+        content: $codepoint;
+    }
 }
-
 
 ///
 /// Applies a consistent base style to all icons and icon classes.
@@ -29,8 +27,8 @@
 /// @see icon_style - Refer to the icon_style mixin for detailed style properties applied.
 ///
 .i::before,
-[class^="i_"]::before,
-[class*=" i_"]::before {
+[class^='i_']::before,
+[class*=' i_']::before {
     font-family: $icongl_font !important;
     @include icon_style;
 }

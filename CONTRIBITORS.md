@@ -9,7 +9,7 @@ This project exists thanks to all the people who contribute.
 Role: Project Lead, Main Developer  
 Email: yourname@email.com  
 Github: @yourgithubhandle  
-Contribution: Initial idea, architecture design, code development and project management  
+Contribution: Initial idea, architecture design, code development and project management
 
 ## Other Contributors
 
@@ -18,7 +18,7 @@ Contribution: Initial idea, architecture design, code development and project ma
 Role: Developer  
 Email: contributorname@email.com  
 Github: @contributorgithubhandle  
-Contribution: Code development, testing, and debugging  
+Contribution: Code development, testing, and debugging
 
 ## Acknowledgements
 

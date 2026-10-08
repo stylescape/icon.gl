@@ -1,6 +1,6 @@
 # License
 
-Except where otherwise noted, **icon.gl** is licensed under the terms of the [MIT License](https://opensource.org/licenses/MIT "MIT License").
+Except where otherwise noted, **icon.gl** is licensed under the terms of the [MIT License](https://opensource.org/licenses/MIT 'MIT License').
 
 ## MIT License
 

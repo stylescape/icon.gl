@@ -1,15 +1,11 @@
-
-
 // ============================================================================
 // icon.gl | Size
 // ============================================================================
 
-@use "style" as *;
-
+@use 'style' as *;
 
 // @mixin box_border   { box-sizing: border-box; }
 // @mixin box_content  { box-sizing: content-box; }
-
 
 // @mixin box_size($size) {
 //     @include box_content;
@@ -20,7 +16,6 @@
 //     max-width:  baseline($size);
 //     max-height: baseline($size);
 // }
-
 
 // @mixin icon_size_00 {
 //     @include icon;
@@ -99,14 +94,11 @@
 //     img { @include box_size_10; }
 // }
 
-
-
-
 ////////////////////
-/// 
-/// 
-/// 
-/// 
+///
+///
+///
+///
 
 // // ============================================================================
 // // Imports

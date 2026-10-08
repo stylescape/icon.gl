@@ -12,8 +12,8 @@ The `Icon` helper provides static utilities to render and manipulate SVG icons.
 Example:
 
 ```ts
-import { Icon } from "icon.gl";
-const svg = Icon.getIcon({ name: "icon_ui_media_play", size: 24, color: "#000" });
+import { Icon } from 'icon.gl'
+const svg = Icon.getIcon({ name: 'icon_ui_media_play', size: 24, color: '#000' })
 ```
 
 ### `Icon.getIconByKey(key)`
@@ -44,7 +44,7 @@ All icons are exported as string constants from `icon.gl` under `Icons`.
 Import any icon by name:
 
 ```ts
-import { icon_ui_media_play, icon_people_circle } from "icon.gl";
+import { icon_ui_media_play, icon_people_circle } from 'icon.gl'
 ```
 
 ## Web Component

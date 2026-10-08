@@ -9,20 +9,20 @@ Keyline shapes are pivotal in the `icon.gl` design system, serving as the fundam
 ## Detailed Overview of Keyline Shapes
 
 1. **Keyframe Circle:**
-   - **Purpose:** The Keyframe Circle is ideal for icons that require a sense of continuity or encapsulation. It's perfect for symbols representing unity, completeness, or cyclical processes.
-   - **Dimensions:** The circle's height and width are equal, emphasizing symmetry and balance. This shape is often used as a starting point for icons that need to convey a sense of harmony or focus.
+    - **Purpose:** The Keyframe Circle is ideal for icons that require a sense of continuity or encapsulation. It's perfect for symbols representing unity, completeness, or cyclical processes.
+    - **Dimensions:** The circle's height and width are equal, emphasizing symmetry and balance. This shape is often used as a starting point for icons that need to convey a sense of harmony or focus.
 
 2. **Keyframe Square:**
-   - **Purpose:** The square shape is used for icons needing a sense of stability and balance. It's well-suited for symbols that represent strength, security, or structure.
-   - **Dimensions:** Like the circle, the square has equal height and width, providing a stable and balanced foundation for icon design.
+    - **Purpose:** The square shape is used for icons needing a sense of stability and balance. It's well-suited for symbols that represent strength, security, or structure.
+    - **Dimensions:** Like the circle, the square has equal height and width, providing a stable and balanced foundation for icon design.
 
 3. **Keyframe Portrait:**
-   - **Purpose:** This shape is best for icons that require a vertical orientation, such as those representing growth, power, or upward movement.
-   - **Dimensions:** The portrait shape is taller than it is wide, offering a visually appealing and dynamic structure for icons that need to emphasize verticality.
+    - **Purpose:** This shape is best for icons that require a vertical orientation, such as those representing growth, power, or upward movement.
+    - **Dimensions:** The portrait shape is taller than it is wide, offering a visually appealing and dynamic structure for icons that need to emphasize verticality.
 
 4. **Keyframe Landscape:**
-   - **Purpose:** Ideal for icons that need a horizontal orientation, representing movement, flow, or progression.
-   - **Dimensions:** Wider than it is tall, the landscape shape provides a broad canvas for icons requiring a more expansive feel.
+    - **Purpose:** Ideal for icons that need a horizontal orientation, representing movement, flow, or progression.
+    - **Dimensions:** Wider than it is tall, the landscape shape provides a broad canvas for icons requiring a more expansive feel.
 
 ## Application and Versatility
 

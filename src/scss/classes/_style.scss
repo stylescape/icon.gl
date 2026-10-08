@@ -2,8 +2,8 @@
 // icon.gl | Font Variables
 // ============================================================================
 
-@use "../variables" as *;
-@use "../mixins" as *;
+@use '../variables' as *;
+@use '../mixins' as *;
 
 ///
 /// Mixin: icon__span
@@ -58,11 +58,12 @@
 /// @param {Number} $font_size - Icon size relative to container (default: 1.5em).
 /// @param {Color} $color - Icon color (inherits by default).
 ///
-@mixin icon__glyph($font_size: 1.5em,
+@mixin icon__glyph(
+    $font_size: 1.5em,
     // $font_size: 1em,
     $color: $icon_color_default
 ) {
-    font-family: "icongl" !important;
+    font-family: 'icongl' !important;
     font-size: $font_size;
     font-style: normal;
     font-weight: normal !important;
@@ -85,7 +86,7 @@
     // $font_size: 1em,
     $color: $icon_color_default
 ) {
-    font-family: "icongl" !important;
+    font-family: 'icongl' !important;
     font-size: $font_size;
     font-style: normal;
     font-weight: normal !important;
@@ -105,7 +106,6 @@
 
 // ============================================================================
 
-
 ///
 /// Base class for icon container
 /// @example <span class="i i_alert"></span>
@@ -113,7 +113,6 @@
 .i {
     @include icon__span();
 }
-
 
 ///
 /// Generate icon glyphs from the icon map
@@ -131,11 +130,10 @@
 /// Ensures icons work without extra declarations
 ///
 .i::before,
-[class^="i_"]::before,
-[class*=" i_"]::before {
+[class^='i_']::before,
+[class*=' i_']::before {
     @include icon__glyph();
 }
-
 
 ///
 /// SVG fallback / modifier support
@@ -151,7 +149,6 @@
         fill: white;
     }
 }
-
 
 ///
 /// Square aspect-ratio SVG container
@@ -171,11 +168,7 @@
     width: 100%;
 }
 
-
-
-
 //
-
 
 // .i {
 //     text-emphasis-style: none;
@@ -208,9 +201,9 @@
 //     -moz-osx-font-smoothing: grayscale;
 // }
 
-    // button .i {
-    //     pointer-events: none;
-    // }
+// button .i {
+//     pointer-events: none;
+// }
 
 // .i-text {
 //     text-align: center;

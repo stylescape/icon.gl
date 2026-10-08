@@ -39,10 +39,10 @@ Medium Blue Template
 
 ### Grids
 
-Grid 128px  grid-128px   grey    4px     10%     Light Gray     Template
-Grid 64px   grid-64px   grey    3px     10%       Light Gray    Template
-Grid 32px   grid-32px   grey    2px     10%        Light Gray   Template
-Grid 16px   grid-16px   grey    1px     10%        Light Gray   Template
+Grid 128px grid-128px grey 4px 10% Light Gray Template
+Grid 64px grid-64px grey 3px 10% Light Gray Template
+Grid 32px grid-32px grey 2px 10% Light Gray Template
+Grid 16px grid-16px grey 1px 10% Light Gray Template
 
 Areas
 Peach Template

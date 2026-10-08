@@ -14,8 +14,8 @@ This guide helps migrate from early `v0.0.1` docs to the current `v0.0.35` packa
 ### TypeScript / SVG
 
 ```ts
-import { Icon } from "icon.gl";
-const svg = Icon.getIcon({ name: "icon_ui_media_play", size: 24, color: "#000" });
+import { Icon } from 'icon.gl'
+const svg = Icon.getIcon({ name: 'icon_ui_media_play', size: 24, color: '#000' })
 ```
 
 ### CSS Font Icons

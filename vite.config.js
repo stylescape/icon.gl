@@ -1,32 +1,31 @@
-import { exec } from 'child_process';
-import { promisify } from 'util';
-import { defineConfig } from 'vite';
+import { exec } from 'child_process'
+import { promisify } from 'util'
+import { defineConfig } from 'vite'
 
-const execAsync = promisify(exec);
+const execAsync = promisify(exec)
 
-let lastBuild = 0;
+let lastBuild = 0
 
 async function runKist(server) {
-    const now = Date.now();
-    if (now - lastBuild < 500) return;
-    lastBuild = now;
+    const now = Date.now()
+    if (now - lastBuild < 500) return
+    lastBuild = now
 
-    console.log('[Kist] 🛠️ Running build...');
+    console.log('[Kist] 🛠️ Running build...')
     try {
-        const { stdout, stderr } = await execAsync('npx kist --config ./kist.dev.yml');
-        if (stdout) console.log('[Kist] stdout:', stdout);
-        if (stderr) console.error('[Kist] stderr:', stderr);
-        console.log('[Kist] Build complete');
+        const { stdout, stderr } = await execAsync('npx kist --config ./kist.dev.yml')
+        if (stdout) console.log('[Kist] stdout:', stdout)
+        if (stderr) console.error('[Kist] stderr:', stderr)
+        console.log('[Kist] Build complete')
 
         setTimeout(() => {
             server?.ws.send({
                 type: 'full-reload',
-                path: '*'
-            });
-        }, 200);
-
+                path: '*',
+            })
+        }, 200)
     } catch (err) {
-        console.error('[Kist] Build failed:', err.stderr || err.message);
+        console.error('[Kist] Build failed:', err.stderr || err.message)
     }
 }
 
@@ -42,14 +41,14 @@ export default defineConfig({
         {
             name: 'kist-watch',
             configureServer(server) {
-                runKist(server);
+                runKist(server)
 
                 // Watch for file changes to trigger kist rebuild
                 server.watcher.on('change', (file) => {
                     if (file.includes('/src/') || file.includes('kist.')) {
-                        runKist(server);
+                        runKist(server)
                     }
-                });
+                })
             },
         },
     ],
@@ -63,4 +62,4 @@ export default defineConfig({
             include: ['src/ts/**/*.ts'],
         },
     },
-});
+})
