@@ -45,7 +45,6 @@ stages:
                     - js
                     - json
                     - html
-                    - md
 
           # =====================================================================
           # 3. Copy SVG Source Files
@@ -163,6 +162,8 @@ stages:
                     - module
                     - style
                     - sass
+                    - types
+                    - sideEffects
                     - files
 
           - name: UpdateVersionFiles

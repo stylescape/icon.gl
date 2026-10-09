@@ -1,7 +1,7 @@
 {
     "name": "icon.gl",
     "description": "icon.gl is a icon library and framework developed by Scape Press.",
-    "version": "0.0.51",
+    "version": "0.1.0",
     "config": {
         "version_short": "0.0"
     },
@@ -48,6 +48,10 @@
     "types": "./js/index.d.ts",
     "sass": "./scss/index.scss",
     "style": "./css/icon.gl.css",
+    "sideEffects": [
+        "*.css",
+        "*.scss"
+    ],
     "scripts": {
         "build": "npx kist --config ./kist.yml && npm run build:ts",
         "build:ts": "npm run build:js && npm run build:dts",
@@ -85,7 +89,7 @@
         "jsdom": "^29.0.1",
         "kist": "^0.1.81",
         "sass": "^1.104.0",
-        "stylescape": "^0.4.1",
+        "stylescape": "^0.5.1",
         "svgo": "^4.0.1",
         "ts-node": "^10.9.1",
         "tsup": "^8.5.1",
@@ -98,10 +102,8 @@
         "css/**/*.{css,map}",
         "font/**/*.{css,eot,otf,ttf,woff,woff2,scss,ts,json}",
         "html/**/*.html",
-        "jinja/**/*.jinja",
         "js/**/*.{js,cjs,mjs,map,d.ts}",
         "json/**/*.json",
-        "md/**/*.md",
         "scss/**/*.scss",
         "svg/**/*.svg",
         "ts/**/*.ts",
