@@ -1,4 +1,6 @@
-$icongl_prefix: 'i_' !default;
+// Size classes use a hyphen: icon ids never contain one, so .i-2x can't
+// clash with an icon class or match the [class^='i_'] glyph selector.
+$icongl_size_prefix: 'i-' !default;
 
 $icon_font_size_default: 16px !default;
 $icon_color_default: inherit !default;

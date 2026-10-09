@@ -59,8 +59,8 @@ import { icon_ui_media_play, icon_people_circle } from 'icon.gl'
 
 - Base container: `.i`
 - Glyph classes: `.i_<name>`
-- Sizes: `.icon1x` … `.icon10x`
+- Sizes: `.i-1x` … `.i-10x`
 
 ```html
-<span class="i i_ui_media_play icon2x"></span>
+<span class="i i_ui_media_play i-2x"></span>
 ```

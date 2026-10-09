@@ -7,7 +7,8 @@ This guide helps migrate from early `v0.0.1` docs to the current `v0.0.35` packa
 - Module type is ESM (`"type": "module"` in `package.json`).
 - Public TypeScript entry uses `Icon` helper and named icon exports.
 - CSS classes standardized: base `.i` and glyph classes `.i_<name>`.
-- Size utilities available: `.icon1x` through `.icon10x`.
+- Size utilities available: `.i-1x` through `.i-10x` (`.i_1x` … `.i_10x`
+  before 0.1.0).
 
 ## Recommended Usage
 
@@ -21,7 +22,7 @@ const svg = Icon.getIcon({ name: 'icon_ui_media_play', size: 24, color: '#000' }
 ### CSS Font Icons
 
 ```html
-<span class="i i_ui_media_play icon2x"></span>
+<span class="i i_ui_media_play i-2x"></span>
 ```
 
 ## Notes

@@ -13,12 +13,12 @@
 /// literal scale.
 ///
 /// @example
-/// .icon1x { font-size: 1em; }
-/// .icon2x { font-size: 2em; }
+/// .i-1x { font-size: 1em; }
+/// .i-2x { font-size: 2em; }
 /// ...
 ///
 @for $i from 1 through 10 {
-    .#{$icongl_prefix}#{$i}x {
+    .#{$icongl_size_prefix}#{$i}x {
         font-size: $i * 1em;
     }
 }
@@ -30,7 +30,7 @@
 /// Uncomment the following block to enable predefined size scales based on a size map.
 ///
 // @each $size, $value in $igl_sizes {
-//     .#{$icongl_prefix}#{$size} {
+//     .#{$icongl_size_prefix}#{$size} {
 //         @include igl_size($value);
 //     }
 // }
