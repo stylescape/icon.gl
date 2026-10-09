@@ -1,20 +1,17 @@
 // Import
 // ============================================================================
 
-import * as Icons from "../icons";
+import { iconMap } from "../icon-map";
+import { applyStylesToSvg, renderIcon, withAccessibility, type IconOptions } from "./svg";
 
 
 // Types
 // ============================================================================
 
-type IconName = keyof typeof Icons;
+type IconName = keyof typeof iconMap;
 
-type IconProps = {
+type IconProps = IconOptions & {
     name: IconName;
-    size?: number;
-    color?: string;
-    className?: string;
-    otherAttributes?: Record<string, string>;
 };
 
 type IconCache = {
@@ -22,40 +19,24 @@ type IconCache = {
 };
 
 
-// Helpers
+// Cache
 // ============================================================================
 
-const ATTRIBUTE_NAME = /^[a-zA-Z_:][-a-zA-Z0-9_:.]*$/;
-
-function escapeAttribute(value: string): string {
-    return value
-        .replace(/&/g, "&amp;")
-        .replace(/"/g, "&quot;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
-}
-
-function addAttributes(svgString: string, attributes: string): string {
-    return attributes ? svgString.replace("<svg", `<svg ${attributes}`) : svgString;
-}
-
-function toKebabCase(property: string): string {
-    return property.startsWith("--")
-        ? property
-        : property.replace(/[A-Z]/g, (char) => `-${char.toLowerCase()}`);
-}
+// Module state rather than a static field: es2020 output lowers static fields
+// to a call, which keeps the class (and every icon) in bundles that never
+// use it.
+let cache: IconCache = {};
 
 
 // Class
 // ============================================================================
 
 /**
- * Icon utilities for retrieving and customizing SVG strings from the bundled icon set.
+ * Icon utilities for retrieving and customizing SVG strings from the bundled
+ * icon set by name. Using `Icon` bundles every icon; to ship only the icons an
+ * app uses, import them by name and pass them to `renderIcon`.
  */
 class Icon {
-
-
-    private static cache: IconCache = {};
 
 
     /**
@@ -64,8 +45,8 @@ class Icon {
      * @returns {string | null} The SVG markup of the icon if found, otherwise null.
      */
     static getIconByKey(key: string): string | null {
-        if (!Object.prototype.hasOwnProperty.call(Icons, key)) return null;
-        const svgMarkup: unknown = Icons[key as IconName];
+        if (!Object.prototype.hasOwnProperty.call(iconMap, key)) return null;
+        const svgMarkup: unknown = iconMap[key as IconName];
         return typeof svgMarkup === "string" ? svgMarkup : null;
     }
 
@@ -77,24 +58,9 @@ class Icon {
      * @returns {string} The SVG string with styles, class, and other attributes, or "" for an unknown name.
      */
     static getIcon(props: IconProps): string {
-        const { name, size, color, className, otherAttributes } = props;
+        const { name, ...options } = props;
         const svgString = this.getIconByKey(name);
-        if (!svgString) return "";
-
-        const attributes: string[] = [];
-        const style = this.getStyleAttribute(size, color);
-        if (style) attributes.push(`style="${escapeAttribute(style)}"`);
-        if (className) attributes.push(`class="${escapeAttribute(className)}"`);
-        if (otherAttributes) {
-            for (const [attr, value] of Object.entries(otherAttributes)) {
-                if (!ATTRIBUTE_NAME.test(attr)) {
-                    throw new Error(`Invalid SVG attribute name: "${attr}"`);
-                }
-                attributes.push(`${attr}="${escapeAttribute(value)}"`);
-            }
-        }
-
-        return addAttributes(svgString, attributes.join(" "));
+        return svgString ? renderIcon(svgString, options) : "";
     }
 
 
@@ -106,10 +72,7 @@ class Icon {
      * @returns {string} The SVG string with accessibility attributes.
      */
     static withAccessibility(svgString: string, label: string): string {
-        const attributes = label
-            ? `aria-label="${escapeAttribute(label)}" role="img"`
-            : `aria-hidden="true" focusable="false"`;
-        return addAttributes(svgString, attributes);
+        return withAccessibility(svgString, label);
     }
 
 
@@ -120,23 +83,18 @@ class Icon {
      */
     static getCachedIcon(props: IconProps): string {
         const cacheKey = JSON.stringify(props);
-        if (!(cacheKey in this.cache)) {
-            this.cache[cacheKey] = this.getIcon(props);
+        if (!(cacheKey in cache)) {
+            cache[cacheKey] = this.getIcon(props);
         }
-        return this.cache[cacheKey];
+        return cache[cacheKey];
     }
 
 
     /**
-     * Constructs a style attribute string.
-     * @param {number | undefined} size - The size of the icon.
-     * @param {string | undefined} color - The color of the icon.
-     * @returns {string} The style attribute string.
+     * Empties the cache of `getCachedIcon`.
      */
-    private static getStyleAttribute(size?: number, color?: string): string {
-        const sizeStyle = size ? `width: ${size}px; height: ${size}px;` : "";
-        const colorStyle = color ? `fill: ${color}; color: ${color};` : "";
-        return `${sizeStyle} ${colorStyle}`.trim();
+    static clearCache(): void {
+        cache = {};
     }
 
 
@@ -148,30 +106,7 @@ class Icon {
      * @returns {string} The SVG string with applied styles, or the input unchanged if it isn't valid SVG.
      */
     static applyStylesToSvg(svgString: string, styles: Record<string, string>): string {
-        const declarations = Object.entries(styles).map(
-            ([key, value]) => [toKebabCase(key), value] as const
-        );
-
-        // Without a DOM (SSR, workers) fall back to prepending a style attribute.
-        if (typeof DOMParser === "undefined") {
-            if (!/^\s*<svg[\s>]/.test(svgString) || declarations.length === 0) return svgString;
-            const style = declarations.map(([key, value]) => `${key}: ${value};`).join(" ");
-            return addAttributes(svgString, `style="${escapeAttribute(style)}"`);
-        }
-
-        const doc = new DOMParser().parseFromString(svgString, "image/svg+xml");
-        const svgElement = doc.documentElement;
-        if (
-            !svgElement ||
-            svgElement.nodeName.toLowerCase() !== "svg" ||
-            doc.getElementsByTagName("parsererror").length > 0
-        ) {
-            return svgString;
-        }
-        for (const [key, value] of declarations) {
-            (svgElement as unknown as SVGElement).style.setProperty(key, value);
-        }
-        return svgElement.outerHTML;
+        return applyStylesToSvg(svgString, styles);
     }
 
 }

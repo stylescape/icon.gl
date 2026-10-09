@@ -2,6 +2,7 @@
 // ============================================================================
 
 import Icon from "./utils/Icon";
+import { applyStylesToSvg, renderIcon, withAccessibility } from "./utils/svg";
 import { defineSvgIconElement } from "./svg-icon-element";
 
 
@@ -9,5 +10,6 @@ import { defineSvgIconElement } from "./svg-icon-element";
 // ============================================================================
 
 export * from "./icons";
-export { Icon, defineSvgIconElement };
+export { Icon, applyStylesToSvg, defineSvgIconElement, renderIcon, withAccessibility };
 export type { IconName, IconProps } from "./utils/Icon";
+export type { IconOptions } from "./utils/svg";

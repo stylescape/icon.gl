@@ -206,3 +206,45 @@ describe('Font Preparation', () => {
         expect(markUnpaintedShapes(svg)).toBe(svg);
     });
 });
+
+describe('Tree-shaking', () => {
+    const entry = path.resolve(__dirname, '../dist/js/index.mjs');
+
+    async function bundle(code: string): Promise<number> {
+        const { build } = await import('vite');
+        const result = await build({
+            configFile: false,
+            logLevel: 'silent',
+            plugins: [
+                {
+                    name: 'entry',
+                    resolveId: (id) => (id === 'virtual:entry' ? id : null),
+                    load: (id) => (id === 'virtual:entry' ? code : null),
+                },
+            ],
+            build: {
+                write: false,
+                minify: true,
+                rollupOptions: { input: 'virtual:entry' },
+            },
+        });
+        const outputs = (Array.isArray(result) ? result : [result]) as Array<{
+            output: Array<{ type: string; code?: string }>;
+        }>;
+        return outputs
+            .flatMap(({ output }) => output)
+            .reduce((size, chunk) => size + (chunk.code?.length ?? 0), 0);
+    }
+
+    // One icon is well under 10 kB; the whole set is about 5 MB.
+    it('should bundle only the icons an app imports', async (context) => {
+        const built = await fs.access(entry).then(() => true).catch(() => false);
+        if (!built) context.skip();
+
+        const size = await bundle(
+            `import { renderIcon, icon_ui_media_play } from ${JSON.stringify(entry)};\n` +
+                `console.log(renderIcon(icon_ui_media_play, { size: 24 }));`
+        );
+        expect(size).toBeLessThan(10_000);
+    }, 60_000);
+});

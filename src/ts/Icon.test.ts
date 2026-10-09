@@ -1,16 +1,18 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-// Mock the icons module - must be at top level for Vitest
-vi.mock('./icons', () => ({
-    testIcon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z"/></svg>',
+// Mock the icon map - must be at top level for Vitest
+vi.mock('./icon-map', () => ({
+    iconMap: {
+        testIcon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z"/></svg>',
+    },
 }));
 
 import Icon from './utils/Icon';
+import { renderIcon } from './utils/svg';
 
 describe('Icon', () => {
     beforeEach(() => {
-        // Clear cache before each test
-        (Icon as any).cache = {};
+        Icon.clearCache();
     });
 
     describe('getIconByKey', () => {
@@ -100,6 +102,26 @@ describe('Icon', () => {
         });
     });
 
+    describe('renderIcon', () => {
+        it('should render an SVG string without the icon set', () => {
+            const svg = '<svg viewBox="0 0 24 24"><path d="M0 0"/></svg>';
+            const result = renderIcon(svg, { size: 24, color: 'red', className: 'x' });
+            expect(result).toBe(
+                '<svg style="width: 24px; height: 24px; fill: red; color: red;" class="x" viewBox="0 0 24 24"><path d="M0 0"/></svg>'
+            );
+        });
+
+        it('should match getIcon for the same SVG', () => {
+            const svg = Icon.getIconByKey('testIcon') as string;
+            const options = { size: 32, otherAttributes: { 'data-a': '1' } };
+            expect(renderIcon(svg, options)).toBe(Icon.getIcon({ name: 'testIcon' as any, ...options }));
+        });
+
+        it('should return the SVG unchanged without options', () => {
+            expect(renderIcon('<svg></svg>')).toBe('<svg></svg>');
+        });
+    });
+
     describe('withAccessibility', () => {
         it('should add accessibility attributes to SVG', () => {
             const svgString = '<svg><path d="M0 0"/></svg>';
@@ -151,14 +173,25 @@ describe('Icon', () => {
 
         it('should use same cache entry for identical props', () => {
             const props = { name: 'testIcon' as any, color: 'red', className: 'test' };
+            const getIcon = vi.spyOn(Icon, 'getIcon');
 
             Icon.getCachedIcon(props);
-            const cacheSize = Object.keys((Icon as any).cache).length;
-            Icon.getCachedIcon(props);
-            const newCacheSize = Object.keys((Icon as any).cache).length;
+            Icon.getCachedIcon({ ...props });
 
-            expect(cacheSize).toBe(newCacheSize);
-            expect(cacheSize).toBe(1);
+            expect(getIcon).toHaveBeenCalledTimes(1);
+            getIcon.mockRestore();
+        });
+
+        it('should render again after clearCache', () => {
+            const props = { name: 'testIcon' as any, size: 16 };
+            const getIcon = vi.spyOn(Icon, 'getIcon');
+
+            Icon.getCachedIcon(props);
+            Icon.clearCache();
+            Icon.getCachedIcon(props);
+
+            expect(getIcon).toHaveBeenCalledTimes(2);
+            getIcon.mockRestore();
         });
     });
 
