@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864">
-  <g id="Layer_1" data-name="Layer 1">
-    <circle cx="432" cy="432" r="288" style="stroke-width: 0px;"/>
-  </g>
-  <g id="barlow">
-    <text transform="translate(384.84 558)" style="fill: #fff; font-family: Barlow-SemiBold, Barlow; font-size: 360px; font-weight: 600;"><tspan x="0" y="0">I</tspan></text>
-  </g>
+  <path d="M720,432 C720,591.06 591.06,720 432,720 C272.94,720 144,591.06 144,432 C144,272.94 272.94,144 432,144 C591.06,144 720,272.94 720,432 Z M411.12,553.68 Q411.12,555.48 412.38,556.74 Q413.64,558 415.44,558 L448.56,558 Q450.36,558 451.62,556.74 Q452.88,555.48 452.88,553.68 L452.88,310.32 Q452.88,308.52 451.62,307.26 Q450.36,306 448.56,306 L415.44,306 Q413.64,306 412.38,307.26 Q411.12,308.52 411.12,310.32 Z"/>
 </svg>
