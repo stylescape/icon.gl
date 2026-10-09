@@ -1390,8 +1390,8 @@ _book
 
 # /dist
 
-# Font build staging folder (scripts/build-font.mjs)
+# Font build staging folder (bin/build-font.mjs)
 .font-build-tmp/
 
-# Build scripts (re-include; the Python venv rules above ignore [Ss]cripts)
-!/scripts/
+# Build scripts (re-include; the Python venv rules above ignore [Bb]in)
+!/bin/

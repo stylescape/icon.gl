@@ -32,14 +32,14 @@ Successfully implemented a comprehensive testing infrastructure for the icon.gl 
 - Accessibility features
 - **96.55% code coverage achieved**
 
-#### Integration Tests ([test/integration.test.ts](test/integration.test.ts))
+#### Integration Tests ([tst/integration.test.ts](tst/integration.test.ts))
 
 - SVG directory structure validation
 - SVG file syntax validation
 - JSON codepoint validation
 - Build output verification
 
-#### Build Tests ([test/build.test.ts](test/build.test.ts))
+#### Build Tests ([tst/build.test.ts](tst/build.test.ts))
 
 - Package.json validation
 - TypeScript configuration
@@ -147,8 +147,8 @@ After running `npm run test:coverage`, open `coverage/index.html` in your browse
 
 1. `vitest.config.ts` - Vitest configuration
 2. `src/ts/Icon.test.ts` - Unit tests
-3. `test/integration.test.ts` - Integration tests
-4. `test/build.test.ts` - Build validation tests
+3. `tst/integration.test.ts` - Integration tests
+4. `tst/build.test.ts` - Build validation tests
 5. `.github/workflows/test.yml` - CI workflow
 6. `TESTING.md` - Testing documentation
 7. This summary file

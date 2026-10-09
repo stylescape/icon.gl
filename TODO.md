@@ -4,28 +4,15 @@
 
 ## Open items from the 2026-10-07/08 fix pass
 
-The pass made `npm install` work again (unused Babel 7/8 conflict removed),
-made font codepoints stable across builds, added `scripts/build-icons.mjs`
-(TS icon modules, `src/json/icongl/index.json` and the SVG sprite are now
-generated from `src/svg`), fixed the published package manifest, hardened
-`Icon` and `<svg-icon>`, set up ESLint, repaired the docs build and the demo
-pages, generated the docs icon gallery (`doc/icons/index.md`) from
-`src/svg`, kept Prettier off generated files, and exempted
-auto-assign/Dependabot from the CI policy. All of it is
-uncommitted on `dev` (base `c571a572`). `npm run build`, `npm test` (46),
-`npm run lint`, `npm run typecheck` and `mkdocs build --strict` pass locally,
-and the packed tarball installs and imports (`require` and `import`).
+Completed items are moved to `CHANGELOG.md`; the pass itself is described
+there under Unreleased. It was committed on `dev` (`0272683e` formatting,
+`3a7c05df` the pass) and pushed.
 
 Needs a decision:
 
-- [ ] Commit the pass. Not done: committing was left for the owner. The
-      working tree also contains a repo-wide `prettier --write .` run made
-      outside this pass (2026-10-07 23:52: workflows, issue templates, docs,
-      JSON, SCSS); it is formatting only and was kept. Decide whether it goes
-      in the same commit or a separate `style:` commit.
-- [ ] Choose the next version: 0.0.52 or 0.1.0. 41 icon exports were removed
-      because their SVGs had already been deleted (e.g. `icon_people_01`,
-      `icon_chart_pie_01`, `icon_symbol_01`, `icon_type_01`); importing them
+- [ ] Choose the next version: 0.0.52 or 0.1.0. 24 icon exports were removed
+      (see Breaking in `CHANGELOG.md`; checked 2026-10-09 against the
+      exports of the installed 0.0.47 and of `c571a572`); importing them
       now fails. Bump `package.json`; the build syncs `CITATION.cff`.
 - [ ] Keep or delete `src/svg/app/app_questions_add_copy.svg` and
       `src/svg/symbol/symbol_star_copy.svg`. Renamed from `… copy.svg` (the
@@ -45,26 +32,45 @@ Needs doing:
       `import { Icon } from "icon.gl"` fails for every user today. Fixed in
       `package.json`; `test/build.test.ts` now checks the tarball. The publish
       workflow has not run with these changes.
-- [ ] Look at `exa/index.html`, `exa/font_demo.html` and the dev gallery
-      (`npm run dev`) in a real browser. `exa/index.html` was only rendered
-      in happy-dom (1,532 icons, 26 categories, search injection blocked).
-      The exa pages read `../dist` and `../src`, so they work only when the
-      repo root is served after a build.
-- [ ] Push `dev`. The generated icon gallery loads each SVG from
-      `raw.githubusercontent.com/stylescape/icon.gl/dev/src/svg/…`; the 18
-      renamed files (e.g. `shape/shape_29.svg`) and the 50 new icons return
-      404 there until the branch is pushed. Checked: sampled existing icons
-      return 200, `shape/shape_29.svg` returns 404.
 - [ ] Deploy the docs: `deploy_docs.yml` runs on version tags, so the docs
       fixes (Templates page, nav, quick start) go live with the next tag.
+
+Font glyphs that differ from their SVG (found 2026-10-09 by rendering the
+font next to the SVGs in headless Chromium; needs the sources reworked,
+probably in the `src/ai` files):
+
+- [ ] 121 SVGs draw their letter with `<text>` in Barlow (all
+      `letters_circle_*` / `letters_square_*`, `file_type_iso`). The font
+      ignores `<text>`, so those glyphs are an empty circle or square, and
+      the SVGs show the letter only where Barlow is installed. Convert the
+      text to outlines.
+- [ ] 7 SVGs are drawn with strokes (`file_type_iso`, `solid_cube`,
+      `solid_cube_02`, `solid_cube_arrow`, `solid_cube_scene`,
+      `solid_cube_scene_02`, `solid_pyramid`). A font cannot carry strokes,
+      so the glyphs are filled silhouettes. Outline the strokes.
+- [ ] `places.svg` uses `fill-rule: evenodd`; fonts fill nonzero, so the
+      glyph is a solid block. Reverse the inner contours or outline it.
+
+Demo pages:
+
+- [ ] axe (2026-10-09): the footer links of `index.html` and
+      `exa/index.html` fail colour contrast (stylescape 0.4.1 link colour
+      `rgb(101,170,206)` on white, about 2.4:1). Goes away with the planned
+      move of the demos to stylescape 0.5 (black links).
 
 Opportunistic:
 
 - [ ] `src/html/test.html` is a hand-kept page with 1,418 of the 1,532 font
-      icons. Generate it in `build-icons.mjs` or drop it.
-- [ ] `src/hbs/*.hbs` and `src/jinja/icon.gl.md.jinja` aren't referenced by
-      `kist.yml` or any script; `_font_variables.scss.hbs` still has the old
-      `$icon_hash`. Remove them or wire them back in.
+      icons (all names still valid, checked 2026-10-09). Nothing links to
+      it, but kist copies it to the published `html/`. Generate it in
+      `build-icons.mjs` or drop it.
+- [ ] Unreferenced leftovers (grep, 2026-10-09): `src/hbs/*.hbs` and
+      `src/jinja/icon.gl.md.jinja` (no kist step or script uses them;
+      `_font_variables.scss.hbs` still has the old `$icon_hash`), the
+      committed September 2025 fonts in `src/font/` (the build writes
+      `dist/font/`), and the `files` globs `jinja/**/*.jinja` and
+      `md/**/*.md`, which match nothing in `dist/`. Remove them or wire
+      them back in.
 - [ ] `Icon` imports every icon (`import * as Icons`), so using it pulls all
       4,923 SVGs (~5 MB) into a bundle. The `icon_*` named exports tree-shake
       on their own; an `Icon` that takes the SVG string instead of a name
@@ -72,5 +78,3 @@ Opportunistic:
 - [ ] The size classes `.i_1x` … `.i_10x` share the `i_` prefix with icon
       classes, so `[class^="i_"]::before` also styles them. Harmless today;
       a different prefix would avoid future clashes.
-- [ ] `bin/generate-fonts.mjs` exists locally but is git-ignored and unused
-      (superseded by `scripts/build-font.mjs`); delete it.

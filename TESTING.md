@@ -42,7 +42,7 @@ Located in `src/ts/Icon.test.ts`, these tests cover:
 
 ### Integration Tests
 
-Located in `test/integration.test.ts`, covering:
+Located in `tst/integration.test.ts`, covering:
 
 - **SVG file validation** - Ensuring proper SVG syntax
 - **Codepoint management** - JSON codepoint file validation
@@ -50,7 +50,7 @@ Located in `test/integration.test.ts`, covering:
 
 ### Build Tests
 
-Located in `test/build.test.ts`, validating:
+Located in `tst/build.test.ts`, validating:
 
 - **Project configuration** - package.json, tsconfig.json
 - **Directory structure** - Required source directories

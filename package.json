@@ -53,7 +53,7 @@
         "build:ts": "npm run build:js && npm run build:dts",
         "build:js": "tsup",
         "build:dts": "NODE_OPTIONS=--max-old-space-size=4096 tsc --declaration --emitDeclarationOnly --outDir dist/js --skipLibCheck",
-        "build:icons": "node scripts/build-icons.mjs",
+        "build:icons": "node bin/build-icons.mjs",
         "watch": "npx kist --config ./kist.yml --live",
         "dev": "vite",
         "test": "vitest run",
@@ -61,7 +61,7 @@
         "test:ui": "vitest --ui",
         "test:coverage": "vitest run --coverage",
         "format": "npx prettier --write .",
-        "lint": "eslint src/ts scripts test",
+        "lint": "eslint src/ts bin tst",
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
@@ -83,7 +83,7 @@
         "globals": "^17.13.0",
         "happy-dom": "^20.13.2",
         "jsdom": "^29.0.1",
-        "kist": "^0.1.77",
+        "kist": "^0.1.81",
         "sass": "^1.104.0",
         "stylescape": "^0.4.1",
         "svgo": "^4.0.1",

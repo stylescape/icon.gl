@@ -73,12 +73,12 @@
         <p class="ss-t-lead">
             Every icon is rendered using the actual CSS class convention:
             <code>&lt;i class="i i_&lt;name&gt;"&gt;&lt;/i&gt;</code> with
-            <code>::before { content: "\\xxxx"; }</code>. This validates
+            <code>::before { content: "\xxxx\fe0e"; }</code>. This validates
             that the built font + SCSS class map work correctly.
         </p>
     </header>
 
-    <div class="ss-u-sticky ss-u-top-0 ss-u-z-sticky ss-a-surface ss-a-border-b ss-u-py-3">
+    <div class="ss-u-sticky ss-u-top-0 ss-u-z-sticky ss-a-surface ss-a-border-b ss-u-py-3" role="search">
       <div class="ss-l-container ss-c-toolbar ss-u-flex-wrap">
         <div class="ss-c-formfield ss-u-flex-grow-1">
             <label class="ss-c-label" for="search">Filter</label>
@@ -222,7 +222,10 @@
         }
 
         load().catch(err => {
-            root.innerHTML = `<div class="ss-c-empty-state ss-u-p-8">Failed to load: ${err.message}</div>`;
+            const failed = document.createElement("div");
+            failed.className = "ss-c-empty-state ss-u-p-8";
+            failed.textContent = `Failed to load: ${err.message}`;
+            root.replaceChildren(failed);
             console.error(err);
         });
     </script>

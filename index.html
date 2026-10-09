@@ -46,7 +46,7 @@
             </div>
         </header>
 
-        <div class="ss-u-sticky ss-u-top-0 ss-u-z-sticky ss-a-surface ss-a-border-b ss-u-py-3">
+        <div class="ss-u-sticky ss-u-top-0 ss-u-z-sticky ss-a-surface ss-a-border-b ss-u-py-3" role="search">
             <div class="ss-l-container ss-c-toolbar ss-u-flex-wrap">
                 <div class="ss-c-formfield">
                     <label class="ss-c-label" for="category">Category</label>
@@ -88,7 +88,7 @@
 
         <footer class="ss-l-container ss-l-region ss-l-region-sm ss-a-border-t ss-u-text-center">
             <p class="ss-t-small">
-                icon.gl Development Server | <a href="/dist/svg/">Browse SVGs</a> |
+                icon.gl Development Server | <a href="/dist/svg/icongl.sprite.svg">SVG sprite</a> |
                 <a href="/exa/font_demo.html">Font demo (every i_* class)</a> |
                 <a href="/exa/index.html">Font gallery</a>
             </p>
@@ -110,7 +110,10 @@
                 // e.g., "/dist/svg/arrows/arrow_up.svg" -> "arrow_up"
                 const match = path.match(/\/([^/]+)\.svg$/)
                 if (match) {
-                    svgMap.set(match[1], content)
+                    // Inlined SVGs share one document, so their <style> rules
+                    // (".cls-1 { fill: #fff }" in one icon, "fill: none" in
+                    // another) would clash. Scope the class names per icon.
+                    svgMap.set(match[1], content.replace(/\bcls-/g, `${match[1]}__cls-`))
                 }
             }
 

@@ -168,3 +168,41 @@ describe('Configuration Files', () => {
         }
     });
 });
+
+describe('Font Preparation', () => {
+    const load = async () => import('../bin/icon-sources.mjs');
+
+    it('marks shapes hidden by inline style as fill="none"', async () => {
+        const { markUnpaintedShapes } = await load();
+        const svg = '<svg><path d="M0 0" style="fill: none; stroke-width: 0px;"/><path d="M1 1"/></svg>';
+        expect(markUnpaintedShapes(svg)).toBe(
+            '<svg><path d="M0 0" style="fill: none; stroke-width: 0px;" fill="none"/><path d="M1 1"/></svg>',
+        );
+    });
+
+    it('marks shapes hidden by a <style> class rule', async () => {
+        const { markUnpaintedShapes } = await load();
+        const svg =
+            '<svg><style>.cls-1 { fill: none; }</style><rect class="cls-1" x="1" width="2" height="2"/></svg>';
+        expect(markUnpaintedShapes(svg)).toContain('<rect class="cls-1" x="1" width="2" height="2" fill="none"/>');
+    });
+
+    it('leaves stroked, white-filled and explicitly filled shapes alone', async () => {
+        const { markUnpaintedShapes } = await load();
+        const svg = [
+            '<svg><style>.cls-1 { fill: #fff; }</style>',
+            '<polygon points="0 0" style="fill: none; stroke: #000; stroke-width: 24px;"/>',
+            '<path class="cls-1" d="M0 0"/>',
+            '<path d="M0 0" fill="none"/>',
+            '<path d="M0 0" style="fill: none" class="x" fill="#000"/>',
+            '</svg>',
+        ].join('');
+        expect(markUnpaintedShapes(svg)).toBe(svg);
+    });
+
+    it('lets the inline style override a class rule', async () => {
+        const { markUnpaintedShapes } = await load();
+        const svg = '<svg><style>.cls-1 { fill: none; }</style><path class="cls-1" style="fill: #000" d="M0 0"/></svg>';
+        expect(markUnpaintedShapes(svg)).toBe(svg);
+    });
+});
