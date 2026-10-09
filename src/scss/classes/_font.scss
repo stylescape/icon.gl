@@ -15,7 +15,9 @@
 ///
 @each $icon, $codepoint in $icongl_map {
     .i_#{$icon}::before {
-        content: $codepoint;
+        // U+FE0E (text variation selector) requests text presentation for
+        // codepoints in emoji ranges; it is ignored for the others.
+        content: '#{$codepoint}\fe0e';
     }
 }
 
@@ -30,5 +32,6 @@
 [class^='i_']::before,
 [class*=' i_']::before {
     font-family: $icongl_font !important;
+    font-variant-emoji: text;
     @include icon_style;
 }

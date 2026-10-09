@@ -4,28 +4,26 @@
 
 @mixin banner(
     $file,
-    $version: '1.0.0',
     $author: 'Scape Press',
     $website: 'https://www.icon.gl/',
-    $license: 'Apache 2.0 License',
-    $licenseUrl: 'https://github.com/scape-agency/icon.gl/blob/main/LICENSE',
+    $license: 'MIT License',
+    $licenseUrl: 'https://github.com/stylescape/icon.gl/blob/dev/LICENSE',
     $description: 'Icon Library',
-    $repository: 'https://github.com/scape-agency/icon.gl/',
+    $repository: 'https://github.com/stylescape/icon.gl/',
 ) {
     @at-root {
     /*!
      * ============================================================================
      *
-     * Icon.gl #{$file} v#{$version} (#{$website})
-     * Copyright (c) 2020-2024 #{$author} (https://www.scape.press)
-     * All rights reserved under #{$license} terms.
+     * Icon.gl #{$file} (#{$website})
+     * Copyright (c) 2020-2026 #{$author} (https://www.scape.press)
+     * Released under the #{$license}.
      *
      * ============================================================================
      *
      * @description     #{$description}
      * @author          #{$author} (https://www.scape.press)
-     * @version         v#{$version}
-     * @copyright       2020-2024 #{$author} (https://www.scape.press)
+     * @copyright       2020-2026 #{$author} (https://www.scape.press)
      * @website         #{$website}
      * @repository      #{$repository}
      * @license         #{$license} (#{$licenseUrl})

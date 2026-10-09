@@ -1,4 +1,6 @@
 import { exec } from 'child_process'
+import { createReadStream, existsSync } from 'fs'
+import { resolve, sep } from 'path'
 import { promisify } from 'util'
 import { defineConfig } from 'vite'
 
@@ -11,7 +13,7 @@ async function runKist(server) {
     if (now - lastBuild < 500) return
     lastBuild = now
 
-    console.log('[Kist] 🛠️ Running build...')
+    console.log('[Kist] Running build...')
     try {
         const { stdout, stderr } = await execAsync('npx kist --config ./kist.dev.yml')
         if (stdout) console.log('[Kist] stdout:', stdout)
@@ -29,6 +31,19 @@ async function runKist(server) {
     }
 }
 
+// Dev-only: serve stylescape's compiled CSS (devDependency) to the demo pages
+// at /vendor/stylescape/. It is never copied into dist/ (the published package).
+const stylescapeCssDir = resolve('node_modules/stylescape/css')
+
+function serveStylescape(req, res, next) {
+    const url = (req.url || '').split('?')[0]
+    if (!url.startsWith('/vendor/stylescape/')) return next()
+    const file = resolve(stylescapeCssDir, '.' + url.slice('/vendor/stylescape'.length))
+    if (!file.startsWith(stylescapeCssDir + sep) || !existsSync(file)) return next()
+    res.setHeader('Content-Type', 'text/css; charset=utf-8')
+    createReadStream(file).pipe(res)
+}
+
 export default defineConfig({
     root: '.',
     publicDir: false,
@@ -41,6 +56,7 @@ export default defineConfig({
         {
             name: 'kist-watch',
             configureServer(server) {
+                server.middlewares.use(serveStylescape)
                 runKist(server)
 
                 // Watch for file changes to trigger kist rebuild

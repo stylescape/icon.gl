@@ -7,8 +7,10 @@ import * as Icons from "../icons";
 // Types
 // ============================================================================
 
+type IconName = keyof typeof Icons;
+
 type IconProps = {
-    name: keyof typeof Icons;
+    name: IconName;
     size?: number;
     color?: string;
     className?: string;
@@ -18,6 +20,30 @@ type IconProps = {
 type IconCache = {
     [key: string]: string;
 };
+
+
+// Helpers
+// ============================================================================
+
+const ATTRIBUTE_NAME = /^[a-zA-Z_:][-a-zA-Z0-9_:.]*$/;
+
+function escapeAttribute(value: string): string {
+    return value
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+}
+
+function addAttributes(svgString: string, attributes: string): string {
+    return attributes ? svgString.replace("<svg", `<svg ${attributes}`) : svgString;
+}
+
+function toKebabCase(property: string): string {
+    return property.startsWith("--")
+        ? property
+        : property.replace(/[A-Z]/g, (char) => `-${char.toLowerCase()}`);
+}
 
 
 // Class
@@ -34,56 +60,56 @@ class Icon {
 
     /**
      * Retrieves the SVG markup of an icon by its key.
-     * @param {string} key - The key representing the icon.
+     * @param {string} key - The key representing the icon, e.g. "icon_ui_media_play".
      * @returns {string | null} The SVG markup of the icon if found, otherwise null.
      */
     static getIconByKey(key: string): string | null {
-        const svgMarkup = Icons[key as keyof typeof Icons];
-        return svgMarkup || null;
+        if (!Object.prototype.hasOwnProperty.call(Icons, key)) return null;
+        const svgMarkup: unknown = Icons[key as IconName];
+        return typeof svgMarkup === "string" ? svgMarkup : null;
     }
 
     /**
      * Generates an SVG string with applied styles, classes, and other attributes.
+     * `color` sets both `fill` (solid icons) and `color` (stroke icons that use
+     * `currentColor`). Attribute values are escaped.
      * @param {IconProps} props - Icon properties including name, size, color, className, and otherAttributes.
-     * @returns {string} The SVG string with styles, class, and other attributes.
+     * @returns {string} The SVG string with styles, class, and other attributes, or "" for an unknown name.
      */
     static getIcon(props: IconProps): string {
         const { name, size, color, className, otherAttributes } = props;
-        const svgString = Icons[name];
+        const svgString = this.getIconByKey(name);
         if (!svgString) return "";
 
-            let attributes = `style="${this.getStyleAttribute(size, color)}"`;
-            attributes += className ? ` class="${className}"` : "";
+        const attributes: string[] = [];
+        const style = this.getStyleAttribute(size, color);
+        if (style) attributes.push(`style="${escapeAttribute(style)}"`);
+        if (className) attributes.push(`class="${escapeAttribute(className)}"`);
         if (otherAttributes) {
             for (const [attr, value] of Object.entries(otherAttributes)) {
-                attributes += ` ${attr}="${value}"`;
+                if (!ATTRIBUTE_NAME.test(attr)) {
+                    throw new Error(`Invalid SVG attribute name: "${attr}"`);
+                }
+                attributes.push(`${attr}="${escapeAttribute(value)}"`);
             }
         }
 
-        return svgString.replace("<svg", `<svg ${attributes}`);
+        return addAttributes(svgString, attributes.join(" "));
     }
 
 
-    // /**
-    //  * Retrieves an icon with a preset size.
-    //  * @param {string} key - The key representing the icon.
-    //  * @param {"small" | "medium" | "large"} preset - The preset size of the icon.
-    //  * @returns {string | null} The SVG markup of the icon with the preset size.
-    //  */
-    // static getIconWithPreset(key: string, preset: "small" | "medium" | "large"): string | null {
-    //     const sizeMap = { small: 16, medium: 32, large: 48 };
-    //     return this.getIcon({ name: key, size: sizeMap[preset] });
-    // }
-
-
     /**
-     * Applies accessibility attributes to the SVG icon.
+     * Applies accessibility attributes to the SVG icon. An empty label marks
+     * the icon as decorative (`aria-hidden="true"`).
      * @param {string} svgString - The SVG string.
      * @param {string} label - Accessibility label for the icon.
      * @returns {string} The SVG string with accessibility attributes.
      */
     static withAccessibility(svgString: string, label: string): string {
-        return svgString.replace("<svg", `<svg aria-label="${label}" role="img"`);
+        const attributes = label
+            ? `aria-label="${escapeAttribute(label)}" role="img"`
+            : `aria-hidden="true" focusable="false"`;
+        return addAttributes(svgString, attributes);
     }
 
 
@@ -94,8 +120,8 @@ class Icon {
      */
     static getCachedIcon(props: IconProps): string {
         const cacheKey = JSON.stringify(props);
-        if (!this.cache[cacheKey]) {
-        this.cache[cacheKey] = this.getIcon(props);
+        if (!(cacheKey in this.cache)) {
+            this.cache[cacheKey] = this.getIcon(props);
         }
         return this.cache[cacheKey];
     }
@@ -109,32 +135,44 @@ class Icon {
      */
     private static getStyleAttribute(size?: number, color?: string): string {
         const sizeStyle = size ? `width: ${size}px; height: ${size}px;` : "";
-        const colorStyle = color ? `fill: ${color};` : "";
+        const colorStyle = color ? `fill: ${color}; color: ${color};` : "";
         return `${sizeStyle} ${colorStyle}`.trim();
     }
 
 
     /**
-     * Applies styles to an SVG string.
+     * Applies styles to an SVG string. Accepts camelCase (`strokeWidth`),
+     * kebab-case (`stroke-width`) and custom (`--name`) properties.
      * @param {string} svgString - The SVG string to which styles will be applied.
      * @param {Record<string, string>} styles - The styles to apply.
-     * @returns {string} The SVG string with applied styles.
+     * @returns {string} The SVG string with applied styles, or the input unchanged if it isn't valid SVG.
      */
     static applyStylesToSvg(svgString: string, styles: Record<string, string>): string {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(svgString, "image/svg+xml");
-        const svgElement = doc.querySelector("svg");
-        if (svgElement) {
-            for (const [key, value] of Object.entries(styles)) {
-                svgElement.style[key as any] = value;
-            }
-            return svgElement.outerHTML;
+        const declarations = Object.entries(styles).map(
+            ([key, value]) => [toKebabCase(key), value] as const
+        );
+
+        // Without a DOM (SSR, workers) fall back to prepending a style attribute.
+        if (typeof DOMParser === "undefined") {
+            if (!/^\s*<svg[\s>]/.test(svgString) || declarations.length === 0) return svgString;
+            const style = declarations.map(([key, value]) => `${key}: ${value};`).join(" ");
+            return addAttributes(svgString, `style="${escapeAttribute(style)}"`);
         }
-        return svgString;
+
+        const doc = new DOMParser().parseFromString(svgString, "image/svg+xml");
+        const svgElement = doc.documentElement;
+        if (
+            !svgElement ||
+            svgElement.nodeName.toLowerCase() !== "svg" ||
+            doc.getElementsByTagName("parsererror").length > 0
+        ) {
+            return svgString;
+        }
+        for (const [key, value] of declarations) {
+            (svgElement as unknown as SVGElement).style.setProperty(key, value);
+        }
+        return svgElement.outerHTML;
     }
-
-
-
 
 }
 
@@ -143,3 +181,4 @@ class Icon {
 // ============================================================================
 
 export default Icon;
+export type { IconName, IconProps };

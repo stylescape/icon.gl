@@ -34,6 +34,7 @@ stages:
                     - scss
                     - ts
                     - js
+                    - json
                     - html
 
           # =====================================================================
@@ -75,3 +76,10 @@ stages:
             options:
                 srcDir: "./src/html"
                 destDir: "./dist/html"
+
+          # The dev gallery (index.html) reads the icon metadata from dist/json.
+          - name: CopyJsonFiles
+            action: DirectoryCopyAction
+            options:
+                srcDir: "./src/json"
+                destDir: "./dist/json"

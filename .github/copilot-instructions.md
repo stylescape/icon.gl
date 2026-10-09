@@ -28,11 +28,6 @@ repositories** grouped by owner and family — there is no monorepo.
    otherwise pick the conventional default, state it, and proceed.
 
 ### Git & changes
-- Don't `git commit`/`push` unless asked. If asked and on the default branch,
-  create a feature branch first.
-- Hard-to-reverse or outward-facing actions (publishing, deleting, sending)
-  require confirmation unless explicitly authorized.
-
 ## Coding standards
 
 - **Match the surrounding code**: idioms, naming, file structure, and comment

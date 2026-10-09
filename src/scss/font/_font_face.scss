@@ -9,10 +9,11 @@
 
 // FontFace URLs Function
 // ============================================================================
-// Generating font-face URLs with hash
+// Builds one `src` entry: the map key is the file extension, the value the
+// CSS format name (e.g. "ttf": "truetype").
 
-@function icongl_font_url($format) {
-    @return url("#{$icon_dir}/#{$icon_name}.#{$format}") format($format);
+@function icongl_font_url($extension, $format) {
+    @return url("#{$icon_dir}/#{$icon_name}.#{$extension}") format("#{$format}");
 }
 
 
@@ -21,8 +22,8 @@
 // Constructing src value for @font-face
 
 $icongl_font_src: ();
-@each $format, $type in $icongl_font_formats {
-    $icongl_font_src: list.append($icongl_font_src, icongl_font_url($format), comma);
+@each $extension, $format in $icongl_font_formats {
+    $icongl_font_src: list.append($icongl_font_src, icongl_font_url($extension, $format), comma);
 }
 
 

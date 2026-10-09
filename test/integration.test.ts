@@ -57,15 +57,48 @@ describe('SVG Icons Integration', () => {
     });
 });
 
-describe('Build Output Validation', () => {
-    it('should generate TypeScript icon exports', async () => {
-        const iconsPath = path.resolve(__dirname, '../icons/index.ts');
-        const exists = await fs.access(iconsPath).then(() => true).catch(() => false);
+describe('Icon Sources Stay In Sync', () => {
+    const srcDir = path.resolve(__dirname, '../src');
 
-        if (exists) {
-            const content = await fs.readFile(iconsPath, 'utf-8');
-            expect(content).toContain('export');
+    async function listSvgIds(): Promise<Map<string, string>> {
+        const ids = new Map<string, string>();
+        async function walk(dir: string) {
+            for (const entry of await fs.readdir(dir, { withFileTypes: true })) {
+                const file = path.join(dir, entry.name);
+                if (entry.isDirectory()) await walk(file);
+                else if (entry.name.endsWith('.svg')) ids.set(path.basename(entry.name, '.svg'), file);
+            }
         }
+        await walk(path.join(srcDir, 'svg'));
+        return ids;
+    }
+
+    it('should only use lowercase, digits and underscores in SVG file names', async () => {
+        const invalid = [...(await listSvgIds()).keys()].filter(id => !/^[a-z0-9_]+$/.test(id));
+        expect(invalid).toEqual([]);
+    });
+
+    it('should export exactly one TypeScript module per SVG', async () => {
+        const svgIds = await listSvgIds();
+        const coreBarrel = await fs.readFile(path.join(srcDir, 'ts/icons.ts'), 'utf-8');
+        const lucideBarrel = await fs.readFile(path.join(srcDir, 'ts/icons/lucide/index.ts'), 'utf-8');
+        const exported = [
+            ...[...coreBarrel.matchAll(/from '\.\/icons\/([a-z0-9_]+)'/g)].map(m => m[1]),
+            ...[...lucideBarrel.matchAll(/from '\.\/([a-z0-9_]+)'/g)].map(m => m[1]),
+        ].filter(id => id !== 'lucide');
+
+        expect([...exported].sort()).toEqual([...svgIds.keys()].sort());
+    });
+
+    it('should map every font icon in the SCSS map', async () => {
+        const scss = await fs.readFile(path.join(srcDir, 'scss/variables/_font.scss'), 'utf-8');
+        const mapped = [...scss.matchAll(/^\s*"([^"]+)":\s*"\\[0-9a-f]+"/gm)].map(m => m[1]);
+        const fontIds = [...(await listSvgIds()).entries()]
+            .filter(([, file]) => !file.includes(`${path.sep}lucide${path.sep}`))
+            .map(([id]) => id);
+
+        expect(new Set(mapped).size).toBe(mapped.length);
+        expect([...mapped].sort()).toEqual(fontIds.sort());
     });
 });
 

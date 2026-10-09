@@ -11,13 +11,10 @@
 import { FontAssetType, generateFonts, OtherAssetType } from "fantasticon";
 import fs from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { collectIcons, ROOT } from "./icon-sources.mjs";
 
-const HERE = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.resolve(HERE, "..");
-
-const INPUT_DIR = path.join(ROOT, "src/svg");
 const OUTPUT_DIR = path.join(ROOT, "dist/font");
+const TEMP_DIR = path.join(ROOT, ".font-build-tmp");
 const FONT_NAME = "icongl";
 const SCSS_OUT = path.join(ROOT, "src/scss/variables/_font.scss");
 
@@ -25,28 +22,53 @@ const SCSS_OUT = path.join(ROOT, "src/scss/variables/_font.scss");
 // correctly when converted to a glyph font.
 const SKIP_FOLDERS = new Set(["lucide"]);
 
-async function collectSvgs(dir) {
-    const seen = new Map();
-    async function walk(d) {
-        const entries = await fs.readdir(d, { withFileTypes: true });
-        for (const e of entries) {
-            const p = path.join(d, e.name);
-            if (e.isDirectory()) {
-                if (SKIP_FOLDERS.has(e.name)) continue; // skip excluded folders
-                await walk(p);
-            } else if (e.isFile() && e.name.endsWith(".svg")) {
-                const id = path.basename(e.name, ".svg");
-                if (seen.has(id)) {
-                    throw new Error(
-                        `Duplicate icon id "${id}":\n  ${seen.get(id)}\n  ${p}`
-                    );
-                }
-                seen.set(id, p);
-            }
-        }
+/**
+ * Reads the codepoints of the previous build from the committed SCSS map so
+ * existing icons keep their glyph across builds; only new icons get new
+ * codepoints.
+ */
+async function readPreviousCodepoints() {
+    const scss = await fs.readFile(SCSS_OUT, "utf8").catch(() => "");
+    const codepoints = {};
+    for (const [, name, hex] of scss.matchAll(/^\s*"([^"]+)":\s*"\\([0-9a-fA-F]+)"/gm)) {
+        codepoints[name] = parseInt(hex, 16);
     }
-    await walk(dir);
-    return seen;
+    return codepoints;
+}
+
+/**
+ * Fantasticon 4.x builds each glyph's character with String.fromCharCode(),
+ * which truncates codepoints above U+FFFF to 16 bits (U+1F90E -> U+F90E).
+ * The font then has no glyph at the published codepoint and browsers fall
+ * back to the colour emoji font. Map single astral arguments to
+ * String.fromCodePoint() for the duration of the font build only.
+ */
+async function withAstralSafeFromCharCode(fn) {
+    const fromCharCode = String.fromCharCode;
+    String.fromCharCode = function (...codes) {
+        return codes.length === 1 && codes[0] > 0xffff
+            ? String.fromCodePoint(codes[0])
+            : fromCharCode.apply(String, codes);
+    };
+    try {
+        return await fn();
+    } finally {
+        String.fromCharCode = fromCharCode;
+    }
+}
+
+/** Fails the build if any glyph landed on a codepoint other than its pinned one. */
+function assertGlyphCodepoints(glyphs, codepoints) {
+    const wrong = glyphs.filter(({ name, unicode }) => unicode?.[0]?.codePointAt(0) !== codepoints[name]);
+    if (!glyphs.length || wrong.length) {
+        throw new Error(
+            `[build-font] ${glyphs.length ? wrong.length : "all"} glyphs not at their codepoint: ` +
+                wrong
+                    .slice(0, 10)
+                    .map(({ name }) => name)
+                    .join(", ")
+        );
+    }
 }
 
 function renderScss(codepoints) {
@@ -80,40 +102,55 @@ function renderScss(codepoints) {
 async function main() {
     await fs.mkdir(OUTPUT_DIR, { recursive: true });
 
-    const svgs = await collectSvgs(INPUT_DIR);
-    console.log(
-        `[build-font] ${svgs.size} svg sources discovered (no name collisions)`
-    );
+    const icons = (await collectIcons()).filter((icon) => !SKIP_FOLDERS.has(icon.folder));
+    const ids = new Set(icons.map((icon) => icon.id));
+    console.log(`[build-font] ${icons.length} svg sources discovered (no name collisions)`);
 
-    // Copy SVGs to a temp folder (Fantasticon doesn't support filtering)
-    const TEMP_DIR = path.join(ROOT, ".font-build-tmp");
+    const previous = await readPreviousCodepoints();
+    const pinned = Object.fromEntries(Object.entries(previous).filter(([id]) => ids.has(id)));
+    const reserved = new Set(Object.values(previous));
+    // Number new icons above the whole previous map (removed icons included)
+    // so a cached font never shows a just-removed glyph for a new icon.
+    let next = Math.max(0xf101 - 1, ...reserved) + 1;
+    const codepoints = { ...pinned };
+    for (const { id } of icons) {
+        if (codepoints[id] === undefined) codepoints[id] = next++;
+    }
+    const added = icons.length - Object.keys(pinned).length;
+    console.log(`[build-font] ${Object.keys(pinned).length} codepoints pinned, ${added} new`);
+
+    // Fantasticon takes a single flat folder, so stage the selected SVGs.
     await fs.rm(TEMP_DIR, { recursive: true, force: true });
     await fs.mkdir(TEMP_DIR, { recursive: true });
+    try {
+        for (const { id, file } of icons) {
+            await fs.copyFile(file, path.join(TEMP_DIR, `${id}.svg`));
+        }
 
-    for (const [id, srcPath] of svgs.entries()) {
-        const destPath = path.join(TEMP_DIR, `${id}.svg`);
-        await fs.copyFile(srcPath, destPath);
+        let glyphs = [];
+        await withAstralSafeFromCharCode(() =>
+            generateFonts({
+                inputDir: TEMP_DIR,
+                outputDir: OUTPUT_DIR,
+                name: FONT_NAME,
+                fontTypes: [FontAssetType.WOFF2, FontAssetType.WOFF],
+                assetTypes: [OtherAssetType.JSON, OtherAssetType.TS],
+                normalize: true,
+                codepoints,
+                getIconId: ({ basename }) => basename,
+                // svgicons2svgfont reports the glyphs it wrote into the font.
+                formatOptions: { svg: { callback: (written) => (glyphs = written) } },
+            })
+        );
+        assertGlyphCodepoints(glyphs, codepoints);
+    } finally {
+        await fs.rm(TEMP_DIR, { recursive: true, force: true });
     }
-    console.log(`[build-font] copied ${svgs.size} SVGs to temp folder`);
-
-    await generateFonts({
-        inputDir: TEMP_DIR,
-        outputDir: OUTPUT_DIR,
-        name: FONT_NAME,
-        fontTypes: [FontAssetType.WOFF2, FontAssetType.WOFF],
-        assetTypes: [OtherAssetType.JSON, OtherAssetType.TS],
-        normalize: true,
-        getIconId: ({ basename }) => basename,
-    });
-
-    // Clean up temp folder
-    await fs.rm(TEMP_DIR, { recursive: true, force: true });
 
     const jsonPath = path.join(OUTPUT_DIR, `${FONT_NAME}.json`);
-    const codepoints = JSON.parse(await fs.readFile(jsonPath, "utf8"));
-    const fontIds = new Set(Object.keys(codepoints));
+    const fontCodepoints = JSON.parse(await fs.readFile(jsonPath, "utf8"));
 
-    const missing = [...svgs.keys()].filter((id) => !fontIds.has(id));
+    const missing = [...ids].filter((id) => !(id in fontCodepoints));
     if (missing.length) {
         throw new Error(
             `[build-font] ${missing.length} svgs missing from font: ` +
@@ -121,10 +158,14 @@ async function main() {
                 (missing.length > 10 ? ", ..." : "")
         );
     }
-    console.log(`[build-font] ${fontIds.size} icons in font, all svgs covered`);
+    console.log(`[build-font] ${ids.size} icons in font, all svgs covered`);
 
-    await fs.writeFile(SCSS_OUT, renderScss(codepoints), "utf8");
-    console.log(`[build-font] wrote ${path.relative(ROOT, SCSS_OUT)}`);
+    // Skip unchanged writes so watchers on src/ don't retrigger the build.
+    const scss = renderScss(fontCodepoints);
+    if ((await fs.readFile(SCSS_OUT, "utf8").catch(() => null)) !== scss) {
+        await fs.writeFile(SCSS_OUT, scss, "utf8");
+        console.log(`[build-font] wrote ${path.relative(ROOT, SCSS_OUT)}`);
+    }
 }
 
 main().catch((err) => {

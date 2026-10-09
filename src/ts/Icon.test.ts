@@ -20,38 +20,65 @@ describe('Icon', () => {
         });
 
         it('should return null when key does not exist', () => {
-            // Since mock is strict, test with a key that exists in mock
-            // In real scenario, this would return null for non-existent keys
-            const result = Icon.getIconByKey('testIcon');
-            expect(result).toBeTruthy();
+            expect(Icon.getIconByKey('missingIcon')).toBeNull();
+        });
+
+        it('should return null for inherited object keys', () => {
+            expect(Icon.getIconByKey('toString')).toBeNull();
+            expect(Icon.getIconByKey('constructor')).toBeNull();
         });
     });
 
     describe('getIcon', () => {
-        it('should return SVG with default attributes when no props provided', () => {
-            const result = Icon.getIcon({ name: 'testIcon' });
+        it('should return the plain SVG when no props provided', () => {
+            const result = Icon.getIcon({ name: 'testIcon' as any });
             expect(result).toContain('<svg');
-            expect(result).toContain('style=""');
+            expect(result).not.toContain('style=');
+        });
+
+        it('should return an empty string for an unknown icon', () => {
+            expect(Icon.getIcon({ name: 'missingIcon' as any })).toBe('');
         });
 
         it('should apply size style when size is provided', () => {
-            const result = Icon.getIcon({ name: 'testIcon', size: 32 });
+            const result = Icon.getIcon({ name: 'testIcon' as any, size: 32 });
             expect(result).toContain('width: 32px; height: 32px;');
         });
 
         it('should apply color style when color is provided', () => {
-            const result = Icon.getIcon({ name: 'testIcon', color: '#FF0000' });
+            const result = Icon.getIcon({ name: 'testIcon' as any, color: '#FF0000' });
             expect(result).toContain('fill: #FF0000;');
+            expect(result).toContain('color: #FF0000;');
+        });
+
+        it('should escape attribute values', () => {
+            const result = Icon.getIcon({
+                name: 'testIcon' as any,
+                className: 'a" onload="alert(1)',
+                otherAttributes: { title: '<b>&</b>' },
+            });
+            expect(result).toContain('class="a&quot; onload=&quot;alert(1)"');
+            expect(result).toContain('title="&lt;b&gt;&amp;&lt;/b&gt;"');
+            expect(result).not.toContain('onload="');
+        });
+
+        it('should reject invalid attribute names', () => {
+            expect(() =>
+                Icon.getIcon({
+                    name: 'testIcon' as any,
+                    otherAttributes: { 'onload="x" a': '1' },
+                })
+            ).toThrow(/Invalid SVG attribute name/);
         });
 
         it('should apply className when provided', () => {
-            const result = Icon.getIcon({ name: 'testIcon', className: 'custom-icon' });
+            const result = Icon.getIcon({ name: 'testIcon' as any, className: 'custom-icon' });
             expect(result).toContain('class="custom-icon"');
         });
 
         it('should apply custom attributes when provided', () => {
             const result = Icon.getIcon({
-                name: 'testIcon',
+                name: 'testIcon' as any,
                 otherAttributes: { 'data-testid': 'icon-test', 'aria-hidden': 'true' },
             });
             expect(result).toContain('data-testid="icon-test"');
@@ -60,7 +87,7 @@ describe('Icon', () => {
 
         it('should combine all props correctly', () => {
             const result = Icon.getIcon({
-                name: 'testIcon',
+                name: 'testIcon' as any,
                 size: 48,
                 color: 'blue',
                 className: 'icon-large',
@@ -86,6 +113,17 @@ describe('Icon', () => {
             const result = Icon.withAccessibility(svgString, 'Triangle');
             expect(result).toContain('viewBox="0 0 24 24"');
             expect(result).toContain('<path d="M12 2L2 22h20L12 2z"/>');
+        });
+
+        it('should escape the label', () => {
+            const result = Icon.withAccessibility('<svg></svg>', 'Say "hi"');
+            expect(result).toContain('aria-label="Say &quot;hi&quot;"');
+        });
+
+        it('should mark the icon decorative when the label is empty', () => {
+            const result = Icon.withAccessibility('<svg></svg>', '');
+            expect(result).toContain('aria-hidden="true"');
+            expect(result).not.toContain('role="img"');
         });
     });
 
@@ -131,9 +169,33 @@ describe('Icon', () => {
 
             const result = Icon.applyStylesToSvg(svgString, styles);
 
-            // Note: DOMParser in happy-dom might format differently
             expect(result).toContain('<svg');
-            expect(result).toContain('xmlns="http://www.w3.org/2000/svg"');
+            expect(result).toContain('width: 100px');
+            expect(result).toContain('fill: red');
+        });
+
+        it('should apply camelCase and kebab-case properties', () => {
+            const svgString = '<svg xmlns="http://www.w3.org/2000/svg"><path d="M0 0"/></svg>';
+
+            const result = Icon.applyStylesToSvg(svgString, {
+                strokeWidth: '2',
+                'stroke-linecap': 'round',
+            });
+
+            expect(result).toContain('stroke-width: 2');
+            expect(result).toContain('stroke-linecap: round');
+        });
+
+        it('should fall back to a style attribute without DOMParser', () => {
+            vi.stubGlobal('DOMParser', undefined);
+            try {
+                const result = Icon.applyStylesToSvg('<svg viewBox="0 0 1 1"></svg>', {
+                    strokeWidth: '2',
+                });
+                expect(result).toBe('<svg style="stroke-width: 2;" viewBox="0 0 1 1"></svg>');
+            } finally {
+                vi.unstubAllGlobals();
+            }
         });
 
         it('should return original string if SVG parsing fails', () => {

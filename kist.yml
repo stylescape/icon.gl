@@ -57,21 +57,34 @@ stages:
                 destDir: "./dist/svg"
 
           # =====================================================================
-          # 4. Generate Icon Fonts + sync SCSS map
+          # 4. Generate TypeScript Icon Modules + SVG Sprite
+          # =====================================================================
+          # build-icons.mjs:
+          #   - regenerates src/ts/icons/**/*.ts and src/ts/icons.ts from
+          #     src/svg/** so the exports never drift from the SVG sources
+          #   - emits dist/svg/icongl.sprite.svg (<symbol id="icon_<name>">)
+          - name: GenerateIconModules
+            action: RunScriptAction
+            options:
+                scriptPath: "./scripts/build-icons.mjs"
+
+          # =====================================================================
+          # 5. Generate Icon Fonts + sync SCSS map
           # =====================================================================
           # build-font.mjs:
           #   - runs Fantasticon over src/svg/** with basename-only ids
           #     (so SVG file names match SCSS .i_<name> classes)
           #   - emits dist/font/icongl.{woff2,woff,json,ts}
           #   - regenerates src/scss/variables/_font.scss from the codepoints
-          #     so $icongl_map is always in sync with the actual font.
+          #     so $icongl_map is always in sync with the actual font
+          #   - keeps the codepoints of existing icons stable across builds
           - name: GenerateIconFonts
             action: RunScriptAction
             options:
                 scriptPath: "./scripts/build-font.mjs"
 
           # =====================================================================
-          # 5. Compile SCSS to CSS
+          # 6. Compile SCSS to CSS
           # =====================================================================
           - name: CompileScss
             action: StyleProcessingAction
@@ -88,7 +101,7 @@ stages:
                 styleOption: "compressed"
 
           # =====================================================================
-          # 6. Copy Source Files
+          # 7. Copy Source Files
           # =====================================================================
           - name: CopyTypeScriptSources
             action: DirectoryCopyAction
@@ -127,7 +140,7 @@ stages:
                 destDir: "./dist"
 
           # =====================================================================
-          # 6. Finalize
+          # 8. Finalize
           # =====================================================================
           - name: GeneratePackageJson
             action: PackageManagerAction

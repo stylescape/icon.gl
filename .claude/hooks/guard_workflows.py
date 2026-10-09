@@ -12,7 +12,11 @@ Concretely, a file under .github/workflows/ must have exactly
 
 and nothing else — no workflow_dispatch, no release:, no branches, no
 pull_request, no schedule. Other CI systems (.gitlab-ci.yml, .circleci/,
-.travis.yml, Jenkinsfile, ...) and .github/dependabot.yml are not allowed at all.
+.travis.yml, Jenkinsfile, ...) are not allowed at all.
+
+Exception: the repository automation in ALLOWED_AUTOMATION (auto-assign,
+Dependabot auto-merge, .github/dependabot.yml) is kept on purpose and may be
+created or edited freely.
 
 The hook checks Write / Edit / MultiEdit / NotebookEdit by evaluating the file
 content that *would* result, and denies Bash commands that write into a guarded
@@ -34,12 +38,19 @@ import sys
 
 FILE_TOOLS = {"Read", "Edit", "Write", "NotebookEdit", "MultiEdit"}
 
+# Repository automation that is deliberately exempt from the policy.
+ALLOWED_AUTOMATION = re.compile(
+    r"(^|/)\.github/("
+    r"workflows/auto-assign\.ya?ml|"
+    r"workflows/dependabot-auto-merge\.ya?ml|"
+    r"dependabot\.ya?ml"
+    r")$"
+)
 # Paths where only version-tag workflows may live.
 WORKFLOW_DIR = re.compile(r"(^|/)\.github/workflows/[^/]+\.ya?ml$")
 # Paths that may never be created or edited (no allowed form).
 FORBIDDEN = re.compile(
     r"(^|/)("
-    r"\.github/dependabot\.ya?ml|"
     r"\.gitlab-ci\.ya?ml|"
     r"\.travis\.ya?ml|"
     r"\.circleci/[^/]+|"
@@ -49,6 +60,9 @@ FORBIDDEN = re.compile(
     r"\.drone\.ya?ml|"
     r"\.woodpecker\.ya?ml"
     r")$"
+)
+ALLOWED_AUTOMATION_IN_COMMAND = re.compile(
+    r"\.github/(workflows/auto-assign|workflows/dependabot-auto-merge|dependabot)\.ya?ml"
 )
 GUARDED_HINT = re.compile(
     r"\.github/workflows|\.github/dependabot|\.gitlab-ci|\.travis\.yml|\.circleci|"
@@ -68,7 +82,8 @@ POLICY = (
     "CI policy: the only allowed trigger is a version-tag push — "
     "`on: push: tags: ['v[0-9]+.[0-9]+.[0-9]+']` and nothing else "
     "(no workflow_dispatch, release, branches, pull_request, schedule). "
-    "No lint/test/smoke/CodeQL/stale/auto-assign/Dependabot automation. "
+    "No lint/test/smoke/CodeQL/stale/labeler workflows; only auto-assign, "
+    "Dependabot auto-merge and .github/dependabot.yml are exempt. "
     "See CLAUDE.md. Guard: .claude/hooks/guard_workflows.py "
     "(CLAUDE_ALLOW_CI_EDITS=1 for a deliberate exception)."
 )
@@ -231,6 +246,8 @@ def main() -> int:
         if not raw:
             return 0
         path = resolve(raw, cwd)
+        if ALLOWED_AUTOMATION.search(path):
+            return 0
         if FORBIDDEN.search(path):
             return deny(f"{path}: this kind of CI/automation config is not allowed in this repo")
         if WORKFLOW_DIR.search(path):
@@ -246,7 +263,7 @@ def main() -> int:
 
     if tool == "Bash":
         command = tool_input.get("command") or ""
-        if not GUARDED_HINT.search(command):
+        if not GUARDED_HINT.search(ALLOWED_AUTOMATION_IN_COMMAND.sub("", command)):
             return 0
         if WRITEISH.search(command) or re.search(r"<<-?\s*['\"]?\w+", command):
             return deny(

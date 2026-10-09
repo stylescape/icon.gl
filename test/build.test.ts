@@ -1,3 +1,4 @@
+import { execFileSync } from 'child_process';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { describe, expect, it } from 'vitest';
@@ -30,6 +31,61 @@ describe('Build Process Tests', () => {
         expect(pkg.scripts.test).toBeTruthy();
         expect(pkg.scripts['test:coverage']).toBeTruthy();
     });
+});
+
+describe('Published Package Manifest', () => {
+    // The release workflow runs `npm publish` from inside dist/, so every path
+    // in the manifest must resolve relative to dist/.
+    const distDir = path.resolve(__dirname, '../dist');
+    const distPackageJson = path.join(distDir, 'package.json');
+
+    function manifestPaths(pkg: Record<string, any>): string[] {
+        const paths = ['main', 'module', 'types', 'style', 'sass'].map((key) => pkg[key]);
+        const collect = (value: unknown) => {
+            if (typeof value === 'string') paths.push(value);
+            else if (value && typeof value === 'object') Object.values(value).forEach(collect);
+        };
+        collect(pkg.exports);
+        return paths.filter(Boolean);
+    }
+
+    it('should point every entry point at a file inside dist/', async (context) => {
+        const built = await fs.access(distPackageJson).then(() => true).catch(() => false);
+        if (!built) context.skip();
+
+        const pkg = JSON.parse(await fs.readFile(distPackageJson, 'utf-8'));
+        const missing: string[] = [];
+        for (const entry of manifestPaths(pkg)) {
+            // Subpath patterns ("./svg/*") must at least have their directory.
+            const target = path.join(distDir, entry.replace(/\/\*$/, ''));
+            const exists = await fs.access(target).then(() => true).catch(() => false);
+            if (!exists) missing.push(entry);
+        }
+
+        expect(missing).toEqual([]);
+    });
+
+    it('should ship every entry point in the npm tarball', async (context) => {
+        const built = await fs.access(distPackageJson).then(() => true).catch(() => false);
+        if (!built) context.skip();
+
+        // `files` decides what is packed; an entry point it misses 404s for users.
+        const output = execFileSync('npm', ['pack', '--dry-run', '--json'], {
+            cwd: distDir,
+            encoding: 'utf-8',
+            maxBuffer: 64 * 1024 * 1024,
+        });
+        const packed = new Set(
+            JSON.parse(output)[0].files.map((file: { path: string }) => file.path),
+        );
+        const pkg = JSON.parse(await fs.readFile(distPackageJson, 'utf-8'));
+        const unpacked = manifestPaths(pkg)
+            .filter((entry) => !entry.endsWith('/*'))
+            .map((entry) => entry.replace(/^\.\//, ''))
+            .filter((entry) => !packed.has(entry));
+
+        expect(unpacked).toEqual([]);
+    }, 60_000);
 });
 
 describe('TypeScript Configuration', () => {
@@ -90,7 +146,7 @@ describe('Configuration Files', () => {
         const configFiles = [
             '.gitignore',
             '.prettierrc',
-            '.eslintrc',
+            'eslint.config.js',
             'tsconfig.json',
             'vitest.config.ts',
         ];

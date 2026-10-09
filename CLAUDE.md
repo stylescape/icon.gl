@@ -24,10 +24,24 @@ on:
       - "v[0-9]+.[0-9]+.[0-9]+"
 ```
 
-Nothing else, ever: no `workflow_dispatch`, no `release:` events, no branch
-pushes, no `pull_request`, no `schedule`. Do not add lint, test, smoke, build,
-CodeQL, stale, labeler, auto-assign or Dependabot workflows, and no
-`.github/dependabot.yml` or other CI systems. Tests and checks run locally;
-the tag workflow may run them as part of the release. Redeploying means
-pushing a new tag. `.claude/hooks/guard_workflows.py` enforces this for
-Claude Code sessions in this repo.
+Apart from the repository automation listed below, nothing else: no
+`workflow_dispatch`, no `release:` events, no branch pushes, no
+`pull_request`, no `schedule`. Do not add lint, test, smoke, build, CodeQL,
+stale or labeler workflows, or other CI systems. Tests and checks run
+locally; the tag workflow may run them as part of the release. Redeploying
+means pushing a new tag.
+
+### Allowed repository automation
+
+These are kept on purpose and are exempt from the version-tag rule. Keep
+them; don't remove them as policy violations:
+
+| File                                          | Purpose                                      |
+| --------------------------------------------- | -------------------------------------------- |
+| `.github/workflows/auto-assign.yml`           | Assigns new issues and pull requests         |
+| `.github/workflows/dependabot-auto-merge.yml` | Auto-merges Dependabot pull requests         |
+| `.github/dependabot.yml`                      | Dependabot version updates                   |
+
+Any other workflow still has to be version-tag-only.
+`.claude/hooks/guard_workflows.py` enforces this for Claude Code sessions in
+this repo.

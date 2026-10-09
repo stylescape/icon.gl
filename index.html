@@ -4,204 +4,93 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>icon.gl - Development</title>
+        <!-- stylescape (dev-only, served from node_modules by vite.config.js) -->
+        <link rel="stylesheet" href="/vendor/stylescape/stylescape.css" />
         <link rel="stylesheet" href="/dist/css/icon.gl.css" />
         <style>
-            * {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
-            body {
-                font-family:
-                    system-ui,
-                    -apple-system,
-                    sans-serif;
-                background: #0a0a0a;
-                color: #e0e0e0;
-                min-height: 100vh;
-                padding: 2rem;
-            }
-            header {
-                text-align: center;
-                margin-bottom: 2rem;
-            }
-            h1 {
-                font-size: 2.5rem;
-                font-weight: 300;
-            }
-            h1 span {
-                color: #646cff;
-            }
-            .stats {
-                display: flex;
-                justify-content: center;
-                gap: 2rem;
-                margin-top: 1rem;
-            }
-            .stat {
-                text-align: center;
-            }
-            .stat-value {
-                font-size: 1.5rem;
-                font-weight: bold;
-                color: #646cff;
-            }
-            .stat-label {
-                font-size: 0.75rem;
-                color: #888;
-            }
-            .controls {
-                display: flex;
-                justify-content: center;
-                gap: 1rem;
-                margin-bottom: 2rem;
-                flex-wrap: wrap;
-                position: sticky;
-                top: 0;
-                background: #0a0a0a;
-                padding: 1rem 0;
-                z-index: 100;
-            }
-            input,
-            select {
-                padding: 0.5rem 1rem;
-                border: 1px solid #333;
-                border-radius: 6px;
-                background: #1a1a1a;
-                color: #e0e0e0;
-                font-size: 1rem;
-            }
-            input:focus,
-            select:focus {
-                outline: none;
-                border-color: #646cff;
-            }
-            #search {
-                width: 300px;
-            }
+            /* Icon grid cells: the only demo-specific styling stylescape has no equivalent for. */
             .icon-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-                gap: 0.5rem;
+                grid-template-columns: repeat(auto-fill, minmax(6.25rem, 1fr));
                 contain: layout style;
             }
-            .icon-item {
-                display: flex;
-                flex-direction: column;
+            .icon-cell {
                 align-items: center;
-                padding: 1rem 0.5rem;
-                background: #1a1a1a;
-                border-radius: 8px;
-                cursor: pointer;
-                transition:
-                    background 0.15s,
-                    transform 0.15s;
+                gap: var(--ss-spacing-2);
+                padding: var(--ss-spacing-3) var(--ss-spacing-2);
+                font: inherit;
+                text-align: center;
                 /* Critical for performance with many items */
                 content-visibility: auto;
-                contain-intrinsic-size: 100px 90px;
+                contain-intrinsic-size: 6.25rem 5.625rem;
             }
-            .icon-item:hover {
-                background: #252525;
-                transform: translateY(-2px);
-            }
-            .icon-item .icon-svg {
+            .icon-cell svg {
                 width: var(--icon-size, 2rem);
                 height: var(--icon-size, 2rem);
-                margin-bottom: 0.5rem;
-                color: white;
-            }
-            .icon-item .icon-svg svg {
-                width: 100%;
-                height: 100%;
-                stroke: white;
-                fill: white;
-            }
-            .icon-item span {
-                font-size: 0.65rem;
-                color: #888;
-                text-align: center;
-                word-break: break-all;
-                max-width: 100%;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-            .toast {
-                position: fixed;
-                bottom: 2rem;
-                left: 50%;
-                transform: translateX(-50%) translateY(100px);
-                background: #646cff;
-                color: white;
-                padding: 0.75rem 1.5rem;
-                border-radius: 6px;
-                opacity: 0;
-                transition: all 0.3s;
-            }
-            .toast.show {
-                transform: translateX(-50%) translateY(0);
-                opacity: 1;
-            }
-            footer {
-                text-align: center;
-                margin-top: 3rem;
-                padding-top: 2rem;
-                border-top: 1px solid #333;
-                color: #666;
-            }
-            footer a {
-                color: #646cff;
-                text-decoration: none;
-            }
-            .status-bar {
-                text-align: center;
-                color: #888;
-                margin-bottom: 1rem;
-                font-size: 0.9rem;
+                fill: currentColor;
             }
         </style>
     </head>
     <body>
-        <header>
-            <h1>icon<span>.gl</span></h1>
-            <p>Development Server</p>
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-value" id="total-icons">-</div>
-                    <div class="stat-label">Icons</div>
+        <header class="ss-l-container ss-l-region ss-l-region-sm ss-u-text-center">
+            <h1 class="ss-t-h1">icon.gl</h1>
+            <p class="ss-t-lead ss-u-m-auto">Development Server</p>
+            <div class="ss-c-stats ss-u-mt-4">
+                <div class="ss-c-stat">
+                    <div class="ss-c-stat__title">Icons</div>
+                    <div class="ss-c-stat__value" id="total-icons">-</div>
                 </div>
-                <div class="stat">
-                    <div class="stat-value" id="total-categories">-</div>
-                    <div class="stat-label">Categories</div>
+                <div class="ss-c-stat">
+                    <div class="ss-c-stat__title">Categories</div>
+                    <div class="ss-c-stat__value" id="total-categories">-</div>
                 </div>
             </div>
         </header>
 
-        <div class="controls">
-            <select id="category">
-                <option value="">All Categories</option>
-            </select>
-            <select id="weight">
-                <option value="normal" selected>Normal</option>
-                <option value="bold">Bold</option>
-            </select>
-            <input type="text" id="search" placeholder="Search icons..." />
-            <select id="size">
-                <option value="1.5rem">Small</option>
-                <option value="2rem" selected>Medium</option>
-                <option value="3rem">Large</option>
-                <option value="4rem">X-Large</option>
-            </select>
+        <div class="ss-u-sticky ss-u-top-0 ss-u-z-sticky ss-a-surface ss-a-border-b ss-u-py-3">
+            <div class="ss-l-container ss-c-toolbar ss-u-flex-wrap">
+                <div class="ss-c-formfield">
+                    <label class="ss-c-label" for="category">Category</label>
+                    <select class="ss-c-select" id="category">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
+                <div class="ss-c-formfield">
+                    <label class="ss-c-label" for="weight">Weight</label>
+                    <select class="ss-c-select" id="weight">
+                        <option value="normal" selected>Normal</option>
+                        <option value="bold">Bold</option>
+                    </select>
+                </div>
+                <div class="ss-c-formfield ss-u-flex-grow-1">
+                    <label class="ss-c-label" for="search">Search</label>
+                    <input class="ss-c-input" type="search" id="search" placeholder="Search icons..." />
+                </div>
+                <div class="ss-c-formfield">
+                    <label class="ss-c-label" for="size">Size</label>
+                    <select class="ss-c-select" id="size">
+                        <option value="1.5rem">Small</option>
+                        <option value="2rem" selected>Medium</option>
+                        <option value="3rem">Large</option>
+                        <option value="4rem">X-Large</option>
+                    </select>
+                </div>
+            </div>
         </div>
 
-        <div class="status-bar" id="status">Loading icons...</div>
-        <main id="icon-container"></main>
+        <main class="ss-l-container ss-l-region ss-l-region-sm">
+            <p class="ss-t-small ss-u-text-center" id="status" role="status">Loading icons...</p>
+            <div id="icon-container"></div>
+        </main>
 
-        <div class="toast" id="toast">Copied!</div>
+        <ul class="ss-c-toast-region" data-position="bottom-right" aria-live="polite">
+            <li class="ss-c-toast ss-c-toast--success" id="toast" hidden>Copied!</li>
+        </ul>
 
-        <footer>
-            <p>
+        <footer class="ss-l-container ss-l-region ss-l-region-sm ss-a-border-t ss-u-text-center">
+            <p class="ss-t-small">
                 icon.gl Development Server | <a href="/dist/svg/">Browse SVGs</a> |
-                <a href="/exa/font_demo.html">Font demo (every i_* class)</a>
+                <a href="/exa/font_demo.html">Font demo (every i_* class)</a> |
+                <a href="/exa/index.html">Font gallery</a>
             </p>
         </footer>
 
@@ -301,6 +190,8 @@
             document.getElementById('total-icons').textContent = uniqueIconCount.toLocaleString()
             document.getElementById('total-categories').textContent = categories.length
 
+            let toastTimeout
+
             // Render icons - all at once, browser handles visibility optimization
             function renderIcons(filter = '') {
                 const size = sizeSelect.value
@@ -328,23 +219,26 @@
                 // Use DocumentFragment for efficient DOM insertion
                 const fragment = document.createDocumentFragment()
                 const grid = document.createElement('div')
-                grid.className = 'icon-grid'
+                grid.className = 'ss-l-grid ss-l-grid-gap-sm icon-grid'
 
                 for (const icon of filteredIcons) {
                     const svg =
                         svgMap.get(icon.name) ||
                         '<svg viewBox="0 0 864 864"><text x="432" y="432" text-anchor="middle" fill="#666">?</text></svg>'
 
-                    const item = document.createElement('div')
-                    item.className = 'icon-item'
+                    const item = document.createElement('button')
+                    item.type = 'button'
+                    item.className = 'ss-c-card ss-c-card--interactive icon-cell'
+                    item.title = icon.name
                     item.innerHTML = `
-                    <div class="icon-svg">${svg}</div>
-                    <span>${icon.cleanName}</span>
+                    ${svg}
+                    <span class="ss-t-caption ss-u-break-all">${icon.cleanName}</span>
                 `
                     item.onclick = () => {
                         navigator.clipboard.writeText(icon.name)
-                        toast.classList.add('show')
-                        setTimeout(() => toast.classList.remove('show'), 1500)
+                        toast.hidden = false
+                        clearTimeout(toastTimeout)
+                        toastTimeout = setTimeout(() => (toast.hidden = true), 1500)
                     }
                     grid.appendChild(item)
                 }

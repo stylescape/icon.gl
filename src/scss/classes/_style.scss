@@ -68,6 +68,9 @@
     font-style: normal;
     font-weight: normal !important;
     font-variant: normal;
+    // After the font-variant shorthand, which resets it: never let the
+    // browser swap a glyph for a colour emoji (e.g. U+1F90E app_compare).
+    font-variant-emoji: text;
     text-transform: none;
     text-emphasis-style: none;
     line-height: 1;
@@ -91,6 +94,9 @@
     font-style: normal;
     font-weight: normal !important;
     font-variant: normal;
+    // After the font-variant shorthand, which resets it: never let the
+    // browser swap a glyph for a colour emoji (e.g. U+1F90E app_compare).
+    font-variant-emoji: text;
     text-transform: none;
     text-emphasis-style: none;
     line-height: 1.5em !important;
@@ -116,11 +122,13 @@
 
 ///
 /// Generate icon glyphs from the icon map
-/// @example .i_alert::before { content: "\e900"; }
+/// @example .i_alert::before { content: "\e900\fe0e"; }
 ///
 @each $icon, $codepoint in $icongl_map {
     .i_#{$icon}::before {
-        content: $codepoint;
+        // U+FE0E (text variation selector) requests text presentation for
+        // codepoints in emoji ranges; it is ignored for the others.
+        content: '#{$codepoint}\fe0e';
     }
 }
 
