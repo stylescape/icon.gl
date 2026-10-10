@@ -87,6 +87,13 @@ Fix pass of 2026-10-07/08 (base `c571a572`) and the TODO pass of
 - **Quick start** linked `node_modules/icon.gl/dist/…`; the package root is
   `dist/`, so the paths are `node_modules/icon.gl/css/…` and `…/svg/…`.
 - `npm run lint` hid failures with `|| true`.
+- **Opposite-winding overlaps:** 26 more SVGs (`ui_media_*` play, record,
+  stop, forward, next, pause, rewind and square/circle variants) stacked an
+  outline path over a filled shape of opposite winding; the font cancelled
+  the overlap into holes. Winding reversed (or the redundant white shape
+  dropped) so the glyph matches the SVG; the SVG renders are pixel-identical.
+- `src/json/icon.json` (published as `json/icon.json`) regenerated from
+  `dist/font/icongl.json`: 1,532 icons (was 1,530 with 48 removed ones).
 
 ### Added
 
@@ -113,6 +120,8 @@ Fix pass of 2026-10-07/08 (base `c571a572`) and the TODO pass of
 
 ### Changed
 
+- Removed the unreferenced leftovers `src/hbs/`, `src/jinja/` and `src/font/`
+  (the build writes `dist/font/`).
 - `files` no longer lists `jinja/**/*.jinja` and `md/**/*.md` (nothing
   matched), and the build no longer creates an empty `dist/md/`.
 - The published `package.json` now includes `sideEffects`, and `types` is

@@ -5,7 +5,7 @@
   </g>
   <g id="Layer_1" data-name="Layer 1">
     <g>
-      <rect x="330" y="330" width="204" height="204" rx="6" ry="6" style="stroke-width: 0px;"/>
+      <path d="M336 330A6 6 0 0 0 330 336V528A6 6 0 0 0 336 534H528A6 6 0 0 0 534 528V336A6 6 0 0 0 528 330Z" style="stroke-width: 0px;"/>
       <path d="M516,348v168h-168v-168h168M528,312h-192c-13.25,0-24,10.75-24,24v192c0,13.25,10.75,24,24,24h192c13.25,0,24-10.75,24-24v-192c0-13.25-10.75-24-24-24h0Z" style="stroke-width: 0px;"/>
     </g>
   </g>
