@@ -74,7 +74,7 @@
     "devDependencies": {
         "@eslint/js": "^10.0.1",
         "@getkist/action-fantasticon": "^0.1.17",
-        "@getkist/action-nunjucks": "^2.0.28",
+        "@getkist/action-nunjucks": "^2.0.33",
         "@getkist/action-sass": "^1.0.23",
         "@getkist/action-svg": "^1.0.24",
         "@getkist/action-terser": "^1.0.24",
