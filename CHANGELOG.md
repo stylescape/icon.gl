@@ -120,6 +120,11 @@ Fix pass of 2026-10-07/08 (base `c571a572`) and the TODO pass of
 
 ### Changed
 
+- The npm publish job completes the switch to npm trusted publishing (OIDC):
+  job-level `id-token: write`, npm >= 11.5.1, Node 22.x instead of 24, and `npm
+  publish --provenance`. One-time setup on npmjs.com: icon.gl > Settings >
+  Trusted publishing > GitHub Actions, organization `stylescape`, repository
+  `icon.gl`, workflow `publish_package.yml`.
 - Removed the unreferenced leftovers `src/hbs/`, `src/jinja/` and `src/font/`
   (the build writes `dist/font/`).
 - `files` no longer lists `jinja/**/*.jinja` and `md/**/*.md` (nothing

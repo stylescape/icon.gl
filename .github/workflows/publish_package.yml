@@ -104,12 +104,20 @@ jobs:
     # Publish to NPM
     # =============================================================================
 
+    # npm trusted publishing (OIDC, with provenance): no token secret.
+    # One-time setup on npmjs.com: package icon.gl > Settings > Trusted
+    # publishing > GitHub Actions: organization `stylescape`, repository
+    # `icon.gl`, workflow filename `publish_package.yml`, no environment.
     publish-npm:
         name: Publish NPM
 
         needs: build
 
         runs-on: ubuntu-latest
+
+        permissions:
+            contents: read
+            id-token: write
 
         steps:
             - name: Checkout
@@ -118,8 +126,11 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v7
               with:
-                  node-version: 24
+                  node-version: 22.x
                   registry-url: https://registry.npmjs.org/
+
+            - name: Upgrade npm CLI (trusted publishing needs >= 11.5.1)
+              run: npm install --global npm@^11.5.1
 
             - name: Download build.zip
               uses: actions/download-artifact@v8
@@ -129,11 +140,10 @@ jobs:
             - name: Unzip build.zip
               run: unzip -q -o build.zip
 
-            - name: Publish NPM with Trusted Publishing
+            - name: Publish NPM
               run: |
                   cd dist
-                  npm publish --access public
-              # No NODE_AUTH_TOKEN needed - uses OIDC automatically
+                  npm publish --provenance --access public
 
 # =============================================================================
 # Publish to GitHub Packages
