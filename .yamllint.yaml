@@ -1,0 +1,64 @@
+# =============================================================================
+# YAML Lint Configuration
+# =============================================================================
+#
+# Documentation: https://yamllint.readthedocs.io/
+#
+# =============================================================================
+
+extends: default
+
+rules:
+  # Line length - disable as URLs and lock files often exceed limits
+  line-length: disable
+
+  # Allow document start without ---
+  document-start: disable
+
+  # Comments formatting - disable indentation check
+  comments:
+    require-starting-space: true
+    ignore-shebangs: true
+    min-spaces-from-content: 1
+  comments-indentation: disable
+
+  # Empty lines - be lenient
+  empty-lines:
+    max: 5
+    max-start: 2
+    max-end: 2
+
+  # Indentation - disable strict checking
+  indentation: disable
+
+  # Trailing spaces
+  trailing-spaces: disable
+
+  # New line at end of file - handled by pre-commit
+  new-line-at-end-of-file: disable
+
+  # Truthy values
+  truthy:
+    allowed-values: ["true", "false", "on", "off", "yes", "no"]
+    check-keys: false
+
+  # Braces
+  braces:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+
+  # Brackets
+  brackets:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+
+# Ignore certain paths
+ignore: |
+  node_modules/
+  .git/
+  .venv/
+  wip/
+  bup/
+  *.min.yaml
+  poetry.lock
+  package-lock.json

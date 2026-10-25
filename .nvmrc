@@ -1,0 +1,87 @@
+# =============================================================================
+# Node Version Manager (nvm) Configuration
+# =============================================================================
+#
+# Specifies the Node.js version for this project.
+# Documentation: https://github.com/nvm-sh/nvm
+#
+# This file is portable - copy to other repos without modification.
+#
+# -----------------------------------------------------------------------------
+# How It Works
+# -----------------------------------------------------------------------------
+#
+# When you `cd` into a directory with .nvmrc, nvm can automatically switch
+# to the specified Node.js version (if configured with auto-use).
+#
+# This ensures all developers use the same Node.js version, preventing
+# "works on my machine" issues caused by version differences.
+#
+# -----------------------------------------------------------------------------
+# Usage
+# -----------------------------------------------------------------------------
+#
+#   Install the specified version:
+#     nvm install
+#
+#   Switch to the specified version:
+#     nvm use
+#
+#   Set as default:
+#     nvm alias default $(cat .nvmrc)
+#
+#   Check current version:
+#     node --version
+#
+# -----------------------------------------------------------------------------
+# Auto-Use Configuration
+# -----------------------------------------------------------------------------
+#
+# Add to ~/.zshrc or ~/.bashrc for automatic version switching:
+#
+#   # Automatically call `nvm use` when entering directory with .nvmrc
+#   autoload -U add-zsh-hook
+#   load-nvmrc() {
+#     local nvmrc_path="$(nvm_find_nvmrc)"
+#     if [ -n "$nvmrc_path" ]; then
+#       local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+#       if [ "$nvmrc_node_version" = "N/A" ]; then
+#         nvm install
+#       elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+#         nvm use
+#       fi
+#     fi
+#   }
+#   add-zsh-hook chpwd load-nvmrc
+#   load-nvmrc
+#
+# -----------------------------------------------------------------------------
+# Supported Formats
+# -----------------------------------------------------------------------------
+#
+#   22          Major version (latest 22.x.x)
+#   22.11       Minor version (latest 22.11.x)
+#   22.11.0     Exact version
+#   lts/*       Latest LTS release
+#   lts/iron    Specific LTS codename (Node 20)
+#   lts/jod     Specific LTS codename (Node 22)
+#   node        Latest current release
+#
+# -----------------------------------------------------------------------------
+# Node.js 22 LTS Features
+# -----------------------------------------------------------------------------
+#
+# Pinned to an exact 22.x: the lockfiles' engines need >=22.22.2, and a bare
+# `22` lets nvm pick any older 22.x that is already installed.
+#
+# Node.js 22 (codename "Jod") became LTS in October 2024.
+# Key features:
+#   - V8 JavaScript engine 12.4
+#   - Stable ES modules
+#   - Native fetch() API
+#   - Built-in test runner
+#   - WebSocket client
+#   - Better ESM/CJS interoperability
+#
+# =============================================================================
+22.22.2

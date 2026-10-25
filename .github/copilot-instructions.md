@@ -28,6 +28,7 @@ repositories** grouped by owner and family — there is no monorepo.
    otherwise pick the conventional default, state it, and proceed.
 
 ### Git & changes
+
 ## Coding standards
 
 - **Match the surrounding code**: idioms, naming, file structure, and comment

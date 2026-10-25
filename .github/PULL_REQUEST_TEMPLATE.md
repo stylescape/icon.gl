@@ -23,7 +23,7 @@ Please describe the tests that you ran to verify your changes. Provide instructi
 - [ ] End-to-end tests
 - [ ] Manual tests
 
-### Checklist:
+### Checklist
 
 - [ ] My code follows the style guidelines of this project.
 - [ ] I have performed a self-review of my own code.
@@ -34,7 +34,7 @@ Please describe the tests that you ran to verify your changes. Provide instructi
 - [ ] New and existing unit tests pass locally with my changes.
 - [ ] Any dependent changes have been merged and published in downstream modules.
 
-### Screenshots (if applicable):
+### Screenshots (if applicable)
 
 If there are any visual changes, please add screenshots or gifs here.
 

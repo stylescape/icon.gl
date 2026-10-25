@@ -8,8 +8,7 @@
 
 <div align="center">
 
-[![Website](https://img.shields.io/website?url=https%3A%2F%2Fwww.icon.gl&up_message=Up&up_color=%23000000&down_message=Down&down_color=%23000000&style=flat-square&logo=Firefox&logoColor=FFFFFF&label=Website&labelColor=%23000000&color=%23000000)
-](https://www.icon.gl)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fwww.icon.gl&up_message=Up&up_color=%23000000&down_message=Down&down_color=%23000000&style=flat-square&logo=Firefox&logoColor=FFFFFF&label=Website&labelColor=%23000000&color=%23000000)](https://www.icon.gl)
 [![NPM Version](https://img.shields.io/npm/v/icon.gl?style=flat-square&logo=npm&logoColor=FFFFFF&label=NPM&labelColor=%23000000&color=%23000000&link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Ficon.gl)](https://www.npmjs.com/package/icon.gl)
 [![devContainer](https://img.shields.io/badge/devContainer-23354351?style=flat-square&logo=Docker&logoColor=%23FFFFFF&labelColor=%23000000&color=%23000000)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/stylescape/icon.gl)
 [![StackBlitz](https://img.shields.io/badge/StackBlitz-23354351?style=flat-square&logo=StackBlitz&logoColor=%23FFFFFF&labelColor=%23000000&color=%23000000)](https://stackblitz.com/github/stylescape/icon.gl/tree/main?file=src%2Findex.html)
@@ -45,7 +44,7 @@ Icon.gl is a modern, innovative icon library infused with the essence of traditi
 
 |                                                                                                                                 |                                                                                                                                 |                                                                                                                           |                                                                                                                              |     |     |
 | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | --- | --- |
-| <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/pie_02.png" alt="pie_02"><small>pie_02</small> | <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/pie_03.png" alt="pie_03"><small>pie_03</small> | <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/star.png" alt="star"><small>star</small> | <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/swirl.png" alt="swirl"><small>swirl</small> |     |
+| <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/pie_02.png" alt="pie_02"><small>pie_02</small> | <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/pie_03.png" alt="pie_03"><small>pie_03</small> | <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/star.png" alt="star"><small>star</small> | <img src="https://raw.githubusercontent.com/stylescape/icon.gl/main/dist/png/512/swirl.png" alt="swirl"><small>swirl</small> |     |     |
 
 ## Usage
 

@@ -17,10 +17,10 @@ Successfully implemented a comprehensive testing infrastructure for the icon.gl 
 ### 2. Configuration Files
 
 - **vitest.config.ts** - Complete Vitest configuration with:
-    - Coverage thresholds (80% for all metrics)
-    - Test file patterns
-    - Path aliases
-    - Environment setup
+  - Coverage thresholds (80% for all metrics)
+  - Test file patterns
+  - Path aliases
+  - Environment setup
 
 ### 3. Test Files Created
 
@@ -72,7 +72,7 @@ Successfully implemented a comprehensive testing infrastructure for the icon.gl 
 
 ## Test Results
 
-```
+```text
 Test Files  3 passed (3)
 Tests      31 passed (31)
 Duration   327ms
