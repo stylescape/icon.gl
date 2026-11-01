@@ -78,7 +78,7 @@
         "@getkist/action-sass": "^1.0.23",
         "@getkist/action-svg": "^1.0.24",
         "@getkist/action-terser": "^1.0.24",
-        "@testing-library/dom": "^10.4.1",
+        "@testing-library/dom": "^10.4.2",
         "@types/node": "^26.6.4",
         "@vitest/coverage-v8": "^4.1.5",
         "@vitest/ui": "^4.1.5",
